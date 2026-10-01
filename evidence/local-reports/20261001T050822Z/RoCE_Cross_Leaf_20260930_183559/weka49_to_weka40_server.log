@@ -1,0 +1,58 @@
+ WARNING: BW peak won't be measured in this run.
+
+************************************
+* Waiting for client to connect... *
+************************************
+---------------------------------------------------------------------------------------
+                    RDMA_Write BW Test
+ Dual-port       : OFF		Device         : mlx5_0
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : ON
+ CQ Moderation   : 1
+ CQE Poll Batch  : 16
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x012a PSN 0xe3f914 RKey 0x1ffc00 VAddr 0x0070f43aebf000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:40:01
+ remote address: LID 0000 QPN 0x012a PSN 0xdd86e RKey 0x1ffc00 VAddr 0x00727f31bad000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:49:01
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 65536      11964502         0.00               392.05 		     0.747776
+---------------------------------------------------------------------------------------
+ WARNING: BW peak won't be measured in this run.
+
+************************************
+* Waiting for client to connect... *
+************************************
+---------------------------------------------------------------------------------------
+                    RDMA_Write BW Test
+ Dual-port       : OFF		Device         : mlx5_1
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : ON
+ CQ Moderation   : 1
+ CQE Poll Batch  : 16
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x012a PSN 0xd3e836 RKey 0x1ffe00 VAddr 0x0078f118bef000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:40:03
+ remote address: LID 0000 QPN 0x012a PSN 0xfdc790 RKey 0x1ffe00 VAddr 0x007ce0db3ef000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:49:03
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 65536      11964386         0.00               392.05 		     0.747777
+---------------------------------------------------------------------------------------

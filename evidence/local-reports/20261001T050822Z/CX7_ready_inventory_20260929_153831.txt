@@ -1,0 +1,11 @@
+NIC|HOST|PCI|RDMA|NETDEV|MAC|RUNTIME|OPER|SPEED_MBPS|MTU|IPV4|FW_MODE
+
+===== weka40 expected=4 =====
+[REDACTED sensitive line]
+bash: line 29: `    done'
+
+===== weka41 expected=4 =====
+[REDACTED sensitive line]
+bash: line 29: `    done'
+
+===== weka42 expected=4 =====

@@ -1,0 +1,20 @@
+HOST|weka72|172.31.18.72|--apply
+SECTION|runtime-link-layer
+RUNTIME|weka72|0000:33:00.0|mlx5_0|1|Ethernet|ens4047f0np0|1: DOWN
+RUNTIME|weka72|0000:33:00.1|mlx5_1|1|Ethernet|ens4047f1np1|1: DOWN
+SECTION|firmware-link-type
+FIRMWARE|weka72|0000:33:00.0|Device type:        ConnectX7           
+FIRMWARE|weka72|0000:33:00.0|Name:               MCX755106AS-HEA_Ax  
+FIRMWARE|weka72|0000:33:00.0|Description:        NVIDIA ConnectX-7 HHHL Adapter Card; 200GbE (default mode) / NDR200 IB; Dual-port QSFP112; PCIe 5.0 x16 with x16 PCIe extension option; Crypto Disabled; Secure Boot Enabled
+FIRMWARE|weka72|0000:33:00.0|Device:             0000:33:00.0        
+FIRMWARE|weka72|0000:33:00.0|        LINK_TYPE_P1                                ETH(2)              
+FIRMWARE|weka72|0000:33:00.0|        LINK_TYPE_P2                                ETH(2)              
+PLAN|weka72|0000:33:00.0|no firmware change required
+FIRMWARE|weka72|0000:33:00.1|Device type:        ConnectX7           
+FIRMWARE|weka72|0000:33:00.1|Name:               MCX755106AS-HEA_Ax  
+FIRMWARE|weka72|0000:33:00.1|Description:        NVIDIA ConnectX-7 HHHL Adapter Card; 200GbE (default mode) / NDR200 IB; Dual-port QSFP112; PCIe 5.0 x16 with x16 PCIe extension option; Crypto Disabled; Secure Boot Enabled
+FIRMWARE|weka72|0000:33:00.1|Device:             0000:33:00.1        
+FIRMWARE|weka72|0000:33:00.1|        LINK_TYPE_P1                                ETH(2)              
+FIRMWARE|weka72|0000:33:00.1|        LINK_TYPE_P2                                ETH(2)              
+PLAN|weka72|0000:33:00.1|no firmware change required
+REBOOT|weka72|NOT_REQUIRED|already Ethernet

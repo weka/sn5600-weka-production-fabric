@@ -1,0 +1,438 @@
+===== HOST AND BOOT =====
+weka44
+ 22:04:22 up 1 day, 9 min,  1 user,  load average: 0.00, 0.00, 0.00
+===== RDMA INTERFACES =====
+link mlx5_0/1 state DOWN physical_state DISABLED netdev ens4047np0 
+link mlx5_1/1 state ACTIVE physical_state LINK_UP netdev ens3919np0 
+mlx5_0 port 1 ==> ens4047np0 (Down)
+mlx5_1 port 1 ==> ens3919np0 (Up)
+===== EXISTING ROCE SERVICE =====
+===== EXISTING WEKA DEPENDENCIES =====
+[?1h=Requires=-.mount system.slice sysinit.target[m
+After=network.target rpcbind.service basic.target system.slice systemd-journald.socket -.mount network-online.target sysinit.target[m
+[K[?1l>===== EXISTING PERSISTENCE CONFIG =====
+===== FULL PRECHECK =====
+
+================================================================
+1. REQUIRED COMMANDS
+================================================================
+PASS  weka
+PASS  ip
+PASS  ethtool
+PASS  ibdev2netdev
+PASS  rdma
+PASS  mlnx_qos
+PASS  sysctl
+PASS  systemctl
+PASS  journalctl
+PASS  findmnt
+PASS  awk
+PASS  sed
+PASS  grep
+PASS  sort
+PASS  head
+PASS  tail
+PASS  tr
+PASS  wc
+
+WEKA RoCE Read-Only Pre-Check
+
+Host:             weka44
+Requested role:   client
+Detected role:    client
+Role reason:      Role explicitly provided
+Expected TOS:     106
+Date:             Wed Sep 30 22:04:23 UTC 2026
+Report:           /root/roce-precheck-reports/weka44-roce-precheck-20260930-220422.log
+
+No configuration changes will be made.
+
+================================================================
+2. SYSTEM INFORMATION
+================================================================
+Wed Sep 30 22:04:23 UTC 2026
+ Static hostname: weka44
+       Icon name: computer-server
+         Chassis: server 🖳
+      Machine ID: 555456c78e144da5b55c2379560aade8
+         Boot ID: 5d20ed3eda1542df90340523c01b9efc
+Operating System: Ubuntu 24.04.3 LTS
+          Kernel: Linux 6.8.0-85-generic
+    Architecture: x86-64
+ Hardware Vendor: Supermicro
+  Hardware Model: SYS-222BT-HER
+Firmware Version: 1.3
+   Firmware Date: Tue 2025-04-22
+    Firmware Age: 1y 5month 1w 2d
+ 22:04:23 up 1 day, 9 min,  1 user,  load average: 0.00, 0.00, 0.00
+6.8.0-85-generic
+
+================================================================
+3. WEKA CLUSTER STATUS
+================================================================
+error: Error: Failed connecting to http://127.0.0.1:14000/api/v1. Make sure weka is running on this host by running
+	 weka local status | start
+
+================================================================
+4. WEKA ALERT DETAILS
+================================================================
+error: Error: Failed connecting to http://127.0.0.1:14000/api/v1. Make sure weka is running on this host by running
+	 weka local status | start
+
+================================================================
+5. LOCAL WEKA CONTAINERS
+================================================================
+CONTAINER  CONTAINER ID  STATE  STATUS  UPTIME  PID  PORT  VERSION  VALID LEASE  LAST FAILURE
+
+================================================================
+6. WEKA SYSTEMD SERVICES
+================================================================
+
+---------------- weka-agent.service ----------------
+MainPID=3086
+Result=success
+LoadState=loaded
+ActiveState=active
+SubState=running
+UnitFileState=enabled
+
+---------------- weka-bootstrap.service ----------------
+MainPID=0
+Result=success
+LoadState=loaded
+ActiveState=inactive
+SubState=dead
+UnitFileState=enabled
+
+---------------- weka-roce.service ----------------
+MainPID=0
+Result=success
+LoadState=not-found
+ActiveState=inactive
+SubState=dead
+UnitFileState=
+
+================================================================
+7. WEKA SERVICE DEPENDENCIES
+================================================================
+weka-agent Requires:
+-.mount system.slice sysinit.target
+
+weka-agent After:
+network.target rpcbind.service basic.target system.slice systemd-journald.socket -.mount network-online.target sysinit.target
+
+Requires=sysinit.target system.slice weka-agent.service
+Wants=
+Before=multi-user.target shutdown.target
+After=basic.target sysinit.target systemd-journald.socket network-online.target weka-agent.service system.slice
+
+================================================================
+8. ACTIVE WEKA FILESYSTEM MOUNTS
+================================================================
+No active wekafs mounts.
+
+================================================================
+9. ROCE NIC DISCOVERY
+================================================================
+Selected RoCE interfaces:
+  ens3919np0
+  ens4047np0
+
+RDMA mapping:
+mlx5_0 port 1 ==> ens4047np0 (Down)
+mlx5_1 port 1 ==> ens3919np0 (Up)
+
+RDMA link state:
+link mlx5_0/1 state DOWN physical_state DISABLED netdev ens4047np0 
+link mlx5_1/1 state ACTIVE physical_state LINK_UP netdev ens3919np0 
+
+================================================================
+10. NETWORK AND RDMA INTERFACE STATE
+================================================================
+
+================ ens3919np0 ================
+ens3919np0       UP             10.200.44.3/31 
+4: ens3919np0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9000 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether d8:94:24:1d:d5:94 brd ff:ff:ff:ff:ff:ff promiscuity 0  allmulti 0 minmtu 68 maxmtu 9978 addrgenmode none numtxqueues 768 numrxqueues 63 gso_max_size 65536 gso_max_segs 65535 tso_max_size 524280 tso_max_segs 65535 gro_max_size 65536 portname p0 switchid 94d51d00032494d8 parentbus pci parentdev 0000:b4:00.0 
+    altname enp180s0np0
+
+driver: mlx5_core
+version: 24.10-3.2.5
+firmware-version: 28.46.3048 (MT_0000000838)
+expansion-rom-version: 
+bus-info: 0000:b4:00.0
+supports-statistics: yes
+supports-test: yes
+supports-eeprom-access: no
+supports-register-dump: no
+supports-priv-flags: yes
+
+	Speed: 400000Mb/s
+	Duplex: Full
+	Auto-negotiation: on
+	Link detected: yes
+
+================ ens4047np0 ================
+ens4047np0       DOWN           10.200.44.1/31 
+2: ens4047np0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 9000 qdisc mq state DOWN mode DEFAULT group default qlen 1000
+    link/ether 9c:63:c0:9b:3a:dc brd ff:ff:ff:ff:ff:ff promiscuity 0  allmulti 0 minmtu 68 maxmtu 9978 addrgenmode none numtxqueues 768 numrxqueues 63 gso_max_size 65536 gso_max_segs 65535 tso_max_size 524280 tso_max_segs 65535 gro_max_size 65536 portname p0 switchid dc3a9b0003c0639c parentbus pci parentdev 0000:33:00.0 
+    altname enp51s0np0
+
+driver: mlx5_core
+version: 24.10-3.2.5
+firmware-version: 28.46.3048 (MT_0000000838)
+expansion-rom-version: 
+bus-info: 0000:33:00.0
+supports-statistics: yes
+supports-test: yes
+supports-eeprom-access: no
+supports-register-dump: no
+supports-priv-flags: yes
+
+	Speed: Unknown!
+	Duplex: Unknown! (255)
+	Auto-negotiation: on
+	Link detected: no (No cable)
+
+================================================================
+11. CURRENT ROCE QOS SETTINGS
+================================================================
+
+================ ens3919np0 ================
+DCBX mode: OS controlled
+Priority trust state: pcp
+default priority:
+Receive buffer size (bytes): 0,952704,0,0,0,0,0,0,max_buffer_size=4148640
+Cable len: 7
+PFC configuration:
+	priority    0   1   2   3   4   5   6   7
+	enabled     0   0   0   0   0   0   0   0   
+	buffer      1   1   1   1   1   1   1   1   
+tc: 0 ratelimit: unlimited, tsa: vendor
+	 priority:  1
+tc: 1 ratelimit: unlimited, tsa: vendor
+	 priority:  0
+tc: 2 ratelimit: unlimited, tsa: vendor
+	 priority:  2
+tc: 3 ratelimit: unlimited, tsa: vendor
+	 priority:  3
+tc: 4 ratelimit: unlimited, tsa: vendor
+	 priority:  4
+tc: 5 ratelimit: unlimited, tsa: vendor
+	 priority:  5
+tc: 6 ratelimit: unlimited, tsa: vendor
+	 priority:  6
+tc: 7 ratelimit: unlimited, tsa: vendor
+	 priority:  7
+
+================ ens4047np0 ================
+DCBX mode: OS controlled
+Priority trust state: pcp
+default priority:
+Receive buffer size (bytes): 0,156096,0,0,0,0,0,0,max_buffer_size=4148640
+Cable len: 7
+PFC configuration:
+	priority    0   1   2   3   4   5   6   7
+	enabled     0   0   0   0   0   0   0   0   
+	buffer      1   1   1   1   1   1   1   1   
+tc: 0 ratelimit: unlimited, tsa: vendor
+	 priority:  1
+tc: 1 ratelimit: unlimited, tsa: vendor
+	 priority:  0
+tc: 2 ratelimit: unlimited, tsa: vendor
+	 priority:  2
+tc: 3 ratelimit: unlimited, tsa: vendor
+	 priority:  3
+tc: 4 ratelimit: unlimited, tsa: vendor
+	 priority:  4
+tc: 5 ratelimit: unlimited, tsa: vendor
+	 priority:  5
+tc: 6 ratelimit: unlimited, tsa: vendor
+	 priority:  6
+tc: 7 ratelimit: unlimited, tsa: vendor
+	 priority:  7
+
+================================================================
+12. RDMA TRAFFIC CLASS
+================================================================
+
+ens3919np0 -> mlx5_1: 
+
+ens4047np0 -> mlx5_0: 
+
+================================================================
+13. TCP ECN
+================================================================
+net.ipv4.tcp_ecn = 2
+
+================================================================
+14. ROCE PERSISTENCE CONFIGURATION
+================================================================
+NOT PRESENT: /etc/weka-roce.conf
+NOT PRESENT: /etc/sysctl.d/99-weka-roce.conf
+NOT PRESENT: /usr/local/sbin/weka-roce-startup.sh
+NOT PRESENT: /usr/local/sbin/weka-roce-config.sh
+NOT PRESENT: /etc/systemd/system/weka-roce.service
+NOT PRESENT: /etc/systemd/system/weka-agent.service.d/10-roce.conf
+
+================================================================
+15. OTHER ROCE CONFIGURATION SOURCES
+================================================================
+/root/roce_config.sh:7:                if ! command -v mlnx_qos >/dev/null 2>&1 || ! command -v cma_roce_tos >/dev/null 2>&1; then
+/root/roce_config.sh:12:                if ! command -v mlnx_qos >/dev/null 2>&1 || ! command -v cma_roce_tos >/dev/null 2>&1; then
+/root/roce_config.sh:19:            sysctl -w net.ipv4.tcp_ecn=1
+/root/roce_config.sh:32:                    if mlnx_qos -i "$netdev" --trust dscp; then
+/root/roce_config.sh:39:                    if mlnx_qos -i "$netdev" --pfc 0,0,0,1,0,0,0,0; then
+/root/roce_config.sh:45:                    mlnx_qos -i "$netdev" | head -20
+/root/roce_config.sh:49:                if [ -w /sys/class/infiniband/"$ibdev"/tc/1/traffic_class ]; then
+/root/roce_config.sh:50:                    echo 96 > /sys/class/infiniband/"$ibdev"/tc/1/traffic_class
+/root/roce_config.sh:51:                    echo "Set traffic_class to 96 for $ibdev"
+/root/roce_config.sh:53:                    echo "Could not set traffic_class for $ibdev"
+/root/roce_config.sh:65:	    # cma_roce_tos sets the Type of Service (TOS) for RoCE traffic (96) for proper priority handling
+/root/roce_config.sh:70:                    cma_roce_tos -d "$nic_name" -t 96 || echo "Failed to set CMA RoCE TOS for $nic_name"
+
+================================================================
+16. NETWORK-ONLINE STATUS
+================================================================
+Result=exit-code
+ActiveState=failed
+SubState=failed
+Current-boot wait-online timeout count: 1
+
+================================================================
+17. RELEVANT CURRENT-BOOT WARNINGS
+================================================================
+Sep 29 21:54:44 weka44 kernel: Failed to find VA for GUID: 5402385F-F04B-44D8-984C-BEF829AC2AE0, PA: 0x0
+Sep 29 21:54:44 weka44 kernel: Failed to find VA for GUID: 77CFBB8C-8F09-4C3B-B7E8-103A65101C60, PA: 0x0
+Sep 29 21:54:44 weka44 kernel: Failed to find VA for GUID: A13CDD48-C822-4913-B0CF-3CB46823D376, PA: 0x0
+Sep 29 21:54:44 weka44 kernel: Failed to find VA for GUID: F6A58D47-E04F-4F5A-86B8-2A50D4AA109B, PA: 0x0
+Sep 29 21:54:45 weka44 (udev-worker)[2213]: ens4047np0: Process '/usr/bin/killall -q -SIGHUP irqbalance' failed with exit code 1.
+Sep 29 21:54:45 weka44 (udev-worker)[2215]: ens3919np0: Process '/usr/bin/killall -q -SIGHUP irqbalance' failed with exit code 1.
+Sep 29 21:54:46 weka44 kernel: user: probe of wq1.0 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq1.1 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq1.10 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq1.11 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq1.12 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq1.13 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq1.14 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq1.15 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq1.2 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq1.3 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq1.4 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq1.5 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq1.6 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq1.7 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq1.8 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq1.9 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq3.0 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq3.1 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq3.10 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq3.11 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq3.12 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq3.13 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq3.14 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq3.15 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq3.2 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq3.3 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq3.4 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq3.5 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq3.6 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq3.7 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq3.8 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq3.9 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq5.0 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq5.1 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq5.10 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq5.11 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq5.12 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq5.13 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq5.14 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq5.15 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq5.2 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq5.3 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq5.4 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq5.5 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq5.6 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq5.7 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq5.8 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq5.9 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq7.0 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq7.1 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq7.10 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq7.11 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq7.12 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq7.13 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq7.14 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq7.15 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq7.2 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq7.3 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq7.4 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq7.5 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq7.6 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq7.7 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq7.8 failed with error -95
+Sep 29 21:54:46 weka44 kernel: user: probe of wq7.9 failed with error -95
+Sep 29 21:56:48 weka44 systemd-networkd-wait-online[2959]: Timeout occurred while waiting for network connectivity.
+Sep 29 21:56:48 weka44 systemd[1]: Failed to start systemd-networkd-wait-online.service - Wait for Network to be Configured.
+Sep 29 21:56:48 weka44 systemd[1]: systemd-networkd-wait-online.service: Failed with result 'exit-code'.
+Sep 29 23:48:04 weka44 systemd-networkd-wait-online[5059]: Timeout occurred while waiting for network connectivity.
+Sep 30 07:00:04 weka44 systemd-networkd-wait-online[6570]: Timeout occurred while waiting for network connectivity.
+Sep 30 11:42:26 weka44 systemd-networkd-wait-online[7058]: Timeout occurred while waiting for network connectivity.
+Sep 30 19:21:13 weka44 kernel: mlx5_core 0000:33:00.0 ens4047np0: mlx5e_get_module_eeprom_by_page: mlx5_query_module_eeprom_by_page failed:0xfffffffb
+Sep 30 19:21:13 weka44 kernel: mlx5_core 0000:33:00.0: mlx5_query_mcia:402:(pid 7969): query_mcia_reg failed: status: 0x3
+Sep 30 20:54:44 weka44 systemd-networkd-wait-online[8214]: Timeout occurred while waiting for network connectivity.
+
+================================================================
+18. PRE-CHECK SUMMARY
+================================================================
+CHECK                                RESULT  DETAIL
+------------------------------------ ------- ------------------------------------------------
+Required commands                    PASS    All required commands are available
+Host role                            PASS    client; Role explicitly provided
+WEKA cluster status                  INFO    Local cluster API unavailable on containerless client
+WEKA protection                      INFO    Validate protection from backend or management host
+WEKA active alerts                   INFO    Local alert API unavailable on containerless client
+Local WEKA containers                PASS    No local client containers configured
+weka-agent.service                   PASS    Active and running
+weka-bootstrap.service               PASS    Unit loaded; last result success
+weka-roce.service                    INFO    RoCE persistence service not installed
+RoCE/WEKA startup order              INFO    Dependency not installed
+Active WEKA mounts                   PASS    No active wekafs mounts
+RoCE NIC discovery                   PASS    2 interface(s) selected
+ens3919np0 link/RDMA                 PASS    mlx5_1, 400000Mb/s, MTU 9000, ACTIVE
+ens3919np0 MTU                       PASS    MTU 9000
+ens4047np0 link/RDMA                 FAIL    ibdev=mlx5_0, state=down, link=no (No cable), RDMA=no
+ens4047np0 MTU                       PASS    MTU 9000
+ens3919np0 DSCP trust                FAIL    Priority trust state: pcp
+ens3919np0 PFC                       FAIL    enabled     0   0   0   0   0   0   0   0   
+ens4047np0 DSCP trust                FAIL    Priority trust state: pcp
+ens4047np0 PFC                       FAIL    enabled     0   0   0   0   0   0   0   0   
+ens3919np0 traffic class             FAIL    mlx5_1 TOS unknown; expected 106
+ens4047np0 traffic class             FAIL    mlx5_0 TOS unknown; expected 106
+TCP ECN                              FAIL    Current value 2; expected 1
+RoCE persistence files               INFO    Not installed
+Other RoCE config sources            INFO    1 possible source file(s); review output
+network-online wait                  WARN    1 timeout event(s) in current boot
+Relevant boot warnings               WARN    79 matching line(s); review output
+
+----------------------------------------------------------------
+PASS: 10   WARN: 2   FAIL: 8   INFO: 7
+----------------------------------------------------------------
+
+Overall assessment: NOT READY
+Host:               weka44
+Detected role:      client
+Role reason:        Role explicitly provided
+Expected traffic:   TOS 106
+RoCE interfaces:    ens3919np0 ens4047np0
+Report:              /root/roce-precheck-reports/weka44-roce-precheck-20260930-220422.log
+
+Suggested deployment command:
+
+/root/deploy-weka-roce.sh \
+  --role client \
+  --nics ens3919np0,ens4047np0 \
+  --tos 106
+
+No configuration changes were made.
+Connection to 172.31.18.44 closed.

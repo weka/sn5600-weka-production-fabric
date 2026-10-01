@@ -1,0 +1,10 @@
+Welcome to NVIDIA Cumulus (R) Linux (R)
+===== VERIFY REVIEWED DIFF =====
+- set:
+    qos:
+      roce:
+        enable: on
+        mode: lossless
+[REDACTED sensitive line]
+STOP: unexpected BGP JSON format
+Connection to 172.31.17.5 closed.

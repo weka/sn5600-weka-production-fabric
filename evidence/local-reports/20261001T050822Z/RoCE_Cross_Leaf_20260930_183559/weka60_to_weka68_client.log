@@ -1,0 +1,57 @@
+===== mlx5_0 =====
+ WARNING: BW peak won't be measured in this run.
+---------------------------------------------------------------------------------------
+                    RDMA_Write BW Test
+ Dual-port       : OFF		Device         : mlx5_0
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : ON
+ TX depth        : 128
+ CQ Moderation   : 1
+ CQE Poll Batch  : 16
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x0128 PSN 0xf725ae RKey 0x1ffe00 VAddr 0x007982cf11e000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:60:01
+ remote address: LID 0000 QPN 0x0127 PSN 0xef7564 RKey 0x1fffbd VAddr 0x0072efa44cf000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:68:01
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 65536      5951973          0.00               195.03 		     0.371997
+---------------------------------------------------------------------------------------
+BW|0|195.03
+===== mlx5_1 =====
+ WARNING: BW peak won't be measured in this run.
+---------------------------------------------------------------------------------------
+                    RDMA_Write BW Test
+ Dual-port       : OFF		Device         : mlx5_1
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : ON
+ TX depth        : 128
+ CQ Moderation   : 1
+ CQE Poll Batch  : 16
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x0128 PSN 0xeca2a8 RKey 0x1ffd00 VAddr 0x007a4b9edef000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:60:03
+ remote address: LID 0000 QPN 0x0227 PSN 0xe4f25e RKey 0x23bfbd VAddr 0x007fb89b635000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:68:03
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 65536      5957367          0.00               195.21 		     0.372336
+---------------------------------------------------------------------------------------
+BW|1|195.21
+EXIT|0|0

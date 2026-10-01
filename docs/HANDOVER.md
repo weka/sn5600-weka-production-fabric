@@ -92,3 +92,16 @@ validate weka66–69 persistence if needed; repair/defer the client and uplink
 exceptions with Matt/DC Ops; then design controlled congestion/failover tests
 and perform WEKA application I/O testing. Backend expansion needs its own
 confirmed inventory and plan. See [open issues](OPEN_ISSUES.md).
+
+
+## 9. What the next engineer should receive
+
+The repository contains all 52 scripts from the original operations bundle;
+root run_checks.sh was updated for the later client-route configuration. The
+exact host RoCE scripts were subsequently collected from weka61. Nine sanitized
+switch snapshots are available under configs/switches/20261001T044650Z.
+
+Start with [collection and evidence](COLLECTION.md), [recovery](RECOVERY.md)
+and [ownership](OWNERSHIP.md). Server captures and imported report manifests
+record what was available, what failed and what still requires review. Consult
+archive documents as historical references; they predate later source collection.

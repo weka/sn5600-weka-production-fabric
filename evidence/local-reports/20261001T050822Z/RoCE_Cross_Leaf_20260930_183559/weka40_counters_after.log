@@ -1,0 +1,23 @@
+===== weka40 2026-10-01T01:53:27Z =====
+===== mlx5_0 ens4047np0 =====
+     rx_ecn_mark: 0
+     rx_crc_errors_phy: 0
+     rx_discards_phy: 0
+     tx_discards_phy: 0
+     tx_errors_phy: 0
+     rx_prio3_discards: 0
+     rx_prio3_pause: 0
+     tx_prio3_pause: 0
+     tx_pause_storm_warning_events: 0
+     tx_pause_storm_error_events: 0
+===== mlx5_1 ens3919np0 =====
+     rx_ecn_mark: 0
+     rx_crc_errors_phy: 0
+     rx_discards_phy: 0
+     tx_discards_phy: 0
+     tx_errors_phy: 0
+     rx_prio3_discards: 0
+     rx_prio3_pause: 0
+     tx_prio3_pause: 0
+     tx_pause_storm_warning_events: 0
+     tx_pause_storm_error_events: 0

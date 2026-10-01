@@ -1,0 +1,18 @@
+HOST|weka53|172.31.18.53|--check
+SECTION|runtime-link-layer
+RUNTIME|weka53|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka53|0000:b4:00.0|mlx5_1|1|InfiniBand|ibs3919|1: DOWN
+SECTION|firmware-link-type
+FIRMWARE|weka53|0000:33:00.0|Device type:        ConnectX7           
+FIRMWARE|weka53|0000:33:00.0|Name:               MCX75310AAS-NEA_Ax  
+FIRMWARE|weka53|0000:33:00.0|Description:        NVIDIA ConnectX-7 HHHL Adapter card; 400GbE / NDR IB (default mode); Single-port OSFP; PCIe 5.0 x16; Crypto Disabled; Secure Boot Enabled;
+FIRMWARE|weka53|0000:33:00.0|Device:             0000:33:00.0        
+FIRMWARE|weka53|0000:33:00.0|        LINK_TYPE_P1                                ETH(2)              
+PLAN|weka53|0000:33:00.0|no firmware change required
+FIRMWARE|weka53|0000:b4:00.0|Device type:        ConnectX7           
+FIRMWARE|weka53|0000:b4:00.0|Name:               MCX75310AAS-NEA_Ax  
+FIRMWARE|weka53|0000:b4:00.0|Description:        NVIDIA ConnectX-7 HHHL Adapter card; 400GbE / NDR IB (default mode); Single-port OSFP; PCIe 5.0 x16; Crypto Disabled; Secure Boot Enabled;
+FIRMWARE|weka53|0000:b4:00.0|Device:             0000:b4:00.0        
+FIRMWARE|weka53|0000:b4:00.0|        LINK_TYPE_P1                                IB(1)               
+PLAN|weka53|0000:b4:00.0|mlxconfig set LINK_TYPE_P1=2
+CHECK|weka53|IB_FOUND

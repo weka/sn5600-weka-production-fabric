@@ -1,0 +1,21 @@
+HOST|weka63|172.31.18.63|--validate
+RUNTIME|weka63|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka63|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka63|0000:33:00.0|no firmware change required
+PLAN|weka63|0000:b4:00.0|no firmware change required
+VALIDATION|weka63|PASS|all discovered RDMA ports are Ethernet
+HOST|weka64|172.31.18.64|--validate
+ERROR|weka64|no RDMA devices found
+UNREACHABLE|weka64|172.31.18.64|ssh-status-12
+HOST|weka65|172.31.18.65|--validate
+RUNTIME|weka65|0000:33:00.0|mlx5_0|1|Ethernet|ens4047f0np0|1: DOWN
+RUNTIME|weka65|0000:33:00.1|mlx5_1|1|Ethernet|ens4047f1np1|1: DOWN
+PLAN|weka65|0000:33:00.0|no firmware change required
+PLAN|weka65|0000:33:00.1|no firmware change required
+VALIDATION|weka65|PASS|all discovered RDMA ports are Ethernet
+HOST|weka66|172.31.18.66|--validate
+RUNTIME|weka66|0000:33:00.0|mlx5_0|1|Ethernet|ens4047f0np0|1: DOWN
+RUNTIME|weka66|0000:33:00.1|mlx5_1|1|Ethernet|ens4047f1np1|1: DOWN
+PLAN|weka66|0000:33:00.0|no firmware change required
+PLAN|weka66|0000:33:00.1|no firmware change required
+VALIDATION|weka66|PASS|all discovered RDMA ports are Ethernet

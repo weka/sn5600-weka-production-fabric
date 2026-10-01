@@ -1,0 +1,331 @@
+# SN5600 upgrade to Cumulus Linux 5.11.5
+
+Prepared 21 September 2026 for Sekhar's nine physical SN5600 switches.
+
+This is an operator runbook. No switch has been accessed, upgraded, or rebooted by Codex. The downloaded installer, its checksum, and the current console output still have to be verified at execution time.
+
+## 1. Scope and order
+
+Keep the selected target at **Cumulus Linux 5.11.5**, matching the version booted in DSX Air. This is the selected qualification target, not a claim that 5.11.5 is NVIDIA's newest feature release. Air routing validation and physical forwarding tests are still outstanding.
+
+Upgrade the eight idle switches one at a time. Start with **172.31.17.18**. Leave **172.31.17.3**, which currently serves hosts, until migration or a planned outage makes it safe to rebuild.
+
+| Order | Management IP | Version in supplied inventory | Current use | Target |
+|---|---|---|---|---|
+| 1: pilot | 172.31.17.18 | 5.11.0 | Idle | 5.11.5 |
+| 2 | 172.31.17.19 | 5.11.0 | Idle | 5.11.5 |
+| 3 | 172.31.17.20 | 5.11.0 | Idle | 5.11.5 |
+| 4 | 172.31.17.21 | 5.11.0 | Idle | 5.11.5 |
+| 5 | 172.31.17.22 | 5.11.0 | Idle | 5.11.5 |
+| 6 | 172.31.17.23 | 5.11.0 | Idle | 5.11.5 |
+| 7 | 172.31.17.24 | 5.11.0 | Idle | 5.11.5 |
+| 8 | 172.31.17.5 | 5.9.1 | Idle; management configuration differs from live state | 5.11.5 |
+| Later | 172.31.17.3 | 5.8.0 | Active hosts | 5.11.5 after migration/outage |
+
+These are inventory snapshots, not fresh live checks. Record the actual version and serial number before changing each switch. Physical leaf/spine roles have not yet been assigned to these management IPs.
+
+## 2. Installation method
+
+Use a **fresh ONIE image installation** on the idle switches. It selects the exact target image and clears old configurations before the new fabric is built. **It erases the installed operating system and its local configuration, including management settings and accounts.** Backup and console access are prerequisites.
+
+The patch-specific support matrix lists direct package upgrades to 5.11.5 from 5.11.3, 5.11.4, and 5.9.4; optimized image upgrades are listed from 5.11.3 and 5.11.4. The recorded starting versions are not on those direct lists. ONIE is the documented alternative. Do not use a generic `apt upgrade` to assume a direct 5.11.0-to-5.11.5 path. [NVIDIA release-specific upgrade paths](https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Whats-New/)
+
+This guide uses a local installer copied by SCP; no HTTP server is needed for the normal path. It does not perform separate BIOS, ONIE, CPLD, or transceiver firmware flashes.
+
+## 3. Prepare the installer and console
+
+1. Download the **physical Cumulus Linux 5.11.5 NVIDIA/Mellanox amd64 ONIE installer** approved for the SN5600 from the [NVIDIA Enterprise Support Portal](https://enterprise-support.nvidia.com/). Keep the publisher's checksum and any platform prerequisite notes with it. Use the physical `.bin` installer, not the Cumulus VX disk image used by Air. The exact filename below is an example; substitute the filename actually downloaded.
+2. Have a working serial console and both power feeds where available. Keep the management Ethernet cable attached. Confirm the serial number belongs to the intended idle switch.
+3. Record any platform-specific firmware prerequisites in the download's release notes. If those require another procedure, complete that prerequisite before this NOS installation; do not improvise firmware versions.
+4. Save the previous release's installer as a recovery resource. ONIE installation is not a two-partition rollback mechanism.
+
+On your **Mac**, in the terminal used for file transfers:
+
+```bash
+SN_IP='172.31.17.18'
+SN_IMAGE="$HOME/Downloads/cumulus-linux-5.11.5-mlx-amd64.bin"
+SN_BACKUP="$HOME/Downloads/SN5600-backup-$SN_IP-$(date +%Y%m%d-%H%M%S)"
+mkdir -m 700 "$SN_BACKUP"
+ls -lh "$SN_IMAGE"
+shasum -a 256 "$SN_IMAGE"
+```
+
+Compare the hash with NVIDIA's published checksum for that exact download. Do not proceed if it differs. Keep these variables in this Mac terminal; they are not automatically available in a switch shell or another terminal.
+
+Open a **second Mac terminal** for the console:
+
+```bash
+ls /dev/cu.usbserial*
+screen /dev/cu.usbserial-A9U96TAL 115200
+```
+
+Use the device that actually appears; the example is the adapter previously used. Console settings: 115200 baud, 8 data bits, no parity, 1 stop bit, no flow control. Leave the console open throughout installation. [NVIDIA initial access guidance](https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Quick-Start-Guide/)
+
+## 4. Inspect and back up the pilot
+
+From the Mac's file-transfer terminal:
+
+```bash
+ssh "cumulus@$SN_IP"
+```
+
+The following commands now run **on the switch**, logged in as `cumulus`:
+
+```bash
+hostname
+cat /etc/os-release
+nv show platform
+ip -4 -br address show dev eth0
+ip -4 route show vrf mgmt
+nv show interface
+nv config diff
+df -h / /var /home
+sudo onie-install -h
+```
+
+For the pilot, confirm SN5600, the expected serial, and live address `172.31.17.18`. An unexpected address, platform, active host connection, or unsupported installer option must be resolved before continuing. Check free space for the backup, downloaded image, and installer staging copy. Do not force past space or image validation errors.
+
+Create a restricted backup folder. If this folder already exists, preserve the old copy and use a different folder consistently rather than overwriting it.
+
+```bash
+umask 077
+mkdir -m 700 "$HOME/sn5600-preupgrade"
+hostname > "$HOME/sn5600-preupgrade/hostname.txt"
+cat /etc/os-release > "$HOME/sn5600-preupgrade/os-release.txt"
+nv show platform > "$HOME/sn5600-preupgrade/platform.txt"
+nv config show > "$HOME/sn5600-preupgrade/nvue-applied.yaml"
+nv config diff > "$HOME/sn5600-preupgrade/nvue-pending.diff"
+nv show interface > "$HOME/sn5600-preupgrade/interfaces.txt"
+ip -br address > "$HOME/sn5600-preupgrade/ip-address.txt"
+ip -4 route show table all > "$HOME/sn5600-preupgrade/routes.txt"
+sudo lldpctl > "$HOME/sn5600-preupgrade/lldp.txt"
+sudo vtysh -c 'show running-config' > "$HOME/sn5600-preupgrade/frr-running.txt" 2>&1
+sudo tar --acls --xattrs --numeric-owner -czf "$HOME/sn5600-preupgrade/etc-backup.tgz" -C / etc
+sudo chown "$(id -u):$(id -g)" "$HOME/sn5600-preupgrade/etc-backup.tgz"
+chmod 600 "$HOME/sn5600-preupgrade/etc-backup.tgz"
+tar -tzf "$HOME/sn5600-preupgrade/etc-backup.tgz" > "$HOME/sn5600-preupgrade/etc-file-list.txt"
+sha256sum "$HOME/sn5600-preupgrade/etc-backup.tgz"
+sudo cl-support
+```
+
+[REDACTED sensitive line]
+
+Record the support archive path printed by `cl-support`. Copy that archive into `~/sn5600-preupgrade/`, then make the copied file readable only by the `cumulus` user. For example, replacing the example source path with the actual path printed:
+
+```bash
+sudo cp /ACTUAL/PATH/TO/cl-support-archive "$HOME/sn5600-preupgrade/"
+sudo chown -R "$(id -u):$(id -g)" "$HOME/sn5600-preupgrade"
+chmod -R go-rwx "$HOME/sn5600-preupgrade"
+exit
+```
+
+You are now back on the **Mac**:
+
+```bash
+scp -r "cumulus@$SN_IP:sn5600-preupgrade" "$SN_BACKUP/"
+tar -tzf "$SN_BACKUP/sn5600-preupgrade/etc-backup.tgz" > "$SN_BACKUP/etc-file-list.txt"
+shasum -a 256 "$SN_BACKUP/sn5600-preupgrade/etc-backup.tgz"
+```
+
+Match this hash to the switch's backup hash and confirm the collected files are present. Do not reboot into installation until the backup exists off the switch. We intentionally capture both the applied NVUE view and the existing `/etc` files before any save or apply, because they differ on `.5`. [NVIDIA backup and support collection](https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Upgrading-Cumulus-Linux/)
+
+## 5. Transfer and verify the image
+
+On the **Mac**:
+
+```bash
+scp "$SN_IMAGE" "cumulus@$SN_IP:/home/cumulus/cumulus-5.11.5-installer.bin"
+```
+
+On the **switch console**:
+
+```bash
+ls -lh /home/cumulus/cumulus-5.11.5-installer.bin
+sha256sum /home/cumulus/cumulus-5.11.5-installer.bin
+df -h / /var /home
+```
+
+The switch hash must equal both the Mac hash and the publisher's hash. Renaming the copied file does not change its bytes. Stop on a mismatch or incomplete copy.
+
+## 6. Stage, activate, and install
+
+Run this section on the **idle switch's serial console**. Confirm once more that it is `.18` for the pilot and not the active `.3`.
+
+Create a minimal ZTP script so the fresh installation completes its provisioning without loading an old network configuration:
+
+```bash
+cat > /home/cumulus/upgrade-noop-ztp.sh <<'ZTP'
+#!/bin/bash
+# CUMULUS-AUTOPROVISIONING
+exit 0
+ZTP
+chmod 700 /home/cumulus/upgrade-noop-ztp.sh
+bash -n /home/cumulus/upgrade-noop-ztp.sh
+```
+
+The provisioning marker and successful exit are part of NVIDIA's ZTP interface. [ZTP behavior](https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Zero-Touch-Provisioning-ZTP/)
+
+Stage the verified image and this script:
+
+```bash
+sudo onie-install -i /home/cumulus/cumulus-5.11.5-installer.bin -z /home/cumulus/upgrade-noop-ztp.sh
+```
+
+Wait for a successful result. If staging fails, stop here and retain the error; do not activate or reboot.
+
+Activate the staged installation:
+
+```bash
+sudo onie-install -a
+```
+
+This command asks you to acknowledge that the installation will erase the system. Answer `y` only after the target identity, off-switch backup, image checksum, and console are verified. After successful activation:
+
+```bash
+sudo reboot
+```
+
+Watch the entire install on the console. Allow installer-driven reboots to complete; do not interrupt power or choose ONIE Uninstall. Installation duration depends on the platform and image; completion and healthy boot are the criteria, not a fixed timer. [NVIDIA local-image staging and activation](https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Installing-a-New-Cumulus-Linux-Image/)
+
+The same local-file and `-z` staging mechanism is documented in [Cumulus 5.9](https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-59/Installation-Management/Installing-a-New-Cumulus-Linux-Image/) and [Cumulus 5.8](https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-58/Installation-Management/Installing-a-New-Cumulus-Linux-Image/). This does not make `.3` eligible while its hosts remain dependent on it.
+
+## 7. Restore management access from the console
+
+[REDACTED sensitive line]
+
+Verify the installed release before making configuration changes:
+
+```bash
+cat /etc/os-release
+nv show platform
+sudo ztp -s
+```
+
+Require `VERSION_ID=5.11.5` and the same SN5600 serial number. Confirm the staged ZTP script finished. Then disable future discovery and configure `.18` management:
+
+```bash
+sudo ztp -d
+nv config diff
+nv unset interface eth0 ip address dhcp
+nv set interface eth0 ip address 172.31.17.18/21
+nv set interface eth0 ip gateway 172.31.16.254
+nv config diff
+```
+
+Review the diff. It should contain the intended management changes, with no unexplained old front-panel or authentication configuration. If a command reports an error, resolve it before applying.
+
+```bash
+nv config apply
+nv config save
+nv show interface eth0
+ip -4 -br address show dev eth0
+ip -4 route show vrf mgmt
+sudo ip vrf exec mgmt ping -c 4 172.31.16.254
+```
+
+Use each switch's own management address when repeating this section. Keep `/21` and gateway `172.31.16.254` for the intended OOB network. If gateway ICMP is filtered, verify the route and SSH reachability rather than declaring a failure from ping alone. Applying and saving have distinct roles when auto-save is disabled. [NVUE configuration behavior](https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/System-Configuration/NVIDIA-User-Experience-NVUE/NVUE-CLI/)
+
+Do not bulk-extract the old `/etc` archive onto 5.11.5. It is a recovery reference. These idle nodes will receive a newly reviewed fabric configuration after the OS work.
+
+## 8. Reconnect safely and validate the pilot
+
+On the **switch console**, record its new SSH host-key fingerprint:
+
+```bash
+sudo ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub
+```
+
+On the **Mac**, SSH to the original management IP. A host-key change is expected after a clean installation, but verify it against the console before replacing the saved key:
+
+```bash
+ssh "cumulus@$SN_IP"
+```
+
+If SSH reports a changed host key, after confirming the target identity:
+
+```bash
+ssh-keygen -R "$SN_IP"
+ssh "cumulus@$SN_IP"
+```
+
+Compare the new fingerprint when prompted. If SSH negotiates another key type, print that public key's fingerprint on the console instead. Do not disable SSH host-key checking.
+
+On the **upgraded switch**:
+
+```bash
+cat /etc/os-release
+nv show system
+nv show system health
+nv show platform
+nv show platform firmware
+nv show platform environment fan
+nv show platform environment psu
+nv show platform environment temperature
+systemctl is-active switchd
+systemctl is-active nvued
+systemctl --failed --no-pager
+sudo journalctl -b -p err --no-pager
+nv show interface eth0
+nv show interface
+nv config diff
+```
+
+Require 5.11.5, matching identity, working SSH/console, healthy expected power/cooling state, and running `switchd`/`nvued`. Compare any alarms with the pre-upgrade baseline and resolve new failures. Review firmware output against platform release requirements; displaying it does not upgrade firmware. [NVIDIA hardware checks](https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Monitoring-and-Troubleshooting/Monitoring-System-Hardware/)
+
+BGP being disabled and uncabled data ports being down are expected before the fabric configuration is applied. Those are not OS upgrade failures.
+
+Perform one additional controlled reboot on the idle pilot to verify saved management settings:
+
+```bash
+sudo reboot
+```
+
+Reconnect over SSH and repeat the version, `eth0`, management-route, service, and health checks. Capture a new `sudo cl-support` archive and copy it off-box alongside the pre-upgrade records. Mark the pilot complete only after this persistence check passes.
+
+## 9. Repeat for the seven other idle switches
+
+For each switch in the order table, reset `SN_IP` and create a new Mac backup directory as in section 3. Move the console connection to that switch and verify its serial number. Repeat sections 4–8 independently; do not run a bulk reboot or reimage loop.
+
+Use these post-install management settings:
+
+| Switch | Address to configure | Gateway |
+|---|---|---|
+| .18 | 172.31.17.18/21 | 172.31.16.254 |
+| .19 | 172.31.17.19/21 | 172.31.16.254 |
+| .20 | 172.31.17.20/21 | 172.31.16.254 |
+| .21 | 172.31.17.21/21 | 172.31.16.254 |
+| .22 | 172.31.17.22/21 | 172.31.16.254 |
+| .23 | 172.31.17.23/21 | 172.31.16.254 |
+| .24 | 172.31.17.24/21 | 172.31.16.254 |
+| .5 | 172.31.17.5/21, after confirming intended OOB mask | 172.31.16.254 |
+
+**Special handling for `.5`:** the supplied snapshot shows live `172.31.17.5/20`, while its applied NVUE view contains `172.29.5.253/21` and gateway `172.29.0.254`. Capture both views before changing it. Do not apply or import that old NVUE configuration as a management restore. This guide deliberately normalizes it to the intended `172.31.16.0/21` OOB network, so confirm that mask and gateway with the actual OOB setup before its installation. Rebuild the settings on its console.
+
+## 10. Handle the active `.3` separately
+
+Keep `.3` on its current running image while its hosts use it. Backups and read-only inventory can be collected now, but no install activation, upgrade, reboot, or fabric port conversion belongs in that collection step.
+
+Once the new fabric and host migration are validated, evacuate `.3`, verify hosts are healthy through their new paths, and repeat the clean-install process as an idle switch. Its intended management address remains `172.31.17.3/21` with gateway `172.31.16.254`.
+
+If `.3` must be upgraded while retaining its existing host service, first prepare a separate outage runbook covering its actual bridge/VLAN/breakout/MTU/QoS configuration, host tests, restore procedure, and recovery. The old L2 access configuration is not interchangeable with the proposed L3 leaf configuration. A full `/etc` restore across versions is not the restore procedure.
+
+## 11. Failure and recovery
+
+| Failure | Action |
+|---|---|
+| Image or backup checksum mismatch | Stop before activation; recopy and verify. |
+| Staging error | Keep the existing system running; preserve the error and resolve it. Do not activate or reboot. |
+| Installation error | Stay on the serial console, save the exact failure, and check the verified image and storage status. Reinstall the same verified 5.11.5 image through ONIE if required. |
+| New image boots but SSH is unavailable | Use the console to check address, mask, management VRF, route, authentication, and SSH service. |
+| New hardware/service failures | Stop the rollout on the pilot; collect support data. Do not repeat the same failure across the other switches. |
+| Need an older release | Reinstall the verified older image and restore only reviewed, compatible configuration. Do not assume ONIE preserved a usable previous boot partition. |
+
+On an SN5600 using Secure Boot, returning from 5.11 to older releases such as 5.9.1 or 5.8.0 can require NVIDIA's special downgrade procedure because of boot-loader revocation state. Plan this before upgrading `.5` or `.3`; a configuration archive alone is not a complete rollback plan. [NVIDIA secure-boot downgrade procedure](https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Upgrading-Cumulus-Linux/#downgrade-a-secure-boot-switch)
+
+If recovery requires installation from an ONIE shell, use the [documented console installation methods](https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Installing-a-New-Cumulus-Linux-Image/). Do not select disk formatting or ONIE Uninstall as a troubleshooting shortcut.
+
+## 12. Completion record
+
+Record per switch: serial number, previous version, new version, publisher/transfer hash match, backup location, console login result, SSH result, management persistence after reboot, hardware/service health, and support archive locations. Stop the rollout at the first unresolved pilot failure.
+
+After the eight idle upgrades, the milestone is **eight healthy SN5600s on 5.11.5 with reachable management**, with `.3` still carrying its hosts. It is not yet a validated L3 fabric. Complete Air BGP/ECMP/host tests, assign the physical roles, and qualify physical links and forwarding before host migration. The existing Air shell scripts have VM guards and synthetic addresses; do not bypass those guards to run them on hardware.

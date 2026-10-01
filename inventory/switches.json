@@ -78,6 +78,9 @@
     "asn": null,
     "router_id": null,
     "rack": "Rack 3",
-    "in_scope": false
+    "in_scope": false,
+    "observed_hostname": "MT2324XZ0TB0",
+    "identity_confirmed_by": "Sekhar",
+    "deployment_status": "deferred; not configured in current rollout"
   }
 ]

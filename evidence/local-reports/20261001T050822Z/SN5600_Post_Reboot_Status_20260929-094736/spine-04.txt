@@ -1,0 +1,120 @@
+spine-04
+up 31 minutes
+            operational  applied
+----------  -----------  -------
+status      OK                  
+status-led  green               
+
+
+
+Health issues
+================
+    Component                 Status information
+    ------------------------  ------------------
+    PMIC-12-COMEX-VCORE-OUT1  failed            
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+Interface  Admin Status  Oper Status  Speed  MTU    Type      Remote Host  Remote Port  Summary                                 
+---------  ------------  -----------  -----  -----  --------  -----------  -----------  ----------------------------------------
+eth0       up            up           1G     1500   eth       SW38         Ethernet4    IP Address:              172.31.17.22/21
+                                                                                        IP Address: fe80::da94:24ff:fe3b:a42a/64
+lo         up            unknown             65536  loopback                            IP Address:              10.255.0.103/32
+                                                                                        IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                      ::1/128
+mgmt       up            up                  65575  vrf                                 IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                  127.0.1.1/8
+                                                                                        IP Address:                      ::1/128
+swp1       up            up           800G   9216   swp       leaf-01      swp57        IP Address:               10.254.0.48/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18f0/64
+swp2       up            down                9216   swp                                 IP Address:               10.254.0.50/31
+swp3       up            up           800G   9216   swp       leaf-01      swp59        IP Address:               10.254.0.52/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18fc/64
+swp4       up            up           800G   9216   swp       leaf-01      swp60        IP Address:               10.254.0.54/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18f8/64
+swp5       up            down                9216   swp                                 IP Address:               10.254.0.56/31
+swp6       up            up           800G   9216   swp       leaf-01      swp62        IP Address:               10.254.0.58/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18e4/64
+swp7       up            up           800G   9216   swp       leaf-01      swp63        IP Address:               10.254.0.60/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18ec/64
+swp8       up            up           800G   9216   swp       leaf-01      swp64        IP Address:               10.254.0.62/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18e8/64
+swp9       up            up           800G   9216   swp       leaf-02      swp57        IP Address:              10.254.0.112/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18d0/64
+swp10      up            up           800G   9216   swp       leaf-02      swp58        IP Address:              10.254.0.114/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18d4/64
+swp11      up            up           800G   9216   swp       leaf-02      swp59        IP Address:              10.254.0.116/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18dc/64
+swp12      up            up           800G   9216   swp       leaf-02      swp60        IP Address:              10.254.0.118/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18d8/64
+swp13      up            up           800G   9216   swp       leaf-02      swp61        IP Address:              10.254.0.120/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18c0/64
+swp14      up            up           800G   9216   swp       leaf-02      swp62        IP Address:              10.254.0.122/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18c4/64
+swp15      up            up           800G   9216   swp       leaf-02      swp63        IP Address:              10.254.0.124/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18cc/64
+swp16      up            up           800G   9216   swp       leaf-02      swp64        IP Address:              10.254.0.126/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18c8/64
+swp17      up            up           800G   9216   swp       leaf-03      swp57        IP Address:              10.254.0.176/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18b4/64
+swp18      up            up           800G   9216   swp       leaf-03      swp58        IP Address:              10.254.0.178/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18b0/64
+swp19      up            up           800G   9216   swp       leaf-03      swp59        IP Address:              10.254.0.180/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18b8/64
+swp20      up            up           800G   9216   swp       leaf-03      swp60        IP Address:              10.254.0.182/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18bc/64
+swp21      up            up           800G   9216   swp       leaf-03      swp61        IP Address:              10.254.0.184/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18a4/64
+swp22      up            up           800G   9216   swp       leaf-03      swp62        IP Address:              10.254.0.186/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18a0/64
+swp23      up            up           800G   9216   swp       leaf-03      swp63        IP Address:              10.254.0.188/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18a8/64
+swp24      up            down                9216   swp                                 IP Address:              10.254.0.190/31
+swp25      up            up           800G   9216   swp       leaf-04      swp57        IP Address:              10.254.0.240/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1894/64
+swp26      up            up           800G   9216   swp       leaf-04      swp58        IP Address:              10.254.0.242/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1890/64
+swp27      up            up           800G   9216   swp       leaf-04      swp59        IP Address:              10.254.0.244/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1898/64
+swp28      up            up           800G   9216   swp       leaf-04      swp60        IP Address:              10.254.0.246/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:189c/64
+swp29      up            up           800G   9216   swp       leaf-04      swp61        IP Address:              10.254.0.248/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1884/64
+swp30      up            up           800G   9216   swp       leaf-04      swp62        IP Address:              10.254.0.250/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1880/64
+swp31      up            up           800G   9216   swp       leaf-04      swp63        IP Address:              10.254.0.252/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1888/64
+swp32      up            up           800G   9216   swp       leaf-04      swp64        IP Address:              10.254.0.254/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:188c/64
+swp33      up            down                9216   swp                                                                         
+swp34      up            down                9216   swp                                                                         
+swp35      up            down                9216   swp                                                                         
+swp36      up            down                9216   swp                                                                         
+swp37      up            down                9216   swp                                                                         
+swp38      up            down                9216   swp                                                                         
+swp39      up            down                9216   swp                                                                         
+swp40      up            down                9216   swp                                                                         
+swp41      down          down                9216   swp                                                                         
+swp42      down          down                9216   swp                                                                         
+swp43      down          down                9216   swp                                                                         
+swp44      down          down                9216   swp                                                                         
+swp45      down          down                9216   swp                                                                         
+swp46      down          down                9216   swp                                                                         
+swp47      down          down                9216   swp                                                                         
+swp48      down          down                9216   swp                                                                         
+swp49      down          down                9216   swp                                                                         
+swp50      down          down                9216   swp                                                                         
+swp51      down          down                9216   swp                                                                         
+swp52      down          down                9216   swp                                                                         
+swp53      down          down                9216   swp                                                                         
+swp54      down          down                9216   swp                                                                         
+swp55      down          down                9216   swp                                                                         
+swp56      down          down                9216   swp                                                                         
+swp57      down          down                9216   swp                                                                         
+swp58      down          down                9216   swp                                                                         
+swp59      down          down                9216   swp                                                                         
+swp60      down          down                9216   swp                                                                         
+swp61      down          down                9216   swp                                                                         
+swp62      down          down                9216   swp                                                                         
+swp63      down          down                9216   swp                                                                         
+swp64      down          down                9216   swp                                                                         
+swp65      down          down                9216   swp                                                                         

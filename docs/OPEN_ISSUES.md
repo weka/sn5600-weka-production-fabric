@@ -11,7 +11,7 @@
 | Physical underlay exceptions | Dated issue register lists down/intermittent links | Inspect both ends and serials; fresh link/BGP snapshot required before closing |
 | Boot warnings | Accepted during deployment, not resolved by acceptance | Review current-boot units and journal with Matt |
 | Switch clock differences | Backup timestamps differed across switches | Check time/NTP and record corrected time state |
-| Exact host RoCE scripts | Payload files not supplied locally | Run reference collector against weka61 and review/commit exact tested scripts |
+| Exact host RoCE scripts | CLOSED: tested payloads and persistence collected from weka61, commit 1c95746 | Use packages/host-roce-reference; retain provenance |
 | Cross-leaf test completion | 5/12 directed results supplied | Finish resumed run; add summary, server evidence and counter deltas |
 | Cross-leaf log collection | weka68 → weka40 bandwidth passed; SSH retrieval failed | Retain warning; collect remote server logs if available |
 | Congestion and failover | Not tested | Define a controlled test and acceptance criteria; observe ECN/PFC/discard deltas and recovery |

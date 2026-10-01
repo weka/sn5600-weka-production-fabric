@@ -91,3 +91,21 @@ and update `docs/CURRENT_STATUS.md`, `inventory/client-status.csv` and issue rec
 Do not commit BMC credentials, private keys, tokens or environment files.
 Run `python3 scripts/validate_repository.py`, then `bash scripts/update_checksums.sh`
 after approved file changes. GitHub CI only performs local checks.
+
+
+## Collect current client state and existing reports — no device changes
+
+```bash
+python3 scripts/collect_server_snapshots.py
+python3 scripts/import_local_reports.py
+```
+
+The default client inventory covers weka40–79, including deferred hosts; failures
+are recorded and do not mean a configuration was applied. Use --hosts "60 61"
+for a smaller read-only collection. If SSHPASS is supplied locally, sshpass is
+used; otherwise SSH prompts interactively. Never put its value in Git.
+
+Switch collectors in scripts/ preserve tonight's collection method. They capture
+state without applying it. The dated sanitizer is specifically for the original
+20261001T044650Z snapshot; do not run it on another timestamp as a generic tool.
+See [collection](COLLECTION.md) for evidence review and publication.

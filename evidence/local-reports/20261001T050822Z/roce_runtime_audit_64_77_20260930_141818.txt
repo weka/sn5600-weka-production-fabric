@@ -1,0 +1,458 @@
+
+================================================
+weka64 172.31.18.64
+================================================
+hostname=weka64
+tcp_ecn=2
+--- RDMA mapping and RoCE settings ---
+Connection to 172.31.18.64 closed.
+
+================================================
+weka65 172.31.18.65
+================================================
+hostname=weka65
+tcp_ecn=2
+--- RDMA mapping and RoCE settings ---
+mlx5_0 port 1 ==> ens4047f0np0 (Up)
+mlx5_1 port 1 ==> ens4047f1np1 (Up)
+
+### mlx5_0 / ens4047f0np0
+ens4047f0np0     UP             a0:88:c2:ac:f2:c8 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+
+### mlx5_1 / ens4047f1np1
+ens4047f1np1     UP             a0:88:c2:ac:f2:c9 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+Connection to 172.31.18.65 closed.
+
+================================================
+weka66 172.31.18.66
+================================================
+hostname=weka66
+tcp_ecn=1
+--- RDMA mapping and RoCE settings ---
+mlx5_0 port 1 ==> ens4047f0np0 (Up)
+mlx5_1 port 1 ==> ens4047f1np1 (Up)
+
+### mlx5_0 / ens4047f0np0
+ens4047f0np0     UP             a0:88:c2:d5:63:e2 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=Global tclass=106
+DCBX mode: OS controlled
+Priority trust state: dscp
+PFC configuration:
+	enabled     0   0   0   1   0   0   0   0   
+
+### mlx5_1 / ens4047f1np1
+ens4047f1np1     UP             a0:88:c2:d5:63:e3 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=Global tclass=106
+DCBX mode: OS controlled
+Priority trust state: dscp
+PFC configuration:
+	enabled     0   0   0   1   0   0   0   0   
+Connection to 172.31.18.66 closed.
+
+================================================
+weka67 172.31.18.67
+================================================
+hostname=weka67
+tcp_ecn=1
+--- RDMA mapping and RoCE settings ---
+mlx5_0 port 1 ==> ens4047f0np0 (Up)
+mlx5_1 port 1 ==> ens4047f1np1 (Up)
+
+### mlx5_0 / ens4047f0np0
+ens4047f0np0     UP             a0:88:c2:ac:db:e8 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=Global tclass=106
+DCBX mode: OS controlled
+Priority trust state: dscp
+PFC configuration:
+	enabled     0   0   0   1   0   0   0   0   
+
+### mlx5_1 / ens4047f1np1
+ens4047f1np1     UP             a0:88:c2:ac:db:e9 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=Global tclass=106
+DCBX mode: OS controlled
+Priority trust state: dscp
+PFC configuration:
+	enabled     0   0   0   1   0   0   0   0   
+Connection to 172.31.18.67 closed.
+
+================================================
+weka68 172.31.18.68
+================================================
+hostname=weka68
+tcp_ecn=1
+--- RDMA mapping and RoCE settings ---
+mlx5_0 port 1 ==> ens4047f0np0 (Up)
+mlx5_1 port 1 ==> ens4047f1np1 (Up)
+
+### mlx5_0 / ens4047f0np0
+ens4047f0np0     UP             a0:88:c2:a8:5b:40 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=Global tclass=106
+DCBX mode: OS controlled
+Priority trust state: dscp
+PFC configuration:
+	enabled     0   0   0   1   0   0   0   0   
+
+### mlx5_1 / ens4047f1np1
+ens4047f1np1     UP             a0:88:c2:a8:5b:41 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=Global tclass=106
+DCBX mode: OS controlled
+Priority trust state: dscp
+PFC configuration:
+	enabled     0   0   0   1   0   0   0   0   
+Connection to 172.31.18.68 closed.
+
+================================================
+weka69 172.31.18.69
+================================================
+hostname=weka69
+tcp_ecn=1
+--- RDMA mapping and RoCE settings ---
+mlx5_0 port 1 ==> ens4047f0np0 (Up)
+mlx5_1 port 1 ==> ens4047f1np1 (Up)
+
+### mlx5_0 / ens4047f0np0
+ens4047f0np0     UP             a0:88:c2:ad:00:b8 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=Global tclass=106
+DCBX mode: OS controlled
+Priority trust state: dscp
+PFC configuration:
+	enabled     0   0   0   1   0   0   0   0   
+
+### mlx5_1 / ens4047f1np1
+ens4047f1np1     UP             a0:88:c2:ad:00:b9 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=Global tclass=106
+DCBX mode: OS controlled
+Priority trust state: dscp
+PFC configuration:
+	enabled     0   0   0   1   0   0   0   0   
+Connection to 172.31.18.69 closed.
+
+================================================
+weka70 172.31.18.70
+================================================
+hostname=weka70
+tcp_ecn=2
+--- RDMA mapping and RoCE settings ---
+mlx5_0 port 1 ==> ens4047f0np0 (Up)
+mlx5_1 port 1 ==> ens4047f1np1 (Up)
+
+### mlx5_0 / ens4047f0np0
+ens4047f0np0     UP             a0:88:c2:d5:64:22 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+
+### mlx5_1 / ens4047f1np1
+ens4047f1np1     UP             a0:88:c2:d5:64:23 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+Connection to 172.31.18.70 closed.
+
+================================================
+weka71 172.31.18.71
+================================================
+hostname=weka71
+tcp_ecn=2
+--- RDMA mapping and RoCE settings ---
+mlx5_0 port 1 ==> ens4047f0np0 (Up)
+mlx5_1 port 1 ==> ens4047f1np1 (Up)
+
+### mlx5_0 / ens4047f0np0
+ens4047f0np0     UP             a0:88:c2:d5:66:72 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+
+### mlx5_1 / ens4047f1np1
+ens4047f1np1     UP             a0:88:c2:d5:66:73 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+Connection to 172.31.18.71 closed.
+
+================================================
+weka72 172.31.18.72
+================================================
+hostname=weka72
+tcp_ecn=2
+--- RDMA mapping and RoCE settings ---
+mlx5_0 port 1 ==> ens4047f0np0 (Up)
+mlx5_1 port 1 ==> ens4047f1np1 (Up)
+
+### mlx5_0 / ens4047f0np0
+ens4047f0np0     UP             a0:88:c2:d5:64:02 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+
+### mlx5_1 / ens4047f1np1
+ens4047f1np1     UP             a0:88:c2:d5:64:03 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+Connection to 172.31.18.72 closed.
+
+================================================
+weka73 172.31.18.73
+================================================
+hostname=weka73
+tcp_ecn=2
+--- RDMA mapping and RoCE settings ---
+mlx5_0 port 1 ==> ens4047f0np0 (Up)
+mlx5_1 port 1 ==> ens4047f1np1 (Up)
+
+### mlx5_0 / ens4047f0np0
+ens4047f0np0     UP             a0:88:c2:d5:73:82 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+
+### mlx5_1 / ens4047f1np1
+ens4047f1np1     UP             a0:88:c2:d5:73:83 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+Connection to 172.31.18.73 closed.
+
+================================================
+weka74 172.31.18.74
+================================================
+hostname=weka74
+tcp_ecn=2
+--- RDMA mapping and RoCE settings ---
+mlx5_0 port 1 ==> ens4047f0np0 (Up)
+mlx5_1 port 1 ==> ens4047f1np1 (Up)
+
+### mlx5_0 / ens4047f0np0
+ens4047f0np0     UP             a0:88:c2:34:b9:36 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+
+### mlx5_1 / ens4047f1np1
+ens4047f1np1     UP             a0:88:c2:34:b9:37 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+Connection to 172.31.18.74 closed.
+
+================================================
+weka75 172.31.18.75
+================================================
+hostname=weka75
+tcp_ecn=2
+--- RDMA mapping and RoCE settings ---
+mlx5_0 port 1 ==> ens4047f0np0 (Up)
+mlx5_1 port 1 ==> ens4047f1np1 (Up)
+
+### mlx5_0 / ens4047f0np0
+ens4047f0np0     UP             a0:88:c2:d5:64:12 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+
+### mlx5_1 / ens4047f1np1
+ens4047f1np1     UP             a0:88:c2:d5:64:13 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+Connection to 172.31.18.75 closed.
+
+================================================
+weka76 172.31.18.76
+================================================
+hostname=weka76
+tcp_ecn=2
+--- RDMA mapping and RoCE settings ---
+mlx5_0 port 1 ==> ens4047f0np0 (Up)
+mlx5_1 port 1 ==> ens4047f1np1 (Up)
+
+### mlx5_0 / ens4047f0np0
+ens4047f0np0     UP             a0:88:c2:d5:66:92 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+
+### mlx5_1 / ens4047f1np1
+ens4047f1np1     UP             a0:88:c2:d5:66:93 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+Connection to 172.31.18.76 closed.
+
+================================================
+weka77 172.31.18.77
+================================================
+hostname=weka77
+tcp_ecn=2
+--- RDMA mapping and RoCE settings ---
+mlx5_0 port 1 ==> ens4047f0np0 (Up)
+mlx5_1 port 1 ==> ens4047f1np1 (Up)
+
+### mlx5_0 / ens4047f0np0
+ens4047f0np0     UP             a0:88:c2:d5:64:42 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+
+### mlx5_1 / ens4047f1np1
+ens4047f1np1     UP             a0:88:c2:d5:64:43 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+	Speed: 200000Mb/s
+	Auto-negotiation: on
+	Link detected: yes
+mtu=9000
+roce_mode=RoCE v2
+traffic_class=DCBX mode: OS controlled
+Priority trust state: pcp
+PFC configuration:
+	enabled     0   0   0   0   0   0   0   0   
+Connection to 172.31.18.77 closed.

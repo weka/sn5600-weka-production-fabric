@@ -1,0 +1,3 @@
+HOST|weka64|172.31.18.64|--validate
+ERROR|weka64|no RDMA devices found
+UNREACHABLE|weka64|172.31.18.64|ssh-status-12

@@ -1,0 +1,27 @@
+Welcome to NVIDIA Cumulus (R) Linux (R)
+spine-01
+        operational  applied
+------  -----------  -------
+enable               off    
+
+
+
+RoCE PCP/DSCP->SP mapping configurations
+===========================================
+No Data
+
+
+RoCE SP->TC mapping and ETS configurations
+=============================================
+No Data
+
+
+RoCE pool config
+===================
+No Data
+
+
+Exception List
+=================
+No Data
+Connection to 172.31.17.5 closed.

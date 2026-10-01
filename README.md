@@ -47,21 +47,18 @@ See [evidence](evidence/README.md) for what was actually tested.
 | `archive/` | Original dated handover documents, workbooks and underlay migration tools |
 | `.github/workflows/` | Offline checks only; no production deployment |
 
-## Important gaps
+## Collected source files and snapshots
 
-The exact tested `/root/weka-roce-precheck.sh` and `/root/deploy-weka-roce.sh`
-payloads were not present in the supplied local project files. Their runtime
-output and the batch wrapper are included. Collect the exact copies from weka61:
+The exact tested host precheck/deployment scripts and six persistence components
+were collected from weka61 and uploaded in commit `1c95746`:
+`packages/host-roce-reference/`. Nine sanitized switch snapshots were uploaded
+in commit `1a77fd2`: `configs/switches/20261001T044650Z/`.
+Leaf-05 is confirmed at 172.31.17.3 with unchanged hostname MT2324XZ0TB0;
+it remains deferred. Credential entries were removed from the Git snapshots.
 
-```bash
-bash scripts/collect_roce_reference.sh
-```
-
-This copies the scripts and persistence files without applying anything.
-Review the collected files before committing. Do not replace the missing tested
-payloads with an invented implementation. Latest cross-leaf results beyond the
-five recorded directions have not yet been supplied; add them after the running
-test completes.
+Read [recovery](docs/RECOVERY.md), [collection and evidence](docs/COLLECTION.md)
+and [ownership](docs/OWNERSHIP.md). Imported reports are evidence awaiting review;
+they do not automatically close failed or untested paths.
 
 ## Credentials and publishing
 

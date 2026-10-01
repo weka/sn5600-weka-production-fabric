@@ -1,0 +1,214 @@
+HOST|weka40|172.31.18.40|--validate
+RUNTIME|weka40|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka40|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka40|0000:33:00.0|no firmware change required
+PLAN|weka40|0000:b4:00.0|no firmware change required
+VALIDATION|weka40|PASS|all discovered RDMA ports are Ethernet
+HOST|weka41|172.31.18.41|--validate
+RUNTIME|weka41|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka41|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka41|0000:33:00.0|no firmware change required
+PLAN|weka41|0000:b4:00.0|no firmware change required
+VALIDATION|weka41|PASS|all discovered RDMA ports are Ethernet
+HOST|weka42|172.31.18.42|--validate
+RUNTIME|weka42|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka42|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka42|0000:33:00.0|no firmware change required
+PLAN|weka42|0000:b4:00.0|no firmware change required
+VALIDATION|weka42|PASS|all discovered RDMA ports are Ethernet
+HOST|weka43|172.31.18.43|--validate
+RUNTIME|weka43|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka43|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka43|0000:33:00.0|no firmware change required
+PLAN|weka43|0000:b4:00.0|no firmware change required
+VALIDATION|weka43|PASS|all discovered RDMA ports are Ethernet
+HOST|weka44|172.31.18.44|--validate
+RUNTIME|weka44|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka44|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka44|0000:33:00.0|no firmware change required
+PLAN|weka44|0000:b4:00.0|no firmware change required
+VALIDATION|weka44|PASS|all discovered RDMA ports are Ethernet
+HOST|weka45|172.31.18.45|--validate
+RUNTIME|weka45|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka45|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka45|0000:33:00.0|no firmware change required
+PLAN|weka45|0000:b4:00.0|no firmware change required
+VALIDATION|weka45|PASS|all discovered RDMA ports are Ethernet
+HOST|weka46|172.31.18.46|--validate
+RUNTIME|weka46|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka46|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka46|0000:33:00.0|no firmware change required
+PLAN|weka46|0000:b4:00.0|no firmware change required
+VALIDATION|weka46|PASS|all discovered RDMA ports are Ethernet
+HOST|weka47|172.31.18.47|--validate
+RUNTIME|weka47|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka47|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka47|0000:33:00.0|no firmware change required
+PLAN|weka47|0000:b4:00.0|no firmware change required
+VALIDATION|weka47|PASS|all discovered RDMA ports are Ethernet
+HOST|weka48|172.31.18.48|--validate
+RUNTIME|weka48|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka48|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka48|0000:33:00.0|no firmware change required
+PLAN|weka48|0000:b4:00.0|no firmware change required
+VALIDATION|weka48|PASS|all discovered RDMA ports are Ethernet
+HOST|weka49|172.31.18.49|--validate
+RUNTIME|weka49|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka49|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka49|0000:33:00.0|no firmware change required
+PLAN|weka49|0000:b4:00.0|no firmware change required
+VALIDATION|weka49|PASS|all discovered RDMA ports are Ethernet
+HOST|weka50|172.31.18.50|--validate
+RUNTIME|weka50|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka50|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka50|0000:33:00.0|no firmware change required
+PLAN|weka50|0000:b4:00.0|no firmware change required
+VALIDATION|weka50|PASS|all discovered RDMA ports are Ethernet
+HOST|weka51|172.31.18.51|--validate
+RUNTIME|weka51|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka51|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka51|0000:33:00.0|no firmware change required
+PLAN|weka51|0000:b4:00.0|no firmware change required
+VALIDATION|weka51|PASS|all discovered RDMA ports are Ethernet
+HOST|weka52|172.31.18.52|--validate
+RUNTIME|weka52|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka52|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka52|0000:33:00.0|no firmware change required
+PLAN|weka52|0000:b4:00.0|no firmware change required
+VALIDATION|weka52|PASS|all discovered RDMA ports are Ethernet
+HOST|weka53|172.31.18.53|--validate
+RUNTIME|weka53|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka53|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka53|0000:33:00.0|no firmware change required
+PLAN|weka53|0000:b4:00.0|no firmware change required
+VALIDATION|weka53|PASS|all discovered RDMA ports are Ethernet
+HOST|weka54|172.31.18.54|--validate
+RUNTIME|weka54|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka54|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka54|0000:33:00.0|no firmware change required
+PLAN|weka54|0000:b4:00.0|no firmware change required
+VALIDATION|weka54|PASS|all discovered RDMA ports are Ethernet
+HOST|weka55|172.31.18.55|--validate
+RUNTIME|weka55|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka55|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka55|0000:33:00.0|no firmware change required
+PLAN|weka55|0000:b4:00.0|no firmware change required
+VALIDATION|weka55|PASS|all discovered RDMA ports are Ethernet
+HOST|weka56|172.31.18.56|--validate
+RUNTIME|weka56|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka56|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka56|0000:33:00.0|no firmware change required
+PLAN|weka56|0000:b4:00.0|no firmware change required
+VALIDATION|weka56|PASS|all discovered RDMA ports are Ethernet
+HOST|weka57|172.31.18.57|--validate
+RUNTIME|weka57|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka57|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka57|0000:33:00.0|no firmware change required
+PLAN|weka57|0000:b4:00.0|no firmware change required
+VALIDATION|weka57|PASS|all discovered RDMA ports are Ethernet
+HOST|weka58|172.31.18.58|--validate
+RUNTIME|weka58|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka58|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka58|0000:33:00.0|no firmware change required
+PLAN|weka58|0000:b4:00.0|no firmware change required
+VALIDATION|weka58|PASS|all discovered RDMA ports are Ethernet
+HOST|weka59|172.31.18.59|--validate
+RUNTIME|weka59|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka59|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka59|0000:33:00.0|no firmware change required
+PLAN|weka59|0000:b4:00.0|no firmware change required
+VALIDATION|weka59|PASS|all discovered RDMA ports are Ethernet
+HOST|weka60|172.31.18.60|--validate
+RUNTIME|weka60|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka60|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka60|0000:33:00.0|no firmware change required
+PLAN|weka60|0000:b4:00.0|no firmware change required
+VALIDATION|weka60|PASS|all discovered RDMA ports are Ethernet
+HOST|weka61|172.31.18.61|--validate
+RUNTIME|weka61|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka61|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka61|0000:33:00.0|no firmware change required
+PLAN|weka61|0000:b4:00.0|no firmware change required
+VALIDATION|weka61|PASS|all discovered RDMA ports are Ethernet
+HOST|weka62|172.31.18.62|--validate
+RUNTIME|weka62|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka62|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka62|0000:33:00.0|no firmware change required
+PLAN|weka62|0000:b4:00.0|no firmware change required
+VALIDATION|weka62|PASS|all discovered RDMA ports are Ethernet
+HOST|weka63|172.31.18.63|--validate
+RUNTIME|weka63|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka63|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+PLAN|weka63|0000:33:00.0|no firmware change required
+UNREACHABLE|weka63|172.31.18.63|ssh-status-255
+UNREACHABLE|weka64|172.31.18.64|ssh-status-255
+UNREACHABLE|weka65|172.31.18.65|ssh-status-255
+UNREACHABLE|weka66|172.31.18.66|ssh-status-255
+HOST|weka67|172.31.18.67|--validate
+RUNTIME|weka67|0000:33:00.0|mlx5_0|1|Ethernet|ens4047f0np0|1: DOWN
+RUNTIME|weka67|0000:33:00.1|mlx5_1|1|Ethernet|ens4047f1np1|1: DOWN
+PLAN|weka67|0000:33:00.0|no firmware change required
+PLAN|weka67|0000:33:00.1|no firmware change required
+VALIDATION|weka67|PASS|all discovered RDMA ports are Ethernet
+HOST|weka68|172.31.18.68|--validate
+RUNTIME|weka68|0000:33:00.0|mlx5_0|1|Ethernet|ens4047f0np0|1: DOWN
+RUNTIME|weka68|0000:33:00.1|mlx5_1|1|Ethernet|ens4047f1np1|1: DOWN
+PLAN|weka68|0000:33:00.0|no firmware change required
+PLAN|weka68|0000:33:00.1|no firmware change required
+VALIDATION|weka68|PASS|all discovered RDMA ports are Ethernet
+HOST|weka69|172.31.18.69|--validate
+RUNTIME|weka69|0000:33:00.0|mlx5_0|1|Ethernet|ens4047f0np0|1: DOWN
+RUNTIME|weka69|0000:33:00.1|mlx5_1|1|Ethernet|ens4047f1np1|1: DOWN
+PLAN|weka69|0000:33:00.0|no firmware change required
+PLAN|weka69|0000:33:00.1|no firmware change required
+VALIDATION|weka69|PASS|all discovered RDMA ports are Ethernet
+HOST|weka70|172.31.18.70|--validate
+RUNTIME|weka70|0000:33:00.0|mlx5_0|1|Ethernet|ens4047f0np0|1: DOWN
+RUNTIME|weka70|0000:33:00.1|mlx5_1|1|Ethernet|ens4047f1np1|1: DOWN
+PLAN|weka70|0000:33:00.0|no firmware change required
+PLAN|weka70|0000:33:00.1|no firmware change required
+VALIDATION|weka70|PASS|all discovered RDMA ports are Ethernet
+HOST|weka71|172.31.18.71|--validate
+RUNTIME|weka71|0000:33:00.0|mlx5_0|1|Ethernet|ens4047f0np0|1: DOWN
+RUNTIME|weka71|0000:33:00.1|mlx5_1|1|Ethernet|ens4047f1np1|1: DOWN
+PLAN|weka71|0000:33:00.0|no firmware change required
+PLAN|weka71|0000:33:00.1|no firmware change required
+VALIDATION|weka71|PASS|all discovered RDMA ports are Ethernet
+HOST|weka72|172.31.18.72|--validate
+RUNTIME|weka72|0000:33:00.0|mlx5_0|1|Ethernet|ens4047f0np0|1: DOWN
+RUNTIME|weka72|0000:33:00.1|mlx5_1|1|Ethernet|ens4047f1np1|1: DOWN
+PLAN|weka72|0000:33:00.0|no firmware change required
+PLAN|weka72|0000:33:00.1|no firmware change required
+VALIDATION|weka72|PASS|all discovered RDMA ports are Ethernet
+HOST|weka73|172.31.18.73|--validate
+RUNTIME|weka73|0000:33:00.0|mlx5_0|1|Ethernet|ens4047f0np0|1: DOWN
+RUNTIME|weka73|0000:33:00.1|mlx5_1|1|Ethernet|ens4047f1np1|1: DOWN
+PLAN|weka73|0000:33:00.0|no firmware change required
+PLAN|weka73|0000:33:00.1|no firmware change required
+VALIDATION|weka73|PASS|all discovered RDMA ports are Ethernet
+HOST|weka74|172.31.18.74|--validate
+RUNTIME|weka74|0000:33:00.0|mlx5_0|1|Ethernet|ens4047f0np0|1: DOWN
+RUNTIME|weka74|0000:33:00.1|mlx5_1|1|Ethernet|ens4047f1np1|1: DOWN
+PLAN|weka74|0000:33:00.0|no firmware change required
+PLAN|weka74|0000:33:00.1|no firmware change required
+VALIDATION|weka74|PASS|all discovered RDMA ports are Ethernet
+HOST|weka75|172.31.18.75|--validate
+RUNTIME|weka75|0000:33:00.0|mlx5_0|1|Ethernet|ens4047f0np0|1: DOWN
+RUNTIME|weka75|0000:33:00.1|mlx5_1|1|Ethernet|ens4047f1np1|1: DOWN
+PLAN|weka75|0000:33:00.0|no firmware change required
+PLAN|weka75|0000:33:00.1|no firmware change required
+VALIDATION|weka75|PASS|all discovered RDMA ports are Ethernet
+HOST|weka76|172.31.18.76|--validate
+RUNTIME|weka76|0000:33:00.0|mlx5_0|1|Ethernet|ens4047f0np0|1: DOWN
+RUNTIME|weka76|0000:33:00.1|mlx5_1|1|Ethernet|ens4047f1np1|1: DOWN
+PLAN|weka76|0000:33:00.0|no firmware change required
+PLAN|weka76|0000:33:00.1|no firmware change required
+VALIDATION|weka76|PASS|all discovered RDMA ports are Ethernet
+HOST|weka77|172.31.18.77|--validate
+RUNTIME|weka77|0000:33:00.0|mlx5_0|1|Ethernet|ens4047f0np0|1: DOWN
+RUNTIME|weka77|0000:33:00.1|mlx5_1|1|Ethernet|ens4047f1np1|1: DOWN
+PLAN|weka77|0000:33:00.0|no firmware change required
+PLAN|weka77|0000:33:00.1|no firmware change required
+VALIDATION|weka77|PASS|all discovered RDMA ports are Ethernet
+UNREACHABLE|weka78|172.31.18.78|ssh-status-255
+UNREACHABLE|weka79|172.31.18.79|ssh-status-255

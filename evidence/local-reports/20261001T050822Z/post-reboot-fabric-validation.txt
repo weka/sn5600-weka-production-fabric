@@ -1,0 +1,138 @@
+
+spine-01 (172.31.17.5): validate all
+[REDACTED sensitive line]
+leaf-01: 7/8 established
+leaf-02: 8/8 established
+leaf-03: 8/8 established
+leaf-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+DEGRADED: 1 selected pairs lack an established session:
+  swp1 -> leaf-01 swp33 (10.254.0.1)
+DEGRADED, no additional BGP losses versus saved baseline.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+
+spine-02 (172.31.17.18): validate all
+[REDACTED sensitive line]
+leaf-01: 6/8 established
+leaf-02: 8/8 established
+leaf-03: 8/8 established
+leaf-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+DEGRADED: 2 selected pairs lack an established session:
+  swp1 -> leaf-01 swp41 (10.254.0.17)
+  swp2 -> leaf-01 swp42 (10.254.0.19)
+STOP: validation failed:
+  swp2: previously established session is now missing
+
+spine-03 (172.31.17.20): validate all
+[REDACTED sensitive line]
+leaf-01: 6/8 established
+leaf-02: 8/8 established
+leaf-03: 8/8 established
+leaf-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+DEGRADED: 2 selected pairs lack an established session:
+  swp1 -> leaf-01 swp49 (10.254.0.33)
+  swp4 -> leaf-01 swp52 (10.254.0.39)
+DEGRADED, no additional BGP losses versus saved baseline.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+
+spine-04 (172.31.17.22): validate all
+[REDACTED sensitive line]
+leaf-01: 6/8 established
+leaf-02: 8/8 established
+leaf-03: 7/8 established
+leaf-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+DEGRADED: 3 selected pairs lack an established session:
+  swp2 -> leaf-01 swp58 (10.254.0.51)
+  swp5 -> leaf-01 swp61 (10.254.0.57)
+  swp24 -> leaf-03 swp64 (10.254.0.191)
+DEGRADED, no additional BGP losses versus saved baseline.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+
+leaf-01 (172.31.17.19): validate all
+[REDACTED sensitive line]
+spine-01: 7/8 established
+spine-02: 6/8 established
+spine-03: 6/8 established
+spine-04: 6/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+PASS 9000-byte IPv4 loopback probe to 10.255.0.101
+PASS 9000-byte IPv4 loopback probe to 10.255.0.102
+PASS 9000-byte IPv4 loopback probe to 10.255.0.103
+PASS 9000-byte IPv4 loopback probe to 10.255.0.104
+DEGRADED: 7 selected pairs lack an established session:
+  swp33 -> spine-01 swp1 (10.254.0.0)
+  swp41 -> spine-02 swp1 (10.254.0.16)
+  swp42 -> spine-02 swp2 (10.254.0.18)
+  swp49 -> spine-03 swp1 (10.254.0.32)
+  swp52 -> spine-03 swp4 (10.254.0.38)
+  swp58 -> spine-04 swp2 (10.254.0.50)
+  swp61 -> spine-04 swp5 (10.254.0.56)
+STOP: validation failed:
+  swp42: previously established session is now missing
+
+leaf-02 (172.31.17.21): validate all
+[REDACTED sensitive line]
+spine-01: 8/8 established
+spine-02: 8/8 established
+spine-03: 8/8 established
+spine-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+PASS 9000-byte IPv4 loopback probe to 10.255.0.101
+PASS 9000-byte IPv4 loopback probe to 10.255.0.102
+PASS 9000-byte IPv4 loopback probe to 10.255.0.103
+PASS 9000-byte IPv4 loopback probe to 10.255.0.104
+PASS: all selected sessions established at 800G; probes passed.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+
+leaf-03 (172.31.17.23): validate all
+[REDACTED sensitive line]
+spine-01: 8/8 established
+spine-02: 8/8 established
+spine-03: 8/8 established
+spine-04: 7/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+PASS 9000-byte IPv4 loopback probe to 10.255.0.101
+PASS 9000-byte IPv4 loopback probe to 10.255.0.102
+PASS 9000-byte IPv4 loopback probe to 10.255.0.103
+PASS 9000-byte IPv4 loopback probe to 10.255.0.104
+DEGRADED: 1 selected pairs lack an established session:
+  swp64 -> spine-04 swp24 (10.254.0.190)
+DEGRADED, no additional BGP losses versus saved baseline.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+
+leaf-04 (172.31.17.24): validate all
+[REDACTED sensitive line]
+spine-01: 8/8 established
+spine-02: 8/8 established
+spine-03: 8/8 established
+spine-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.101
+PASS 9000-byte IPv4 loopback probe to 10.255.0.102
+PASS 9000-byte IPv4 loopback probe to 10.255.0.103
+PASS 9000-byte IPv4 loopback probe to 10.255.0.104
+PASS: all selected sessions established at 800G; probes passed.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.

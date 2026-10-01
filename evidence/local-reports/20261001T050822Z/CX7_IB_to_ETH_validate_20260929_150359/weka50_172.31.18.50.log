@@ -1,0 +1,18 @@
+HOST|weka50|172.31.18.50|--validate
+SECTION|runtime-link-layer
+RUNTIME|weka50|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka50|0000:b4:00.0|mlx5_1|1|Ethernet|ens3919np0|1: DOWN
+SECTION|firmware-link-type
+FIRMWARE|weka50|0000:33:00.0|Device type:        ConnectX7           
+FIRMWARE|weka50|0000:33:00.0|Name:               MCX75310AAS-NEA_Ax  
+FIRMWARE|weka50|0000:33:00.0|Description:        NVIDIA ConnectX-7 HHHL Adapter card; 400GbE / NDR IB (default mode); Single-port OSFP; PCIe 5.0 x16; Crypto Disabled; Secure Boot Enabled;
+FIRMWARE|weka50|0000:33:00.0|Device:             0000:33:00.0        
+FIRMWARE|weka50|0000:33:00.0|        LINK_TYPE_P1                                ETH(2)              
+PLAN|weka50|0000:33:00.0|no firmware change required
+FIRMWARE|weka50|0000:b4:00.0|Device type:        ConnectX7           
+FIRMWARE|weka50|0000:b4:00.0|Name:               MCX75310AAS-NEA_Ax  
+FIRMWARE|weka50|0000:b4:00.0|Description:        NVIDIA ConnectX-7 HHHL Adapter card; 400GbE / NDR IB (default mode); Single-port OSFP; PCIe 5.0 x16; Crypto Disabled; Secure Boot Enabled;
+FIRMWARE|weka50|0000:b4:00.0|Device:             0000:b4:00.0        
+FIRMWARE|weka50|0000:b4:00.0|        LINK_TYPE_P1                                ETH(2)              
+PLAN|weka50|0000:b4:00.0|no firmware change required
+VALIDATION|weka50|PASS|all discovered RDMA ports are Ethernet

@@ -1,0 +1,34 @@
+HOST|weka54|172.31.18.54|--apply
+SECTION|runtime-link-layer
+RUNTIME|weka54|0000:33:00.0|mlx5_0|1|Ethernet|ens4047np0|1: DOWN
+RUNTIME|weka54|0000:b4:00.0|mlx5_1|1|InfiniBand|ibs3919|1: DOWN
+SECTION|firmware-link-type
+FIRMWARE|weka54|0000:33:00.0|Device type:        ConnectX7           
+FIRMWARE|weka54|0000:33:00.0|Name:               MCX75310AAS-NEA_Ax  
+FIRMWARE|weka54|0000:33:00.0|Description:        NVIDIA ConnectX-7 HHHL Adapter card; 400GbE / NDR IB (default mode); Single-port OSFP; PCIe 5.0 x16; Crypto Disabled; Secure Boot Enabled;
+FIRMWARE|weka54|0000:33:00.0|Device:             0000:33:00.0        
+FIRMWARE|weka54|0000:33:00.0|        LINK_TYPE_P1                                ETH(2)              
+PLAN|weka54|0000:33:00.0|no firmware change required
+FIRMWARE|weka54|0000:b4:00.0|Device type:        ConnectX7           
+FIRMWARE|weka54|0000:b4:00.0|Name:               MCX75310AAS-NEA_Ax  
+FIRMWARE|weka54|0000:b4:00.0|Description:        NVIDIA ConnectX-7 HHHL Adapter card; 400GbE / NDR IB (default mode); Single-port OSFP; PCIe 5.0 x16; Crypto Disabled; Secure Boot Enabled;
+FIRMWARE|weka54|0000:b4:00.0|Device:             0000:b4:00.0        
+FIRMWARE|weka54|0000:b4:00.0|        LINK_TYPE_P1                                IB(1)               
+PLAN|weka54|0000:b4:00.0|mlxconfig set LINK_TYPE_P1=2
+
+Device #1:
+----------
+
+Device type:        ConnectX7           
+Name:               MCX75310AAS-NEA_Ax  
+Description:        NVIDIA ConnectX-7 HHHL Adapter card; 400GbE / NDR IB (default mode); Single-port OSFP; PCIe 5.0 x16; Crypto Disabled; Secure Boot Enabled;
+Device:             0000:b4:00.0        
+
+Configurations:                                          Next Boot       New
+        LINK_TYPE_P1                                IB(1)                ETH(2)              
+
+ Apply new Configuration? (y/n) [n] : y
+Applying... Done!
+-I- Please reboot machine to load new configurations.
+APPLY|weka54|0000:b4:00.0|SUCCESS| LINK_TYPE_P1=2
+REBOOT|weka54|SCHEDULED|5 seconds

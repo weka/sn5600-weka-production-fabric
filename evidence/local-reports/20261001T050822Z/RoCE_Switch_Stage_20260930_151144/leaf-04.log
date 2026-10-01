@@ -1,0 +1,9 @@
+Welcome to NVIDIA Cumulus (R) Linux (R)
+Backup: /home/cumulus/sn5600-roce-manual-backup/leaf-04-before-roce-20261001T033029Z.yaml
+- [32mset[39m:
+    [32mqos[39m:
+      [32mroce[39m:
+        [32menable[39m: on
+        [32mmode[39m: lossless
+STAGED ONLY: nothing applied
+Connection to 172.31.17.24 closed.

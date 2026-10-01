@@ -1,0 +1,85 @@
+
+sudo -v || exit 1
+
+echo "============================================================"
+echo "Switch: $SCAN_NAME"
+echo "Rack: $SCAN_RACK"
+echo "Expected active 400G server links: $EXPECTED"
+echo "============================================================"
+
+echo
+echo "===== IDENTITY ====="
+hostname
+date
+ip -4 address show dev eth0
+nv show system
+
+echo
+echo "===== ALL INTERFACES ====="
+nv show interface
+
+echo
+echo "===== SERVER-FACING INTERFACES: swp1-32 ====="
+nv show interface |
+awk '
+NR <= 2 ||
+$1 ~ /^swp([1-9]|[12][0-9]|3[0-2])(s[0-9]+)?$/ {
+    print
+}'
+
+echo
+echo "===== SERVER-FACING TRANSCEIVERS ====="
+nv show platform transceiver |
+awk '
+NR <= 2 ||
+$1 ~ /^swp([1-9]|[12][0-9]|3[0-2])$/ {
+    print
+}'
+
+echo
+echo "===== LLDP NEIGHBORS ====="
+sudo lldpcli show neighbors || true
+
+echo
+echo "===== ACTIVE SERVER-LINK COUNT ====="
+ACTIVE="$(
+    nv show interface |
+    awk '
+    $1 ~ /^swp([1-9]|[12][0-9]|3[0-2])(s[0-9]+)?$/ &&
+    $2 == "up" &&
+    $3 == "up" {
+        print $1
+    }'
+)"
+
+ACTIVE_COUNT="$(
+    printf '%s\n' "$ACTIVE" |
+    sed '/^$/d' |
+    wc -l |
+    tr -d ' '
+)"
+
+echo "Expected: $EXPECTED"
+echo "Detected: $ACTIVE_COUNT"
+echoechoechoechoechoechoechoechoechoechoechCTIVE"
+
+echo
+echo
+choechoechoechoechoechoechoechoechoechCTIVE"
+ &&
+TIVE
+do
+    echo
+    echo "---------------- $PORT ----------------"
+    nv show interface "$PORT" link
+    sudo ethtool --show-fec "$PORT" || true
+done
+
+echo
+echo "=====echo "=====echo "=====echo "=====echo "==d --no-pager
+
+echo
+echo "===== NeUE CONFIG DIFF =echo "===== NeUE CONFIG DIFF =echo "== END OF $SCAN_NAME SCAN ====="
+[?2004hcumulus@leaf-01:mgmt:/var/home/cumulus$ 
+[?2004l[?2004hcumulus@leaf-01:mgmt:/var/home/cumulus$ sudo -v || exit 1
+[?2004l[REDACTED sensitive line]

@@ -1,0 +1,18 @@
+
+===== weka40 172.31.18.40 expected=4 =====
+Permission denied, please try again.
+HOST|weka40|172.31.18.40|expected=4
+[REDACTED sensitive line]
+bash: line 24: `                                                                          known)"'
+
+===== weka41 172.31.18.41 expected=4 =====
+HOST|weka41|172.31.18.41|expected=4
+[REDACTED sensitive line]
+bash: line 24: `                                                                          known)"'
+
+===== weka42 172.31.18.42 expected=4 =====
+HOST|weka42|172.31.18.42|expected=4
+[REDACTED sensitive line]
+bash: line 24: `                                                                          known)"'
+
+===== weka43 172.31.18.43 expected=4 =====

@@ -11,6 +11,14 @@ This is an evidence snapshot, not an automatic live status page.
 - Client link /31s, source policy routes, MTU 9000 and peer jumbo probes survived reboot on the validated hosts.
 - Four leaf client endpoint checks passed apart from weka44 link1, which was explicitly skipped as known down.
 
+## Repository completeness update — September 30, 2026, 22:00 PDT
+
+- Exact tested host RoCE scripts and six persistence files are uploaded (`1c95746`).
+- Sanitized configuration and operational snapshots from all nine switches are uploaded (`1a77fd2`).
+- Leaf-05 identity is confirmed: 172.31.17.3, hostname MT2324XZ0TB0; deferred and unchanged.
+- Configuration capture is not a new fabric health validation. The snapshots have redacted entries and cannot alone provide a complete restore.
+- Additional server snapshots and workstation reports are collected by the completion workflow. Check their manifests and summaries before declaring collection complete. Existing validated host counts and five curated directed benchmark results are unchanged until new evidence is reviewed.
+
 ## Reboot evidence
 
 Latest 27: weka40–43, weka45–47, weka49–58, weka63, weka65, weka70–77.

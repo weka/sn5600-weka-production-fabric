@@ -15,3 +15,18 @@
 
 Do not use deployment/reboot wrappers as daily health checks. They encode the
 maintenance selections used in this rollout. They are preserved for reproducibility.
+
+
+## Completion helpers
+
+| Script | Effect |
+|---|---|
+| collect_switch_configs.sh | Read-only switch capture; credential screening; Git push after successful collection |
+| sanitize_upload_switch_snapshots.sh | Sanitizes the specific dated switch snapshot; backs up originals outside Git; commits and pushes |
+| collect_server_snapshots.py | Read-only collection of 40 clients; sanitizes before saving; records unreachable hosts and unavailable commands |
+| import_local_reports.py | Imports available RoCE report text from Downloads; redacts matching sensitive lines; no tests or device changes |
+
+The first switch collector is retained as the method used originally. It accepts
+leaf-05's confirmed default hostname in this updated copy. It stops if candidate
+exports contain credential matches; use a reviewed sanitization step before
+publication. A successfully captured file is not a successful functional test.
