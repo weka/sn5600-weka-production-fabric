@@ -1,0 +1,249 @@
+nv set interface eth0 ip address 172.31.17.24/21
+nv set interface eth0 ip gateway 172.31.16.254
+nv set interface eth0 ip vrf mgmt
+nv set interface eth0 link mtu 1500
+nv set interface eth0 type eth
+nv set interface lo ip address 10.255.0.14/32
+nv set interface lo type loopback
+nv set interface swp1-2,9-10,17-18,25-26 ip address
+nv set interface swp1-2,9-10,17-18,25-26 link state down
+nv set interface swp1-8 link breakout 2x
+nv set interface swp1-10,17-18,25-26,33-64,swp1s0-1,swp2s0-1,swp3s0-1,swp4s0-1,swp5s0-1,swp6s0-1,swp7s0-1,swp8s0-1 type swp
+nv set interface swp1s0 ip address 10.200.45.2/31
+nv set interface swp1s0-1,swp2s0-1,swp3s0-1,swp4s0-1,swp5s0-1,swp6s0-1,swp7s0-1,swp8s0-1 link fec auto
+nv set interface swp1s0-1,swp2s0-1,swp33-64,swp3s0-1,swp4s0-1,swp5s0-1,swp6s0-1,swp7s0-1,swp8s0-1 ip ipv4 forward on
+nv set interface swp1s0-1,swp2s0-1,swp33-64,swp3s0-1,swp4s0-1,swp5s0-1,swp6s0-1,swp7s0-1,swp8s0-1 link mtu 9216
+nv set interface swp1s0-1,swp2s0-1,swp33-64,swp3s0-1,swp4s0-1,swp5s0-1,swp6s0-1,swp7s0-1,swp8s0-1 link state up
+nv set interface swp1s1 ip address 10.200.45.0/31
+nv set interface swp2s0 ip address 10.200.44.2/31
+nv set interface swp2s1 ip address 10.200.44.0/31
+nv set interface swp3s0 ip address 10.200.41.2/31
+nv set interface swp3s1 ip address 10.200.41.0/31
+nv set interface swp4s0 ip address 10.200.40.2/31
+nv set interface swp4s1 ip address 10.200.40.0/31
+nv set interface swp5s0 ip address 10.200.47.2/31
+nv set interface swp5s1 ip address 10.200.47.0/31
+nv set interface swp6s0 ip address 10.200.46.2/31
+nv set interface swp6s1 ip address 10.200.46.0/31
+nv set interface swp7s0 ip address 10.200.43.2/31
+nv set interface swp7s1 ip address 10.200.43.0/31
+nv set interface swp8s0 ip address 10.200.42.2/31
+nv set interface swp8s1 ip address 10.200.42.0/31
+nv set interface swp33 ip address 10.254.0.193/31
+nv set interface swp33-64 ip ipv6 enable on
+nv set interface swp33-64 ip ipv6 forward on
+nv set interface swp33-64 ip neighbor-discovery router-advertisement enable on
+nv set interface swp33-64 link auto-negotiate on
+nv set interface swp33-64 link speed auto
+nv set interface swp34 ip address 10.254.0.195/31
+nv set interface swp35 ip address 10.254.0.197/31
+nv set interface swp36 ip address 10.254.0.199/31
+nv set interface swp37 ip address 10.254.0.201/31
+nv set interface swp38 ip address 10.254.0.203/31
+nv set interface swp39 ip address 10.254.0.205/31
+nv set interface swp40 ip address 10.254.0.207/31
+nv set interface swp41 ip address 10.254.0.209/31
+nv set interface swp42 ip address 10.254.0.211/31
+nv set interface swp43 ip address 10.254.0.213/31
+nv set interface swp44 ip address 10.254.0.215/31
+nv set interface swp45 ip address 10.254.0.217/31
+nv set interface swp46 ip address 10.254.0.219/31
+nv set interface swp47 ip address 10.254.0.221/31
+nv set interface swp48 ip address 10.254.0.223/31
+nv set interface swp49 ip address 10.254.0.225/31
+nv set interface swp50 ip address 10.254.0.227/31
+nv set interface swp51 ip address 10.254.0.229/31
+nv set interface swp52 ip address 10.254.0.231/31
+nv set interface swp53 ip address 10.254.0.233/31
+nv set interface swp54 ip address 10.254.0.235/31
+nv set interface swp55 ip address 10.254.0.237/31
+nv set interface swp56 ip address 10.254.0.239/31
+nv set interface swp57 ip address 10.254.0.241/31
+nv set interface swp58 ip address 10.254.0.243/31
+nv set interface swp59 ip address 10.254.0.245/31
+nv set interface swp60 ip address 10.254.0.247/31
+nv set interface swp61 ip address 10.254.0.249/31
+nv set interface swp62 ip address 10.254.0.251/31
+nv set interface swp63 ip address 10.254.0.253/31
+nv set interface swp64 ip address 10.254.0.255/31
+nv set qos roce enable on
+nv set qos roce mode lossless
+nv set router bgp autonomous-system 65104
+nv set router bgp enable on
+nv set router bgp router-id 10.255.0.14
+nv set service ntp mgmt server 0.cumulusnetworks.pool.ntp.org
+nv set service ntp mgmt server 1.cumulusnetworks.pool.ntp.org
+nv set service ntp mgmt server 2.cumulusnetworks.pool.ntp.org
+nv set service ntp mgmt server 3.cumulusnetworks.pool.ntp.org
+nv set system aaa class nvapply action allow
+nv set system aaa class nvapply command-path / permission all
+nv set system aaa class nvshow action allow
+nv set system aaa class nvshow command-path / permission ro
+nv set system aaa class sudo action allow
+nv set system aaa class sudo command-path / permission all
+nv set system aaa role nvue-admin class nvapply
+nv set system aaa role nvue-monitor class nvshow
+nv set system aaa role system-admin class nvapply
+nv set system aaa role system-admin class sudo
+nv set system aaa user cumulus full-name cumulus,,,
+# REDACTED sensitive configuration entry
+nv set system aaa user cumulus role system-admin
+nv set system api state enabled
+nv set system config auto-save state enabled
+nv set system control-plane acl acl-default-dos inbound
+nv set system control-plane acl acl-default-whitelist inbound
+nv set system hostname leaf-04
+nv set system reboot mode cold
+nv set system ssh-server state enabled
+nv set system wjh channel forwarding trigger l2
+nv set system wjh channel forwarding trigger l3
+nv set system wjh channel forwarding trigger tunnel
+nv set system wjh enable on
+nv set vrf default router bgp address-family ipv4-unicast enable on
+nv set vrf default router bgp address-family ipv4-unicast multipaths ebgp 64
+nv set vrf default router bgp address-family ipv4-unicast network 10.200.40.0/31
+nv set vrf default router bgp address-family ipv4-unicast network 10.200.40.2/31
+nv set vrf default router bgp address-family ipv4-unicast network 10.200.41.0/31
+nv set vrf default router bgp address-family ipv4-unicast network 10.200.41.2/31
+nv set vrf default router bgp address-family ipv4-unicast network 10.200.42.0/31
+nv set vrf default router bgp address-family ipv4-unicast network 10.200.42.2/31
+nv set vrf default router bgp address-family ipv4-unicast network 10.200.43.0/31
+nv set vrf default router bgp address-family ipv4-unicast network 10.200.43.2/31
+nv set vrf default router bgp address-family ipv4-unicast network 10.200.44.0/31
+nv set vrf default router bgp address-family ipv4-unicast network 10.200.44.2/31
+nv set vrf default router bgp address-family ipv4-unicast network 10.200.45.0/31
+nv set vrf default router bgp address-family ipv4-unicast network 10.200.45.2/31
+nv set vrf default router bgp address-family ipv4-unicast network 10.200.46.0/31
+nv set vrf default router bgp address-family ipv4-unicast network 10.200.46.2/31
+nv set vrf default router bgp address-family ipv4-unicast network 10.200.47.0/31
+nv set vrf default router bgp address-family ipv4-unicast network 10.200.47.2/31
+nv set vrf default router bgp address-family ipv4-unicast network 10.255.0.14/32
+nv set vrf default router bgp enable on
+nv set vrf default router bgp neighbor 10.254.0.192 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.192 enable on
+nv set vrf default router bgp neighbor 10.254.0.192 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.192 type numbered
+nv set vrf default router bgp neighbor 10.254.0.194 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.194 enable on
+nv set vrf default router bgp neighbor 10.254.0.194 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.194 type numbered
+nv set vrf default router bgp neighbor 10.254.0.196 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.196 enable on
+nv set vrf default router bgp neighbor 10.254.0.196 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.196 type numbered
+nv set vrf default router bgp neighbor 10.254.0.198 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.198 enable on
+nv set vrf default router bgp neighbor 10.254.0.198 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.198 type numbered
+nv set vrf default router bgp neighbor 10.254.0.200 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.200 enable on
+nv set vrf default router bgp neighbor 10.254.0.200 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.200 type numbered
+nv set vrf default router bgp neighbor 10.254.0.202 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.202 enable on
+nv set vrf default router bgp neighbor 10.254.0.202 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.202 type numbered
+nv set vrf default router bgp neighbor 10.254.0.204 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.204 enable on
+nv set vrf default router bgp neighbor 10.254.0.204 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.204 type numbered
+nv set vrf default router bgp neighbor 10.254.0.206 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.206 enable on
+nv set vrf default router bgp neighbor 10.254.0.206 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.206 type numbered
+nv set vrf default router bgp neighbor 10.254.0.208 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.208 enable on
+nv set vrf default router bgp neighbor 10.254.0.208 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.208 type numbered
+nv set vrf default router bgp neighbor 10.254.0.210 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.210 enable on
+nv set vrf default router bgp neighbor 10.254.0.210 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.210 type numbered
+nv set vrf default router bgp neighbor 10.254.0.212 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.212 enable on
+nv set vrf default router bgp neighbor 10.254.0.212 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.212 type numbered
+nv set vrf default router bgp neighbor 10.254.0.214 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.214 enable on
+nv set vrf default router bgp neighbor 10.254.0.214 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.214 type numbered
+nv set vrf default router bgp neighbor 10.254.0.216 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.216 enable on
+nv set vrf default router bgp neighbor 10.254.0.216 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.216 type numbered
+nv set vrf default router bgp neighbor 10.254.0.218 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.218 enable on
+nv set vrf default router bgp neighbor 10.254.0.218 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.218 type numbered
+nv set vrf default router bgp neighbor 10.254.0.220 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.220 enable on
+nv set vrf default router bgp neighbor 10.254.0.220 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.220 type numbered
+nv set vrf default router bgp neighbor 10.254.0.222 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.222 enable on
+nv set vrf default router bgp neighbor 10.254.0.222 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.222 type numbered
+nv set vrf default router bgp neighbor 10.254.0.224 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.224 enable on
+nv set vrf default router bgp neighbor 10.254.0.224 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.224 type numbered
+nv set vrf default router bgp neighbor 10.254.0.226 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.226 enable on
+nv set vrf default router bgp neighbor 10.254.0.226 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.226 type numbered
+nv set vrf default router bgp neighbor 10.254.0.228 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.228 enable on
+nv set vrf default router bgp neighbor 10.254.0.228 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.228 type numbered
+nv set vrf default router bgp neighbor 10.254.0.230 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.230 enable on
+nv set vrf default router bgp neighbor 10.254.0.230 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.230 type numbered
+nv set vrf default router bgp neighbor 10.254.0.232 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.232 enable on
+nv set vrf default router bgp neighbor 10.254.0.232 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.232 type numbered
+nv set vrf default router bgp neighbor 10.254.0.234 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.234 enable on
+nv set vrf default router bgp neighbor 10.254.0.234 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.234 type numbered
+nv set vrf default router bgp neighbor 10.254.0.236 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.236 enable on
+nv set vrf default router bgp neighbor 10.254.0.236 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.236 type numbered
+nv set vrf default router bgp neighbor 10.254.0.238 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.238 enable on
+nv set vrf default router bgp neighbor 10.254.0.238 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.238 type numbered
+nv set vrf default router bgp neighbor 10.254.0.240 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.240 enable on
+nv set vrf default router bgp neighbor 10.254.0.240 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.240 type numbered
+nv set vrf default router bgp neighbor 10.254.0.242 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.242 enable on
+nv set vrf default router bgp neighbor 10.254.0.242 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.242 type numbered
+nv set vrf default router bgp neighbor 10.254.0.244 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.244 enable on
+nv set vrf default router bgp neighbor 10.254.0.244 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.244 type numbered
+nv set vrf default router bgp neighbor 10.254.0.246 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.246 enable on
+nv set vrf default router bgp neighbor 10.254.0.246 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.246 type numbered
+nv set vrf default router bgp neighbor 10.254.0.248 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.248 enable on
+nv set vrf default router bgp neighbor 10.254.0.248 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.248 type numbered
+nv set vrf default router bgp neighbor 10.254.0.250 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.250 enable on
+nv set vrf default router bgp neighbor 10.254.0.250 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.250 type numbered
+nv set vrf default router bgp neighbor 10.254.0.252 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.252 enable on
+nv set vrf default router bgp neighbor 10.254.0.252 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.252 type numbered
+nv set vrf default router bgp neighbor 10.254.0.254 address-family ipv4-unicast enable on
+nv set vrf default router bgp neighbor 10.254.0.254 enable on
+nv set vrf default router bgp neighbor 10.254.0.254 remote-as 65200
+nv set vrf default router bgp neighbor 10.254.0.254 type numbered

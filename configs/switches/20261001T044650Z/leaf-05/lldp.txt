@@ -1,0 +1,21 @@
+-------------------------------------------------------------------------------
+LLDP neighbors:
+-------------------------------------------------------------------------------
+Interface:    eth0, via: LLDP, RID: 4274, Time: 1 day, 05:47:32
+  Chassis:     
+    ChassisID:    mac 44:4c:a8:90:13:9b
+    SysName:      SW37
+    SysDescr:     Arista Networks EOS version 4.28.12M running on an Arista Networks DCS-7010T-48
+    MgmtIP:       172.31.17.11
+    MgmtIface:    2000010
+    Capability:   Bridge, on
+    Capability:   Router, off
+  Port:        
+    PortID:       ifname Ethernet9
+    TTL:          120
+    MFS:          9416
+  VLAN:         10, pvid: yes
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+-------------------------------------------------------------------------------

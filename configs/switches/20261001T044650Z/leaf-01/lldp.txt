@@ -1,0 +1,1305 @@
+-------------------------------------------------------------------------------
+LLDP neighbors:
+-------------------------------------------------------------------------------
+Interface:    eth0, via: LLDP, RID: 12, Time: 0 day, 06:19:19
+  Chassis:     
+    ChassisID:    mac 98:5d:82:4f:56:77
+    SysName:      SW34
+    SysDescr:     Arista Networks EOS version 4.28.12M running on an Arista Networks DCS-7010T-48
+    MgmtIP:       172.31.17.8
+    MgmtIface:    2000010
+    Capability:   Bridge, on
+    Capability:   Router, off
+  Port:        
+    PortID:       ifname Ethernet2
+    TTL:          120
+    MFS:          9416
+  VLAN:         10, pvid: yes
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+-------------------------------------------------------------------------------
+Interface:    swp34, via: LLDP, RID: 14, Time: 0 day, 06:19:32
+  Chassis:     
+    ChassisID:    mac c4:70:bd:b6:da:8e
+    SysName:      spine-01
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.104
+    MgmtIface:    1
+    MgmtIP:       fe80::c670:bdff:feb6:da8e
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp2
+    PortDescr:    swp2
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp35, via: LLDP, RID: 14, Time: 0 day, 06:19:41
+  Chassis:     
+    ChassisID:    mac c4:70:bd:b6:da:8e
+    SysName:      spine-01
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.104
+    MgmtIface:    1
+    MgmtIP:       fe80::c670:bdff:feb6:da8e
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp3
+    PortDescr:    swp3
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp36, via: LLDP, RID: 14, Time: 0 day, 06:19:33
+  Chassis:     
+    ChassisID:    mac c4:70:bd:b6:da:8e
+    SysName:      spine-01
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.104
+    MgmtIface:    1
+    MgmtIP:       fe80::c670:bdff:feb6:da8e
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp4
+    PortDescr:    swp4
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp37, via: LLDP, RID: 14, Time: 0 day, 06:19:21
+  Chassis:     
+    ChassisID:    mac c4:70:bd:b6:da:8e
+    SysName:      spine-01
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.104
+    MgmtIface:    1
+    MgmtIP:       fe80::c670:bdff:feb6:da8e
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp5
+    PortDescr:    swp5
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp38, via: LLDP, RID: 14, Time: 0 day, 06:19:41
+  Chassis:     
+    ChassisID:    mac c4:70:bd:b6:da:8e
+    SysName:      spine-01
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.104
+    MgmtIface:    1
+    MgmtIP:       fe80::c670:bdff:feb6:da8e
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp6
+    PortDescr:    swp6
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp39, via: LLDP, RID: 14, Time: 0 day, 03:15:31
+  Chassis:     
+    ChassisID:    mac c4:70:bd:b6:da:8e
+    SysName:      spine-01
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.104
+    MgmtIface:    1
+    MgmtIP:       fe80::c670:bdff:feb6:da8e
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp7
+    PortDescr:    swp7
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp40, via: LLDP, RID: 14, Time: 0 day, 06:19:29
+  Chassis:     
+    ChassisID:    mac c4:70:bd:b6:da:8e
+    SysName:      spine-01
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.104
+    MgmtIface:    1
+    MgmtIP:       fe80::c670:bdff:feb6:da8e
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp8
+    PortDescr:    swp8
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp42, via: LLDP, RID: 15, Time: 0 day, 00:10:07
+  Chassis:     
+    ChassisID:    mac c4:70:bd:f3:f8:64
+    SysName:      spine-02
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.101
+    MgmtIface:    1
+    MgmtIP:       fe80::c670:bdff:fef3:f864
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp2
+    PortDescr:    swp2
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp43, via: LLDP, RID: 15, Time: 0 day, 01:54:11
+  Chassis:     
+    ChassisID:    mac c4:70:bd:f3:f8:64
+    SysName:      spine-02
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.101
+    MgmtIface:    1
+    MgmtIP:       fe80::c670:bdff:fef3:f864
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp3
+    PortDescr:    swp3
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp45, via: LLDP, RID: 15, Time: 0 day, 06:19:41
+  Chassis:     
+    ChassisID:    mac c4:70:bd:f3:f8:64
+    SysName:      spine-02
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.101
+    MgmtIface:    1
+    MgmtIP:       fe80::c670:bdff:fef3:f864
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp5
+    PortDescr:    swp5
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp46, via: LLDP, RID: 15, Time: 0 day, 06:19:20
+  Chassis:     
+    ChassisID:    mac c4:70:bd:f3:f8:64
+    SysName:      spine-02
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.101
+    MgmtIface:    1
+    MgmtIP:       fe80::c670:bdff:fef3:f864
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp6
+    PortDescr:    swp6
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp47, via: LLDP, RID: 15, Time: 0 day, 02:03:35
+  Chassis:     
+    ChassisID:    mac c4:70:bd:f3:f8:64
+    SysName:      spine-02
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.101
+    MgmtIface:    1
+    MgmtIP:       fe80::c670:bdff:fef3:f864
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp7
+    PortDescr:    swp7
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp48, via: LLDP, RID: 15, Time: 0 day, 06:19:29
+  Chassis:     
+    ChassisID:    mac c4:70:bd:f3:f8:64
+    SysName:      spine-02
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.101
+    MgmtIface:    1
+    MgmtIP:       fe80::c670:bdff:fef3:f864
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp8
+    PortDescr:    swp8
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp50, via: LLDP, RID: 13, Time: 0 day, 00:53:54
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:82
+    SysName:      spine-03
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.102
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a382
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp2
+    PortDescr:    swp2
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp51, via: LLDP, RID: 13, Time: 0 day, 03:50:53
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:82
+    SysName:      spine-03
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.102
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a382
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp3
+    PortDescr:    swp3
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp53, via: LLDP, RID: 13, Time: 0 day, 06:19:20
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:82
+    SysName:      spine-03
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.102
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a382
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp5
+    PortDescr:    swp5
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp54, via: LLDP, RID: 13, Time: 0 day, 00:08:09
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:82
+    SysName:      spine-03
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.102
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a382
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp6
+    PortDescr:    swp6
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp55, via: LLDP, RID: 13, Time: 0 day, 05:41:06
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:82
+    SysName:      spine-03
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.102
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a382
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp7
+    PortDescr:    swp7
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp56, via: LLDP, RID: 13, Time: 0 day, 06:19:29
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:82
+    SysName:      spine-03
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.102
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a382
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp8
+    PortDescr:    swp8
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp57, via: LLDP, RID: 16, Time: 0 day, 06:19:29
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:2a
+    SysName:      spine-04
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.103
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a42a
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp1
+    PortDescr:    swp1
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp59, via: LLDP, RID: 16, Time: 0 day, 00:33:07
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:2a
+    SysName:      spine-04
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.103
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a42a
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp3
+    PortDescr:    swp3
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp60, via: LLDP, RID: 16, Time: 0 day, 06:19:32
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:2a
+    SysName:      spine-04
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.103
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a42a
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp4
+    PortDescr:    swp4
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp62, via: LLDP, RID: 16, Time: 0 day, 06:19:32
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:2a
+    SysName:      spine-04
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.103
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a42a
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp6
+    PortDescr:    swp6
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp63, via: LLDP, RID: 16, Time: 0 day, 06:19:32
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:2a
+    SysName:      spine-04
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.103
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a42a
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp7
+    PortDescr:    swp7
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp64, via: LLDP, RID: 16, Time: 0 day, 06:19:32
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:2a
+    SysName:      spine-04
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.103
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a42a
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp8
+    PortDescr:    swp8
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp1s0, via: LLDP, RID: 2, Time: 0 day, 06:19:49
+  Chassis:     
+    ChassisID:    mac a0:88:c2:d5:66:62
+    SysName:      weka79
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-101-generic #101-Ubuntu SMP PREEMPT_DYNAMIC Mon Feb  9 10:15:05 UTC 2026 x86_64
+    MgmtIP:       10.200.100.79
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0e:15da
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:d5:66:62
+    PortDescr:    ens4047f0np0
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp1s1, via: LLDP, RID: 2, Time: 0 day, 06:19:49
+  Chassis:     
+    ChassisID:    mac a0:88:c2:d5:66:62
+    SysName:      weka79
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-101-generic #101-Ubuntu SMP PREEMPT_DYNAMIC Mon Feb  9 10:15:05 UTC 2026 x86_64
+    MgmtIP:       10.200.100.79
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0e:15da
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:d5:66:63
+    PortDescr:    ens4047f1np1
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp1s2, via: LLDP, RID: 31, Time: 0 day, 05:41:30
+  Chassis:     
+    ChassisID:    mac a0:88:c2:d5:64:42
+    SysName:      weka77.maas
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       10.200.77.1
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0e:160e
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:d5:64:42
+    PortDescr:    ens4047f0np0
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp1s3, via: LLDP, RID: 31, Time: 0 day, 05:41:30
+  Chassis:     
+    ChassisID:    mac a0:88:c2:d5:64:42
+    SysName:      weka77.maas
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       10.200.77.1
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0e:160e
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:d5:64:43
+    PortDescr:    ens4047f1np1
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp2s2, via: LLDP, RID: 32, Time: 0 day, 05:41:22
+  Chassis:     
+    ChassisID:    mac a0:88:c2:d5:66:92
+    SysName:      weka76.maas
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       10.200.76.1
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0e:14ec
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:d5:66:92
+    PortDescr:    ens4047f0np0
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp2s3, via: LLDP, RID: 32, Time: 0 day, 05:41:22
+  Chassis:     
+    ChassisID:    mac a0:88:c2:d5:66:92
+    SysName:      weka76.maas
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       10.200.76.1
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0e:14ec
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:d5:66:93
+    PortDescr:    ens4047f1np1
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp3s0, via: LLDP, RID: 29, Time: 0 day, 05:47:36
+  Chassis:     
+    ChassisID:    mac a0:88:c2:d5:64:12
+    SysName:      weka75.maas
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       10.200.75.1
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0d:9c92
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:d5:64:12
+    PortDescr:    ens4047f0np0
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp3s1, via: LLDP, RID: 29, Time: 0 day, 05:47:36
+  Chassis:     
+    ChassisID:    mac a0:88:c2:d5:64:12
+    SysName:      weka75.maas
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       10.200.75.1
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0d:9c92
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:d5:64:13
+    PortDescr:    ens4047f1np1
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp3s2, via: LLDP, RID: 28, Time: 0 day, 05:47:47
+  Chassis:     
+    ChassisID:    mac a0:88:c2:d5:73:82
+    SysName:      weka73.maas
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       10.200.73.1
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0e:15dc
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:d5:73:82
+    PortDescr:    ens4047f0np0
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp3s3, via: LLDP, RID: 28, Time: 0 day, 05:47:47
+  Chassis:     
+    ChassisID:    mac a0:88:c2:d5:73:82
+    SysName:      weka73.maas
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       10.200.73.1
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0e:15dc
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:d5:73:83
+    PortDescr:    ens4047f1np1
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp4s0, via: LLDP, RID: 30, Time: 0 day, 05:47:34
+  Chassis:     
+    ChassisID:    mac a0:88:c2:d5:64:02
+    SysName:      weka72.maas
+    SysDescr:     Ubuntu 24.04.4 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       10.200.72.1
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0e:15de
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:d5:64:02
+    PortDescr:    ens4047f0np0
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp4s1, via: LLDP, RID: 30, Time: 0 day, 05:47:34
+  Chassis:     
+    ChassisID:    mac a0:88:c2:d5:64:02
+    SysName:      weka72.maas
+    SysDescr:     Ubuntu 24.04.4 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       10.200.72.1
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0e:15de
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:d5:64:03
+    PortDescr:    ens4047f1np1
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp4s2, via: LLDP, RID: 26, Time: 0 day, 05:48:08
+  Chassis:     
+    ChassisID:    mac a0:88:c2:34:b9:36
+    SysName:      weka74.maas
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       10.200.74.1
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0e:1614
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:34:b9:36
+    PortDescr:    ens4047f0np0
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp4s3, via: LLDP, RID: 26, Time: 0 day, 05:48:08
+  Chassis:     
+    ChassisID:    mac a0:88:c2:34:b9:36
+    SysName:      weka74.maas
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       10.200.74.1
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0e:1614
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:34:b9:37
+    PortDescr:    ens4047f1np1
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp5s0, via: LLDP, RID: 25, Time: 0 day, 05:48:17
+  Chassis:     
+    ChassisID:    mac a0:88:c2:d5:66:72
+    SysName:      weka71.maas
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       10.200.71.1
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0d:9a64
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:d5:66:72
+    PortDescr:    ens4047f0np0
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp5s1, via: LLDP, RID: 25, Time: 0 day, 05:48:17
+  Chassis:     
+    ChassisID:    mac a0:88:c2:d5:66:72
+    SysName:      weka71.maas
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       10.200.71.1
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0d:9a64
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:d5:66:73
+    PortDescr:    ens4047f1np1
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp5s2, via: LLDP, RID: 11, Time: 0 day, 06:19:49
+  Chassis:     
+    ChassisID:    mac a0:88:c2:ad:00:b8
+    SysName:      weka69.maas
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       172.31.18.69
+    MgmtIface:    3
+    MgmtIP:       fe80::925a:8ff:fe0d:9ae2
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:ad:00:b8
+    PortDescr:    ens4047f0np0
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp5s3, via: LLDP, RID: 11, Time: 0 day, 06:19:49
+  Chassis:     
+    ChassisID:    mac a0:88:c2:ad:00:b8
+    SysName:      weka69.maas
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       172.31.18.69
+    MgmtIface:    3
+    MgmtIP:       fe80::925a:8ff:fe0d:9ae2
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:ad:00:b9
+    PortDescr:    ens4047f1np1
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp6s0, via: LLDP, RID: 27, Time: 0 day, 05:47:56
+  Chassis:     
+    ChassisID:    mac a0:88:c2:d5:64:22
+    SysName:      weka70.maas
+    SysDescr:     Ubuntu 24.04.4 LTS Linux 6.8.0-111-generic #111-Ubuntu SMP PREEMPT_DYNAMIC Sat Apr 11 23:16:02 UTC 2026 x86_64
+    MgmtIP:       10.200.70.1
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0d:9a98
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:d5:64:22
+    PortDescr:    ens4047f0np0
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp6s1, via: LLDP, RID: 27, Time: 0 day, 05:47:56
+  Chassis:     
+    ChassisID:    mac a0:88:c2:d5:64:22
+    SysName:      weka70.maas
+    SysDescr:     Ubuntu 24.04.4 LTS Linux 6.8.0-111-generic #111-Ubuntu SMP PREEMPT_DYNAMIC Sat Apr 11 23:16:02 UTC 2026 x86_64
+    MgmtIP:       10.200.70.1
+    MgmtIface:    2
+    MgmtIP:       fe80::925a:8ff:fe0d:9a98
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:d5:64:23
+    PortDescr:    ens4047f1np1
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp6s2, via: LLDP, RID: 10, Time: 0 day, 06:19:49
+  Chassis:     
+    ChassisID:    mac a0:88:c2:a8:5b:40
+    SysName:      weka68.maas
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       172.31.18.68
+    MgmtIface:    3
+    MgmtIP:       fe80::925a:8ff:fe0d:9a7c
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:a8:5b:40
+    PortDescr:    ens4047f0np0
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------
+Interface:    swp6s3, via: LLDP, RID: 10, Time: 0 day, 06:19:49
+  Chassis:     
+    ChassisID:    mac a0:88:c2:a8:5b:40
+    SysName:      weka68.maas
+    SysDescr:     Ubuntu 24.04.3 LTS Linux 6.8.0-85-generic #85-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 18 15:26:59 UTC 2025 x86_64
+    MgmtIP:       172.31.18.68
+    MgmtIface:    3
+    MgmtIP:       fe80::925a:8ff:fe0d:9a7c
+    MgmtIface:    3
+    Capability:   Bridge, off
+    Capability:   Router, off
+    Capability:   Wlan, off
+    Capability:   Station, on
+  Port:        
+    PortID:       mac a0:88:c2:a8:5b:41
+    PortDescr:    ens4047f1np1
+    TTL:          120
+    PMD autoneg:  supported: yes, enabled: yes
+      Adv:          1000Base-X, HD: no, FD: yes
+      Adv:          1000Base-T, HD: no, FD: yes
+      MAU oper type: unknown
+-------------------------------------------------------------------------------

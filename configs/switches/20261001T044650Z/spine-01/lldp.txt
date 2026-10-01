@@ -1,0 +1,1013 @@
+-------------------------------------------------------------------------------
+LLDP neighbors:
+-------------------------------------------------------------------------------
+Interface:    eth0, via: LLDP, RID: 1, Time: 0 day, 06:28:36
+  Chassis:     
+    ChassisID:    mac 98:5d:82:90:5e:8f
+    SysName:      SW38
+    SysDescr:     Arista Networks EOS version 4.28.12M running on an Arista Networks DCS-7010T-48
+    MgmtIP:       172.31.17.12
+    MgmtIface:    2000010
+    Capability:   Bridge, on
+    Capability:   Router, off
+  Port:        
+    PortID:       ifname Ethernet1
+    TTL:          120
+    MFS:          9416
+  VLAN:         10, pvid: yes
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+-------------------------------------------------------------------------------
+Interface:    swp2, via: LLDP, RID: 2, Time: 0 day, 06:19:14
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:4a
+    SysName:      leaf-01
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.11
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a34a
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp34
+    PortDescr:    swp34
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp3, via: LLDP, RID: 2, Time: 0 day, 06:19:14
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:4a
+    SysName:      leaf-01
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.11
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a34a
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp35
+    PortDescr:    swp35
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp4, via: LLDP, RID: 2, Time: 0 day, 06:19:14
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:4a
+    SysName:      leaf-01
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.11
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a34a
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp36
+    PortDescr:    swp36
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp5, via: LLDP, RID: 2, Time: 0 day, 06:19:14
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:4a
+    SysName:      leaf-01
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.11
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a34a
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp37
+    PortDescr:    swp37
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp6, via: LLDP, RID: 2, Time: 0 day, 06:19:14
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:4a
+    SysName:      leaf-01
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.11
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a34a
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp38
+    PortDescr:    swp38
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp7, via: LLDP, RID: 2, Time: 0 day, 03:14:56
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:4a
+    SysName:      leaf-01
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.11
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a34a
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp39
+    PortDescr:    swp39
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp8, via: LLDP, RID: 2, Time: 0 day, 06:19:14
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:4a
+    SysName:      leaf-01
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.11
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a34a
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp40
+    PortDescr:    swp40
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp9, via: LLDP, RID: 4, Time: 0 day, 06:28:46
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:ba
+    SysName:      leaf-02
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.12
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a3ba
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp33
+    PortDescr:    swp33
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp10, via: LLDP, RID: 4, Time: 0 day, 06:28:48
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:ba
+    SysName:      leaf-02
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.12
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a3ba
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp34
+    PortDescr:    swp34
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp11, via: LLDP, RID: 4, Time: 0 day, 06:28:38
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:ba
+    SysName:      leaf-02
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.12
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a3ba
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp35
+    PortDescr:    swp35
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp12, via: LLDP, RID: 4, Time: 0 day, 06:28:48
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:ba
+    SysName:      leaf-02
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.12
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a3ba
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp36
+    PortDescr:    swp36
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp13, via: LLDP, RID: 4, Time: 0 day, 06:28:38
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:ba
+    SysName:      leaf-02
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.12
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a3ba
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp37
+    PortDescr:    swp37
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp14, via: LLDP, RID: 4, Time: 0 day, 06:28:48
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:ba
+    SysName:      leaf-02
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.12
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a3ba
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp38
+    PortDescr:    swp38
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp15, via: LLDP, RID: 4, Time: 0 day, 06:28:48
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:ba
+    SysName:      leaf-02
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.12
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a3ba
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp39
+    PortDescr:    swp39
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp16, via: LLDP, RID: 4, Time: 0 day, 06:28:48
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a3:ba
+    SysName:      leaf-02
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.12
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a3ba
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp40
+    PortDescr:    swp40
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp17, via: LLDP, RID: 3, Time: 0 day, 06:18:21
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:72
+    SysName:      leaf-03
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.13
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a472
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp33
+    PortDescr:    swp33
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp18, via: LLDP, RID: 3, Time: 0 day, 06:18:21
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:72
+    SysName:      leaf-03
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.13
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a472
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp34
+    PortDescr:    swp34
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp19, via: LLDP, RID: 3, Time: 0 day, 06:18:21
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:72
+    SysName:      leaf-03
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.13
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a472
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp35
+    PortDescr:    swp35
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp20, via: LLDP, RID: 3, Time: 0 day, 06:18:21
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:72
+    SysName:      leaf-03
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.13
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a472
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp36
+    PortDescr:    swp36
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp21, via: LLDP, RID: 3, Time: 0 day, 06:18:21
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:72
+    SysName:      leaf-03
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.13
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a472
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp37
+    PortDescr:    swp37
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp22, via: LLDP, RID: 3, Time: 0 day, 06:18:21
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:72
+    SysName:      leaf-03
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.13
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a472
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp38
+    PortDescr:    swp38
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp23, via: LLDP, RID: 3, Time: 0 day, 06:18:21
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:72
+    SysName:      leaf-03
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.13
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a472
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp39
+    PortDescr:    swp39
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp24, via: LLDP, RID: 3, Time: 0 day, 06:18:21
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:72
+    SysName:      leaf-03
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.13
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a472
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp40
+    PortDescr:    swp40
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp25, via: LLDP, RID: 5, Time: 0 day, 06:17:42
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:22
+    SysName:      leaf-04
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.14
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a422
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp33
+    PortDescr:    swp33
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp26, via: LLDP, RID: 5, Time: 0 day, 06:17:42
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:22
+    SysName:      leaf-04
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.14
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a422
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp34
+    PortDescr:    swp34
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp27, via: LLDP, RID: 5, Time: 0 day, 06:17:42
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:22
+    SysName:      leaf-04
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.14
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a422
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp35
+    PortDescr:    swp35
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp28, via: LLDP, RID: 5, Time: 0 day, 06:17:42
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:22
+    SysName:      leaf-04
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.14
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a422
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp36
+    PortDescr:    swp36
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp29, via: LLDP, RID: 5, Time: 0 day, 06:17:42
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:22
+    SysName:      leaf-04
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.14
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a422
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp37
+    PortDescr:    swp37
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp30, via: LLDP, RID: 5, Time: 0 day, 06:17:42
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:22
+    SysName:      leaf-04
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.14
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a422
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp38
+    PortDescr:    swp38
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp31, via: LLDP, RID: 5, Time: 0 day, 06:17:42
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:22
+    SysName:      leaf-04
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.14
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a422
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp39
+    PortDescr:    swp39
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------
+Interface:    swp32, via: LLDP, RID: 5, Time: 0 day, 06:17:42
+  Chassis:     
+    ChassisID:    mac d8:94:24:3b:a4:22
+    SysName:      leaf-04
+    SysDescr:     Cumulus Linux version 5.11.5 running on Nvidia SN5600
+    MgmtIP:       10.255.0.14
+    MgmtIface:    1
+    MgmtIP:       fe80::da94:24ff:fe3b:a422
+    MgmtIface:    2
+    Capability:   Bridge, off
+    Capability:   Router, on
+  Port:        
+    PortID:       ifname swp40
+    PortDescr:    swp40
+    TTL:          120
+    MFS:          9216
+    PMD autoneg:  supported: yes, enabled: yes
+      MAU oper type: unknown
+  LLDP-MED:    
+    Device Type:  Network Connectivity Device
+    Capability:   Capabilities, yes
+    Capability:   Policy, yes
+    Capability:   Location, yes
+    Capability:   MDI/PSE, yes
+    Capability:   MDI/PD, yes
+    Capability:   Inventory, yes
+  Unknown TLVs:
+    TLV:          OUI: 00,80,C2, SubType: 11, Len: 2 08,08
+    TLV:          OUI: 00,80,C2, SubType: 9, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 10, Len: 21 00,00,03,00,60,32,00,00,32,00,00,00,00,02,02,02,02,02,02,00,02
+    TLV:          OUI: 00,80,C2, SubType: 12, Len: 4 00,63,12,B7
+-------------------------------------------------------------------------------

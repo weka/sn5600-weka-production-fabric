@@ -1,0 +1,25 @@
+nv set bridge domain br_default type vlan-aware
+nv set bridge domain br_default vlan 1
+nv set interface eth0 ip address 172.31.17.3/21
+nv set interface eth0 ip gateway 172.31.16.254
+nv set interface eth0 type eth
+nv set interface swp1-8,10-16,21-25,55-64,swp10s0-3,swp11s0-3,swp12s0-3,swp13s0-3,swp14s0-3,swp15s0-3,swp16s0-3,swp17s0-3,swp19s0-1,swp1s0-1,swp20s0-1,swp21s0-1,swp22s0-1,swp23s0-1,swp24s0-1,swp25s0-1,swp2s0-1,swp3s0-1,swp4s0-1,swp55s0-1,swp56s0-1,swp57s0-1,swp58s0-1,swp59s0-1,swp5s0-1,swp60s0-1,swp61s0-1,swp62s0-1,swp63s0-1,swp64s0-1,swp6s0-1,swp7s0-1,swp8s0-1,swp9s0-3 link state up
+nv set interface swp1-8,19-48,55-64 link breakout 2x
+nv set interface swp1-17,19-48,55-64,swp10s0-3,swp11s0-3,swp12s0-3,swp13s0-3,swp14s0-3,swp15s0-3,swp16s0-3,swp17s0-3,swp19s0-1,swp1s0-1,swp20s0-1,swp21s0-1,swp22s0-1,swp23s0-1,swp24s0-1,swp25s0-1,swp26s0-1,swp27s0-1,swp28s0-1,swp29s0-1,swp2s0-1,swp30s0-1,swp31s0-1,swp32s0-1,swp33s0-1,swp34s0-1,swp35s0-1,swp36s0-1,swp37s0-1,swp38s0-1,swp39s0-1,swp3s0-1,swp40s0-1,swp41s0-1,swp42s0-1,swp43s0-1,swp44s0-1,swp45s0-1,swp46s0-1,swp47s0-1,swp48s0-1,swp4s0-1,swp55s0-1,swp56s0-1,swp57s0-1,swp58s0-1,swp59s0-1,swp5s0-1,swp60s0-1,swp61s0-1,swp62s0-1,swp63s0-1,swp64s0-1,swp6s0-1,swp7s0-1,swp8s0-1,swp9s0-3 type swp
+nv set interface swp9-17 link breakout 4x lanes-per-port 2
+nv set interface swp10s0-3,swp11s0-3,swp12s0-3,swp13s0-3,swp14s0-3,swp15s0-3,swp16s0,3,swp17s0-3,swp19s0-1,swp1s0-1,swp20s0-1,swp21s0-1,swp22s0-1,swp23s0-1,swp24s0-1,swp25s0-1,swp2s0-1,swp3s0-1,swp4s0-1,swp55s0-1,swp56s0-1,swp57s0-1,swp58s0-1,swp59s0-1,swp5s0-1,swp60s0-1,swp61s0-1,swp62s0-1,swp63s0-1,swp64s0-1,swp6s0-1,swp7s0-1,swp8s0-1 bridge domain br_default untagged 1
+nv set interface swp10s0-3,swp11s0-3,swp12s0-3,swp13s0-3,swp14s0-3,swp15s0-3,swp16s0-3,swp17s0-3,swp19s0-1,swp1s0-1,swp20s0-1,swp21s0-1,swp22s0-1,swp23s0-1,swp24s0-1,swp25s0-1,swp2s0-1,swp3s0-1,swp4s0-1,swp55s0-1,swp56s0-1,swp57s0-1,swp58s0-1,swp59s0-1,swp5s0-1,swp60s0-1,swp61s0-1,swp62s0-1,swp63s0-1,swp64s0-1,swp6s0-1,swp7s0-1,swp8s0-1 link mtu 9216
+nv set interface swp16s1-2,swp26s0-1,swp27s0-1,swp28s0-1,swp29s0-1,swp30s0-1,swp31s0-1,swp32s0-1,swp33s0-1,swp34s0-1,swp35s0-1,swp36s0-1,swp37s0-1,swp38s0-1,swp39s0-1,swp40s0-1,swp41s0-1,swp42s0-1,swp43s0-1,swp44s0-1,swp45s0-1,swp46s0-1,swp47s0-1,swp48s0-1,swp9s0-3 bridge domain br_default
+nv set interface swp43s0-1,swp44s0-1,swp47s0-1,swp48s0-1 link fec rs
+nv set qos congestion-control default-global traffic-class 3 red disable
+nv set qos mapping default-global trust l3
+nv set qos roce enable on
+nv set service dns mgmt server 8.8.4.4
+nv set service dns mgmt server 8.8.8.8
+nv set service lldp
+nv set service ntp mgmt server 0.cumulusnetworks.pool.ntp.org iburst on
+nv set service ntp mgmt server 1.cumulusnetworks.pool.ntp.org iburst on
+nv set service ntp mgmt server 2.cumulusnetworks.pool.ntp.org iburst on
+nv set service ntp mgmt server 3.cumulusnetworks.pool.ntp.org iburst on
+nv set system hostname MT2324XZ0TB0
+nv set system timezone US/Pacific

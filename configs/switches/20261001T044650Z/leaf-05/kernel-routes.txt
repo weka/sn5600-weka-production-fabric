@@ -1,0 +1,14 @@
+default via 172.31.16.254 dev eth0 table mgmt proto kernel 
+unreachable default table mgmt metric 4278198272 
+broadcast 127.0.0.0 dev mgmt table mgmt proto kernel scope link src 127.0.0.1 
+127.0.0.0/8 dev mgmt table mgmt proto kernel scope link src 127.0.0.1 
+local 127.0.0.1 dev mgmt table mgmt proto kernel scope host src 127.0.0.1 
+broadcast 127.255.255.255 dev mgmt table mgmt proto kernel scope link src 127.0.0.1 
+broadcast 172.31.16.0 dev eth0 table mgmt proto kernel scope link src 172.31.17.3 
+172.31.16.0/21 dev eth0 table mgmt proto kernel scope link src 172.31.17.3 
+local 172.31.17.3 dev eth0 table mgmt proto kernel scope host src 172.31.17.3 
+broadcast 172.31.23.255 dev eth0 table mgmt proto kernel scope link src 172.31.17.3 
+broadcast 127.0.0.0 dev lo table local proto kernel scope link src 127.0.0.1 
+local 127.0.0.0/8 dev lo table local proto kernel scope host src 127.0.0.1 
+local 127.0.0.1 dev lo table local proto kernel scope host src 127.0.0.1 
+broadcast 127.255.255.255 dev lo table local proto kernel scope link src 127.0.0.1 

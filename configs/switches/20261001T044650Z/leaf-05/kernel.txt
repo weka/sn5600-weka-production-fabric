@@ -1,0 +1,1 @@
+Linux MT2324XZ0TB0 5.10.0-cl-1-amd64 #1 SMP Debian 5.10.189-1+cl5.8.0u16 (2024-01-27) x86_64 GNU/Linux

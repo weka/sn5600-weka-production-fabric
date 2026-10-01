@@ -1,0 +1,1502 @@
+- header:
+    model: SN5600
+    nvue-api-version: nvue_v1
+    rev-id: 1.0
+    version: Cumulus Linux 5.8.0
+- set:
+    bridge:
+      domain:
+        br_default:
+          type: vlan-aware
+          vlan:
+            '1': {}
+    interface:
+      eth0:
+        ip:
+          address:
+            172.31.17.3/21: {}
+          gateway:
+            172.31.16.254: {}
+        type: eth
+      swp1:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp1s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp1s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp2:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp2s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp2s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp3:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp3s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp3s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp4:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp4s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp4s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp5:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp5s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp5s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp6:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp6s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp6s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp7:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp7s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp7s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp8:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp8s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp8s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp9:
+        link:
+          breakout:
+            4x:
+              lanes-per-port: '2'
+        type: swp
+      swp9s0:
+        bridge:
+          domain:
+            br_default: {}
+        link:
+          state:
+            up: {}
+        type: swp
+      swp9s1:
+        bridge:
+          domain:
+            br_default: {}
+        link:
+          state:
+            up: {}
+        type: swp
+      swp9s2:
+        bridge:
+          domain:
+            br_default: {}
+        link:
+          state:
+            up: {}
+        type: swp
+      swp9s3:
+        bridge:
+          domain:
+            br_default: {}
+        link:
+          state:
+            up: {}
+        type: swp
+      swp10:
+        link:
+          breakout:
+            4x:
+              lanes-per-port: '2'
+          state:
+            up: {}
+        type: swp
+      swp10s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp10s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp10s2:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp10s3:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp11:
+        link:
+          breakout:
+            4x:
+              lanes-per-port: '2'
+          state:
+            up: {}
+        type: swp
+      swp11s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp11s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp11s2:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp11s3:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp12:
+        link:
+          breakout:
+            4x:
+              lanes-per-port: '2'
+          state:
+            up: {}
+        type: swp
+      swp12s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp12s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp12s2:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp12s3:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp13:
+        link:
+          breakout:
+            4x:
+              lanes-per-port: '2'
+          state:
+            up: {}
+        type: swp
+      swp13s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp13s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp13s2:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp13s3:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp14:
+        link:
+          breakout:
+            4x:
+              lanes-per-port: '2'
+          state:
+            up: {}
+        type: swp
+      swp14s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp14s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp14s2:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp14s3:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp15:
+        link:
+          breakout:
+            4x:
+              lanes-per-port: '2'
+          state:
+            up: {}
+        type: swp
+      swp15s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp15s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp15s2:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp15s3:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp16:
+        link:
+          breakout:
+            4x:
+              lanes-per-port: '2'
+          state:
+            up: {}
+        type: swp
+      swp16s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp16s1:
+        bridge:
+          domain:
+            br_default: {}
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp16s2:
+        bridge:
+          domain:
+            br_default: {}
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp16s3:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp17:
+        link:
+          breakout:
+            4x:
+              lanes-per-port: '2'
+        type: swp
+      swp17s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp17s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp17s2:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp17s3:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp19:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp19s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp19s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp20:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp20s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp20s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp21:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp21s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp21s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp22:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp22s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp22s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp23:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp23s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp23s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp24:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp24s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp24s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp25:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp25s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp25s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp26:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp26s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp26s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp27:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp27s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp27s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp28:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp28s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp28s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp29:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp29s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp29s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp30:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp30s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp30s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp31:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp31s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp31s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp32:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp32s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp32s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp33:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp33s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp33s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp34:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp34s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp34s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp35:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp35s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp35s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp36:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp36s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp36s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp37:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp37s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp37s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp38:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp38s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp38s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp39:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp39s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp39s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp40:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp40s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp40s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp41:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp41s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp41s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp42:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp42s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp42s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp43:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp43s0:
+        bridge:
+          domain:
+            br_default: {}
+        link:
+          fec: rs
+        type: swp
+      swp43s1:
+        bridge:
+          domain:
+            br_default: {}
+        link:
+          fec: rs
+        type: swp
+      swp44:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp44s0:
+        bridge:
+          domain:
+            br_default: {}
+        link:
+          fec: rs
+        type: swp
+      swp44s1:
+        bridge:
+          domain:
+            br_default: {}
+        link:
+          fec: rs
+        type: swp
+      swp45:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp45s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp45s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp46:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp46s0:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp46s1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp47:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp47s0:
+        bridge:
+          domain:
+            br_default: {}
+        link:
+          fec: rs
+        type: swp
+      swp47s1:
+        bridge:
+          domain:
+            br_default: {}
+        link:
+          fec: rs
+        type: swp
+      swp48:
+        link:
+          breakout:
+            2x: {}
+        type: swp
+      swp48s0:
+        bridge:
+          domain:
+            br_default: {}
+        link:
+          fec: rs
+        type: swp
+      swp48s1:
+        bridge:
+          domain:
+            br_default: {}
+        link:
+          fec: rs
+        type: swp
+      swp55:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp55s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp55s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp56:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp56s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp56s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp57:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp57s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp57s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp58:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp58s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp58s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp59:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp59s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp59s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp60:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp60s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp60s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp61:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp61s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp61s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp62:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp62s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp62s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp63:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp63s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp63s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp64:
+        link:
+          breakout:
+            2x: {}
+          state:
+            up: {}
+        type: swp
+      swp64s0:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp64s1:
+        bridge:
+          domain:
+            br_default:
+              untagged: 1
+        link:
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+    qos:
+      congestion-control:
+        default-global:
+          traffic-class:
+            '3':
+              red: disable
+      mapping:
+        default-global:
+          trust: l3
+      roce:
+        enable: on
+    service:
+      dns:
+        mgmt:
+          server:
+            8.8.4.4: {}
+            8.8.8.8: {}
+      lldp: {}
+      ntp:
+        mgmt:
+          server:
+            0.cumulusnetworks.pool.ntp.org:
+              iburst: on
+            1.cumulusnetworks.pool.ntp.org:
+              iburst: on
+            2.cumulusnetworks.pool.ntp.org:
+              iburst: on
+            3.cumulusnetworks.pool.ntp.org:
+              iburst: on
+    system:
+      hostname: MT2324XZ0TB0
+      timezone: US/Pacific

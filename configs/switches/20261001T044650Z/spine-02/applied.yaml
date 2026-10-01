@@ -1,0 +1,535 @@
+- header:
+    model: sn5600
+    nvue-api-version: nvue_v1
+    rev-id: 1.0
+    version: Cumulus Linux 5.11.5
+- set:
+    interface:
+      eth0:
+        ip:
+          address:
+            172.31.17.18/21: {}
+          gateway:
+            172.31.16.254: {}
+          vrf: mgmt
+        link:
+          mtu: 1500
+        type: eth
+      lo:
+        ip:
+          address:
+            10.255.0.101/32: {}
+        type: loopback
+      swp1:
+        ip:
+          address:
+            10.254.0.16/31: {}
+      swp1-40:
+        ip:
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp2:
+        ip:
+          address:
+            10.254.0.18/31: {}
+      swp3:
+        ip:
+          address:
+            10.254.0.20/31: {}
+      swp4:
+        ip:
+          address:
+            10.254.0.22/31: {}
+      swp5:
+        ip:
+          address:
+            10.254.0.24/31: {}
+      swp6:
+        ip:
+          address:
+            10.254.0.26/31: {}
+      swp7:
+        ip:
+          address:
+            10.254.0.28/31: {}
+      swp8:
+        ip:
+          address:
+            10.254.0.30/31: {}
+      swp9:
+        ip:
+          address:
+            10.254.0.80/31: {}
+      swp10:
+        ip:
+          address:
+            10.254.0.82/31: {}
+      swp11:
+        ip:
+          address:
+            10.254.0.84/31: {}
+      swp12:
+        ip:
+          address:
+            10.254.0.86/31: {}
+      swp13:
+        ip:
+          address:
+            10.254.0.88/31: {}
+      swp14:
+        ip:
+          address:
+            10.254.0.90/31: {}
+      swp15:
+        ip:
+          address:
+            10.254.0.92/31: {}
+      swp16:
+        ip:
+          address:
+            10.254.0.94/31: {}
+      swp17:
+        ip:
+          address:
+            10.254.0.144/31: {}
+      swp18:
+        ip:
+          address:
+            10.254.0.146/31: {}
+      swp19:
+        ip:
+          address:
+            10.254.0.148/31: {}
+      swp20:
+        ip:
+          address:
+            10.254.0.150/31: {}
+      swp21:
+        ip:
+          address:
+            10.254.0.152/31: {}
+      swp22:
+        ip:
+          address:
+            10.254.0.154/31: {}
+      swp23:
+        ip:
+          address:
+            10.254.0.156/31: {}
+      swp24:
+        ip:
+          address:
+            10.254.0.158/31: {}
+      swp25:
+        ip:
+          address:
+            10.254.0.208/31: {}
+      swp26:
+        ip:
+          address:
+            10.254.0.210/31: {}
+      swp27:
+        ip:
+          address:
+            10.254.0.212/31: {}
+      swp28:
+        ip:
+          address:
+            10.254.0.214/31: {}
+      swp29:
+        ip:
+          address:
+            10.254.0.216/31: {}
+      swp30:
+        ip:
+          address:
+            10.254.0.218/31: {}
+      swp31:
+        ip:
+          address:
+            10.254.0.220/31: {}
+      swp32:
+        ip:
+          address:
+            10.254.0.222/31: {}
+    qos:
+      roce:
+        enable: on
+        mode: lossless
+    router:
+      bgp:
+        autonomous-system: 65200
+        enable: on
+        router-id: 10.255.0.101
+    service:
+      ntp:
+        mgmt:
+          server:
+            0.cumulusnetworks.pool.ntp.org: {}
+            1.cumulusnetworks.pool.ntp.org: {}
+            2.cumulusnetworks.pool.ntp.org: {}
+            3.cumulusnetworks.pool.ntp.org: {}
+    system:
+      aaa:
+        class:
+          nvapply:
+            action: allow
+            command-path:
+              /:
+                permission: all
+          nvshow:
+            action: allow
+            command-path:
+              /:
+                permission: ro
+          sudo:
+            action: allow
+            command-path:
+              /:
+                permission: all
+        role:
+          nvue-admin:
+            class:
+              nvapply: {}
+          nvue-monitor:
+            class:
+              nvshow: {}
+          system-admin:
+            class:
+              nvapply: {}
+              sudo: {}
+        user:
+          cumulus:
+            full-name: cumulus,,,
+            # REDACTED sensitive configuration entry
+            role: system-admin
+      api:
+        state: enabled
+      config:
+        auto-save:
+          state: enabled
+      control-plane:
+        acl:
+          acl-default-dos:
+            inbound: {}
+          acl-default-whitelist:
+            inbound: {}
+      hostname: spine-02
+      reboot:
+        mode: cold
+      ssh-server:
+        state: enabled
+      wjh:
+        channel:
+          forwarding:
+            trigger:
+              l2: {}
+              l3: {}
+              tunnel: {}
+        enable: on
+    vrf:
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                multipaths:
+                  ebgp: 64
+                network:
+                  10.255.0.101/32: {}
+            enable: on
+            neighbor:
+              10.254.0.17:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65101
+                type: numbered
+              10.254.0.19:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65101
+                type: numbered
+              10.254.0.21:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65101
+                type: numbered
+              10.254.0.23:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65101
+                type: numbered
+              10.254.0.25:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65101
+                type: numbered
+              10.254.0.27:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65101
+                type: numbered
+              10.254.0.29:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65101
+                type: numbered
+              10.254.0.31:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65101
+                type: numbered
+              10.254.0.81:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65102
+                type: numbered
+              10.254.0.83:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65102
+                type: numbered
+              10.254.0.85:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65102
+                type: numbered
+              10.254.0.87:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65102
+                type: numbered
+              10.254.0.89:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65102
+                type: numbered
+              10.254.0.91:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65102
+                type: numbered
+              10.254.0.93:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65102
+                type: numbered
+              10.254.0.95:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65102
+                type: numbered
+              10.254.0.145:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65103
+                type: numbered
+              10.254.0.147:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65103
+                type: numbered
+              10.254.0.149:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65103
+                type: numbered
+              10.254.0.151:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65103
+                type: numbered
+              10.254.0.153:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65103
+                type: numbered
+              10.254.0.155:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65103
+                type: numbered
+              10.254.0.157:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65103
+                type: numbered
+              10.254.0.159:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65103
+                type: numbered
+              10.254.0.209:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65104
+                type: numbered
+              10.254.0.211:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65104
+                type: numbered
+              10.254.0.213:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65104
+                type: numbered
+              10.254.0.215:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65104
+                type: numbered
+              10.254.0.217:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65104
+                type: numbered
+              10.254.0.219:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65104
+                type: numbered
+              10.254.0.221:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65104
+                type: numbered
+              10.254.0.223:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65104
+                type: numbered
+              swp33:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp34:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp35:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp36:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp37:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp38:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp39:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp40:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered

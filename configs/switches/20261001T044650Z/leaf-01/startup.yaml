@@ -1,0 +1,1266 @@
+- header:
+    model: sn5600
+    nvue-api-version: nvue_v1
+    rev-id: 1.0
+    version: Cumulus Linux 5.11.5
+- set:
+    interface:
+      eth0:
+        ip:
+          address:
+            172.31.17.19/21: {}
+          gateway:
+            172.31.16.254: {}
+          vrf: mgmt
+        link:
+          mtu: 1500
+        type: eth
+      lo:
+        ip:
+          address:
+            10.255.0.11/32: {}
+        type: loopback
+      swp1:
+        link:
+          breakout:
+            4x:
+              lanes-per-port: '2'
+        type: swp
+      swp1s0:
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp1s1:
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp1s2:
+        ip:
+          address:
+            10.200.77.0/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp1s3:
+        ip:
+          address:
+            10.200.77.2/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp2:
+        link:
+          breakout:
+            4x:
+              lanes-per-port: '2'
+        type: swp
+      swp2s0:
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp2s1:
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp2s2:
+        ip:
+          address:
+            10.200.76.0/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp2s3:
+        ip:
+          address:
+            10.200.76.2/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp3:
+        link:
+          breakout:
+            4x:
+              lanes-per-port: '2'
+        type: swp
+      swp3s0:
+        ip:
+          address:
+            10.200.75.0/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp3s1:
+        ip:
+          address:
+            10.200.75.2/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp3s2:
+        ip:
+          address:
+            10.200.73.0/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp3s3:
+        ip:
+          address:
+            10.200.73.2/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp4:
+        link:
+          breakout:
+            4x:
+              lanes-per-port: '2'
+        type: swp
+      swp4s0:
+        ip:
+          address:
+            10.200.72.0/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp4s1:
+        ip:
+          address:
+            10.200.72.2/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp4s2:
+        ip:
+          address:
+            10.200.74.0/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp4s3:
+        ip:
+          address:
+            10.200.74.2/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp5:
+        link:
+          breakout:
+            4x:
+              lanes-per-port: '2'
+        type: swp
+      swp5s0:
+        ip:
+          address:
+            10.200.71.0/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp5s1:
+        ip:
+          address:
+            10.200.71.2/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp5s2:
+        ip:
+          address:
+            10.200.69.0/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp5s3:
+        ip:
+          address:
+            10.200.69.2/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp6:
+        link:
+          breakout:
+            4x:
+              lanes-per-port: '2'
+        type: swp
+      swp6s0:
+        ip:
+          address:
+            10.200.70.0/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp6s1:
+        ip:
+          address:
+            10.200.70.2/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp6s2:
+        ip:
+          address:
+            10.200.68.0/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp6s3:
+        ip:
+          address:
+            10.200.68.2/31: {}
+          ipv4:
+            forward: on
+        link:
+          fec: auto
+          mtu: 9216
+          state:
+            up: {}
+        type: swp
+      swp33:
+        ip:
+          address:
+            10.254.0.1/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp34:
+        ip:
+          address:
+            10.254.0.3/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp35:
+        ip:
+          address:
+            10.254.0.5/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp36:
+        ip:
+          address:
+            10.254.0.7/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp37:
+        ip:
+          address:
+            10.254.0.9/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp38:
+        ip:
+          address:
+            10.254.0.11/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp39:
+        ip:
+          address:
+            10.254.0.13/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp40:
+        ip:
+          address:
+            10.254.0.15/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp41:
+        ip:
+          address:
+            10.254.0.17/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp42:
+        ip:
+          address:
+            10.254.0.19/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp43:
+        ip:
+          address:
+            10.254.0.21/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp44:
+        ip:
+          address:
+            10.254.0.23/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp45:
+        ip:
+          address:
+            10.254.0.25/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp46:
+        ip:
+          address:
+            10.254.0.27/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp47:
+        ip:
+          address:
+            10.254.0.29/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp48:
+        ip:
+          address:
+            10.254.0.31/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp49:
+        ip:
+          address:
+            10.254.0.33/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp50:
+        ip:
+          address:
+            10.254.0.35/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp51:
+        ip:
+          address:
+            10.254.0.37/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp52:
+        ip:
+          address:
+            10.254.0.39/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp53:
+        ip:
+          address:
+            10.254.0.41/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp54:
+        ip:
+          address:
+            10.254.0.43/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp55:
+        ip:
+          address:
+            10.254.0.45/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp56:
+        ip:
+          address:
+            10.254.0.47/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp57:
+        ip:
+          address:
+            10.254.0.49/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp58:
+        ip:
+          address:
+            10.254.0.51/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp59:
+        ip:
+          address:
+            10.254.0.53/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp60:
+        ip:
+          address:
+            10.254.0.55/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp61:
+        ip:
+          address:
+            10.254.0.57/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp62:
+        ip:
+          address:
+            10.254.0.59/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp63:
+        ip:
+          address:
+            10.254.0.61/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+      swp64:
+        ip:
+          address:
+            10.254.0.63/31: {}
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+          state:
+            up: {}
+        type: swp
+    qos:
+      roce:
+        enable: on
+        mode: lossless
+    router:
+      bgp:
+        autonomous-system: 65101
+        enable: on
+        router-id: 10.255.0.11
+    service:
+      ntp:
+        mgmt:
+          server:
+            0.cumulusnetworks.pool.ntp.org: {}
+            1.cumulusnetworks.pool.ntp.org: {}
+            2.cumulusnetworks.pool.ntp.org: {}
+            3.cumulusnetworks.pool.ntp.org: {}
+    system:
+      aaa:
+        class:
+          nvapply:
+            action: allow
+            command-path:
+              /:
+                permission: all
+          nvshow:
+            action: allow
+            command-path:
+              /:
+                permission: ro
+          sudo:
+            action: allow
+            command-path:
+              /:
+                permission: all
+        role:
+          nvue-admin:
+            class:
+              nvapply: {}
+          nvue-monitor:
+            class:
+              nvshow: {}
+          system-admin:
+            class:
+              nvapply: {}
+              sudo: {}
+        user:
+          cumulus:
+            full-name: cumulus,,,
+            # REDACTED sensitive configuration entry
+            role: system-admin
+      api:
+        state: enabled
+      config:
+        auto-save:
+          state: enabled
+      control-plane:
+        acl:
+          acl-default-dos:
+            inbound: {}
+          acl-default-whitelist:
+            inbound: {}
+      hostname: leaf-01
+      reboot:
+        mode: cold
+      ssh-server:
+        state: enabled
+      wjh:
+        channel:
+          forwarding:
+            trigger:
+              l2: {}
+              l3: {}
+              tunnel: {}
+        enable: on
+    vrf:
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                multipaths:
+                  ebgp: 64
+                network:
+                  10.200.68.0/31: {}
+                  10.200.68.2/31: {}
+                  10.200.69.0/31: {}
+                  10.200.69.2/31: {}
+                  10.200.70.0/31: {}
+                  10.200.70.2/31: {}
+                  10.200.71.0/31: {}
+                  10.200.71.2/31: {}
+                  10.200.72.0/31: {}
+                  10.200.72.2/31: {}
+                  10.200.73.0/31: {}
+                  10.200.73.2/31: {}
+                  10.200.74.0/31: {}
+                  10.200.74.2/31: {}
+                  10.200.75.0/31: {}
+                  10.200.75.2/31: {}
+                  10.200.76.0/31: {}
+                  10.200.76.2/31: {}
+                  10.200.77.0/31: {}
+                  10.200.77.2/31: {}
+                  10.255.0.11/32: {}
+            enable: on
+            neighbor:
+              10.254.0.0:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.2:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.4:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.6:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.8:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.10:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.12:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.14:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.16:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.18:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.20:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.22:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.24:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.26:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.28:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.30:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.32:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.34:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.36:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.38:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.40:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.42:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.44:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.46:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.48:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.50:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.52:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.54:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.56:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.58:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.60:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.62:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered

@@ -1,0 +1,150 @@
+default via 172.31.16.254 dev eth0 table mgmt proto kernel 
+unreachable default table mgmt metric 4278198272 
+127.0.0.0/8 dev mgmt table mgmt proto kernel scope link src 127.0.0.1 
+local 127.0.0.1 dev mgmt table mgmt proto kernel scope host src 127.0.0.1 
+local 127.0.1.1 dev mgmt table mgmt proto kernel scope host src 127.0.0.1 
+broadcast 127.255.255.255 dev mgmt table mgmt proto kernel scope link src 127.0.0.1 
+172.31.16.0/21 dev eth0 table mgmt proto kernel scope link src 172.31.17.18 
+local 172.31.17.18 dev eth0 table mgmt proto kernel scope host src 172.31.17.18 
+broadcast 172.31.23.255 dev eth0 table mgmt proto kernel scope link src 172.31.17.18 
+10.200.40.0/31 nhid 2010 proto bgp metric 20 
+10.200.40.2/31 nhid 2010 proto bgp metric 20 
+10.200.41.0/31 nhid 2010 proto bgp metric 20 
+10.200.41.2/31 nhid 2010 proto bgp metric 20 
+10.200.42.0/31 nhid 2010 proto bgp metric 20 
+10.200.42.2/31 nhid 2010 proto bgp metric 20 
+10.200.43.0/31 nhid 2010 proto bgp metric 20 
+10.200.43.2/31 nhid 2010 proto bgp metric 20 
+10.200.44.2/31 nhid 2010 proto bgp metric 20 
+10.200.45.0/31 nhid 2010 proto bgp metric 20 
+10.200.45.2/31 nhid 2010 proto bgp metric 20 
+10.200.46.0/31 nhid 2010 proto bgp metric 20 
+10.200.46.2/31 nhid 2010 proto bgp metric 20 
+10.200.47.0/31 nhid 2010 proto bgp metric 20 
+10.200.47.2/31 nhid 2010 proto bgp metric 20 
+10.200.49.0/31 nhid 1985 proto bgp metric 20 
+10.200.49.2/31 nhid 1985 proto bgp metric 20 
+10.200.50.0/31 nhid 1985 proto bgp metric 20 
+10.200.50.2/31 nhid 1985 proto bgp metric 20 
+10.200.51.0/31 nhid 1985 proto bgp metric 20 
+10.200.51.2/31 nhid 1985 proto bgp metric 20 
+10.200.52.0/31 nhid 1985 proto bgp metric 20 
+10.200.52.2/31 nhid 1985 proto bgp metric 20 
+10.200.53.0/31 nhid 1985 proto bgp metric 20 
+10.200.53.2/31 nhid 1985 proto bgp metric 20 
+10.200.54.0/31 nhid 1985 proto bgp metric 20 
+10.200.54.2/31 nhid 1985 proto bgp metric 20 
+10.200.55.0/31 nhid 1985 proto bgp metric 20 
+10.200.55.2/31 nhid 1985 proto bgp metric 20 
+10.200.56.0/31 nhid 1985 proto bgp metric 20 
+10.200.56.2/31 nhid 1985 proto bgp metric 20 
+10.200.57.0/31 nhid 1985 proto bgp metric 20 
+10.200.57.2/31 nhid 1985 proto bgp metric 20 
+10.200.58.0/31 nhid 1985 proto bgp metric 20 
+10.200.58.2/31 nhid 1985 proto bgp metric 20 
+10.200.60.0/31 nhid 2034 proto bgp metric 20 
+10.200.60.2/31 nhid 2034 proto bgp metric 20 
+10.200.61.0/31 nhid 2034 proto bgp metric 20 
+10.200.61.2/31 nhid 2034 proto bgp metric 20 
+10.200.62.0/31 nhid 2034 proto bgp metric 20 
+10.200.62.2/31 nhid 2034 proto bgp metric 20 
+10.200.63.0/31 nhid 2034 proto bgp metric 20 
+10.200.63.2/31 nhid 2034 proto bgp metric 20 
+10.200.65.0/31 nhid 2034 proto bgp metric 20 
+10.200.65.2/31 nhid 2034 proto bgp metric 20 
+10.200.66.0/31 nhid 2034 proto bgp metric 20 
+10.200.66.2/31 nhid 2034 proto bgp metric 20 
+10.200.67.0/31 nhid 2034 proto bgp metric 20 
+10.200.67.2/31 nhid 2034 proto bgp metric 20 
+10.200.68.0/31 nhid 2274 proto bgp metric 20 
+10.200.68.2/31 nhid 2274 proto bgp metric 20 
+10.200.69.0/31 nhid 2274 proto bgp metric 20 
+10.200.69.2/31 nhid 2274 proto bgp metric 20 
+10.200.70.0/31 nhid 2274 proto bgp metric 20 
+10.200.70.2/31 nhid 2274 proto bgp metric 20 
+10.200.71.0/31 nhid 2274 proto bgp metric 20 
+10.200.71.2/31 nhid 2274 proto bgp metric 20 
+10.200.72.0/31 nhid 2274 proto bgp metric 20 
+10.200.72.2/31 nhid 2274 proto bgp metric 20 
+10.200.73.0/31 nhid 2274 proto bgp metric 20 
+10.200.73.2/31 nhid 2274 proto bgp metric 20 
+10.200.74.0/31 nhid 2274 proto bgp metric 20 
+10.200.74.2/31 nhid 2274 proto bgp metric 20 
+10.200.75.0/31 nhid 2274 proto bgp metric 20 
+10.200.75.2/31 nhid 2274 proto bgp metric 20 
+10.200.76.0/31 nhid 2274 proto bgp metric 20 
+10.200.76.2/31 nhid 2274 proto bgp metric 20 
+10.200.77.0/31 nhid 2274 proto bgp metric 20 
+10.200.77.2/31 nhid 2274 proto bgp metric 20 
+10.254.0.16/31 dev swp1 proto kernel scope link src 10.254.0.16 dead linkdown 
+10.254.0.18/31 dev swp2 proto kernel scope link src 10.254.0.18 
+10.254.0.20/31 dev swp3 proto kernel scope link src 10.254.0.20 
+10.254.0.22/31 dev swp4 proto kernel scope link src 10.254.0.22 dead linkdown 
+10.254.0.24/31 dev swp5 proto kernel scope link src 10.254.0.24 
+10.254.0.26/31 dev swp6 proto kernel scope link src 10.254.0.26 
+10.254.0.28/31 dev swp7 proto kernel scope link src 10.254.0.28 
+10.254.0.30/31 dev swp8 proto kernel scope link src 10.254.0.30 
+10.254.0.80/31 dev swp9 proto kernel scope link src 10.254.0.80 
+10.254.0.82/31 dev swp10 proto kernel scope link src 10.254.0.82 
+10.254.0.84/31 dev swp11 proto kernel scope link src 10.254.0.84 
+10.254.0.86/31 dev swp12 proto kernel scope link src 10.254.0.86 
+10.254.0.88/31 dev swp13 proto kernel scope link src 10.254.0.88 
+10.254.0.90/31 dev swp14 proto kernel scope link src 10.254.0.90 
+10.254.0.92/31 dev swp15 proto kernel scope link src 10.254.0.92 
+10.254.0.94/31 dev swp16 proto kernel scope link src 10.254.0.94 
+10.254.0.144/31 dev swp17 proto kernel scope link src 10.254.0.144 
+10.254.0.146/31 dev swp18 proto kernel scope link src 10.254.0.146 
+10.254.0.148/31 dev swp19 proto kernel scope link src 10.254.0.148 
+10.254.0.150/31 dev swp20 proto kernel scope link src 10.254.0.150 
+10.254.0.152/31 dev swp21 proto kernel scope link src 10.254.0.152 
+10.254.0.154/31 dev swp22 proto kernel scope link src 10.254.0.154 
+10.254.0.156/31 dev swp23 proto kernel scope link src 10.254.0.156 
+10.254.0.158/31 dev swp24 proto kernel scope link src 10.254.0.158 
+10.254.0.208/31 dev swp25 proto kernel scope link src 10.254.0.208 
+10.254.0.210/31 dev swp26 proto kernel scope link src 10.254.0.210 
+10.254.0.212/31 dev swp27 proto kernel scope link src 10.254.0.212 
+10.254.0.214/31 dev swp28 proto kernel scope link src 10.254.0.214 
+10.254.0.216/31 dev swp29 proto kernel scope link src 10.254.0.216 
+10.254.0.218/31 dev swp30 proto kernel scope link src 10.254.0.218 
+10.254.0.220/31 dev swp31 proto kernel scope link src 10.254.0.220 
+10.254.0.222/31 dev swp32 proto kernel scope link src 10.254.0.222 
+10.255.0.11 nhid 2274 proto bgp metric 20 
+10.255.0.12 nhid 2034 proto bgp metric 20 
+10.255.0.13 nhid 1985 proto bgp metric 20 
+10.255.0.14 nhid 2010 proto bgp metric 20 
+local 10.254.0.16 dev swp1 table local proto kernel scope host src 10.254.0.16 
+local 10.254.0.18 dev swp2 table local proto kernel scope host src 10.254.0.18 
+local 10.254.0.20 dev swp3 table local proto kernel scope host src 10.254.0.20 
+local 10.254.0.22 dev swp4 table local proto kernel scope host src 10.254.0.22 
+local 10.254.0.24 dev swp5 table local proto kernel scope host src 10.254.0.24 
+local 10.254.0.26 dev swp6 table local proto kernel scope host src 10.254.0.26 
+local 10.254.0.28 dev swp7 table local proto kernel scope host src 10.254.0.28 
+local 10.254.0.30 dev swp8 table local proto kernel scope host src 10.254.0.30 
+local 10.254.0.80 dev swp9 table local proto kernel scope host src 10.254.0.80 
+local 10.254.0.82 dev swp10 table local proto kernel scope host src 10.254.0.82 
+local 10.254.0.84 dev swp11 table local proto kernel scope host src 10.254.0.84 
+local 10.254.0.86 dev swp12 table local proto kernel scope host src 10.254.0.86 
+local 10.254.0.88 dev swp13 table local proto kernel scope host src 10.254.0.88 
+local 10.254.0.90 dev swp14 table local proto kernel scope host src 10.254.0.90 
+local 10.254.0.92 dev swp15 table local proto kernel scope host src 10.254.0.92 
+local 10.254.0.94 dev swp16 table local proto kernel scope host src 10.254.0.94 
+local 10.254.0.144 dev swp17 table local proto kernel scope host src 10.254.0.144 
+local 10.254.0.146 dev swp18 table local proto kernel scope host src 10.254.0.146 
+local 10.254.0.148 dev swp19 table local proto kernel scope host src 10.254.0.148 
+local 10.254.0.150 dev swp20 table local proto kernel scope host src 10.254.0.150 
+local 10.254.0.152 dev swp21 table local proto kernel scope host src 10.254.0.152 
+local 10.254.0.154 dev swp22 table local proto kernel scope host src 10.254.0.154 
+local 10.254.0.156 dev swp23 table local proto kernel scope host src 10.254.0.156 
+local 10.254.0.158 dev swp24 table local proto kernel scope host src 10.254.0.158 
+local 10.254.0.208 dev swp25 table local proto kernel scope host src 10.254.0.208 
+local 10.254.0.210 dev swp26 table local proto kernel scope host src 10.254.0.210 
+local 10.254.0.212 dev swp27 table local proto kernel scope host src 10.254.0.212 
+local 10.254.0.214 dev swp28 table local proto kernel scope host src 10.254.0.214 
+local 10.254.0.216 dev swp29 table local proto kernel scope host src 10.254.0.216 
+local 10.254.0.218 dev swp30 table local proto kernel scope host src 10.254.0.218 
+local 10.254.0.220 dev swp31 table local proto kernel scope host src 10.254.0.220 
+local 10.254.0.222 dev swp32 table local proto kernel scope host src 10.254.0.222 
+local 10.255.0.101 dev lo table local proto kernel scope host src 10.255.0.101 
+local 127.0.0.0/8 dev lo table local proto kernel scope host src 127.0.0.1 
+local 127.0.0.1 dev lo table local proto kernel scope host src 127.0.0.1 
+broadcast 127.255.255.255 dev lo table local proto kernel scope link src 127.0.0.1 

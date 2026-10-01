@@ -1,0 +1,82 @@
+- header:
+    model: SN5600
+    nvue-api-version: nvue_v1
+    rev-id: 1.0
+    version: Cumulus Linux 5.8.0
+- set:
+    bridge:
+      domain:
+        br_default:
+          type: vlan-aware
+          vlan:
+            '1': {}
+    interface:
+      eth0:
+        ip:
+          address:
+            172.31.17.3/21: {}
+          gateway:
+            172.31.16.254: {}
+        type: eth
+      ? swp1-8,10-16,21-25,55-64,swp10s0-3,swp11s0-3,swp12s0-3,swp13s0-3,swp14s0-3,swp15s0-3,swp16s0-3,swp17s0-3,swp19s0-1,swp1s0-1,swp20s0-1,swp21s0-1,swp22s0-1,swp23s0-1,swp24s0-1,swp25s0-1,swp2s0-1,swp3s0-1,swp4s0-1,swp55s0-1,swp56s0-1,swp57s0-1,swp58s0-1,swp59s0-1,swp5s0-1,swp60s0-1,swp61s0-1,swp62s0-1,swp63s0-1,swp64s0-1,swp6s0-1,swp7s0-1,swp8s0-1,swp9s0-3
+      : link:
+          state:
+            up: {}
+      swp1-8,19-48,55-64:
+        link:
+          breakout:
+            2x: {}
+      ? swp1-17,19-48,55-64,swp10s0-3,swp11s0-3,swp12s0-3,swp13s0-3,swp14s0-3,swp15s0-3,swp16s0-3,swp17s0-3,swp19s0-1,swp1s0-1,swp20s0-1,swp21s0-1,swp22s0-1,swp23s0-1,swp24s0-1,swp25s0-1,swp26s0-1,swp27s0-1,swp28s0-1,swp29s0-1,swp2s0-1,swp30s0-1,swp31s0-1,swp32s0-1,swp33s0-1,swp34s0-1,swp35s0-1,swp36s0-1,swp37s0-1,swp38s0-1,swp39s0-1,swp3s0-1,swp40s0-1,swp41s0-1,swp42s0-1,swp43s0-1,swp44s0-1,swp45s0-1,swp46s0-1,swp47s0-1,swp48s0-1,swp4s0-1,swp55s0-1,swp56s0-1,swp57s0-1,swp58s0-1,swp59s0-1,swp5s0-1,swp60s0-1,swp61s0-1,swp62s0-1,swp63s0-1,swp64s0-1,swp6s0-1,swp7s0-1,swp8s0-1,swp9s0-3
+      : type: swp
+      swp9-17:
+        link:
+          breakout:
+            4x:
+              lanes-per-port: '2'
+      ? swp10s0-3,swp11s0-3,swp12s0-3,swp13s0-3,swp14s0-3,swp15s0-3,swp16s0,3,swp17s0-3,swp19s0-1,swp1s0-1,swp20s0-1,swp21s0-1,swp22s0-1,swp23s0-1,swp24s0-1,swp25s0-1,swp2s0-1,swp3s0-1,swp4s0-1,swp55s0-1,swp56s0-1,swp57s0-1,swp58s0-1,swp59s0-1,swp5s0-1,swp60s0-1,swp61s0-1,swp62s0-1,swp63s0-1,swp64s0-1,swp6s0-1,swp7s0-1,swp8s0-1
+      : bridge:
+          domain:
+            br_default:
+              untagged: 1
+      ? swp10s0-3,swp11s0-3,swp12s0-3,swp13s0-3,swp14s0-3,swp15s0-3,swp16s0-3,swp17s0-3,swp19s0-1,swp1s0-1,swp20s0-1,swp21s0-1,swp22s0-1,swp23s0-1,swp24s0-1,swp25s0-1,swp2s0-1,swp3s0-1,swp4s0-1,swp55s0-1,swp56s0-1,swp57s0-1,swp58s0-1,swp59s0-1,swp5s0-1,swp60s0-1,swp61s0-1,swp62s0-1,swp63s0-1,swp64s0-1,swp6s0-1,swp7s0-1,swp8s0-1
+      : link:
+          mtu: 9216
+      ? swp16s1-2,swp26s0-1,swp27s0-1,swp28s0-1,swp29s0-1,swp30s0-1,swp31s0-1,swp32s0-1,swp33s0-1,swp34s0-1,swp35s0-1,swp36s0-1,swp37s0-1,swp38s0-1,swp39s0-1,swp40s0-1,swp41s0-1,swp42s0-1,swp43s0-1,swp44s0-1,swp45s0-1,swp46s0-1,swp47s0-1,swp48s0-1,swp9s0-3
+      : bridge:
+          domain:
+            br_default: {}
+      swp43s0-1,swp44s0-1,swp47s0-1,swp48s0-1:
+        link:
+          fec: rs
+    qos:
+      congestion-control:
+        default-global:
+          traffic-class:
+            '3':
+              red: disable
+      mapping:
+        default-global:
+          trust: l3
+      roce:
+        enable: on
+    service:
+      dns:
+        mgmt:
+          server:
+            8.8.4.4: {}
+            8.8.8.8: {}
+      lldp: {}
+      ntp:
+        mgmt:
+          server:
+            0.cumulusnetworks.pool.ntp.org:
+              iburst: on
+            1.cumulusnetworks.pool.ntp.org:
+              iburst: on
+            2.cumulusnetworks.pool.ntp.org:
+              iburst: on
+            3.cumulusnetworks.pool.ntp.org:
+              iburst: on
+    system:
+      hostname: MT2324XZ0TB0
+      timezone: US/Pacific
