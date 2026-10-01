@@ -1,0 +1,58 @@
+Thu Oct  1 04:39:42 UTC 2026
+weka61
+ba4cf997659628681a4bdbb73c6646d4291f39a284f3a10a7c316371a07ec4a3  /root/weka-roce-precheck.sh
+2315765ff43d72a43d93fe4ed86cdc9845eb567813400c05e9ec19b476aa61ae  /root/deploy-weka-roce.sh
+# /etc/systemd/system/weka-roce.service
+[Unit]
+Description=Configure and Validate RoCE Before WEKA Agent
+Wants=network-online.target
+After=network-online.target systemd-modules-load.service
+Before=weka-agent.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/weka-roce-startup.sh
+RemainAfterExit=yes
+TimeoutStartSec=360
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+
+# /etc/systemd/system/weka-agent.service
+[Unit]
+Description=WEKA Agent Service
+Wants=network.target network-online.target
+After=network.target network-online.target rpcbind.service
+Documentation=http://docs.weka.io
+Before=remote-fs-pre.target remote-fs.target
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=3s
+WorkingDirectory=/
+EnvironmentFile=/etc/environment
+IgnoreSIGPIPE=no
+KillMode=process
+GuessMainPID=yes
+SuccessExitStatus=5 6
+TimeoutStopSec=infinity
+ExecStart=/usr/bin/weka --agent
+ExecStop=/usr/bin/weka --systemd-stop
+CPUAffinity=
+Delegate=yes
+LimitNOFILE=65536
+LimitNPROC=4096
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=weka-agent-systemd
+
+[Install]
+RequiredBy=remote-fs-pre.target remote-fs.target
+
+# /etc/systemd/system/weka-agent.service.d/10-roce.conf
+[Unit]
+Requires=weka-roce.service
+After=weka-roce.service

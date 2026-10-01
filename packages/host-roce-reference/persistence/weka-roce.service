@@ -1,0 +1,16 @@
+[Unit]
+Description=Configure and Validate RoCE Before WEKA Agent
+Wants=network-online.target
+After=network-online.target systemd-modules-load.service
+Before=weka-agent.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/weka-roce-startup.sh
+RemainAfterExit=yes
+TimeoutStartSec=360
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
