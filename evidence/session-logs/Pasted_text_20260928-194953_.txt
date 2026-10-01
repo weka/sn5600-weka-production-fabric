@@ -1,0 +1,321 @@
+chandrasekhar.gonuguntla@Chandra-Gonuguntla SN5600_Numbered31 % ssh -t cumulus@172.31.17.22 \
+  "nv show interface swp10; sudo vtysh -c 'show ip bgp neighbor 10.254.0.115'"
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.22's password:
+                           operational                    applied
+-------------------------  -----------------------------  ---------------
+type                       swp                            swp
+router
+  pbr
+    [map]
+  ospf
+    enable                                                off
+  pim
+    enable                                                off
+  adaptive-routing
+    enable                                                off
+  ospf6
+    enable                                                off
+lldp
+  dcbx-pfc-tlv             off
+  dcbx-ets-config-tlv      off
+  dcbx-ets-recomm-tlv      off
+  state                    enabled
+  [neighbor]
+evpn
+  multihoming
+    uplink                                                off
+ptp
+  enable                   off                            off
+[acl]
+synce
+  enable                                                  off
+neighbor
+  [ipv4]
+  [ipv6]
+sflow
+  sample-rate              0
+  state                    disabled                       enabled
+ip
+  vrrp
+    enable                                                off
+  igmp
+    enable                                                off
+  neighbor-discovery
+    enable                                                on
+    router-advertisement
+      enable                                              on
+      interval                                            600000
+      interval-option                                     off
+      fast-retransmit                                     on
+      lifetime                                            1800
+      reachable-time                                      0
+      retransmit-time                                     0
+      managed-config                                      off
+      other-config                                        off
+      hop-limit                                           64
+      router-preference                                   medium
+    home-agent
+      enable                                              off
+    [rdnss]
+    [dnssl]
+    [prefix]
+  ipv4
+    forward                                               on
+  ipv6
+    enable                                                on
+    forward                                               on
+  vrf                                                     default
+  [address]                10.254.0.114/31                10.254.0.114/31
+  [address]                fe80::2e5e:abff:feac:18d4/64
+  [gateway]
+link
+  auto-negotiate           on                             on
+  duplex                                                  full
+  speed                                                   auto
+  mac-address              2c:5e:ab:ac:18:d4
+  fec                      none                           auto
+  mtu                      9216                           9216
+  fast-linkup              off
+  [breakout]
+  state                    up                             up
+  flap-protection
+    enable                                                on
+  stats
+    in-bytes               17.52 MB
+    in-pkts                178120
+    in-drops               0
+    in-errors              0
+    out-bytes              18.23 MB
+    out-pkts               184934
+    out-drops              0
+    out-errors             0
+    carrier-transitions    65
+    carrier-up-count       32
+    carrier-down-count     33
+  protodown                disabled
+  oper-status              down
+  admin-status             up
+  oper-status-last-change  2026/09/29 00:14:41.607
+  eyes                     31, 19, 23, 20, 4, 20, 3, 21
+  grade                    31, 19, 23, 20, 4, 20, 3, 21
+  troubleshooting-info     No issue was observed
+transceiver
+  identifier               OSFP 8X Pluggable Transceiver
+  vendor-name              AXIOM
+  vendor-pn                MCP4Y10-N003-AX
+  vendor-sn                AXMPOSPA01888
+  vendor-rev               A3
+  vendor-oui               48:b0:2d
+  revision-compliance      Rev. 5.0
+  cable-length             3.00m
+  date-code                260604
+ifindex                    13
+[sudo] password for cumulus:
+BGP neighbor is 10.254.0.115, remote AS 65102, local AS 65200, external link
+  Local Role: undefined
+  Remote Role: undefined
+Hostname: leaf-02
+  BGP version 4, remote router ID 0.0.0.0, local router ID 10.255.0.103
+  BGP state = Active
+  Last read 00:59:12, Last write 00:59:12
+  Hold time is 9 seconds, keepalive interval is 3 seconds
+  Configured hold time is 9 seconds, keepalive interval is 3 seconds
+  Configured conditional advertisements interval is 60 seconds
+  Graceful restart information:
+    Local GR Mode: Helper*
+    Remote GR Mode: NotApplicable
+
+    R bit: False
+    N bit: False
+    Timers:
+      Configured Restart Time(sec): 120
+      Received Restart Time(sec): 120
+  Message statistics:
+    Inq depth is 0
+    Outq depth is 0
+                         Sent       Rcvd
+    Opens:                  2          2
+    Notifications:          0          2
+    Updates:               18         19
+    Keepalives:           642        642
+    Route Refresh:          0          0
+    Capability:             0          0
+    Total:                662        665
+  Minimum time between advertisement runs is 0 seconds
+
+ For address family: IPv4 Unicast
+  Not part of any update group
+  Community attribute sent to this neighbor(all)
+  0 accepted prefixes
+
+  Connections established 2; dropped 2
+  Last reset 00:59:11,  Waiting for NHT
+  External BGP neighbor may be up to 1 hops away.
+BGP Connect Retry Timer in Seconds: 10
+Next connect timer due in 0 seconds
+Read thread: off  Write thread: off  FD used: -1
+
+
+Connection to 172.31.17.22 closed.
+chandrasekhar.gonuguntla@Chandra-Gonuguntla SN5600_Numbered31 % ssh -t cumulus@172.31.17.21 \
+  "nv show interface swp58; sudo vtysh -c 'show ip bgp neighbor 10.254.0.114'"
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+                           operational                             applied
+-------------------------  --------------------------------------  ---------------
+type                       swp                                     swp
+router
+  pbr
+    [map]
+  ospf
+    enable                                                         off
+  pim
+    enable                                                         off
+  adaptive-routing
+    enable                                                         off
+  ospf6
+    enable                                                         off
+lldp
+  dcbx-pfc-tlv             off
+  dcbx-ets-config-tlv      off
+  dcbx-ets-recomm-tlv      off
+  state                    enabled
+  [neighbor]
+evpn
+  multihoming
+    uplink                                                         off
+ptp
+  enable                   off                                     off
+[acl]
+synce
+  enable                                                           off
+neighbor
+  [ipv4]
+  [ipv6]
+sflow
+  sample-rate              0
+  state                    disabled                                enabled
+ip
+  vrrp
+    enable                                                         off
+  igmp
+    enable                                                         off
+  neighbor-discovery
+    enable                                                         on
+    router-advertisement
+      enable                                                       on
+      interval                                                     600000
+      interval-option                                              off
+      fast-retransmit                                              on
+      lifetime                                                     1800
+      reachable-time                                               0
+      retransmit-time                                              0
+      managed-config                                               off
+      other-config                                                 off
+      hop-limit                                                    64
+      router-preference                                            medium
+    home-agent
+      enable                                                       off
+    [rdnss]
+    [dnssl]
+    [prefix]
+  ipv4
+    forward                                                        on
+  ipv6
+    enable                                                         on
+    forward                                                        on
+  vrf                                                              default
+  [address]                10.254.0.115/31                         10.254.0.115/31
+  [address]                fe80::2e5e:abff:feac:106c/64
+  [gateway]
+link
+  auto-negotiate           on                                      on
+  duplex                                                           full
+  speed                                                            auto
+  mac-address              2c:5e:ab:ac:10:6c
+  fec                      none                                    auto
+  mtu                      9216                                    9216
+  fast-linkup              off
+  [breakout]
+  state                    up                                      up
+  flap-protection
+    enable                                                         on
+  stats
+    in-bytes               18.23 MB
+    in-pkts                184934
+    in-drops               0
+    in-errors              0
+    out-bytes              17.52 MB
+    out-pkts               178120
+    out-drops              0
+    out-errors             0
+    carrier-transitions    65
+    carrier-up-count       32
+    carrier-down-count     33
+  protodown                disabled
+  oper-status              down
+  admin-status             up
+  oper-status-last-change  2026/09/29 00:15:47.909
+  eyes                     N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A
+  grade                    N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A
+  troubleshooting-info     No issue was observed
+transceiver
+  identifier               OSFP 8X Pluggable Transceiver
+  vendor-name              AXIOM
+  vendor-pn                MCP4Y10-N003-AX
+  vendor-sn                AXMPOSPA01888
+  vendor-rev               A3
+  vendor-oui               48:b0:2d
+  revision-compliance      Rev. 5.0
+  cable-length             3.00m
+  date-code                260604
+ifindex                    61
+[sudo] password for cumulus:
+BGP neighbor is 10.254.0.114, remote AS 65200, local AS 65102, external link
+  Local Role: undefined
+  Remote Role: undefined
+Hostname: spine-03
+  BGP version 4, remote router ID 0.0.0.0, local router ID 10.255.0.12
+  BGP state = Active
+  Last read 00:59:29, Last write 00:59:29
+  Hold time is 9 seconds, keepalive interval is 3 seconds
+  Configured hold time is 9 seconds, keepalive interval is 3 seconds
+  Configured conditional advertisements interval is 60 seconds
+  Graceful restart information:
+    Local GR Mode: Helper*
+    Remote GR Mode: NotApplicable
+
+    R bit: False
+    N bit: False
+    Timers:
+      Configured Restart Time(sec): 120
+      Received Restart Time(sec): 120
+  Message statistics:
+    Inq depth is 0
+    Outq depth is 0
+                         Sent       Rcvd
+    Opens:                  1          1
+    Notifications:          0          0
+    Updates:                7         10
+    Keepalives:           623        623
+    Route Refresh:          0          0
+    Capability:             0          0
+    Total:                631        634
+  Minimum time between advertisement runs is 0 seconds
+
+ For address family: IPv4 Unicast
+  Not part of any update group
+  Community attribute sent to this neighbor(all)
+  0 accepted prefixes
+
+  Connections established 1; dropped 1
+  Last reset 00:59:27,  Waiting for NHT
+  External BGP neighbor may be up to 1 hops away.
+BGP Connect Retry Timer in Seconds: 10
+Next connect timer due in 3 seconds
+Read thread: off  Write thread: off  FD used: -1
+
+
+Connection to 172.31.17.21 closed.
+chandrasekhar.gonuguntla@Chandra-Gonuguntla SN5600_Numbered31 %

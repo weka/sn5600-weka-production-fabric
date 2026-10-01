@@ -1,0 +1,343 @@
+cumulus@cumulus:mgmt:~$ bash /home/cumulus/Spine-01_172.31.17.18_800G_L3.sh --check &&
+bash /home/cumulus/Spine-01_172.31.17.18_800G_L3.sh --apply
+Preflight passed: Spine-01, 172.31.17.18/21, native 800G, CL 5.11.5.
+Live remote wiring, hardware health and end-to-end routes still require validation.
+Preflight passed: Spine-01, 172.31.17.18/21, native 800G, CL 5.11.5.
+Live remote wiring, hardware health and end-to-end routes still require validation.
+[sudo] password for cumulus:
+Backup: /home/cumulus/Spine-01-before-native800g-20260925-235211-QrYCBY
+Copy this private backup to your Mac; it contains configuration and credential material.
+- set:
+    interface:
+      lo:
+        ip:
+          address:
+            10.255.0.101/32: {}
+        type: loopback
+      swp1-40:
+        ip:
+          ipv4:
+            forward: on
+          ipv6:
+            enable: on
+            forward: on
+          neighbor-discovery:
+            router-advertisement:
+              enable: on
+        link:
+          auto-negotiate: on
+          mtu: 9216
+          speed: auto
+      swp9-24,33-40:
+        link:
+          state:
+            up: {}
+        type: swp
+    router:
+      bgp:
+        autonomous-system: 65200
+        enable: on
+        router-id: 10.255.0.101
+    system:
+      hostname: spine-01
+    vrf:
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                multipaths:
+                  ebgp: 64
+                network:
+                  10.255.0.101/32: {}
+            enable: on
+            neighbor:
+              swp1:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp2:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp3:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp4:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp5:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp6:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp7:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp8:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp9:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp10:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp11:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp12:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp13:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp14:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp15:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp16:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp17:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp18:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp19:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp20:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp21:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp22:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp23:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp24:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp25:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp26:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp27:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp28:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp29:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp30:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp31:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp32:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp33:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp34:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp35:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp36:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp37:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp38:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp39:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+              swp40:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: external
+                type: unnumbered
+Warning: The frr service will need to be restarted because the list of router services has changed.  This will disrupt traffic for any existing routing protocols.
+Warning: current hostname `cumulus` will be replaced with `spine-01`
+
+Are you sure? [y/N]
+Aborted apply after warnings [rev_id: 6]
+  Timeout while waiting for client response
+STOP: command failed. Review nv config diff; no partial changes are applied by this handler. Backup: /home/cumulus/Spine-01-before-native800g-20260925-235211-QrYCBY
+cumulus@cumulus:mgmt:~$

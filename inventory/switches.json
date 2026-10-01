@@ -1,0 +1,83 @@
+[
+  {
+    "name": "leaf-01",
+    "management_ip": "172.31.17.19",
+    "role": "leaf",
+    "asn": 65101,
+    "router_id": "10.255.0.11",
+    "rack": "Rack 1",
+    "in_scope": true
+  },
+  {
+    "name": "leaf-02",
+    "management_ip": "172.31.17.21",
+    "role": "leaf",
+    "asn": 65102,
+    "router_id": "10.255.0.12",
+    "rack": "Rack 2",
+    "in_scope": true
+  },
+  {
+    "name": "leaf-03",
+    "management_ip": "172.31.17.23",
+    "role": "leaf",
+    "asn": 65103,
+    "router_id": "10.255.0.13",
+    "rack": "Rack 4",
+    "in_scope": true
+  },
+  {
+    "name": "leaf-04",
+    "management_ip": "172.31.17.24",
+    "role": "leaf",
+    "asn": 65104,
+    "router_id": "10.255.0.14",
+    "rack": "Rack 5",
+    "in_scope": true
+  },
+  {
+    "name": "spine-01",
+    "management_ip": "172.31.17.5",
+    "role": "spine",
+    "asn": 65200,
+    "router_id": "10.255.0.104",
+    "rack": "Rack 3",
+    "in_scope": true
+  },
+  {
+    "name": "spine-02",
+    "management_ip": "172.31.17.18",
+    "role": "spine",
+    "asn": 65200,
+    "router_id": "10.255.0.101",
+    "rack": "Rack 3",
+    "in_scope": true
+  },
+  {
+    "name": "spine-03",
+    "management_ip": "172.31.17.20",
+    "role": "spine",
+    "asn": 65200,
+    "router_id": "10.255.0.102",
+    "rack": "Rack 3",
+    "in_scope": true
+  },
+  {
+    "name": "spine-04",
+    "management_ip": "172.31.17.22",
+    "role": "spine",
+    "asn": 65200,
+    "router_id": "10.255.0.103",
+    "rack": "Rack 3",
+    "in_scope": true
+  },
+  {
+    "name": "leaf-05",
+    "management_ip": "172.31.17.3",
+    "role": "leaf",
+    "asn": null,
+    "router_id": null,
+    "rack": "Rack 3",
+    "in_scope": false
+  }
+]

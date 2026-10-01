@@ -1,0 +1,388 @@
+chandrasekhar.gonuguntla@Chandra-Gonuguntla Downloads % cd "$HOME/Downloads"
+bash roce_cross_leaf_test.sh
+Reports: /Users/OPERATOR/Downloads/RoCE_Cross_Leaf_20260930_183559
+===== PREFLIGHT FOUR REPRESENTATIVE CLIENTS =====
+root@172.31.18.68's password:
+/usr/bin/ib_write_bw
+/usr/bin/timeout
+/usr/bin/python3
+/usr/bin/rdma
+/usr/sbin/ethtool
+PASS: ib_write_bw supports --tclass
+active
+link mlx5_0/1 state ACTIVE physical_state LINK_UP netdev ens4047f0np0
+link mlx5_1/1 state ACTIVE physical_state LINK_UP netdev ens4047f1np1
+mlx5_0 GID3=10.200.68.1 netdev=ens4047f0np0 speedMbps=200000
+mlx5_1 GID3=10.200.68.3 netdev=ens4047f1np1 speedMbps=200000
+PREFLIGHT_PASS|weka68
+root@172.31.18.68's password:
+root@172.31.18.60's password:
+/usr/bin/ib_write_bw
+/usr/bin/timeout
+/usr/bin/python3
+/usr/bin/rdma
+/usr/sbin/ethtool
+PASS: ib_write_bw supports --tclass
+active
+link mlx5_0/1 state ACTIVE physical_state LINK_UP netdev ens4047np0
+link mlx5_1/1 state ACTIVE physical_state LINK_UP netdev ens3919np0
+mlx5_0 GID3=10.200.60.1 netdev=ens4047np0 speedMbps=400000
+mlx5_1 GID3=10.200.60.3 netdev=ens3919np0 speedMbps=400000
+PREFLIGHT_PASS|weka60
+root@172.31.18.60's password:
+root@172.31.18.49's password:
+/usr/bin/ib_write_bw
+/usr/bin/timeout
+/usr/bin/python3
+/usr/bin/rdma
+/usr/sbin/ethtool
+PASS: ib_write_bw supports --tclass
+active
+link mlx5_0/1 state ACTIVE physical_state LINK_UP netdev ens4047np0
+link mlx5_1/1 state ACTIVE physical_state LINK_UP netdev ens3919np0
+mlx5_0 GID3=10.200.49.1 netdev=ens4047np0 speedMbps=400000
+mlx5_1 GID3=10.200.49.3 netdev=ens3919np0 speedMbps=400000
+PREFLIGHT_PASS|weka49
+root@172.31.18.49's password:
+root@172.31.18.40's password:
+/usr/bin/ib_write_bw
+/usr/bin/timeout
+/usr/bin/python3
+/usr/bin/rdma
+/usr/sbin/ethtool
+PASS: ib_write_bw supports --tclass
+active
+link mlx5_0/1 state ACTIVE physical_state LINK_UP netdev ens4047np0
+link mlx5_1/1 state ACTIVE physical_state LINK_UP netdev ens3919np0
+mlx5_0 GID3=10.200.40.1 netdev=ens4047np0 speedMbps=400000
+mlx5_1 GID3=10.200.40.3 netdev=ens3919np0 speedMbps=400000
+PREFLIGHT_PASS|weka40
+root@172.31.18.40's password:
+===== weka68_to_weka60: BOTH NICS, 30 SECONDS =====
+root@172.31.18.60's password:
+SERVERS_READY
+root@172.31.18.68's password:
+===== mlx5_0 =====
+ WARNING: BW peak won't be measured in this run.
+---------------------------------------------------------------------------------------
+                    RDMA_Write BW Test
+ Dual-port       : OFF		Device         : mlx5_0
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : ON
+ TX depth        : 128
+ CQ Moderation   : 1
+ CQE Poll Batch  : 16
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x0126 PSN 0xb83ce2 RKey 0x1ffebc VAddr 0x0078a195f0e000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:68:01
+ remote address: LID 0000 QPN 0x0127 PSN 0xe08140 RKey 0x1ffe00 VAddr 0x007391eec3a000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:60:01
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 65536      5982332          0.00               196.04 		     0.373920
+---------------------------------------------------------------------------------------
+BW|0|196.04
+===== mlx5_1 =====
+ WARNING: BW peak won't be measured in this run.
+---------------------------------------------------------------------------------------
+                    RDMA_Write BW Test
+ Dual-port       : OFF		Device         : mlx5_1
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : ON
+ TX depth        : 128
+ CQ Moderation   : 1
+ CQE Poll Batch  : 16
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x0226 PSN 0x2bb958 RKey 0x23bebc VAddr 0x007832a7f19000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:68:03
+ remote address: LID 0000 QPN 0x0127 PSN 0x53fdb6 RKey 0x1ffd00 VAddr 0x007d1943caa000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:60:03
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 65536      5982325          0.00               196.04 		     0.373919
+---------------------------------------------------------------------------------------
+BW|1|196.04
+EXIT|0|0
+root@172.31.18.60's password:
+===== weka60_to_weka68: BOTH NICS, 30 SECONDS =====
+root@172.31.18.68's password:
+SERVERS_READY
+root@172.31.18.60's password:
+===== mlx5_0 =====
+ WARNING: BW peak won't be measured in this run.
+---------------------------------------------------------------------------------------
+                    RDMA_Write BW Test
+ Dual-port       : OFF		Device         : mlx5_0
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : ON
+ TX depth        : 128
+ CQ Moderation   : 1
+ CQE Poll Batch  : 16
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x0128 PSN 0xf725ae RKey 0x1ffe00 VAddr 0x007982cf11e000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:60:01
+ remote address: LID 0000 QPN 0x0127 PSN 0xef7564 RKey 0x1fffbd VAddr 0x0072efa44cf000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:68:01
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 65536      5951973          0.00               195.03 		     0.371997
+---------------------------------------------------------------------------------------
+BW|0|195.03
+===== mlx5_1 =====
+ WARNING: BW peak won't be measured in this run.
+---------------------------------------------------------------------------------------
+                    RDMA_Write BW Test
+ Dual-port       : OFF		Device         : mlx5_1
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : ON
+ TX depth        : 128
+ CQ Moderation   : 1
+ CQE Poll Batch  : 16
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x0128 PSN 0xeca2a8 RKey 0x1ffd00 VAddr 0x007a4b9edef000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:60:03
+ remote address: LID 0000 QPN 0x0227 PSN 0xe4f25e RKey 0x23bfbd VAddr 0x007fb89b635000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:68:03
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 65536      5957367          0.00               195.21 		     0.372336
+---------------------------------------------------------------------------------------
+BW|1|195.21
+EXIT|0|0
+root@172.31.18.68's password:
+===== weka68_to_weka49: BOTH NICS, 30 SECONDS =====
+root@172.31.18.49's password:
+SERVERS_READY
+root@172.31.18.68's password:
+===== mlx5_0 =====
+ WARNING: BW peak won't be measured in this run.
+---------------------------------------------------------------------------------------
+                    RDMA_Write BW Test
+ Dual-port       : OFF		Device         : mlx5_0
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : ON
+ TX depth        : 128
+ CQ Moderation   : 1
+ CQE Poll Batch  : 16
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x0128 PSN 0x8bfc00 RKey 0x1ffe00 VAddr 0x007dad0931e000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:68:01
+ remote address: LID 0000 QPN 0x0126 PSN 0x1da6da RKey 0x1ffcbc VAddr 0x007a72cf255000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:49:01
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 65536      5982339          0.00               196.03 		     0.373894
+---------------------------------------------------------------------------------------
+BW|0|196.03
+===== mlx5_1 =====
+ WARNING: BW peak won't be measured in this run.
+---------------------------------------------------------------------------------------
+                    RDMA_Write BW Test
+ Dual-port       : OFF		Device         : mlx5_1
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : ON
+ TX depth        : 128
+ CQ Moderation   : 1
+ CQE Poll Batch  : 16
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x0228 PSN 0x1a6cd6 RKey 0x23bfbd VAddr 0x0072f4458e6000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:68:03
+ remote address: LID 0000 QPN 0x0126 PSN 0x8f3604 RKey 0x1ffebc VAddr 0x0079b13bceb000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:49:03
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 65536      5982390          0.00               196.03 		     0.373895
+---------------------------------------------------------------------------------------
+BW|1|196.03
+EXIT|0|0
+root@172.31.18.49's password:
+===== weka49_to_weka68: BOTH NICS, 30 SECONDS =====
+root@172.31.18.68's password:
+SERVERS_READY
+root@172.31.18.49's password:
+===== mlx5_0 =====
+ WARNING: BW peak won't be measured in this run.
+---------------------------------------------------------------------------------------
+                    RDMA_Write BW Test
+ Dual-port       : OFF		Device         : mlx5_0
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : ON
+ TX depth        : 128
+ CQ Moderation   : 1
+ CQE Poll Batch  : 16
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x0127 PSN 0x34d99c RKey 0x1ffc00 VAddr 0x0078ad7e77a000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:49:01
+ remote address: LID 0000 QPN 0x0129 PSN 0xc60819 RKey 0x1ffebe VAddr 0x0077d73a91e000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:68:01
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 65536      5955531          0.00               195.16 		     0.372244
+---------------------------------------------------------------------------------------
+BW|0|195.16
+===== mlx5_1 =====
+ WARNING: BW peak won't be measured in this run.
+---------------------------------------------------------------------------------------
+                    RDMA_Write BW Test
+ Dual-port       : OFF		Device         : mlx5_1
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : ON
+ TX depth        : 128
+ CQ Moderation   : 1
+ CQE Poll Batch  : 16
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x0127 PSN 0xe21895 RKey 0x1ffe00 VAddr 0x007eb281b7a000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:49:03
+ remote address: LID 0000 QPN 0x0229 PSN 0x734712 RKey 0x23be00 VAddr 0x0071d75b8cf000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:68:03
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 65536      5952533          0.00               195.06 		     0.372057
+---------------------------------------------------------------------------------------
+BW|1|195.06
+EXIT|0|0
+root@172.31.18.68's password:
+===== weka68_to_weka40: BOTH NICS, 30 SECONDS =====
+root@172.31.18.40's password:
+SERVERS_READY
+root@172.31.18.68's password:
+===== mlx5_0 =====
+ WARNING: BW peak won't be measured in this run.
+---------------------------------------------------------------------------------------
+                    RDMA_Write BW Test
+ Dual-port       : OFF		Device         : mlx5_0
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : ON
+ TX depth        : 128
+ CQ Moderation   : 1
+ CQE Poll Batch  : 16
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x012a PSN 0x26cdd3 RKey 0x1ffebe VAddr 0x0074fdbaf7a000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:68:01
+ remote address: LID 0000 QPN 0x0126 PSN 0x620bca RKey 0x1ffcbc VAddr 0x007fb013c2d000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:40:01
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 65536      5982332          0.00               196.04 		     0.373920
+---------------------------------------------------------------------------------------
+BW|0|196.04
+===== mlx5_1 =====
+ WARNING: BW peak won't be measured in this run.
+---------------------------------------------------------------------------------------
+                    RDMA_Write BW Test
+ Dual-port       : OFF		Device         : mlx5_1
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : ON
+ TX depth        : 128
+ CQ Moderation   : 1
+ CQE Poll Batch  : 16
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x022a PSN 0xd05a4b RKey 0x23be00 VAddr 0x007af8f4252000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:68:03
+ remote address: LID 0000 QPN 0x0126 PSN 0xb9843 RKey 0x1ffebc VAddr 0x00796697959000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:200:40:03
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 65536      5982332          0.00               196.04 		     0.373919
+---------------------------------------------------------------------------------------
+BW|1|196.04
+EXIT|0|0
+root@172.31.18.40's password:
+STOP: review weka68_to_weka40 logs. Benchmark processes have bounded timeouts.
+root@172.31.18.68's password:
+root@172.31.18.60's password:
+root@172.31.18.49's password:
+root@172.31.18.40's password:
+===== CROSS-LEAF BANDWIDTH SUMMARY =====
+SOURCE	DESTINATION	MLX5_0_Gbps	MLX5_1_Gbps	COMBINED_Gbps	RESULT
+weka68	weka60	196.04	196.04	392.08	COMPLETED
+weka60	weka68	195.03	195.21	390.24	COMPLETED
+weka68	weka49	196.03	196.03	392.06	COMPLETED
+weka49	weka68	195.16	195.06	390.22	COMPLETED
+weka68	weka40	196.04	196.04	392.08	FAILED
+Reports: /Users/OPERATOR/Downloads/RoCE_Cross_Leaf_20260930_183559
+COMPLETED means the benchmark succeeded; throughput and counter changes still need review.
+Leaf-01's 200G NICs limit those pairs. Other pairs use 400G NICs.
+This tests representative routes, not every ECMP uplink, congestion response or WEKA application I/O.
+Shareable heatmap: /Users/OPERATOR/Downloads/RoCE_Cross_Leaf_20260930_183559/heatmap.html
+chandrasekhar.gonuguntla@Chandra-Gonuguntla Downloads %

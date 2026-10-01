@@ -1,0 +1,237 @@
+# Review reference only. Use spine-03.sh and START_HERE.md for the staged migration.
+# Stage 1: add addresses; apply on ALL eight switches before stage 2.
+nv set interface swp1 ip address 10.254.0.32/31
+nv set interface swp2 ip address 10.254.0.34/31
+nv set interface swp3 ip address 10.254.0.36/31
+nv set interface swp4 ip address 10.254.0.38/31
+nv set interface swp5 ip address 10.254.0.40/31
+nv set interface swp6 ip address 10.254.0.42/31
+nv set interface swp7 ip address 10.254.0.44/31
+nv set interface swp8 ip address 10.254.0.46/31
+nv set interface swp9 ip address 10.254.0.96/31
+nv set interface swp10 ip address 10.254.0.98/31
+nv set interface swp11 ip address 10.254.0.100/31
+nv set interface swp12 ip address 10.254.0.102/31
+nv set interface swp13 ip address 10.254.0.104/31
+nv set interface swp14 ip address 10.254.0.106/31
+nv set interface swp15 ip address 10.254.0.108/31
+nv set interface swp16 ip address 10.254.0.110/31
+nv set interface swp17 ip address 10.254.0.160/31
+nv set interface swp18 ip address 10.254.0.162/31
+nv set interface swp19 ip address 10.254.0.164/31
+nv set interface swp20 ip address 10.254.0.166/31
+nv set interface swp21 ip address 10.254.0.168/31
+nv set interface swp22 ip address 10.254.0.170/31
+nv set interface swp23 ip address 10.254.0.172/31
+nv set interface swp24 ip address 10.254.0.174/31
+nv set interface swp25 ip address 10.254.0.224/31
+nv set interface swp26 ip address 10.254.0.226/31
+nv set interface swp27 ip address 10.254.0.228/31
+nv set interface swp28 ip address 10.254.0.230/31
+nv set interface swp29 ip address 10.254.0.232/31
+nv set interface swp30 ip address 10.254.0.234/31
+nv set interface swp31 ip address 10.254.0.236/31
+nv set interface swp32 ip address 10.254.0.238/31
+# nv config diff; nv config apply; nv config save
+# Stage 2: migrate one spine group at a time on that spine and all four leaves.
+# L1-S3-01 spine-03 -> leaf-01 swp49
+nv unset vrf default router bgp neighbor swp1
+nv set vrf default router bgp neighbor 10.254.0.33 type numbered
+nv set vrf default router bgp neighbor 10.254.0.33 remote-as 65101
+nv set vrf default router bgp neighbor 10.254.0.33 enable on
+nv set vrf default router bgp neighbor 10.254.0.33 address-family ipv4-unicast enable on
+# L1-S3-02 spine-03 -> leaf-01 swp50
+nv unset vrf default router bgp neighbor swp2
+nv set vrf default router bgp neighbor 10.254.0.35 type numbered
+nv set vrf default router bgp neighbor 10.254.0.35 remote-as 65101
+nv set vrf default router bgp neighbor 10.254.0.35 enable on
+nv set vrf default router bgp neighbor 10.254.0.35 address-family ipv4-unicast enable on
+# L1-S3-03 spine-03 -> leaf-01 swp51
+nv unset vrf default router bgp neighbor swp3
+nv set vrf default router bgp neighbor 10.254.0.37 type numbered
+nv set vrf default router bgp neighbor 10.254.0.37 remote-as 65101
+nv set vrf default router bgp neighbor 10.254.0.37 enable on
+nv set vrf default router bgp neighbor 10.254.0.37 address-family ipv4-unicast enable on
+# L1-S3-04 spine-03 -> leaf-01 swp52
+nv unset vrf default router bgp neighbor swp4
+nv set vrf default router bgp neighbor 10.254.0.39 type numbered
+nv set vrf default router bgp neighbor 10.254.0.39 remote-as 65101
+nv set vrf default router bgp neighbor 10.254.0.39 enable on
+nv set vrf default router bgp neighbor 10.254.0.39 address-family ipv4-unicast enable on
+# L1-S3-05 spine-03 -> leaf-01 swp53
+nv unset vrf default router bgp neighbor swp5
+nv set vrf default router bgp neighbor 10.254.0.41 type numbered
+nv set vrf default router bgp neighbor 10.254.0.41 remote-as 65101
+nv set vrf default router bgp neighbor 10.254.0.41 enable on
+nv set vrf default router bgp neighbor 10.254.0.41 address-family ipv4-unicast enable on
+# L1-S3-06 spine-03 -> leaf-01 swp54
+nv unset vrf default router bgp neighbor swp6
+nv set vrf default router bgp neighbor 10.254.0.43 type numbered
+nv set vrf default router bgp neighbor 10.254.0.43 remote-as 65101
+nv set vrf default router bgp neighbor 10.254.0.43 enable on
+nv set vrf default router bgp neighbor 10.254.0.43 address-family ipv4-unicast enable on
+# L1-S3-07 spine-03 -> leaf-01 swp55
+nv unset vrf default router bgp neighbor swp7
+nv set vrf default router bgp neighbor 10.254.0.45 type numbered
+nv set vrf default router bgp neighbor 10.254.0.45 remote-as 65101
+nv set vrf default router bgp neighbor 10.254.0.45 enable on
+nv set vrf default router bgp neighbor 10.254.0.45 address-family ipv4-unicast enable on
+# L1-S3-08 spine-03 -> leaf-01 swp56
+nv unset vrf default router bgp neighbor swp8
+nv set vrf default router bgp neighbor 10.254.0.47 type numbered
+nv set vrf default router bgp neighbor 10.254.0.47 remote-as 65101
+nv set vrf default router bgp neighbor 10.254.0.47 enable on
+nv set vrf default router bgp neighbor 10.254.0.47 address-family ipv4-unicast enable on
+# L2-S3-01 spine-03 -> leaf-02 swp49
+nv unset vrf default router bgp neighbor swp9
+nv set vrf default router bgp neighbor 10.254.0.97 type numbered
+nv set vrf default router bgp neighbor 10.254.0.97 remote-as 65102
+nv set vrf default router bgp neighbor 10.254.0.97 enable on
+nv set vrf default router bgp neighbor 10.254.0.97 address-family ipv4-unicast enable on
+# L2-S3-02 spine-03 -> leaf-02 swp50
+nv unset vrf default router bgp neighbor swp10
+nv set vrf default router bgp neighbor 10.254.0.99 type numbered
+nv set vrf default router bgp neighbor 10.254.0.99 remote-as 65102
+nv set vrf default router bgp neighbor 10.254.0.99 enable on
+nv set vrf default router bgp neighbor 10.254.0.99 address-family ipv4-unicast enable on
+# L2-S3-03 spine-03 -> leaf-02 swp51
+nv unset vrf default router bgp neighbor swp11
+nv set vrf default router bgp neighbor 10.254.0.101 type numbered
+nv set vrf default router bgp neighbor 10.254.0.101 remote-as 65102
+nv set vrf default router bgp neighbor 10.254.0.101 enable on
+nv set vrf default router bgp neighbor 10.254.0.101 address-family ipv4-unicast enable on
+# L2-S3-04 spine-03 -> leaf-02 swp52
+nv unset vrf default router bgp neighbor swp12
+nv set vrf default router bgp neighbor 10.254.0.103 type numbered
+nv set vrf default router bgp neighbor 10.254.0.103 remote-as 65102
+nv set vrf default router bgp neighbor 10.254.0.103 enable on
+nv set vrf default router bgp neighbor 10.254.0.103 address-family ipv4-unicast enable on
+# L2-S3-05 spine-03 -> leaf-02 swp53
+nv unset vrf default router bgp neighbor swp13
+nv set vrf default router bgp neighbor 10.254.0.105 type numbered
+nv set vrf default router bgp neighbor 10.254.0.105 remote-as 65102
+nv set vrf default router bgp neighbor 10.254.0.105 enable on
+nv set vrf default router bgp neighbor 10.254.0.105 address-family ipv4-unicast enable on
+# L2-S3-06 spine-03 -> leaf-02 swp54
+nv unset vrf default router bgp neighbor swp14
+nv set vrf default router bgp neighbor 10.254.0.107 type numbered
+nv set vrf default router bgp neighbor 10.254.0.107 remote-as 65102
+nv set vrf default router bgp neighbor 10.254.0.107 enable on
+nv set vrf default router bgp neighbor 10.254.0.107 address-family ipv4-unicast enable on
+# L2-S3-07 spine-03 -> leaf-02 swp55
+nv unset vrf default router bgp neighbor swp15
+nv set vrf default router bgp neighbor 10.254.0.109 type numbered
+nv set vrf default router bgp neighbor 10.254.0.109 remote-as 65102
+nv set vrf default router bgp neighbor 10.254.0.109 enable on
+nv set vrf default router bgp neighbor 10.254.0.109 address-family ipv4-unicast enable on
+# L2-S3-08 spine-03 -> leaf-02 swp56
+nv unset vrf default router bgp neighbor swp16
+nv set vrf default router bgp neighbor 10.254.0.111 type numbered
+nv set vrf default router bgp neighbor 10.254.0.111 remote-as 65102
+nv set vrf default router bgp neighbor 10.254.0.111 enable on
+nv set vrf default router bgp neighbor 10.254.0.111 address-family ipv4-unicast enable on
+# L3-S3-01 spine-03 -> leaf-03 swp49
+nv unset vrf default router bgp neighbor swp17
+nv set vrf default router bgp neighbor 10.254.0.161 type numbered
+nv set vrf default router bgp neighbor 10.254.0.161 remote-as 65103
+nv set vrf default router bgp neighbor 10.254.0.161 enable on
+nv set vrf default router bgp neighbor 10.254.0.161 address-family ipv4-unicast enable on
+# L3-S3-02 spine-03 -> leaf-03 swp50
+nv unset vrf default router bgp neighbor swp18
+nv set vrf default router bgp neighbor 10.254.0.163 type numbered
+nv set vrf default router bgp neighbor 10.254.0.163 remote-as 65103
+nv set vrf default router bgp neighbor 10.254.0.163 enable on
+nv set vrf default router bgp neighbor 10.254.0.163 address-family ipv4-unicast enable on
+# L3-S3-03 spine-03 -> leaf-03 swp51
+nv unset vrf default router bgp neighbor swp19
+nv set vrf default router bgp neighbor 10.254.0.165 type numbered
+nv set vrf default router bgp neighbor 10.254.0.165 remote-as 65103
+nv set vrf default router bgp neighbor 10.254.0.165 enable on
+nv set vrf default router bgp neighbor 10.254.0.165 address-family ipv4-unicast enable on
+# L3-S3-04 spine-03 -> leaf-03 swp52
+nv unset vrf default router bgp neighbor swp20
+nv set vrf default router bgp neighbor 10.254.0.167 type numbered
+nv set vrf default router bgp neighbor 10.254.0.167 remote-as 65103
+nv set vrf default router bgp neighbor 10.254.0.167 enable on
+nv set vrf default router bgp neighbor 10.254.0.167 address-family ipv4-unicast enable on
+# L3-S3-05 spine-03 -> leaf-03 swp53
+nv unset vrf default router bgp neighbor swp21
+nv set vrf default router bgp neighbor 10.254.0.169 type numbered
+nv set vrf default router bgp neighbor 10.254.0.169 remote-as 65103
+nv set vrf default router bgp neighbor 10.254.0.169 enable on
+nv set vrf default router bgp neighbor 10.254.0.169 address-family ipv4-unicast enable on
+# L3-S3-06 spine-03 -> leaf-03 swp54
+nv unset vrf default router bgp neighbor swp22
+nv set vrf default router bgp neighbor 10.254.0.171 type numbered
+nv set vrf default router bgp neighbor 10.254.0.171 remote-as 65103
+nv set vrf default router bgp neighbor 10.254.0.171 enable on
+nv set vrf default router bgp neighbor 10.254.0.171 address-family ipv4-unicast enable on
+# L3-S3-07 spine-03 -> leaf-03 swp55
+nv unset vrf default router bgp neighbor swp23
+nv set vrf default router bgp neighbor 10.254.0.173 type numbered
+nv set vrf default router bgp neighbor 10.254.0.173 remote-as 65103
+nv set vrf default router bgp neighbor 10.254.0.173 enable on
+nv set vrf default router bgp neighbor 10.254.0.173 address-family ipv4-unicast enable on
+# L3-S3-08 spine-03 -> leaf-03 swp56
+nv unset vrf default router bgp neighbor swp24
+nv set vrf default router bgp neighbor 10.254.0.175 type numbered
+nv set vrf default router bgp neighbor 10.254.0.175 remote-as 65103
+nv set vrf default router bgp neighbor 10.254.0.175 enable on
+nv set vrf default router bgp neighbor 10.254.0.175 address-family ipv4-unicast enable on
+# L4-S3-01 spine-03 -> leaf-04 swp49
+nv unset vrf default router bgp neighbor swp25
+nv set vrf default router bgp neighbor 10.254.0.225 type numbered
+nv set vrf default router bgp neighbor 10.254.0.225 remote-as 65104
+nv set vrf default router bgp neighbor 10.254.0.225 enable on
+nv set vrf default router bgp neighbor 10.254.0.225 address-family ipv4-unicast enable on
+# L4-S3-02 spine-03 -> leaf-04 swp50
+nv unset vrf default router bgp neighbor swp26
+nv set vrf default router bgp neighbor 10.254.0.227 type numbered
+nv set vrf default router bgp neighbor 10.254.0.227 remote-as 65104
+nv set vrf default router bgp neighbor 10.254.0.227 enable on
+nv set vrf default router bgp neighbor 10.254.0.227 address-family ipv4-unicast enable on
+# L4-S3-03 spine-03 -> leaf-04 swp51
+nv unset vrf default router bgp neighbor swp27
+nv set vrf default router bgp neighbor 10.254.0.229 type numbered
+nv set vrf default router bgp neighbor 10.254.0.229 remote-as 65104
+nv set vrf default router bgp neighbor 10.254.0.229 enable on
+nv set vrf default router bgp neighbor 10.254.0.229 address-family ipv4-unicast enable on
+# L4-S3-04 spine-03 -> leaf-04 swp52
+nv unset vrf default router bgp neighbor swp28
+nv set vrf default router bgp neighbor 10.254.0.231 type numbered
+nv set vrf default router bgp neighbor 10.254.0.231 remote-as 65104
+nv set vrf default router bgp neighbor 10.254.0.231 enable on
+nv set vrf default router bgp neighbor 10.254.0.231 address-family ipv4-unicast enable on
+# L4-S3-05 spine-03 -> leaf-04 swp53
+nv unset vrf default router bgp neighbor swp29
+nv set vrf default router bgp neighbor 10.254.0.233 type numbered
+nv set vrf default router bgp neighbor 10.254.0.233 remote-as 65104
+nv set vrf default router bgp neighbor 10.254.0.233 enable on
+nv set vrf default router bgp neighbor 10.254.0.233 address-family ipv4-unicast enable on
+# L4-S3-06 spine-03 -> leaf-04 swp54
+nv unset vrf default router bgp neighbor swp30
+nv set vrf default router bgp neighbor 10.254.0.235 type numbered
+nv set vrf default router bgp neighbor 10.254.0.235 remote-as 65104
+nv set vrf default router bgp neighbor 10.254.0.235 enable on
+nv set vrf default router bgp neighbor 10.254.0.235 address-family ipv4-unicast enable on
+# L4-S3-07 spine-03 -> leaf-04 swp55
+nv unset vrf default router bgp neighbor swp31
+nv set vrf default router bgp neighbor 10.254.0.237 type numbered
+nv set vrf default router bgp neighbor 10.254.0.237 remote-as 65104
+nv set vrf default router bgp neighbor 10.254.0.237 enable on
+nv set vrf default router bgp neighbor 10.254.0.237 address-family ipv4-unicast enable on
+# L4-S3-08 spine-03 -> leaf-04 swp56
+nv unset vrf default router bgp neighbor swp32
+nv set vrf default router bgp neighbor 10.254.0.239 type numbered
+nv set vrf default router bgp neighbor 10.254.0.239 remote-as 65104
+nv set vrf default router bgp neighbor 10.254.0.239 enable on
+nv set vrf default router bgp neighbor 10.254.0.239 address-family ipv4-unicast enable on
+
+# Stage 3: after numbered BGP validates across the eight active switches.
+# Global RoCE policy affects all switch data ports; host NIC setup is separate.
+# Use the guarded wrapper: bash spine-03.sh roce-enable
+nv set qos roce
+nv set qos roce mode lossless
+# Review nv config diff, then apply/save. QoS changes can briefly interrupt traffic.
+# nv config apply && nv config save
+# bash spine-03.sh roce-validate

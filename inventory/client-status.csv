@@ -1,0 +1,41 @@
+host,os_ip,bmc_ip,leaf,rack,port_mapping,roce,reboot_validation,exception,as_of
+weka40,172.31.18.40,172.31.16.40,leaf-04,Rack 5,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka41,172.31.18.41,172.31.16.41,leaf-04,Rack 5,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka42,172.31.18.42,172.31.16.42,leaf-04,Rack 5,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka43,172.31.18.43,172.31.16.43,leaf-04,Rack 5,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka44,172.31.18.44,172.31.16.44,leaf-04,Rack 5,confirmed,deferred,not performed in latest batch,link1 down; link2 jumbo passed,2026-09-30 America/Los_Angeles
+weka45,172.31.18.45,172.31.16.45,leaf-04,Rack 5,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka46,172.31.18.46,172.31.16.46,leaf-04,Rack 5,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka47,172.31.18.47,172.31.16.47,leaf-04,Rack 5,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka48,172.31.18.48,172.31.16.48,leaf-03,Rack 4,deferred,deferred,not performed in latest batch,NIC mapping not collected,2026-09-30 America/Los_Angeles
+weka49,172.31.18.49,172.31.16.49,leaf-03,Rack 4,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka50,172.31.18.50,172.31.16.50,leaf-03,Rack 4,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka51,172.31.18.51,172.31.16.51,leaf-03,Rack 4,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka52,172.31.18.52,172.31.16.52,leaf-03,Rack 4,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka53,172.31.18.53,172.31.16.53,leaf-03,Rack 4,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka54,172.31.18.54,172.31.16.54,leaf-03,Rack 4,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka55,172.31.18.55,172.31.16.55,leaf-03,Rack 4,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka56,172.31.18.56,172.31.16.56,leaf-03,Rack 4,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka57,172.31.18.57,172.31.16.57,leaf-03,Rack 4,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka58,172.31.18.58,172.31.16.58,leaf-03,Rack 4,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka59,172.31.18.59,172.31.16.59,leaf-03,Rack 4,deferred,deferred,not performed in latest batch,NIC mapping not collected,2026-09-30 America/Los_Angeles
+weka60,172.31.18.60,172.31.16.60,leaf-02,Rack 2,confirmed,deployed,passed; pilot evidence,,2026-09-30 America/Los_Angeles
+weka61,172.31.18.61,172.31.16.61,leaf-02,Rack 2,confirmed,deployed,passed; pilot evidence,,2026-09-30 America/Los_Angeles
+weka62,172.31.18.62,172.31.16.62,leaf-02,Rack 2,confirmed,deployed,passed; pilot evidence,,2026-09-30 America/Los_Angeles
+weka63,172.31.18.63,172.31.16.63,leaf-02,Rack 2,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka64,172.31.18.64,172.31.16.64,leaf-02,Rack 2,deferred,deferred,not performed in latest batch,RDMA discovery incomplete,2026-09-30 America/Los_Angeles
+weka65,172.31.18.65,172.31.16.65,leaf-02,Rack 2,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka66,172.31.18.66,172.31.16.66,leaf-02,Rack 2,confirmed,previously configured; precheck passed,not performed in latest batch,,2026-09-30 America/Los_Angeles
+weka67,172.31.18.67,172.31.16.67,leaf-02,Rack 2,confirmed,previously configured; precheck passed,not performed in latest batch,,2026-09-30 America/Los_Angeles
+weka68,172.31.18.68,172.31.16.68,leaf-01,Rack 1,confirmed,previously configured; precheck passed,not performed in latest batch,,2026-09-30 America/Los_Angeles
+weka69,172.31.18.69,172.31.16.69,leaf-01,Rack 1,confirmed,previously configured; precheck passed,not performed in latest batch,,2026-09-30 America/Los_Angeles
+weka70,172.31.18.70,172.31.16.70,leaf-01,Rack 1,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka71,172.31.18.71,172.31.16.71,leaf-01,Rack 1,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka72,172.31.18.72,172.31.16.72,leaf-01,Rack 1,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka73,172.31.18.73,172.31.16.73,leaf-01,Rack 1,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka74,172.31.18.74,172.31.16.74,leaf-01,Rack 1,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka75,172.31.18.75,172.31.16.75,leaf-01,Rack 1,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka76,172.31.18.76,172.31.16.76,leaf-01,Rack 1,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka77,172.31.18.77,172.31.16.77,leaf-01,Rack 1,confirmed,deployed,passed; operator-provided summary,,2026-09-30 America/Los_Angeles
+weka78,172.31.18.78,172.31.16.78,leaf-01,Rack 1,deferred,deferred,not performed in latest batch,OS SSH previously unreachable,2026-09-30 America/Los_Angeles
+weka79,172.31.18.79,172.31.16.79,leaf-01,Rack 1,deferred,deferred,not performed in latest batch,NIC mapping not collected,2026-09-30 America/Los_Angeles

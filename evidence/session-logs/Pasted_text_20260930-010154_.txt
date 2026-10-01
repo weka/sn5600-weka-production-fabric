@@ -1,0 +1,305 @@
+bash-3.2$ for H in weka69 weka70 weka71 weka72 weka73 weka74 weka75 weka76 weka77
+> do
+>   echo
+>   echo "===== APPLYING $H ====="
+>   bash fabric.sh server-apply "$H" || break
+>   bash fabric.sh server-validate "$H" || break
+> done
+
+===== APPLYING weka69 =====
+
+===== weka69 172.31.18.69 --apply =====
+root@172.31.18.69's password:
+Preflight passed: weka69; both CX-7 ports are Ethernet and MACs match.
+Backup: /root/sn5600-client31-state/weka69/netplan-before-20260930T010018Z.tar.gz
+
+** (generate:8471): WARNING **: 01:00:18.879: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (generate:8536): WARNING **: 01:00:19.150: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (process:8528): WARNING **: 01:00:19.315: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (process:8528): WARNING **: 01:00:19.408: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+Applied /etc/netplan/70-datapath.yaml on weka69.
+Connection to 172.31.18.69 closed.
+
+===== weka69 172.31.18.69 --validate =====
+root@172.31.18.69's password:
+Preflight passed: weka69; both CX-7 ports are Ethernet and MACs match.
+ens4047f0np0 state=up speedMbps=200000 mtu=9000
+ens4047f1np1 state=up speedMbps=200000 mtu=9000
+PASS ens4047f0np0 9000-byte probe to 10.200.69.0
+PASS ens4047f1np1 9000-byte probe to 10.200.69.2
+PASS: weka69 /31 addresses, policy routes, MTU probes and Ethernet mode.
+Connection to 172.31.18.69 closed.
+
+===== APPLYING weka70 =====
+
+===== weka70 172.31.18.70 --apply =====
+root@172.31.18.70's password:
+Preflight passed: weka70; both CX-7 ports are Ethernet and MACs match.
+Backup: /root/sn5600-client31-state/weka70/netplan-before-20260930T010027Z.tar.gz
+
+** (generate:162310): WARNING **: 01:00:27.610: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (generate:162366): WARNING **: 01:00:27.874: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (process:162364): WARNING **: 01:00:28.031: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (process:162364): WARNING **: 01:00:28.123: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+Applied /etc/netplan/70-datapath.yaml on weka70.
+Connection to 172.31.18.70 closed.
+
+===== weka70 172.31.18.70 --validate =====
+root@172.31.18.70's password:
+Preflight passed: weka70; both CX-7 ports are Ethernet and MACs match.
+ens4047f0np0 state=up speedMbps=200000 mtu=9000
+ens4047f1np1 state=up speedMbps=200000 mtu=9000
+PASS ens4047f0np0 9000-byte probe to 10.200.70.0
+PASS ens4047f1np1 9000-byte probe to 10.200.70.2
+PASS: weka70 /31 addresses, policy routes, MTU probes and Ethernet mode.
+Connection to 172.31.18.70 closed.
+
+===== APPLYING weka71 =====
+
+===== weka71 172.31.18.71 --apply =====
+root@172.31.18.71's password:
+Preflight passed: weka71; both CX-7 ports are Ethernet and MACs match.
+Backup: /root/sn5600-client31-state/weka71/netplan-before-20260930T010036Z.tar.gz
+
+** (generate:8151): WARNING **: 01:00:37.023: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (generate:8210): WARNING **: 01:00:37.290: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (process:8204): WARNING **: 01:00:37.452: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (process:8204): WARNING **: 01:00:37.542: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+Applied /etc/netplan/70-datapath.yaml on weka71.
+Connection to 172.31.18.71 closed.
+
+===== weka71 172.31.18.71 --validate =====
+root@172.31.18.71's password:
+Preflight passed: weka71; both CX-7 ports are Ethernet and MACs match.
+ens4047f0np0 state=up speedMbps=200000 mtu=9000
+ens4047f1np1 state=up speedMbps=200000 mtu=9000
+PASS ens4047f0np0 9000-byte probe to 10.200.71.0
+PASS ens4047f1np1 9000-byte probe to 10.200.71.2
+PASS: weka71 /31 addresses, policy routes, MTU probes and Ethernet mode.
+Connection to 172.31.18.71 closed.
+
+===== APPLYING weka72 =====
+
+===== weka72 172.31.18.72 --apply =====
+root@172.31.18.72's password:
+Preflight passed: weka72; both CX-7 ports are Ethernet and MACs match.
+Backup: /root/sn5600-client31-state/weka72/netplan-before-20260930T010045Z.tar.gz
+
+** (generate:8125): WARNING **: 01:00:45.524: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (generate:8186): WARNING **: 01:00:45.798: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (process:8180): WARNING **: 01:00:45.957: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+[]
+Cannot find unique matching interface for ens4047np0
+[]
+Cannot find unique matching interface for ens3919np0
+
+** (process:8180): WARNING **: 01:00:46.057: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+Applied /etc/netplan/70-datapath.yaml on weka72.
+Connection to 172.31.18.72 closed.
+
+===== weka72 172.31.18.72 --validate =====
+root@172.31.18.72's password:
+Preflight passed: weka72; both CX-7 ports are Ethernet and MACs match.
+ens4047f0np0 state=up speedMbps=200000 mtu=9000
+ens4047f1np1 state=up speedMbps=200000 mtu=9000
+PASS ens4047f0np0 9000-byte probe to 10.200.72.0
+PASS ens4047f1np1 9000-byte probe to 10.200.72.2
+PASS: weka72 /31 addresses, policy routes, MTU probes and Ethernet mode.
+Connection to 172.31.18.72 closed.
+
+===== APPLYING weka73 =====
+
+===== weka73 172.31.18.73 --apply =====
+root@172.31.18.73's password:
+Preflight passed: weka73; both CX-7 ports are Ethernet and MACs match.
+Backup: /root/sn5600-client31-state/weka73/netplan-before-20260930T010053Z.tar.gz
+
+** (generate:8119): WARNING **: 01:00:53.990: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (generate:8173): WARNING **: 01:00:54.261: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (process:8171): WARNING **: 01:00:54.435: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+[]
+Cannot find unique matching interface for ens4047np0
+[]
+Cannot find unique matching interface for ens3919np0
+
+** (process:8171): WARNING **: 01:00:54.536: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+Applied /etc/netplan/70-datapath.yaml on weka73.
+Connection to 172.31.18.73 closed.
+
+===== weka73 172.31.18.73 --validate =====
+root@172.31.18.73's password:
+Preflight passed: weka73; both CX-7 ports are Ethernet and MACs match.
+ens4047f0np0 state=up speedMbps=200000 mtu=9000
+ens4047f1np1 state=up speedMbps=200000 mtu=9000
+PASS ens4047f0np0 9000-byte probe to 10.200.73.0
+PASS ens4047f1np1 9000-byte probe to 10.200.73.2
+PASS: weka73 /31 addresses, policy routes, MTU probes and Ethernet mode.
+Connection to 172.31.18.73 closed.
+
+===== APPLYING weka74 =====
+
+===== weka74 172.31.18.74 --apply =====
+root@172.31.18.74's password:
+Preflight passed: weka74; both CX-7 ports are Ethernet and MACs match.
+Backup: /root/sn5600-client31-state/weka74/netplan-before-20260930T010102Z.tar.gz
+
+** (generate:8343): WARNING **: 01:01:02.394: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (generate:8401): WARNING **: 01:01:02.670: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (process:8399): WARNING **: 01:01:02.836: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+[]
+Cannot find unique matching interface for ens4047np0
+[]
+Cannot find unique matching interface for ens3919np0
+
+** (process:8399): WARNING **: 01:01:02.935: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+Applied /etc/netplan/70-datapath.yaml on weka74.
+Connection to 172.31.18.74 closed.
+
+===== weka74 172.31.18.74 --validate =====
+root@172.31.18.74's password:
+Preflight passed: weka74; both CX-7 ports are Ethernet and MACs match.
+ens4047f0np0 state=up speedMbps=200000 mtu=9000
+ens4047f1np1 state=up speedMbps=200000 mtu=9000
+PASS ens4047f0np0 9000-byte probe to 10.200.74.0
+PASS ens4047f1np1 9000-byte probe to 10.200.74.2
+PASS: weka74 /31 addresses, policy routes, MTU probes and Ethernet mode.
+Connection to 172.31.18.74 closed.
+
+===== APPLYING weka75 =====
+
+===== weka75 172.31.18.75 --apply =====
+root@172.31.18.75's password:
+Preflight passed: weka75; both CX-7 ports are Ethernet and MACs match.
+Backup: /root/sn5600-client31-state/weka75/netplan-before-20260930T010111Z.tar.gz
+
+** (generate:8079): WARNING **: 01:01:11.118: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (generate:8169): WARNING **: 01:01:11.401: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (process:8167): WARNING **: 01:01:11.578: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (process:8167): WARNING **: 01:01:11.666: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+Applied /etc/netplan/70-datapath.yaml on weka75.
+Connection to 172.31.18.75 closed.
+
+===== weka75 172.31.18.75 --validate =====
+root@172.31.18.75's password:
+Preflight passed: weka75; both CX-7 ports are Ethernet and MACs match.
+ens4047f0np0 state=up speedMbps=200000 mtu=9000
+ens4047f1np1 state=up speedMbps=200000 mtu=9000
+PASS ens4047f0np0 9000-byte probe to 10.200.75.0
+PASS ens4047f1np1 9000-byte probe to 10.200.75.2
+PASS: weka75 /31 addresses, policy routes, MTU probes and Ethernet mode.
+Connection to 172.31.18.75 closed.
+
+===== APPLYING weka76 =====
+
+===== weka76 172.31.18.76 --apply =====
+root@172.31.18.76's password:
+Preflight passed: weka76; both CX-7 ports are Ethernet and MACs match.
+Backup: /root/sn5600-client31-state/weka76/netplan-before-20260930T010119Z.tar.gz
+
+** (generate:8062): WARNING **: 01:01:19.294: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (generate:8118): WARNING **: 01:01:19.564: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (process:8116): WARNING **: 01:01:19.725: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+[]
+Cannot find unique matching interface for ens4047np0
+[]
+Cannot find unique matching interface for ens3919np0
+
+** (process:8116): WARNING **: 01:01:19.824: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+Applied /etc/netplan/70-datapath.yaml on weka76.
+Connection to 172.31.18.76 closed.
+
+===== weka76 172.31.18.76 --validate =====
+root@172.31.18.76's password:
+Preflight passed: weka76; both CX-7 ports are Ethernet and MACs match.
+ens4047f0np0 state=up speedMbps=200000 mtu=9000
+ens4047f1np1 state=up speedMbps=200000 mtu=9000
+PASS ens4047f0np0 9000-byte probe to 10.200.76.0
+PASS ens4047f1np1 9000-byte probe to 10.200.76.2
+PASS: weka76 /31 addresses, policy routes, MTU probes and Ethernet mode.
+Connection to 172.31.18.76 closed.
+
+===== APPLYING weka77 =====
+
+===== weka77 172.31.18.77 --apply =====
+root@172.31.18.77's password:
+Preflight passed: weka77; both CX-7 ports are Ethernet and MACs match.
+Backup: /root/sn5600-client31-state/weka77/netplan-before-20260930T010128Z.tar.gz
+
+** (generate:8159): WARNING **: 01:01:28.621: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (generate:8217): WARNING **: 01:01:28.892: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+
+** (process:8212): WARNING **: 01:01:29.069: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+[]
+Cannot find unique matching interface for ens3919np0
+
+** (process:8212): WARNING **: 01:01:29.161: `gateway4` has been deprecated, use default routes instead.
+See the 'Default routes' section of the documentation for more details.
+Applied /etc/netplan/70-datapath.yaml on weka77.
+Connection to 172.31.18.77 closed.
+
+===== weka77 172.31.18.77 --validate =====
+root@172.31.18.77's password:
+Preflight passed: weka77; both CX-7 ports are Ethernet and MACs match.
+ens4047f0np0 state=up speedMbps=200000 mtu=9000
+ens4047f1np1 state=up speedMbps=200000 mtu=9000
+PASS ens4047f0np0 9000-byte probe to 10.200.77.0
+PASS ens4047f1np1 9000-byte probe to 10.200.77.2
+PASS: weka77 /31 addresses, policy routes, MTU probes and Ethernet mode.
+Connection to 172.31.18.77 closed.
+bash-3.2$

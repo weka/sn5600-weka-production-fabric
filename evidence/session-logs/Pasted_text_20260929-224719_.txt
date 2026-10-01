@@ -1,0 +1,275 @@
+bash-3.2$ cd "$HOME/Downloads"
+bash-3.2$ chmod +x cx7_ready_server_inventory.sh
+bash-3.2$ bash cx7_ready_server_inventory.sh
+NIC|HOST|PCI|RDMA|NETDEV|MAC|RUNTIME|RDMA_STATE|OPER|SPEED_MBPS|MTU|IPV4|FW_VERSION|FW_MODE
+
+===== weka40 172.31.18.40 expected=4 =====
+root@172.31.18.40's password:
+NIC|weka40|0000:33:00.0|mlx5_0|ens4047np0|d8:94:24:1d:d5:ac|Ethernet|1:_DOWN|down|-1|9000|10.200.100.40/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka40|0000:b4:00.0|mlx5_1|ens3919np0|d8:94:24:1d:d5:44|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka40|found=2|expected=4|CHECK
+
+===== weka41 172.31.18.41 expected=4 =====
+root@172.31.18.41's password:
+NIC|weka41|0000:33:00.0|mlx5_0|ens4047np0|d8:94:24:1d:d5:d4|Ethernet|1:_DOWN|down|-1|9000|10.200.100.41/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka41|0000:b4:00.0|mlx5_1|ens3919np0|d8:94:24:1d:d5:7c|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka41|found=2|expected=4|CHECK
+
+===== weka42 172.31.18.42 expected=4 =====
+root@172.31.18.42's password:
+NIC|weka42|0000:33:00.0|mlx5_0|ens4047np0|d8:94:24:1d:d5:5c|Ethernet|1:_DOWN|down|-1|9000|10.200.100.42/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka42|0000:b4:00.0|mlx5_1|ens3919np0|d8:94:24:1d:d5:34|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka42|found=2|expected=4|CHECK
+
+===== weka43 172.31.18.43 expected=4 =====
+root@172.31.18.43's password:
+NIC|weka43|0000:33:00.0|mlx5_0|ens4047np0|d8:94:24:1d:d5:fc|Ethernet|1:_DOWN|down|-1|9000|10.200.100.43/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka43|0000:b4:00.0|mlx5_1|ens3919np0|d8:94:24:1d:d5:a4|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka43|found=2|expected=4|CHECK
+
+===== weka44 172.31.18.44 expected=4 =====
+root@172.31.18.44's password:
+NIC|weka44|0000:33:00.0|mlx5_0|ens4047np0|9c:63:c0:9b:3a:dc|Ethernet|1:_DOWN|down|-1|9000|10.200.100.44/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka44|0000:b4:00.0|mlx5_1|ens3919np0|d8:94:24:1d:d5:94|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka44|found=2|expected=4|CHECK
+
+===== weka45 172.31.18.45 expected=4 =====
+root@172.31.18.45's password:
+NIC|weka45|0000:33:00.0|mlx5_0|ens4047np0|e0:9d:73:02:a5:2e|Ethernet|1:_DOWN|down|-1|9000|10.200.100.45/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka45|0000:b4:00.0|mlx5_1|ens3919np0|e0:9d:73:02:a6:5e|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka45|found=2|expected=4|CHECK
+
+===== weka46 172.31.18.46 expected=4 =====
+root@172.31.18.46's password:
+NIC|weka46|0000:33:00.0|mlx5_0|ens4047np0|d8:94:24:1d:d5:f4|Ethernet|1:_DOWN|down|-1|9000|10.200.100.46/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka46|0000:b4:00.0|mlx5_1|ens3919np0|e0:9d:73:1d:d9:94|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka46|found=2|expected=4|CHECK
+
+===== weka47 172.31.18.47 expected=4 =====
+root@172.31.18.47's password:
+NIC|weka47|0000:33:00.0|mlx5_0|ens4047np0|d8:94:24:d5:31:26|Ethernet|1:_DOWN|down|-1|9000|10.200.100.47/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka47|0000:b4:00.0|mlx5_1|ens3919np0|e0:9d:73:02:85:f6|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka47|found=2|expected=4|CHECK
+
+===== weka48 172.31.18.48 expected=4 =====
+root@172.31.18.48's password:
+NIC|weka48|0000:33:00.0|mlx5_0|ens4047np0|d8:94:24:1d:d6:0c|Ethernet|1:_DOWN|down|-1|9000|10.200.100.48/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka48|0000:b4:00.0|mlx5_1|ens3919np0|d8:94:24:1d:d5:bc|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka48|found=2|expected=4|CHECK
+
+===== weka49 172.31.18.49 expected=4 =====
+root@172.31.18.49's password:
+NIC|weka49|0000:33:00.0|mlx5_0|ens4047np0|d8:94:24:1d:d5:e4|Ethernet|1:_DOWN|down|-1|9000|10.200.100.49/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka49|0000:b4:00.0|mlx5_1|ens3919np0|d8:94:24:1d:d5:3c|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka49|found=2|expected=4|CHECK
+
+===== weka50 172.31.18.50 expected=4 =====
+root@172.31.18.50's password:
+NIC|weka50|0000:33:00.0|mlx5_0|ens4047np0|d8:94:24:1d:d5:cc|Ethernet|1:_DOWN|down|-1|9000|10.200.100.50/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka50|0000:b4:00.0|mlx5_1|ens3919np0|d8:94:24:1d:d5:b4|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka50|found=2|expected=4|CHECK
+
+===== weka51 172.31.18.51 expected=4 =====
+root@172.31.18.51's password:
+NIC|weka51|0000:33:00.0|mlx5_0|ens4047np0|9c:63:c0:9b:3b:14|Ethernet|1:_DOWN|down|-1|9000|10.200.100.51/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka51|0000:b4:00.0|mlx5_1|ens3919np0|e0:9d:73:02:85:de|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka51|found=2|expected=4|CHECK
+
+===== weka52 172.31.18.52 expected=4 =====
+root@172.31.18.52's password:
+NIC|weka52|0000:33:00.0|mlx5_0|ens4047np0|e0:9d:73:02:8b:be|Ethernet|1:_DOWN|down|-1|9000|10.200.100.52/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka52|0000:b4:00.0|mlx5_1|ens3919np0|e0:9d:73:02:8a:66|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka52|found=2|expected=4|CHECK
+
+===== weka53 172.31.18.53 expected=4 =====
+root@172.31.18.53's password:
+NIC|weka53|0000:33:00.0|mlx5_0|ens4047np0|9c:63:c0:ba:00:12|Ethernet|1:_DOWN|down|-1|9000|10.200.100.53/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka53|0000:b4:00.0|mlx5_1|ens3919np0|e0:9d:73:02:8b:76|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka53|found=2|expected=4|CHECK
+
+===== weka54 172.31.18.54 expected=4 =====
+root@172.31.18.54's password:
+NIC|weka54|0000:33:00.0|mlx5_0|ens4047np0|e0:9d:73:02:8a:ee|Ethernet|1:_DOWN|down|-1|9000|10.200.100.54/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka54|0000:b4:00.0|mlx5_1|ens3919np0|e0:9d:73:02:88:a6|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka54|found=2|expected=4|CHECK
+
+===== weka55 172.31.18.55 expected=4 =====
+root@172.31.18.55's password:
+NIC|weka55|0000:33:00.0|mlx5_0|ens4047np0|d8:94:24:1d:d5:4c|Ethernet|1:_DOWN|down|-1|9000|10.200.100.55/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka55|0000:b4:00.0|mlx5_1|ens3919np0|d8:94:24:1d:d5:dc|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka55|found=2|expected=4|CHECK
+
+===== weka56 172.31.18.56 expected=2 =====
+root@172.31.18.56's password:
+NIC|weka56|0000:33:00.0|mlx5_0|ens4047np0|d8:94:24:1d:d5:54|Ethernet|1:_DOWN|down|-1|9000|10.200.100.56/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka56|0000:b4:00.0|mlx5_1|ens3919np0|d8:94:24:1d:d6:04|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka56|found=2|expected=2|PASS
+
+===== weka57 172.31.18.57 expected=2 =====
+root@172.31.18.57's password:
+NIC|weka57|0000:33:00.0|mlx5_0|ens4047np0|d8:94:24:1d:d5:24|Ethernet|1:_DOWN|down|-1|9000|10.200.100.57/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka57|0000:b4:00.0|mlx5_1|ens3919np0|d8:94:24:1d:d5:8c|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka57|found=2|expected=2|PASS
+
+===== weka58 172.31.18.58 expected=2 =====
+root@172.31.18.58's password:
+NIC|weka58|0000:33:00.0|mlx5_0|ens4047np0|d8:94:24:1d:d5:74|Ethernet|1:_DOWN|down|-1|9000|10.200.100.58/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka58|0000:b4:00.0|mlx5_1|ens3919np0|d8:94:24:1d:d5:ec|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka58|found=2|expected=2|PASS
+
+===== weka59 172.31.18.59 expected=2 =====
+root@172.31.18.59's password:
+NIC|weka59|0000:33:00.0|mlx5_0|ens4047np0|d8:94:24:1d:d5:64|Ethernet|1:_DOWN|down|-1|9000|10.200.100.59/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka59|0000:b4:00.0|mlx5_1|ens3919np0|d8:94:24:1d:d5:84|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka59|found=2|expected=2|PASS
+
+===== weka60 172.31.18.60 expected=2 =====
+root@172.31.18.60's password:
+NIC|weka60|0000:33:00.0|mlx5_0|ens4047np0|d8:94:24:1d:d5:2c|Ethernet|1:_DOWN|down|-1|9000|10.200.100.60/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka60|0000:b4:00.0|mlx5_1|ens3919np0|e0:9d:73:1d:d8:34|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka60|found=2|expected=2|PASS
+
+===== weka61 172.31.18.61 expected=2 =====
+root@172.31.18.61's password:
+NIC|weka61|0000:33:00.0|mlx5_0|ens4047np0|e0:9d:73:1d:d2:bc|Ethernet|1:_DOWN|down|-1|9000|10.200.100.61/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka61|0000:b4:00.0|mlx5_1|ens3919np0|e0:9d:73:02:a9:96|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka61|found=2|expected=2|PASS
+
+===== weka62 172.31.18.62 expected=2 =====
+root@172.31.18.62's password:
+NIC|weka62|0000:33:00.0|mlx5_0|ens4047np0|d8:94:24:1d:d5:6c|Ethernet|1:_DOWN|down|-1|9000|10.200.100.62/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka62|0000:b4:00.0|mlx5_1|ens3919np0|e0:9d:73:02:aa:2e|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka62|found=2|expected=2|PASS
+
+===== weka63 172.31.18.63 expected=2 =====
+root@172.31.18.63's password:
+NIC|weka63|0000:33:00.0|mlx5_0|ens4047np0|d8:94:24:1d:d5:9c|Ethernet|1:_DOWN|down|-1|9000|10.200.100.63/16|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+NIC|weka63|0000:b4:00.0|mlx5_1|ens3919np0|e0:9d:73:1d:d7:04|Ethernet|1:_DOWN|down|unknown|1500|none|28.46.3048 (MT_0000000838)|LINK_TYPE_P1=ETH(2)
+COUNT|weka63|found=2|expected=2|PASS
+SKIP|weka64|excluded
+
+===== weka65 172.31.18.65 expected=2 =====
+root@172.31.18.65's password:
+NIC|weka65|0000:33:00.0|mlx5_0|ens4047f0np0|a0:88:c2:ac:f2:c8|Ethernet|1:_DOWN|down|-1|9000|10.200.100.65/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+NIC|weka65|0000:33:00.1|mlx5_1|ens4047f1np1|a0:88:c2:ac:f2:c9|Ethernet|1:_DOWN|down|-1|9000|10.200.101.65/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+COUNT|weka65|found=2|expected=2|PASS
+
+===== weka66 172.31.18.66 expected=2 =====
+root@172.31.18.66's password:
+NIC|weka66|0000:33:00.0|mlx5_0|ens4047f0np0|a0:88:c2:d5:63:e2|Ethernet|1:_DOWN|down|-1|9000|10.200.100.66/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+NIC|weka66|0000:33:00.1|mlx5_1|ens4047f1np1|a0:88:c2:d5:63:e3|Ethernet|1:_DOWN|down|-1|9000|10.200.101.66/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+COUNT|weka66|found=2|expected=2|PASS
+
+===== weka67 172.31.18.67 expected=2 =====
+root@172.31.18.67's password:
+NIC|weka67|0000:33:00.0|mlx5_0|ens4047f0np0|a0:88:c2:ac:db:e8|Ethernet|1:_DOWN|down|-1|9000|10.200.100.67/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+NIC|weka67|0000:33:00.1|mlx5_1|ens4047f1np1|a0:88:c2:ac:db:e9|Ethernet|1:_DOWN|down|-1|9000|10.200.101.67/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+COUNT|weka67|found=2|expected=2|PASS
+
+===== weka68 172.31.18.68 expected=2 =====
+root@172.31.18.68's password:
+NIC|weka68|0000:33:00.0|mlx5_0|ens4047f0np0|a0:88:c2:a8:5b:40|Ethernet|1:_DOWN|down|-1|9000|10.200.100.68/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+NIC|weka68|0000:33:00.1|mlx5_1|ens4047f1np1|a0:88:c2:a8:5b:41|Ethernet|1:_DOWN|down|-1|9000|10.200.101.68/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+COUNT|weka68|found=2|expected=2|PASS
+
+===== weka69 172.31.18.69 expected=2 =====
+root@172.31.18.69's password:
+NIC|weka69|0000:33:00.0|mlx5_0|ens4047f0np0|a0:88:c2:ad:00:b8|Ethernet|1:_DOWN|down|-1|9000|10.200.100.69/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+NIC|weka69|0000:33:00.1|mlx5_1|ens4047f1np1|a0:88:c2:ad:00:b9|Ethernet|1:_DOWN|down|-1|9000|10.200.101.69/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+COUNT|weka69|found=2|expected=2|PASS
+
+===== weka70 172.31.18.70 expected=2 =====
+root@172.31.18.70's password:
+NIC|weka70|0000:33:00.0|mlx5_0|ens4047f0np0|a0:88:c2:d5:64:22|Ethernet|1:_DOWN|down|-1|9000|10.200.100.70/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+NIC|weka70|0000:33:00.1|mlx5_1|ens4047f1np1|a0:88:c2:d5:64:23|Ethernet|1:_DOWN|down|-1|9000|10.200.101.70/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+COUNT|weka70|found=2|expected=2|PASS
+
+===== weka71 172.31.18.71 expected=2 =====
+root@172.31.18.71's password:
+NIC|weka71|0000:33:00.0|mlx5_0|ens4047f0np0|a0:88:c2:d5:66:72|Ethernet|1:_DOWN|down|-1|9000|10.200.100.71/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+NIC|weka71|0000:33:00.1|mlx5_1|ens4047f1np1|a0:88:c2:d5:66:73|Ethernet|1:_DOWN|down|-1|9000|10.200.101.71/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+COUNT|weka71|found=2|expected=2|PASS
+
+===== weka72 172.31.18.72 expected=2 =====
+root@172.31.18.72's password:
+NIC|weka72|0000:33:00.0|mlx5_0|ens4047f0np0|a0:88:c2:d5:64:02|Ethernet|1:_DOWN|down|-1|9000|10.200.100.72/16|28.41.1000 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+NIC|weka72|0000:33:00.1|mlx5_1|ens4047f1np1|a0:88:c2:d5:64:03|Ethernet|1:_DOWN|down|-1|9000|10.200.101.72/16|28.41.1000 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+COUNT|weka72|found=2|expected=2|PASS
+
+===== weka73 172.31.18.73 expected=2 =====
+root@172.31.18.73's password:
+NIC|weka73|0000:33:00.0|mlx5_0|ens4047f0np0|a0:88:c2:d5:73:82|Ethernet|1:_DOWN|down|-1|9000|10.200.100.73/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+NIC|weka73|0000:33:00.1|mlx5_1|ens4047f1np1|a0:88:c2:d5:73:83|Ethernet|1:_DOWN|down|-1|9000|10.200.101.73/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+COUNT|weka73|found=2|expected=2|PASS
+
+===== weka74 172.31.18.74 expected=2 =====
+root@172.31.18.74's password:
+NIC|weka74|0000:33:00.0|mlx5_0|ens4047f0np0|a0:88:c2:34:b9:36|Ethernet|1:_DOWN|down|-1|9000|10.200.100.74/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+NIC|weka74|0000:33:00.1|mlx5_1|ens4047f1np1|a0:88:c2:34:b9:37|Ethernet|1:_DOWN|down|-1|9000|10.200.101.74/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+COUNT|weka74|found=2|expected=2|PASS
+
+===== weka75 172.31.18.75 expected=2 =====
+root@172.31.18.75's password:
+NIC|weka75|0000:33:00.0|mlx5_0|ens4047f0np0|a0:88:c2:d5:64:12|Ethernet|1:_DOWN|down|-1|9000|10.200.100.75/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+NIC|weka75|0000:33:00.1|mlx5_1|ens4047f1np1|a0:88:c2:d5:64:13|Ethernet|1:_DOWN|down|-1|9000|10.200.101.75/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+COUNT|weka75|found=2|expected=2|PASS
+
+===== weka76 172.31.18.76 expected=2 =====
+root@172.31.18.76's password:
+NIC|weka76|0000:33:00.0|mlx5_0|ens4047f0np0|a0:88:c2:d5:66:92|Ethernet|1:_DOWN|down|-1|9000|10.200.100.76/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+NIC|weka76|0000:33:00.1|mlx5_1|ens4047f1np1|a0:88:c2:d5:66:93|Ethernet|1:_DOWN|down|-1|9000|10.200.101.76/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+COUNT|weka76|found=2|expected=2|PASS
+
+===== weka77 172.31.18.77 expected=2 =====
+root@172.31.18.77's password:
+NIC|weka77|0000:33:00.0|mlx5_0|ens4047f0np0|a0:88:c2:d5:64:42|Ethernet|1:_DOWN|down|-1|9000|10.200.100.77/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+NIC|weka77|0000:33:00.1|mlx5_1|ens4047f1np1|a0:88:c2:d5:64:43|Ethernet|1:_DOWN|down|-1|9000|10.200.101.77/16|28.36.1700 (MT_0000000834)|LINK_TYPE_P1=ETH(2),LINK_TYPE_P2=ETH(2)
+COUNT|weka77|found=2|expected=2|PASS
+SKIP|weka78|excluded
+SKIP|weka79|excluded
+
+===== SUMMARY =====
+COUNT|weka40|found=2|expected=4|CHECK
+COUNT|weka41|found=2|expected=4|CHECK
+COUNT|weka42|found=2|expected=4|CHECK
+COUNT|weka43|found=2|expected=4|CHECK
+COUNT|weka44|found=2|expected=4|CHECK
+COUNT|weka45|found=2|expected=4|CHECK
+COUNT|weka46|found=2|expected=4|CHECK
+COUNT|weka47|found=2|expected=4|CHECK
+COUNT|weka48|found=2|expected=4|CHECK
+COUNT|weka49|found=2|expected=4|CHECK
+COUNT|weka50|found=2|expected=4|CHECK
+COUNT|weka51|found=2|expected=4|CHECK
+COUNT|weka52|found=2|expected=4|CHECK
+COUNT|weka53|found=2|expected=4|CHECK
+COUNT|weka54|found=2|expected=4|CHECK
+COUNT|weka55|found=2|expected=4|CHECK
+COUNT|weka56|found=2|expected=2|PASS
+COUNT|weka57|found=2|expected=2|PASS
+COUNT|weka58|found=2|expected=2|PASS
+COUNT|weka59|found=2|expected=2|PASS
+COUNT|weka60|found=2|expected=2|PASS
+COUNT|weka61|found=2|expected=2|PASS
+COUNT|weka62|found=2|expected=2|PASS
+COUNT|weka63|found=2|expected=2|PASS
+SKIP|weka64|excluded
+COUNT|weka65|found=2|expected=2|PASS
+COUNT|weka66|found=2|expected=2|PASS
+COUNT|weka67|found=2|expected=2|PASS
+COUNT|weka68|found=2|expected=2|PASS
+COUNT|weka69|found=2|expected=2|PASS
+COUNT|weka70|found=2|expected=2|PASS
+COUNT|weka71|found=2|expected=2|PASS
+COUNT|weka72|found=2|expected=2|PASS
+COUNT|weka73|found=2|expected=2|PASS
+COUNT|weka74|found=2|expected=2|PASS
+COUNT|weka75|found=2|expected=2|PASS
+COUNT|weka76|found=2|expected=2|PASS
+COUNT|weka77|found=2|expected=2|PASS
+SKIP|weka78|excluded
+SKIP|weka79|excluded
+
+Detected CX-7 interfaces: 74
+Report: /Users/OPERATOR/Downloads/CX7_ready_server_inventory_20260929_154117.txt
+bash-3.2$

@@ -1,0 +1,327 @@
+chandrasekhar.gonuguntla@Chandra-Gonuguntla ~ % for SN_IP in \
+  172.31.17.18 \
+  172.31.17.20 \
+  172.31.17.22 \
+  172.31.17.5 \
+  172.31.17.19 \
+  172.31.17.21 \
+  172.31.17.23 \
+  172.31.17.24
+do
+  printf '\n===== %s =====\n' "$SN_IP"
+  ssh "cumulus@$SN_IP" '
+    hostname
+    nv show interface --view lldp
+  '
+done
+
+===== 172.31.17.18 =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.18's password:
+spine-02
+Interface  Speed  Type  Remote Host  Remote Port
+---------  -----  ----  -----------  -----------
+eth0       1G     eth   SW38         Ethernet3
+swp2       800G   swp   leaf-01      swp42
+swp3       800G   swp   leaf-01      swp43
+swp4       800G   swp   leaf-01      swp44
+swp5       800G   swp   leaf-01      swp45
+swp6       800G   swp   leaf-01      swp46
+swp7       800G   swp   leaf-01      swp47
+swp8       800G   swp   leaf-01      swp48
+swp9       800G   swp   leaf-02      swp41
+swp10      800G   swp   leaf-02      swp42
+swp11      800G   swp   leaf-02      swp43
+swp12      800G   swp   leaf-02      swp44
+swp13      800G   swp   leaf-02      swp45
+swp14      800G   swp   leaf-02      swp46
+swp15      800G   swp   leaf-02      swp47
+swp16      800G   swp   leaf-02      swp48
+swp17      800G   swp   leaf-03      swp41
+swp18      800G   swp   leaf-03      swp42
+swp19      800G   swp   leaf-03      swp43
+swp20      800G   swp   leaf-03      swp44
+swp21      800G   swp   leaf-03      swp45
+swp22      800G   swp   leaf-03      swp46
+swp23      800G   swp   leaf-03      swp47
+swp24      800G   swp   leaf-03      swp48
+swp25      800G   swp   leaf-04      swp41
+swp26      800G   swp   leaf-04      swp42
+swp27      800G   swp   leaf-04      swp43
+swp28      800G   swp   leaf-04      swp44
+swp29      800G   swp   leaf-04      swp45
+swp30      800G   swp   leaf-04      swp46
+swp31      800G   swp   leaf-04      swp47
+swp32      800G   swp   leaf-04      swp48
+
+===== 172.31.17.20 =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.20's password:
+spine-03
+Interface  Speed  Type  Remote Host  Remote Port
+---------  -----  ----  -----------  -----------
+eth0       1G     eth   SW38         Ethernet2
+swp2       800G   swp   leaf-01      swp50
+swp3       800G   swp   leaf-01      swp51
+swp5       800G   swp   leaf-01      swp53
+swp6       800G   swp   leaf-01      swp54
+swp7       800G   swp   leaf-01      swp55
+swp8       800G   swp   leaf-01      swp56
+swp9       800G   swp   leaf-02      swp49
+swp10      800G   swp   leaf-02      swp50
+swp11      800G   swp   leaf-02      swp51
+swp12      800G   swp   leaf-02      swp52
+swp13      800G   swp   leaf-02      swp53
+swp14      800G   swp   leaf-02      swp54
+swp15      800G   swp   leaf-02      swp55
+swp16      800G   swp   leaf-02      swp56
+swp17      800G   swp   leaf-03      swp49
+swp18      800G   swp   leaf-03      swp50
+swp19      800G   swp   leaf-03      swp51
+swp20      800G   swp   leaf-03      swp52
+swp21      800G   swp   leaf-03      swp53
+swp22      800G   swp   leaf-03      swp54
+swp23      800G   swp   leaf-03      swp55
+swp24      800G   swp   leaf-03      swp56
+swp25      800G   swp   leaf-04      swp49
+swp26      800G   swp   leaf-04      swp50
+swp27      800G   swp   leaf-04      swp51
+swp28      800G   swp   leaf-04      swp52
+swp29      800G   swp   leaf-04      swp53
+swp30      800G   swp   leaf-04      swp54
+swp31      800G   swp   leaf-04      swp55
+swp32      800G   swp   leaf-04      swp56
+
+===== 172.31.17.22 =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.22's password:
+spine-04
+Interface  Speed  Type  Remote Host  Remote Port
+---------  -----  ----  -----------  -----------
+eth0       1G     eth   SW38         Ethernet4
+swp1       800G   swp   leaf-01      swp57
+swp3       800G   swp   leaf-01      swp59
+swp4       800G   swp   leaf-01      swp60
+swp5       800G   swp   leaf-01      swp61
+swp6       800G   swp   leaf-01      swp62
+swp7       800G   swp   leaf-01      swp63
+swp8       800G   swp   leaf-01      swp64
+swp9       800G   swp   leaf-02      swp57
+swp10      800G   swp   leaf-02      swp58
+swp11      800G   swp   leaf-02      swp59
+swp12      800G   swp   leaf-02      swp60
+swp13      800G   swp   leaf-02      swp61
+swp14      800G   swp   leaf-02      swp62
+swp15      800G   swp   leaf-02      swp63
+swp16      800G   swp   leaf-02      swp64
+swp17      800G   swp   leaf-03      swp57
+swp18      800G   swp   leaf-03      swp58
+swp19      800G   swp   leaf-03      swp59
+swp20      800G   swp   leaf-03      swp60
+swp21      800G   swp   leaf-03      swp61
+swp22      800G   swp   leaf-03      swp62
+swp23      800G   swp   leaf-03      swp63
+swp24      800G   swp   leaf-03      swp64
+swp25      800G   swp   leaf-04      swp57
+swp26      800G   swp   leaf-04      swp58
+swp27      800G   swp   leaf-04      swp59
+swp28      800G   swp   leaf-04      swp60
+swp29      800G   swp   leaf-04      swp61
+swp30      800G   swp   leaf-04      swp62
+swp31      800G   swp   leaf-04      swp63
+swp32      800G   swp   leaf-04      swp64
+
+===== 172.31.17.5 =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.5's password:
+spine-01
+Interface  Speed  Type  Remote Host  Remote Port
+---------  -----  ----  -----------  -----------
+eth0       1G     eth   SW38         Ethernet1
+swp2       800G   swp   leaf-01      swp34
+swp3       800G   swp   leaf-01      swp35
+swp4       800G   swp   leaf-01      swp36
+swp5       800G   swp   leaf-01      swp37
+swp6       800G   swp   leaf-01      swp38
+swp7       800G   swp   leaf-01      swp39
+swp8       800G   swp   leaf-01      swp40
+swp9       800G   swp   leaf-02      swp33
+swp10      800G   swp   leaf-02      swp34
+swp11      800G   swp   leaf-02      swp35
+swp12      800G   swp   leaf-02      swp36
+swp13      800G   swp   leaf-02      swp37
+swp14      800G   swp   leaf-02      swp38
+swp15      800G   swp   leaf-02      swp39
+swp16      800G   swp   leaf-02      swp40
+swp17      800G   swp   leaf-03      swp33
+swp18      800G   swp   leaf-03      swp34
+swp19      800G   swp   leaf-03      swp35
+swp20      800G   swp   leaf-03      swp36
+swp21      800G   swp   leaf-03      swp37
+swp22      800G   swp   leaf-03      swp38
+swp23      800G   swp   leaf-03      swp39
+swp24      800G   swp   leaf-03      swp40
+swp25      800G   swp   leaf-04      swp33
+swp26      800G   swp   leaf-04      swp34
+swp27      800G   swp   leaf-04      swp35
+swp28      800G   swp   leaf-04      swp36
+swp29      800G   swp   leaf-04      swp37
+swp30      800G   swp   leaf-04      swp38
+swp31      800G   swp   leaf-04      swp39
+swp32      800G   swp   leaf-04      swp40
+
+===== 172.31.17.19 =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.19's password:
+leaf-01
+Interface  Speed  Type  Remote Host  Remote Port
+---------  -----  ----  -----------  -----------
+eth0       1G     eth   SW34         Ethernet2
+swp34      800G   swp   spine-01     swp2
+swp35      800G   swp   spine-01     swp3
+swp36      800G   swp   spine-01     swp4
+swp37      800G   swp   spine-01     swp5
+swp38      800G   swp   spine-01     swp6
+swp39      800G   swp   spine-01     swp7
+swp40      800G   swp   spine-01     swp8
+swp42      800G   swp   spine-02     swp2
+swp43      800G   swp   spine-02     swp3
+swp44      800G   swp   spine-02     swp4
+swp45      800G   swp   spine-02     swp5
+swp46      800G   swp   spine-02     swp6
+swp47      800G   swp   spine-02     swp7
+swp48      800G   swp   spine-02     swp8
+swp50      800G   swp   spine-03     swp2
+swp51      800G   swp   spine-03     swp3
+swp53      800G   swp   spine-03     swp5
+swp54      800G   swp   spine-03     swp6
+swp55      800G   swp   spine-03     swp7
+swp56      800G   swp   spine-03     swp8
+swp57      800G   swp   spine-04     swp1
+swp59      800G   swp   spine-04     swp3
+swp60      800G   swp   spine-04     swp4
+swp61      800G   swp   spine-04     swp5
+swp62      800G   swp   spine-04     swp6
+swp63      800G   swp   spine-04     swp7
+swp64      800G   swp   spine-04     swp8
+
+===== 172.31.17.21 =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+leaf-02
+Interface  Speed  Type  Remote Host  Remote Port
+---------  -----  ----  -----------  -----------
+eth0       1G     eth   SW36         Ethernet1
+swp33      800G   swp   spine-01     swp9
+swp34      800G   swp   spine-01     swp10
+swp35      800G   swp   spine-01     swp11
+swp36      800G   swp   spine-01     swp12
+swp37      800G   swp   spine-01     swp13
+swp38      800G   swp   spine-01     swp14
+swp39      800G   swp   spine-01     swp15
+swp40      800G   swp   spine-01     swp16
+swp41      800G   swp   spine-02     swp9
+swp42      800G   swp   spine-02     swp10
+swp43      800G   swp   spine-02     swp11
+swp44      800G   swp   spine-02     swp12
+swp45      800G   swp   spine-02     swp13
+swp46      800G   swp   spine-02     swp14
+swp47      800G   swp   spine-02     swp15
+swp48      800G   swp   spine-02     swp16
+swp49      800G   swp   spine-03     swp9
+swp50      800G   swp   spine-03     swp10
+swp51      800G   swp   spine-03     swp11
+swp52      800G   swp   spine-03     swp12
+swp53      800G   swp   spine-03     swp13
+swp54      800G   swp   spine-03     swp14
+swp55      800G   swp   spine-03     swp15
+swp56      800G   swp   spine-03     swp16
+swp57      800G   swp   spine-04     swp9
+swp58      800G   swp   spine-04     swp10
+swp59      800G   swp   spine-04     swp11
+swp60      800G   swp   spine-04     swp12
+swp61      800G   swp   spine-04     swp13
+swp62      800G   swp   spine-04     swp14
+swp63      800G   swp   spine-04     swp15
+swp64      800G   swp   spine-04     swp16
+
+===== 172.31.17.23 =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.23's password:
+leaf-03
+Interface  Speed  Type  Remote Host  Remote Port
+---------  -----  ----  -----------  -----------
+eth0       1G     eth   SW40         Ethernet1
+swp33      800G   swp   spine-01     swp17
+swp34      800G   swp   spine-01     swp18
+swp35      800G   swp   spine-01     swp19
+swp36      800G   swp   spine-01     swp20
+swp37      800G   swp   spine-01     swp21
+swp38      800G   swp   spine-01     swp22
+swp39      800G   swp   spine-01     swp23
+swp40      800G   swp   spine-01     swp24
+swp41      800G   swp   spine-02     swp17
+swp42      800G   swp   spine-02     swp18
+swp43      800G   swp   spine-02     swp19
+swp44      800G   swp   spine-02     swp20
+swp45      800G   swp   spine-02     swp21
+swp46      800G   swp   spine-02     swp22
+swp47      800G   swp   spine-02     swp23
+swp48      800G   swp   spine-02     swp24
+swp49      800G   swp   spine-03     swp17
+swp50      800G   swp   spine-03     swp18
+swp51      800G   swp   spine-03     swp19
+swp52      800G   swp   spine-03     swp20
+swp53      800G   swp   spine-03     swp21
+swp54      800G   swp   spine-03     swp22
+swp55      800G   swp   spine-03     swp23
+swp56      800G   swp   spine-03     swp24
+swp57      800G   swp   spine-04     swp17
+swp58      800G   swp   spine-04     swp18
+swp59      800G   swp   spine-04     swp19
+swp60      800G   swp   spine-04     swp20
+swp61      800G   swp   spine-04     swp21
+swp62      800G   swp   spine-04     swp22
+swp63      800G   swp   spine-04     swp23
+swp64      800G   swp   spine-04     swp24
+
+===== 172.31.17.24 =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.24's password:
+leaf-04
+Interface  Speed  Type  Remote Host  Remote Port
+---------  -----  ----  -----------  -----------
+eth0       1G     eth   SW42         Ethernet1
+swp33      800G   swp   spine-01     swp25
+swp34      800G   swp   spine-01     swp26
+swp35      800G   swp   spine-01     swp27
+swp36      800G   swp   spine-01     swp28
+swp37      800G   swp   spine-01     swp29
+swp38      800G   swp   spine-01     swp30
+swp39      800G   swp   spine-01     swp31
+swp40      800G   swp   spine-01     swp32
+swp41      800G   swp   spine-02     swp25
+swp42      800G   swp   spine-02     swp26
+swp43      800G   swp   spine-02     swp27
+swp44      800G   swp   spine-02     swp28
+swp45      800G   swp   spine-02     swp29
+swp46      800G   swp   spine-02     swp30
+swp47      800G   swp   spine-02     swp31
+swp48      800G   swp   spine-02     swp32
+swp49      800G   swp   spine-03     swp25
+swp50      800G   swp   spine-03     swp26
+swp51      800G   swp   spine-03     swp27
+swp52      800G   swp   spine-03     swp28
+swp53      800G   swp   spine-03     swp29
+swp54      800G   swp   spine-03     swp30
+swp55      800G   swp   spine-03     swp31
+swp56      800G   swp   spine-03     swp32
+swp57      800G   swp   spine-04     swp25
+swp58      800G   swp   spine-04     swp26
+swp59      800G   swp   spine-04     swp27
+swp60      800G   swp   spine-04     swp28
+swp61      800G   swp   spine-04     swp29
+swp62      800G   swp   spine-04     swp30
+swp63      800G   swp   spine-04     swp31
+swp64      800G   swp   spine-04     swp32
+chandrasekhar.gonuguntla@Chandra-Gonuguntla ~

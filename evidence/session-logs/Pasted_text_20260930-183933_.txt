@@ -1,0 +1,464 @@
+chandrasekhar.gonuguntla@Chandra-Gonuguntla Production_SN5600_Operations_Bundle_2026-09-30 % cd "$HOME/Downloads/Production_SN5600_Operations_Bundle_2026-09-30"
+
+bash run_checks.sh underlay-validate all
+
+bash run_checks.sh leaf-check all
+bash run_checks.sh leaf-validate all
+bash run_checks.sh leaf-end-to-end all
+
+spine-01 (172.31.17.5): validate all
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.5's password:
+[sudo] password for cumulus:
+leaf-01: 7/8 established
+leaf-02: 8/8 established
+leaf-03: 8/8 established
+leaf-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+DEGRADED: 1 selected pairs lack an established session:
+  swp1 -> leaf-01 swp33 (10.254.0.1)
+DEGRADED, no additional BGP losses versus saved baseline.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.5 closed.
+
+spine-02 (172.31.17.18): validate all
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.18's password:
+[sudo] password for cumulus:
+leaf-01: 6/8 established
+leaf-02: 8/8 established
+leaf-03: 8/8 established
+leaf-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+DEGRADED: 2 selected pairs lack an established session:
+  swp1 -> leaf-01 swp41 (10.254.0.17)
+  swp4 -> leaf-01 swp44 (10.254.0.23)
+DEGRADED, no additional BGP losses versus saved baseline.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.18 closed.
+
+spine-03 (172.31.17.20): validate all
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.20's password:
+[sudo] password for cumulus:
+leaf-01: 6/8 established
+leaf-02: 8/8 established
+leaf-03: 8/8 established
+leaf-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+DEGRADED: 2 selected pairs lack an established session:
+  swp1 -> leaf-01 swp49 (10.254.0.33)
+  swp4 -> leaf-01 swp52 (10.254.0.39)
+DEGRADED, no additional BGP losses versus saved baseline.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.20 closed.
+
+spine-04 (172.31.17.22): validate all
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.22's password:
+[sudo] password for cumulus:
+leaf-01: 6/8 established
+leaf-02: 8/8 established
+leaf-03: 7/8 established
+leaf-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+DEGRADED: 3 selected pairs lack an established session:
+  swp2 -> leaf-01 swp58 (10.254.0.51)
+  swp5 -> leaf-01 swp61 (10.254.0.57)
+  swp24 -> leaf-03 swp64 (10.254.0.191)
+DEGRADED, no additional BGP losses versus saved baseline.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.22 closed.
+
+leaf-01 (172.31.17.19): validate all
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.19's password:
+[sudo] password for cumulus:
+spine-01: 7/8 established
+spine-02: 6/8 established
+spine-03: 6/8 established
+spine-04: 6/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+PASS 9000-byte IPv4 loopback probe to 10.255.0.101
+PASS 9000-byte IPv4 loopback probe to 10.255.0.102
+PASS 9000-byte IPv4 loopback probe to 10.255.0.103
+PASS 9000-byte IPv4 loopback probe to 10.255.0.104
+DEGRADED: 7 selected pairs lack an established session:
+  swp33 -> spine-01 swp1 (10.254.0.0)
+  swp41 -> spine-02 swp1 (10.254.0.16)
+  swp44 -> spine-02 swp4 (10.254.0.22)
+  swp49 -> spine-03 swp1 (10.254.0.32)
+  swp52 -> spine-03 swp4 (10.254.0.38)
+  swp58 -> spine-04 swp2 (10.254.0.50)
+  swp61 -> spine-04 swp5 (10.254.0.56)
+DEGRADED, no additional BGP losses versus saved baseline.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.19 closed.
+
+leaf-02 (172.31.17.21): validate all
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+[sudo] password for cumulus:
+spine-01: 8/8 established
+spine-02: 8/8 established
+spine-03: 8/8 established
+spine-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+PASS 9000-byte IPv4 loopback probe to 10.255.0.101
+PASS 9000-byte IPv4 loopback probe to 10.255.0.102
+PASS 9000-byte IPv4 loopback probe to 10.255.0.103
+PASS 9000-byte IPv4 loopback probe to 10.255.0.104
+PASS: all selected sessions established at 800G; probes passed.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.21 closed.
+
+leaf-03 (172.31.17.23): validate all
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.23's password:
+[sudo] password for cumulus:
+spine-01: 8/8 established
+spine-02: 8/8 established
+spine-03: 8/8 established
+spine-04: 7/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+PASS 9000-byte IPv4 loopback probe to 10.255.0.101
+PASS 9000-byte IPv4 loopback probe to 10.255.0.102
+PASS 9000-byte IPv4 loopback probe to 10.255.0.103
+PASS 9000-byte IPv4 loopback probe to 10.255.0.104
+DEGRADED: 1 selected pairs lack an established session:
+  swp64 -> spine-04 swp24 (10.254.0.190)
+DEGRADED, no additional BGP losses versus saved baseline.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.23 closed.
+
+leaf-04 (172.31.17.24): validate all
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.24's password:
+[sudo] password for cumulus:
+spine-01: 8/8 established
+spine-02: 8/8 established
+spine-03: 8/8 established
+spine-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.101
+PASS 9000-byte IPv4 loopback probe to 10.255.0.102
+PASS 9000-byte IPv4 loopback probe to 10.255.0.103
+PASS 9000-byte IPv4 loopback probe to 10.255.0.104
+PASS: all selected sessions established at 800G; probes passed.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.24 closed.
+
+===== leaf-01 172.31.17.19 --check =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.19's password:
+Preflight passed: leaf-01; 20 confirmed server links; swp33-64 untouched.
+Connection to 172.31.17.19 closed.
+
+===== leaf-02 172.31.17.21 --check =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+Preflight passed: leaf-02; 14 confirmed server links; swp33-64 untouched.
+Connection to 172.31.17.21 closed.
+
+===== leaf-03 172.31.17.23 --check =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.23's password:
+Preflight passed: leaf-03; 20 confirmed server links; swp33-64 untouched.
+Connection to 172.31.17.23 closed.
+
+===== leaf-04 172.31.17.24 --check =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.24's password:
+Preflight passed: leaf-04; 16 confirmed server links; swp33-64 untouched.
+Connection to 172.31.17.24 closed.
+
+===== leaf-01 172.31.17.19 --validate =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.19's password:
+[sudo] password for cumulus:
+PASS weka68-link1: swp6s2 up, 10.200.68.0/31, BGP 10.200.68.0/31
+PASS weka68-link2: swp6s3 up, 10.200.68.2/31, BGP 10.200.68.2/31
+PASS weka69-link1: swp5s2 up, 10.200.69.0/31, BGP 10.200.69.0/31
+PASS weka69-link2: swp5s3 up, 10.200.69.2/31, BGP 10.200.69.2/31
+PASS weka70-link1: swp6s0 up, 10.200.70.0/31, BGP 10.200.70.0/31
+PASS weka70-link2: swp6s1 up, 10.200.70.2/31, BGP 10.200.70.2/31
+PASS weka71-link1: swp5s0 up, 10.200.71.0/31, BGP 10.200.71.0/31
+PASS weka71-link2: swp5s1 up, 10.200.71.2/31, BGP 10.200.71.2/31
+PASS weka72-link1: swp4s0 up, 10.200.72.0/31, BGP 10.200.72.0/31
+PASS weka72-link2: swp4s1 up, 10.200.72.2/31, BGP 10.200.72.2/31
+PASS weka73-link1: swp3s2 up, 10.200.73.0/31, BGP 10.200.73.0/31
+PASS weka73-link2: swp3s3 up, 10.200.73.2/31, BGP 10.200.73.2/31
+PASS weka74-link1: swp4s2 up, 10.200.74.0/31, BGP 10.200.74.0/31
+PASS weka74-link2: swp4s3 up, 10.200.74.2/31, BGP 10.200.74.2/31
+PASS weka75-link1: swp3s0 up, 10.200.75.0/31, BGP 10.200.75.0/31
+PASS weka75-link2: swp3s1 up, 10.200.75.2/31, BGP 10.200.75.2/31
+PASS weka76-link1: swp2s2 up, 10.200.76.0/31, BGP 10.200.76.0/31
+PASS weka76-link2: swp2s3 up, 10.200.76.2/31, BGP 10.200.76.2/31
+PASS weka77-link1: swp1s2 up, 10.200.77.0/31, BGP 10.200.77.0/31
+PASS weka77-link2: swp1s3 up, 10.200.77.2/31, BGP 10.200.77.2/31
+Validation passed; known-down exceptions: 0
+Connection to 172.31.17.19 closed.
+
+===== leaf-02 172.31.17.21 --validate =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+[sudo] password for cumulus:
+PASS weka60-link1: swp4s1 up, 10.200.60.0/31, BGP 10.200.60.0/31
+PASS weka60-link2: swp4s0 up, 10.200.60.2/31, BGP 10.200.60.2/31
+PASS weka61-link1: swp3s1 up, 10.200.61.0/31, BGP 10.200.61.0/31
+PASS weka61-link2: swp3s0 up, 10.200.61.2/31, BGP 10.200.61.2/31
+PASS weka62-link1: swp6s1 up, 10.200.62.0/31, BGP 10.200.62.0/31
+PASS weka62-link2: swp6s0 up, 10.200.62.2/31, BGP 10.200.62.2/31
+PASS weka63-link1: swp5s1 up, 10.200.63.0/31, BGP 10.200.63.0/31
+PASS weka63-link2: swp5s0 up, 10.200.63.2/31, BGP 10.200.63.2/31
+PASS weka65-link1: swp1s2 up, 10.200.65.0/31, BGP 10.200.65.0/31
+PASS weka65-link2: swp1s3 up, 10.200.65.2/31, BGP 10.200.65.2/31
+PASS weka66-link1: swp2s0 up, 10.200.66.0/31, BGP 10.200.66.0/31
+PASS weka66-link2: swp2s1 up, 10.200.66.2/31, BGP 10.200.66.2/31
+PASS weka67-link1: swp1s0 up, 10.200.67.0/31, BGP 10.200.67.0/31
+PASS weka67-link2: swp1s1 up, 10.200.67.2/31, BGP 10.200.67.2/31
+Validation passed; known-down exceptions: 0
+Connection to 172.31.17.21 closed.
+
+===== leaf-03 172.31.17.23 --validate =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.23's password:
+[sudo] password for cumulus:
+PASS weka49-link1: swp5s1 up, 10.200.49.0/31, BGP 10.200.49.0/31
+PASS weka49-link2: swp5s0 up, 10.200.49.2/31, BGP 10.200.49.2/31
+PASS weka50-link1: swp12s1 up, 10.200.50.0/31, BGP 10.200.50.0/31
+PASS weka50-link2: swp12s0 up, 10.200.50.2/31, BGP 10.200.50.2/31
+PASS weka51-link1: swp11s1 up, 10.200.51.0/31, BGP 10.200.51.0/31
+PASS weka51-link2: swp11s0 up, 10.200.51.2/31, BGP 10.200.51.2/31
+PASS weka52-link1: swp4s1 up, 10.200.52.0/31, BGP 10.200.52.0/31
+PASS weka52-link2: swp4s0 up, 10.200.52.2/31, BGP 10.200.52.2/31
+PASS weka53-link1: swp3s1 up, 10.200.53.0/31, BGP 10.200.53.0/31
+PASS weka53-link2: swp3s0 up, 10.200.53.2/31, BGP 10.200.53.2/31
+PASS weka54-link1: swp10s1 up, 10.200.54.0/31, BGP 10.200.54.0/31
+PASS weka54-link2: swp10s0 up, 10.200.54.2/31, BGP 10.200.54.2/31
+PASS weka55-link1: swp9s1 up, 10.200.55.0/31, BGP 10.200.55.0/31
+PASS weka55-link2: swp9s0 up, 10.200.55.2/31, BGP 10.200.55.2/31
+PASS weka56-link1: swp2s1 up, 10.200.56.0/31, BGP 10.200.56.0/31
+PASS weka56-link2: swp2s0 up, 10.200.56.2/31, BGP 10.200.56.2/31
+PASS weka57-link1: swp1s1 up, 10.200.57.0/31, BGP 10.200.57.0/31
+PASS weka57-link2: swp1s0 up, 10.200.57.2/31, BGP 10.200.57.2/31
+PASS weka58-link1: swp8s1 up, 10.200.58.0/31, BGP 10.200.58.0/31
+PASS weka58-link2: swp8s0 up, 10.200.58.2/31, BGP 10.200.58.2/31
+Validation passed; known-down exceptions: 0
+Connection to 172.31.17.23 closed.
+
+===== leaf-04 172.31.17.24 --validate =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.24's password:
+[sudo] password for cumulus:
+PASS weka40-link1: swp4s1 up, 10.200.40.0/31, BGP 10.200.40.0/31
+PASS weka40-link2: swp4s0 up, 10.200.40.2/31, BGP 10.200.40.2/31
+PASS weka41-link1: swp3s1 up, 10.200.41.0/31, BGP 10.200.41.0/31
+PASS weka41-link2: swp3s0 up, 10.200.41.2/31, BGP 10.200.41.2/31
+PASS weka42-link1: swp8s1 up, 10.200.42.0/31, BGP 10.200.42.0/31
+PASS weka42-link2: swp8s0 up, 10.200.42.2/31, BGP 10.200.42.2/31
+PASS weka43-link1: swp7s1 up, 10.200.43.0/31, BGP 10.200.43.0/31
+PASS weka43-link2: swp7s0 up, 10.200.43.2/31, BGP 10.200.43.2/31
+DEGRADED weka44-link1: swp2s1 remains down (known-down baseline)
+PASS weka44-link2: swp2s0 up, 10.200.44.2/31, BGP 10.200.44.2/31
+PASS weka45-link1: swp1s1 up, 10.200.45.0/31, BGP 10.200.45.0/31
+PASS weka45-link2: swp1s0 up, 10.200.45.2/31, BGP 10.200.45.2/31
+PASS weka46-link1: swp6s1 up, 10.200.46.0/31, BGP 10.200.46.0/31
+PASS weka46-link2: swp6s0 up, 10.200.46.2/31, BGP 10.200.46.2/31
+PASS weka47-link1: swp5s1 up, 10.200.47.0/31, BGP 10.200.47.0/31
+PASS weka47-link2: swp5s0 up, 10.200.47.2/31, BGP 10.200.47.2/31
+Validation passed; known-down exceptions: 1
+Connection to 172.31.17.24 closed.
+
+===== leaf-01 172.31.17.19 --end-to-end =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.19's password:
+[sudo] password for cumulus:
+PASS weka68-link1: swp6s2 up, 10.200.68.0/31, BGP 10.200.68.0/31
+PASS weka68-link2: swp6s3 up, 10.200.68.2/31, BGP 10.200.68.2/31
+PASS weka69-link1: swp5s2 up, 10.200.69.0/31, BGP 10.200.69.0/31
+PASS weka69-link2: swp5s3 up, 10.200.69.2/31, BGP 10.200.69.2/31
+PASS weka70-link1: swp6s0 up, 10.200.70.0/31, BGP 10.200.70.0/31
+PASS weka70-link2: swp6s1 up, 10.200.70.2/31, BGP 10.200.70.2/31
+PASS weka71-link1: swp5s0 up, 10.200.71.0/31, BGP 10.200.71.0/31
+PASS weka71-link2: swp5s1 up, 10.200.71.2/31, BGP 10.200.71.2/31
+PASS weka72-link1: swp4s0 up, 10.200.72.0/31, BGP 10.200.72.0/31
+PASS weka72-link2: swp4s1 up, 10.200.72.2/31, BGP 10.200.72.2/31
+PASS weka73-link1: swp3s2 up, 10.200.73.0/31, BGP 10.200.73.0/31
+PASS weka73-link2: swp3s3 up, 10.200.73.2/31, BGP 10.200.73.2/31
+PASS weka74-link1: swp4s2 up, 10.200.74.0/31, BGP 10.200.74.0/31
+PASS weka74-link2: swp4s3 up, 10.200.74.2/31, BGP 10.200.74.2/31
+PASS weka75-link1: swp3s0 up, 10.200.75.0/31, BGP 10.200.75.0/31
+PASS weka75-link2: swp3s1 up, 10.200.75.2/31, BGP 10.200.75.2/31
+PASS weka76-link1: swp2s2 up, 10.200.76.0/31, BGP 10.200.76.0/31
+PASS weka76-link2: swp2s3 up, 10.200.76.2/31, BGP 10.200.76.2/31
+PASS weka77-link1: swp1s2 up, 10.200.77.0/31, BGP 10.200.77.0/31
+PASS weka77-link2: swp1s3 up, 10.200.77.2/31, BGP 10.200.77.2/31
+Validation passed; known-down exceptions: 0
+PASS weka68-link1: 9000-byte peer probe to 10.200.68.1
+PASS weka68-link2: 9000-byte peer probe to 10.200.68.3
+PASS weka69-link1: 9000-byte peer probe to 10.200.69.1
+PASS weka69-link2: 9000-byte peer probe to 10.200.69.3
+PASS weka70-link1: 9000-byte peer probe to 10.200.70.1
+PASS weka70-link2: 9000-byte peer probe to 10.200.70.3
+PASS weka71-link1: 9000-byte peer probe to 10.200.71.1
+PASS weka71-link2: 9000-byte peer probe to 10.200.71.3
+PASS weka72-link1: 9000-byte peer probe to 10.200.72.1
+PASS weka72-link2: 9000-byte peer probe to 10.200.72.3
+PASS weka73-link1: 9000-byte peer probe to 10.200.73.1
+PASS weka73-link2: 9000-byte peer probe to 10.200.73.3
+PASS weka74-link1: 9000-byte peer probe to 10.200.74.1
+PASS weka74-link2: 9000-byte peer probe to 10.200.74.3
+PASS weka75-link1: 9000-byte peer probe to 10.200.75.1
+PASS weka75-link2: 9000-byte peer probe to 10.200.75.3
+PASS weka76-link1: 9000-byte peer probe to 10.200.76.1
+PASS weka76-link2: 9000-byte peer probe to 10.200.76.3
+PASS weka77-link1: 9000-byte peer probe to 10.200.77.1
+PASS weka77-link2: 9000-byte peer probe to 10.200.77.3
+Endpoint validation passed; skipped known-down links: 0
+Connection to 172.31.17.19 closed.
+
+===== leaf-02 172.31.17.21 --end-to-end =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+[sudo] password for cumulus:
+PASS weka60-link1: swp4s1 up, 10.200.60.0/31, BGP 10.200.60.0/31
+PASS weka60-link2: swp4s0 up, 10.200.60.2/31, BGP 10.200.60.2/31
+PASS weka61-link1: swp3s1 up, 10.200.61.0/31, BGP 10.200.61.0/31
+PASS weka61-link2: swp3s0 up, 10.200.61.2/31, BGP 10.200.61.2/31
+PASS weka62-link1: swp6s1 up, 10.200.62.0/31, BGP 10.200.62.0/31
+PASS weka62-link2: swp6s0 up, 10.200.62.2/31, BGP 10.200.62.2/31
+PASS weka63-link1: swp5s1 up, 10.200.63.0/31, BGP 10.200.63.0/31
+PASS weka63-link2: swp5s0 up, 10.200.63.2/31, BGP 10.200.63.2/31
+PASS weka65-link1: swp1s2 up, 10.200.65.0/31, BGP 10.200.65.0/31
+PASS weka65-link2: swp1s3 up, 10.200.65.2/31, BGP 10.200.65.2/31
+PASS weka66-link1: swp2s0 up, 10.200.66.0/31, BGP 10.200.66.0/31
+PASS weka66-link2: swp2s1 up, 10.200.66.2/31, BGP 10.200.66.2/31
+PASS weka67-link1: swp1s0 up, 10.200.67.0/31, BGP 10.200.67.0/31
+PASS weka67-link2: swp1s1 up, 10.200.67.2/31, BGP 10.200.67.2/31
+Validation passed; known-down exceptions: 0
+PASS weka60-link1: 9000-byte peer probe to 10.200.60.1
+PASS weka60-link2: 9000-byte peer probe to 10.200.60.3
+PASS weka61-link1: 9000-byte peer probe to 10.200.61.1
+PASS weka61-link2: 9000-byte peer probe to 10.200.61.3
+PASS weka62-link1: 9000-byte peer probe to 10.200.62.1
+PASS weka62-link2: 9000-byte peer probe to 10.200.62.3
+PASS weka63-link1: 9000-byte peer probe to 10.200.63.1
+PASS weka63-link2: 9000-byte peer probe to 10.200.63.3
+PASS weka65-link1: 9000-byte peer probe to 10.200.65.1
+PASS weka65-link2: 9000-byte peer probe to 10.200.65.3
+PASS weka66-link1: 9000-byte peer probe to 10.200.66.1
+PASS weka66-link2: 9000-byte peer probe to 10.200.66.3
+PASS weka67-link1: 9000-byte peer probe to 10.200.67.1
+PASS weka67-link2: 9000-byte peer probe to 10.200.67.3
+Endpoint validation passed; skipped known-down links: 0
+Connection to 172.31.17.21 closed.
+
+===== leaf-03 172.31.17.23 --end-to-end =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.23's password:
+[sudo] password for cumulus:
+PASS weka49-link1: swp5s1 up, 10.200.49.0/31, BGP 10.200.49.0/31
+PASS weka49-link2: swp5s0 up, 10.200.49.2/31, BGP 10.200.49.2/31
+PASS weka50-link1: swp12s1 up, 10.200.50.0/31, BGP 10.200.50.0/31
+PASS weka50-link2: swp12s0 up, 10.200.50.2/31, BGP 10.200.50.2/31
+PASS weka51-link1: swp11s1 up, 10.200.51.0/31, BGP 10.200.51.0/31
+PASS weka51-link2: swp11s0 up, 10.200.51.2/31, BGP 10.200.51.2/31
+PASS weka52-link1: swp4s1 up, 10.200.52.0/31, BGP 10.200.52.0/31
+PASS weka52-link2: swp4s0 up, 10.200.52.2/31, BGP 10.200.52.2/31
+PASS weka53-link1: swp3s1 up, 10.200.53.0/31, BGP 10.200.53.0/31
+PASS weka53-link2: swp3s0 up, 10.200.53.2/31, BGP 10.200.53.2/31
+PASS weka54-link1: swp10s1 up, 10.200.54.0/31, BGP 10.200.54.0/31
+PASS weka54-link2: swp10s0 up, 10.200.54.2/31, BGP 10.200.54.2/31
+PASS weka55-link1: swp9s1 up, 10.200.55.0/31, BGP 10.200.55.0/31
+PASS weka55-link2: swp9s0 up, 10.200.55.2/31, BGP 10.200.55.2/31
+PASS weka56-link1: swp2s1 up, 10.200.56.0/31, BGP 10.200.56.0/31
+PASS weka56-link2: swp2s0 up, 10.200.56.2/31, BGP 10.200.56.2/31
+PASS weka57-link1: swp1s1 up, 10.200.57.0/31, BGP 10.200.57.0/31
+PASS weka57-link2: swp1s0 up, 10.200.57.2/31, BGP 10.200.57.2/31
+PASS weka58-link1: swp8s1 up, 10.200.58.0/31, BGP 10.200.58.0/31
+PASS weka58-link2: swp8s0 up, 10.200.58.2/31, BGP 10.200.58.2/31
+Validation passed; known-down exceptions: 0
+PASS weka49-link1: 9000-byte peer probe to 10.200.49.1
+PASS weka49-link2: 9000-byte peer probe to 10.200.49.3
+PASS weka50-link1: 9000-byte peer probe to 10.200.50.1
+PASS weka50-link2: 9000-byte peer probe to 10.200.50.3
+PASS weka51-link1: 9000-byte peer probe to 10.200.51.1
+PASS weka51-link2: 9000-byte peer probe to 10.200.51.3
+PASS weka52-link1: 9000-byte peer probe to 10.200.52.1
+PASS weka52-link2: 9000-byte peer probe to 10.200.52.3
+PASS weka53-link1: 9000-byte peer probe to 10.200.53.1
+PASS weka53-link2: 9000-byte peer probe to 10.200.53.3
+PASS weka54-link1: 9000-byte peer probe to 10.200.54.1
+PASS weka54-link2: 9000-byte peer probe to 10.200.54.3
+PASS weka55-link1: 9000-byte peer probe to 10.200.55.1
+PASS weka55-link2: 9000-byte peer probe to 10.200.55.3
+PASS weka56-link1: 9000-byte peer probe to 10.200.56.1
+PASS weka56-link2: 9000-byte peer probe to 10.200.56.3
+PASS weka57-link1: 9000-byte peer probe to 10.200.57.1
+PASS weka57-link2: 9000-byte peer probe to 10.200.57.3
+PASS weka58-link1: 9000-byte peer probe to 10.200.58.1
+PASS weka58-link2: 9000-byte peer probe to 10.200.58.3
+Endpoint validation passed; skipped known-down links: 0
+Connection to 172.31.17.23 closed.
+
+===== leaf-04 172.31.17.24 --end-to-end =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.24's password:
+[sudo] password for cumulus:
+PASS weka40-link1: swp4s1 up, 10.200.40.0/31, BGP 10.200.40.0/31
+PASS weka40-link2: swp4s0 up, 10.200.40.2/31, BGP 10.200.40.2/31
+PASS weka41-link1: swp3s1 up, 10.200.41.0/31, BGP 10.200.41.0/31
+PASS weka41-link2: swp3s0 up, 10.200.41.2/31, BGP 10.200.41.2/31
+PASS weka42-link1: swp8s1 up, 10.200.42.0/31, BGP 10.200.42.0/31
+PASS weka42-link2: swp8s0 up, 10.200.42.2/31, BGP 10.200.42.2/31
+PASS weka43-link1: swp7s1 up, 10.200.43.0/31, BGP 10.200.43.0/31
+PASS weka43-link2: swp7s0 up, 10.200.43.2/31, BGP 10.200.43.2/31
+DEGRADED weka44-link1: swp2s1 remains down (known-down baseline)
+PASS weka44-link2: swp2s0 up, 10.200.44.2/31, BGP 10.200.44.2/31
+PASS weka45-link1: swp1s1 up, 10.200.45.0/31, BGP 10.200.45.0/31
+PASS weka45-link2: swp1s0 up, 10.200.45.2/31, BGP 10.200.45.2/31
+PASS weka46-link1: swp6s1 up, 10.200.46.0/31, BGP 10.200.46.0/31
+PASS weka46-link2: swp6s0 up, 10.200.46.2/31, BGP 10.200.46.2/31
+PASS weka47-link1: swp5s1 up, 10.200.47.0/31, BGP 10.200.47.0/31
+PASS weka47-link2: swp5s0 up, 10.200.47.2/31, BGP 10.200.47.2/31
+Validation passed; known-down exceptions: 1
+PASS weka40-link1: 9000-byte peer probe to 10.200.40.1
+PASS weka40-link2: 9000-byte peer probe to 10.200.40.3
+PASS weka41-link1: 9000-byte peer probe to 10.200.41.1
+PASS weka41-link2: 9000-byte peer probe to 10.200.41.3
+PASS weka42-link1: 9000-byte peer probe to 10.200.42.1
+PASS weka42-link2: 9000-byte peer probe to 10.200.42.3
+PASS weka43-link1: 9000-byte peer probe to 10.200.43.1
+PASS weka43-link2: 9000-byte peer probe to 10.200.43.3
+SKIP weka44-link1: known-down link
+PASS weka44-link2: 9000-byte peer probe to 10.200.44.3
+PASS weka45-link1: 9000-byte peer probe to 10.200.45.1
+PASS weka45-link2: 9000-byte peer probe to 10.200.45.3
+PASS weka46-link1: 9000-byte peer probe to 10.200.46.1
+PASS weka46-link2: 9000-byte peer probe to 10.200.46.3
+PASS weka47-link1: 9000-byte peer probe to 10.200.47.1
+PASS weka47-link2: 9000-byte peer probe to 10.200.47.3
+Endpoint validation passed; skipped known-down links: 1
+Connection to 172.31.17.24 closed.
+chandrasekhar.gonuguntla@Chandra-Gonuguntla Production_SN5600_Operations_Bundle_2026-09-30 %

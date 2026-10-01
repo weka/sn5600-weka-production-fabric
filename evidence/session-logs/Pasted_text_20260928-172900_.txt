@@ -1,0 +1,276 @@
+chandrasekhar.gonuguntla@Chandra-Gonuguntla Downloads % pwd
+/Users/OPERATOR/Downloads
+chandrasekhar.gonuguntla@Chandra-Gonuguntla Downloads % cd "$HOME/Downloads/SN5600_Numbered31" &&
+bash fabric.sh copy &&
+bash fabric.sh check
+ROCE.md: OK
+START_HERE.md: OK
+fabric.sh: OK
+leaf-01.sh: OK
+leaf-01_commands.txt: OK
+leaf-02.sh: OK
+leaf-02_commands.txt: OK
+leaf-03.sh: OK
+leaf-03_commands.txt: OK
+leaf-04.sh: OK
+leaf-04_commands.txt: OK
+migrate.py: OK
+plan.json: OK
+roce.py: OK
+spine-01.sh: OK
+spine-01_commands.txt: OK
+spine-02.sh: OK
+spine-02_commands.txt: OK
+spine-03.sh: OK
+spine-03_commands.txt: OK
+spine-04.sh: OK
+spine-04_commands.txt: OK
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.5's password:
+spine-02_commands.txt                                        100%   14KB 963.4KB/s   00:00
+spine-04_commands.txt                                        100%   14KB 990.1KB/s   00:00
+spine-03_commands.txt                                        100%   14KB   1.0MB/s   00:00
+plan.json                                                    100%   81KB   3.2MB/s   00:00
+leaf-01_commands.txt                                         100%   14KB   1.0MB/s   00:00
+ROCE.md                                                      100% 8707   709.9KB/s   00:00
+START_HERE.md                                                100%   13KB 328.0KB/s   00:00
+leaf-04.sh                                                   100%  333    26.4KB/s   00:00
+spine-04.sh                                                  100%  335    26.7KB/s   00:00
+leaf-01.sh                                                   100%  333    23.5KB/s   00:00
+spine-01.sh                                                  100%  335    27.1KB/s   00:00
+leaf-02.sh                                                   100%  333    27.0KB/s   00:00
+roce.py                                                      100% 9543   764.3KB/s   00:00
+spine-02.sh                                                  100%  335    29.8KB/s   00:00
+spine-03.sh                                                  100%  335    27.0KB/s   00:00
+fabric.sh                                                    100% 5432   443.6KB/s   00:00
+leaf-03.sh                                                   100%  333    27.2KB/s   00:00
+spine-01_commands.txt                                        100%   14KB   1.1MB/s   00:00
+leaf-03_commands.txt                                         100%   14KB 861.9KB/s   00:00
+leaf-04_commands.txt                                         100%   14KB   1.1MB/s   00:00
+SHA256SUMS                                                   100% 1777   131.2KB/s   00:00
+migrate.py                                                   100%   18KB   1.5MB/s   00:00
+leaf-02_commands.txt                                         100%   14KB   1.1MB/s   00:00
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.18's password:
+spine-02_commands.txt                                        100%   14KB 962.3KB/s   00:00
+spine-04_commands.txt                                        100%   14KB 864.3KB/s   00:00
+spine-03_commands.txt                                        100%   14KB   1.0MB/s   00:00
+plan.json                                                    100%   81KB   3.2MB/s   00:00
+leaf-01_commands.txt                                         100%   14KB   1.0MB/s   00:00
+ROCE.md                                                      100% 8707   723.8KB/s   00:00
+START_HERE.md                                                100%   13KB 956.4KB/s   00:00
+leaf-04.sh                                                   100%  333    27.0KB/s   00:00
+spine-04.sh                                                  100%  335    25.6KB/s   00:00
+leaf-01.sh                                                   100%  333    28.7KB/s   00:00
+spine-01.sh                                                  100%  335    28.6KB/s   00:00
+leaf-02.sh                                                   100%  333    25.1KB/s   00:00
+roce.py                                                      100% 9543   666.6KB/s   00:00
+spine-02.sh                                                  100%  335    30.2KB/s   00:00
+spine-03.sh                                                  100%  335    13.6KB/s   00:00
+fabric.sh                                                    100% 5432   434.1KB/s   00:00
+leaf-03.sh                                                   100%  333    26.0KB/s   00:00
+spine-01_commands.txt                                        100%   14KB   1.1MB/s   00:00
+leaf-03_commands.txt                                         100%   14KB   1.1MB/s   00:00
+leaf-04_commands.txt                                         100%   14KB   1.2MB/s   00:00
+SHA256SUMS                                                   100% 1777   158.6KB/s   00:00
+migrate.py                                                   100%   18KB   1.3MB/s   00:00
+leaf-02_commands.txt                                         100%   14KB   1.0MB/s   00:00
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.20's password:
+spine-02_commands.txt                                        100%   14KB 964.7KB/s   00:00
+spine-04_commands.txt                                        100%   14KB   1.2MB/s   00:00
+spine-03_commands.txt                                        100%   14KB 797.7KB/s   00:00
+plan.json                                                    100%   81KB   2.8MB/s   00:00
+leaf-01_commands.txt                                         100%   14KB   1.0MB/s   00:00
+ROCE.md                                                      100% 8707   614.0KB/s   00:00
+START_HERE.md                                                100%   13KB 941.7KB/s   00:00
+leaf-04.sh                                                   100%  333    29.5KB/s   00:00
+spine-04.sh                                                  100%  335    23.3KB/s   00:00
+leaf-01.sh                                                   100%  333    28.8KB/s   00:00
+spine-01.sh                                                  100%  335    27.3KB/s   00:00
+leaf-02.sh                                                   100%  333    27.0KB/s   00:00
+roce.py                                                      100% 9543   716.0KB/s   00:00
+spine-02.sh                                                  100%  335    27.4KB/s   00:00
+spine-03.sh                                                  100%  335    23.3KB/s   00:00
+fabric.sh                                                    100% 5432   406.5KB/s   00:00
+leaf-03.sh                                                   100%  333     7.5KB/s   00:00
+spine-01_commands.txt                                        100%   14KB 516.2KB/s   00:00
+leaf-03_commands.txt                                         100%   14KB   1.0MB/s   00:00
+leaf-04_commands.txt                                         100%   14KB 990.8KB/s   00:00
+SHA256SUMS                                                   100% 1777    65.1KB/s   00:00
+migrate.py                                                   100%   18KB   1.1MB/s   00:00
+leaf-02_commands.txt                                         100%   14KB   1.0MB/s   00:00
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.22's password:
+spine-02_commands.txt                                        100%   14KB 975.0KB/s   00:00
+spine-04_commands.txt                                        100%   14KB 718.3KB/s   00:00
+spine-03_commands.txt                                        100%   14KB   1.1MB/s   00:00
+plan.json                                                    100%   81KB   3.2MB/s   00:00
+leaf-01_commands.txt                                         100%   14KB   1.0MB/s   00:00
+ROCE.md                                                      100% 8707   705.2KB/s   00:00
+START_HERE.md                                                100%   13KB   1.0MB/s   00:00
+leaf-04.sh                                                   100%  333    28.7KB/s   00:00
+spine-04.sh                                                  100%  335    27.4KB/s   00:00
+leaf-01.sh                                                   100%  333    26.6KB/s   00:00
+spine-01.sh                                                  100%  335    27.7KB/s   00:00
+leaf-02.sh                                                   100%  333    23.4KB/s   00:00
+roce.py                                                      100% 9543   769.4KB/s   00:00
+spine-02.sh                                                  100%  335    25.1KB/s   00:00
+spine-03.sh                                                  100%  335    27.1KB/s   00:00
+fabric.sh                                                    100% 5432   445.0KB/s   00:00
+leaf-03.sh                                                   100%  333    29.7KB/s   00:00
+spine-01_commands.txt                                        100%   14KB   1.1MB/s   00:00
+leaf-03_commands.txt                                         100%   14KB   1.0MB/s   00:00
+leaf-04_commands.txt                                         100%   14KB   1.1MB/s   00:00
+SHA256SUMS                                                   100% 1777   143.3KB/s   00:00
+migrate.py                                                   100%   18KB   1.1MB/s   00:00
+leaf-02_commands.txt                                         100%   14KB   1.0MB/s   00:00
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.19's password:
+spine-02_commands.txt                                        100%   14KB 978.6KB/s   00:00
+spine-04_commands.txt                                        100%   14KB   1.1MB/s   00:00
+spine-03_commands.txt                                        100%   14KB 962.9KB/s   00:00
+plan.json                                                    100%   81KB   3.0MB/s   00:00
+leaf-01_commands.txt                                         100%   14KB   1.0MB/s   00:00
+ROCE.md                                                      100% 8707   707.4KB/s   00:00
+START_HERE.md                                                100%   13KB 969.3KB/s   00:00
+leaf-04.sh                                                   100%  333    26.8KB/s   00:00
+spine-04.sh                                                  100%  335    25.6KB/s   00:00
+leaf-01.sh                                                   100%  333    25.2KB/s   00:00
+spine-01.sh                                                  100%  335    27.4KB/s   00:00
+leaf-02.sh                                                   100%  333    30.8KB/s   00:00
+roce.py                                                      100% 9543   785.7KB/s   00:00
+spine-02.sh                                                  100%  335    25.1KB/s   00:00
+spine-03.sh                                                  100%  335    27.3KB/s   00:00
+fabric.sh                                                    100% 5432   442.4KB/s   00:00
+leaf-03.sh                                                   100%  333    25.8KB/s   00:00
+spine-01_commands.txt                                        100%   14KB   1.1MB/s   00:00
+leaf-03_commands.txt                                         100%   14KB   1.1MB/s   00:00
+leaf-04_commands.txt                                         100%   14KB   1.1MB/s   00:00
+SHA256SUMS                                                   100% 1777   142.9KB/s   00:00
+migrate.py                                                   100%   18KB   1.3MB/s   00:00
+leaf-02_commands.txt                                         100%   14KB   1.1MB/s   00:00
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+spine-02_commands.txt                                        100%   14KB   1.0MB/s   00:00
+spine-04_commands.txt                                        100%   14KB   1.1MB/s   00:00
+spine-03_commands.txt                                        100%   14KB   1.1MB/s   00:00
+plan.json                                                    100%   81KB   3.0MB/s   00:00
+leaf-01_commands.txt                                         100%   14KB 367.2KB/s   00:00
+ROCE.md                                                      100% 8707   681.3KB/s   00:00
+START_HERE.md                                                100%   13KB 969.9KB/s   00:00
+leaf-04.sh                                                   100%  333    25.0KB/s   00:00
+spine-04.sh                                                  100%  335     8.0KB/s   00:00
+leaf-01.sh                                                   100%  333    26.5KB/s   00:00
+spine-01.sh                                                  100%  335    30.0KB/s   00:00
+leaf-02.sh                                                   100%  333    27.4KB/s   00:00
+roce.py                                                      100% 9543   727.3KB/s   00:00
+spine-02.sh                                                  100%  335    25.1KB/s   00:00
+spine-03.sh                                                  100%  335    26.9KB/s   00:00
+fabric.sh                                                    100% 5432   447.4KB/s   00:00
+leaf-03.sh                                                   100%  333    27.1KB/s   00:00
+spine-01_commands.txt                                        100%   14KB 854.7KB/s   00:00
+leaf-03_commands.txt                                         100%   14KB   1.0MB/s   00:00
+leaf-04_commands.txt                                         100%   14KB   1.0MB/s   00:00
+SHA256SUMS                                                   100% 1777   143.3KB/s   00:00
+migrate.py                                                   100%   18KB   1.2MB/s   00:00
+leaf-02_commands.txt                                         100%   14KB   1.0MB/s   00:00
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.23's password:
+spine-02_commands.txt                                        100%   14KB 914.0KB/s   00:00
+spine-04_commands.txt                                        100%   14KB 970.7KB/s   00:00
+spine-03_commands.txt                                        100%   14KB   1.0MB/s   00:00
+plan.json                                                    100%   81KB   3.2MB/s   00:00
+leaf-01_commands.txt                                         100%   14KB   1.0MB/s   00:00
+ROCE.md                                                      100% 8707   695.4KB/s   00:00
+START_HERE.md                                                100%   13KB   1.0MB/s   00:00
+leaf-04.sh                                                   100%  333    25.3KB/s   00:00
+spine-04.sh                                                  100%  335    27.3KB/s   00:00
+leaf-01.sh                                                   100%  333    27.5KB/s   00:00
+spine-01.sh                                                  100%  335    29.5KB/s   00:00
+leaf-02.sh                                                   100%  333    28.6KB/s   00:00
+roce.py                                                      100% 9543   717.7KB/s   00:00
+spine-02.sh                                                  100%  335    22.7KB/s   00:00
+spine-03.sh                                                  100%  335    26.9KB/s   00:00
+fabric.sh                                                    100% 5432   233.3KB/s   00:00
+leaf-03.sh                                                   100%  333    26.0KB/s   00:00
+spine-01_commands.txt                                        100%   14KB   1.0MB/s   00:00
+leaf-03_commands.txt                                         100%   14KB   1.1MB/s   00:00
+leaf-04_commands.txt                                         100%   14KB 872.5KB/s   00:00
+SHA256SUMS                                                   100% 1777   144.0KB/s   00:00
+migrate.py                                                   100%   18KB   1.2MB/s   00:00
+leaf-02_commands.txt                                         100%   14KB 919.1KB/s   00:00
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.24's password:
+spine-02_commands.txt                                        100%   14KB   1.0MB/s   00:00
+spine-04_commands.txt                                        100%   14KB   1.0MB/s   00:00
+spine-03_commands.txt                                        100%   14KB 306.9KB/s   00:00
+plan.json                                                    100%   81KB   2.6MB/s   00:00
+leaf-01_commands.txt                                         100%   14KB 788.1KB/s   00:00
+ROCE.md                                                      100% 8707   619.8KB/s   00:00
+START_HERE.md                                                100%   13KB   1.1MB/s   00:00
+leaf-04.sh                                                   100%  333    27.1KB/s   00:00
+spine-04.sh                                                  100%  335    27.5KB/s   00:00
+leaf-01.sh                                                   100%  333    27.2KB/s   00:00
+spine-01.sh                                                  100%  335    21.3KB/s   00:00
+leaf-02.sh                                                   100%  333    27.0KB/s   00:00
+roce.py                                                      100% 9543   755.2KB/s   00:00
+spine-02.sh                                                  100%  335    25.3KB/s   00:00
+spine-03.sh                                                  100%  335    21.6KB/s   00:00
+fabric.sh                                                    100% 5432   408.2KB/s   00:00
+leaf-03.sh                                                   100%  333    26.9KB/s   00:00
+spine-01_commands.txt                                        100%   14KB   1.0MB/s   00:00
+leaf-03_commands.txt                                         100%   14KB   1.1MB/s   00:00
+leaf-04_commands.txt                                         100%   14KB   1.0MB/s   00:00
+SHA256SUMS                                                   100% 1777   145.6KB/s   00:00
+migrate.py                                                   100%   18KB   1.4MB/s   00:00
+leaf-02_commands.txt                                         100%   14KB   1.1MB/s   00:00
+
+spine-01 (172.31.17.5): check
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.5's password:
+Preflight passed: spine-01 172.31.17.5
+Connection to 172.31.17.5 closed.
+
+spine-02 (172.31.17.18): check
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.18's password:
+Preflight passed: spine-02 172.31.17.18
+Connection to 172.31.17.18 closed.
+
+spine-03 (172.31.17.20): check
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.20's password:
+Preflight passed: spine-03 172.31.17.20
+Connection to 172.31.17.20 closed.
+
+spine-04 (172.31.17.22): check
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.22's password:
+Preflight passed: spine-04 172.31.17.22
+Connection to 172.31.17.22 closed.
+
+leaf-01 (172.31.17.19): check
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.19's password:
+Preflight passed: leaf-01 172.31.17.19
+Connection to 172.31.17.19 closed.
+
+leaf-02 (172.31.17.21): check
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+Preflight passed: leaf-02 172.31.17.21
+Connection to 172.31.17.21 closed.
+
+leaf-03 (172.31.17.23): check
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.23's password:
+Preflight passed: leaf-03 172.31.17.23
+Connection to 172.31.17.23 closed.
+
+leaf-04 (172.31.17.24): check
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.24's password:
+Preflight passed: leaf-04 172.31.17.24
+Connection to 172.31.17.24 closed.
+chandrasekhar.gonuguntla@Chandra-Gonugun

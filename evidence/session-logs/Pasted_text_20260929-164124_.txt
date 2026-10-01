@@ -1,0 +1,1501 @@
+chandrasekhar.gonuguntla@Chandra-Gonuguntla ~ % >....
+  echo "========== Rebooting $name ($ip) =========="
+
+  ssh -tt \
+    -o ConnectTimeout=15 \
+    -o ServerAliveInterval=5 \
+    -o ServerAliveCountMax=2 \
+    "cumulus@$ip" \
+    'nv config save && sudo systemctl reboot' || true
+
+  echo "Waiting for $name to go offline..."
+  if ! wait_down "$ip"; then
+    echo "STOP: $name never became unreachable."
+    exit 1
+  fi
+
+  echo "Waiting for $name to return..."
+  if ! wait_up "$ip"; then
+    echo "STOP: $name did not return within 10 minutes."
+    exit 1
+  fi
+
+  echo "Post-reboot health check for $name:"
+  ssh -tt "cumulus@$ip" '
+    hostname
+    uptime -p
+    nv show system health
+    systemctl --failed --no-pager
+  ' || exit 1
+
+  echo "$name completed successfully."
+done
+
+echo
+echo "All eight switches completed their rolling reboot."
+EOF
+
+chmod 700 /tmp/reboot-sn5600-rolling.sh
+bash /tmp/reboot-sn5600-rolling.sh
+
+========== Rebooting spine-01 (172.31.17.5) ==========
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.5's password:
+saved [rev_id: applied]
+[sudo] password for cumulus:
+
+Broadcast message from root@MT2438J01F5T on pts/2 (Tue 2026-09-29 14:23:37 PDT):
+
+The system will reboot now!
+
+Connection to 172.31.17.5 closed.
+Waiting for spine-01 to go offline...
+Waiting for spine-01 to return...
+Post-reboot health check for spine-01:
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.5's password:
+spine-01
+up 3 minutes
+            operational  applied
+----------  -----------  -------
+status      OK
+status-led  green
+
+
+
+Health issues
+================
+    Component                 Status information
+    ------------------------  ------------------
+    PMIC-12-COMEX-VCORE-OUT1  failed
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+Connection to 172.31.17.5 closed.
+spine-01 completed successfully.
+
+========== Rebooting spine-02 (172.31.17.18) ==========
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.18's password:
+saved [rev_id: applied]
+[sudo] password for cumulus:
+
+Broadcast message from root@cumulus on pts/2 (Tue 2026-09-29 19:08:59 UTC):
+
+The system will reboot now!
+
+Connection to 172.31.17.18 closed.
+Waiting for spine-02 to go offline...
+Waiting for spine-02 to return...
+Post-reboot health check for spine-02:
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.18's password:
+spine-02
+up 3 minutes
+            operational  applied
+----------  -----------  -------
+status      OK
+status-led  green
+
+
+
+Health issues
+================
+    Component                 Status information
+    ------------------------  ------------------
+    PMIC-12-COMEX-VCORE-OUT1  failed
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+Connection to 172.31.17.18 closed.
+spine-02 completed successfully.
+
+========== Rebooting spine-03 (172.31.17.20) ==========
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.20's password:
+saved [rev_id: applied]
+[sudo] password for cumulus:
+
+Broadcast message from root@cumulus on pts/2 (Tue 2026-09-29 21:39:48 UTC):
+
+The system will reboot now!
+
+Connection to 172.31.17.20 closed.
+Waiting for spine-03 to go offline...
+Waiting for spine-03 to return...
+Post-reboot health check for spine-03:
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.20's password:
+spine-03
+up 3 minutes
+            operational  applied
+----------  -----------  -------
+status      not OK
+status-led  amber
+
+
+
+Health issues
+================
+    Component                 Status information
+    ------------------------  ------------------
+    FAN3/2                    bad
+    PMIC-12-COMEX-VCORE-OUT1  failed
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+Connection to 172.31.17.20 closed.
+spine-03 completed successfully.
+
+========== Rebooting spine-04 (172.31.17.22) ==========
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.22's password:
+saved [rev_id: applied]
+[sudo] password for cumulus:
+
+Broadcast message from root@cumulus on pts/2 (Tue 2026-09-29 21:40:56 UTC):
+
+The system will reboot now!
+
+Connection to 172.31.17.22 closed.
+Waiting for spine-04 to go offline...
+Waiting for spine-04 to return...
+Post-reboot health check for spine-04:
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.22's password:
+spine-04
+up 4 minutes
+            operational  applied
+----------  -----------  -------
+status      OK
+status-led  green
+
+
+
+Health issues
+================
+    Component                 Status information
+    ------------------------  ------------------
+    PMIC-12-COMEX-VCORE-OUT1  failed
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+Connection to 172.31.17.22 closed.
+spine-04 completed successfully.
+
+========== Rebooting leaf-01 (172.31.17.19) ==========
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.19's password:
+saved [rev_id: applied]
+[sudo] password for cumulus:
+
+Broadcast message from root@leaf-01 on pts/2 (Tue 2026-09-29 21:44:55 UTC):
+
+The system will reboot now!
+
+Connection to 172.31.17.19 closed.
+Waiting for leaf-01 to go offline...
+Waiting for leaf-01 to return...
+Post-reboot health check for leaf-01:
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.19's password:
+leaf-01
+up 2 minutes
+            operational  applied
+----------  -----------  -------
+status      OK
+status-led  green
+
+
+
+Health issues
+================
+    Component                 Status information
+    ------------------------  ------------------
+    PMIC-12-COMEX-VCORE-OUT1  failed
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+Connection to 172.31.17.19 closed.
+leaf-01 completed successfully.
+
+========== Rebooting leaf-02 (172.31.17.21) ==========
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+saved [rev_id: applied]
+[sudo] password for cumulus:
+
+Broadcast message from root@cumulus on pts/2 (Tue 2026-09-29 21:50:32 UTC):
+
+The system will reboot now!
+
+Connection to 172.31.17.21 closed.
+Waiting for leaf-02 to go offline...
+Waiting for leaf-02 to return...
+Post-reboot health check for leaf-02:
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+leaf-02
+up 2 minutes
+            operational  applied
+----------  -----------  -------
+status      OK
+status-led  green
+
+
+
+Health issues
+================
+    Component                 Status information
+    ------------------------  ------------------
+    PMIC-12-COMEX-VCORE-OUT1  failed
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+Connection to 172.31.17.21 closed.
+leaf-02 completed successfully.
+
+========== Rebooting leaf-03 (172.31.17.23) ==========
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.23's password:
+saved [rev_id: applied]
+[sudo] password for cumulus:
+
+Broadcast message from root@cumulus on pts/2 (Tue 2026-09-29 21:52:13 UTC):
+
+The system will reboot now!
+
+Connection to 172.31.17.23 closed.
+Waiting for leaf-03 to go offline...
+Waiting for leaf-03 to return...
+Post-reboot health check for leaf-03:
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.23's password:
+leaf-03
+up 2 minutes
+            operational  applied
+----------  -----------  -------
+status      OK
+status-led  green
+
+
+
+Health issues
+================
+    Component                 Status information
+    ------------------------  ------------------
+    PMIC-12-COMEX-VCORE-OUT1  failed
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+Connection to 172.31.17.23 closed.
+leaf-03 completed successfully.
+
+========== Rebooting leaf-04 (172.31.17.24) ==========
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.24's password:
+saved [rev_id: applied]
+[sudo] password for cumulus:
+
+Broadcast message from root@cumulus on pts/2 (Tue 2026-09-29 21:50:23 UTC):
+
+The system will reboot now!
+
+Connection to 172.31.17.24 closed.
+Waiting for leaf-04 to go offline...
+Waiting for leaf-04 to return...
+Post-reboot health check for leaf-04:
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.24's password:
+leaf-04
+up 2 minutes
+            operational  applied
+----------  -----------  -------
+status      OK
+status-led  green
+
+
+
+Health issues
+================
+    Component                 Status information
+    ------------------------  ------------------
+    PMIC-12-COMEX-VCORE-OUT1  failed
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+Connection to 172.31.17.24 closed.
+leaf-04 completed successfully.
+
+All eight switches completed their rolling reboot.
+chandrasekhar.gonuguntla@Chandra-Gonuguntla ~ % cd "$HOME/Downloads/SN5600_Numbered31" &&
+bash fabric.sh validate | tee "$HOME/Downloads/post-reboot-fabric-validation.txt"
+
+spine-01 (172.31.17.5): validate all
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.5's password:
+[sudo] password for cumulus:
+leaf-01: 7/8 established
+leaf-02: 8/8 established
+leaf-03: 8/8 established
+leaf-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+DEGRADED: 1 selected pairs lack an established session:
+  swp1 -> leaf-01 swp33 (10.254.0.1)
+DEGRADED, no additional BGP losses versus saved baseline.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.5 closed.
+
+spine-02 (172.31.17.18): validate all
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.18's password:
+[sudo] password for cumulus:
+leaf-01: 6/8 established
+leaf-02: 8/8 established
+leaf-03: 8/8 established
+leaf-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+DEGRADED: 2 selected pairs lack an established session:
+  swp1 -> leaf-01 swp41 (10.254.0.17)
+  swp2 -> leaf-01 swp42 (10.254.0.19)
+STOP: validation failed:
+  swp2: previously established session is now missing
+Connection to 172.31.17.18 closed.
+
+spine-03 (172.31.17.20): validate all
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.20's password:
+[sudo] password for cumulus:
+leaf-01: 6/8 established
+leaf-02: 8/8 established
+leaf-03: 8/8 established
+leaf-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+DEGRADED: 2 selected pairs lack an established session:
+  swp1 -> leaf-01 swp49 (10.254.0.33)
+  swp4 -> leaf-01 swp52 (10.254.0.39)
+DEGRADED, no additional BGP losses versus saved baseline.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.20 closed.
+
+spine-04 (172.31.17.22): validate all
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.22's password:
+[sudo] password for cumulus:
+leaf-01: 6/8 established
+leaf-02: 8/8 established
+leaf-03: 7/8 established
+leaf-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+DEGRADED: 3 selected pairs lack an established session:
+  swp2 -> leaf-01 swp58 (10.254.0.51)
+  swp5 -> leaf-01 swp61 (10.254.0.57)
+  swp24 -> leaf-03 swp64 (10.254.0.191)
+DEGRADED, no additional BGP losses versus saved baseline.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.22 closed.
+
+leaf-01 (172.31.17.19): validate all
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.19's password:
+[sudo] password for cumulus:
+spine-01: 7/8 established
+spine-02: 6/8 established
+spine-03: 6/8 established
+spine-04: 6/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+PASS 9000-byte IPv4 loopback probe to 10.255.0.101
+PASS 9000-byte IPv4 loopback probe to 10.255.0.102
+PASS 9000-byte IPv4 loopback probe to 10.255.0.103
+PASS 9000-byte IPv4 loopback probe to 10.255.0.104
+DEGRADED: 7 selected pairs lack an established session:
+  swp33 -> spine-01 swp1 (10.254.0.0)
+  swp41 -> spine-02 swp1 (10.254.0.16)
+  swp42 -> spine-02 swp2 (10.254.0.18)
+  swp49 -> spine-03 swp1 (10.254.0.32)
+  swp52 -> spine-03 swp4 (10.254.0.38)
+  swp58 -> spine-04 swp2 (10.254.0.50)
+  swp61 -> spine-04 swp5 (10.254.0.56)
+STOP: validation failed:
+  swp42: previously established session is now missing
+Connection to 172.31.17.19 closed.
+
+leaf-02 (172.31.17.21): validate all
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+[sudo] password for cumulus:
+spine-01: 8/8 established
+spine-02: 8/8 established
+spine-03: 8/8 established
+spine-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+PASS 9000-byte IPv4 loopback probe to 10.255.0.101
+PASS 9000-byte IPv4 loopback probe to 10.255.0.102
+PASS 9000-byte IPv4 loopback probe to 10.255.0.103
+PASS 9000-byte IPv4 loopback probe to 10.255.0.104
+PASS: all selected sessions established at 800G; probes passed.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.21 closed.
+
+leaf-03 (172.31.17.23): validate all
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.23's password:
+[sudo] password for cumulus:
+spine-01: 8/8 established
+spine-02: 8/8 established
+spine-03: 8/8 established
+spine-04: 7/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+PASS 9000-byte IPv4 loopback probe to 10.255.0.101
+PASS 9000-byte IPv4 loopback probe to 10.255.0.102
+PASS 9000-byte IPv4 loopback probe to 10.255.0.103
+PASS 9000-byte IPv4 loopback probe to 10.255.0.104
+DEGRADED: 1 selected pairs lack an established session:
+  swp64 -> spine-04 swp24 (10.254.0.190)
+DEGRADED, no additional BGP losses versus saved baseline.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.23 closed.
+
+leaf-04 (172.31.17.24): validate all
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.24's password:
+[sudo] password for cumulus:
+spine-01: 8/8 established
+spine-02: 8/8 established
+spine-03: 8/8 established
+spine-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.101
+PASS 9000-byte IPv4 loopback probe to 10.255.0.102
+PASS 9000-byte IPv4 loopback probe to 10.255.0.103
+PASS 9000-byte IPv4 loopback probe to 10.255.0.104
+PASS: all selected sessions established at 800G; probes passed.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.24 closed.
+chandrasekhar.gonuguntla@Chandra-Gonuguntla SN5600_Numbered31 % STATUS_DIR="$HOME/Downloads/SN5600_Post_Reboot_Status_$(date +%Y%m%d-%H%M%S)"
+mkdir -p "$STATUS_DIR"
+
+for TARGET in \
+  'spine-01:172.31.17.5' \
+  'spine-02:172.31.17.18' \
+  'spine-03:172.31.17.20' \
+  'spine-04:172.31.17.22' \
+  'leaf-01:172.31.17.19' \
+  'leaf-02:172.31.17.21' \
+  'leaf-03:172.31.17.23' \
+  'leaf-04:172.31.17.24'
+do
+  NAME="${TARGET%%:*}"
+  IP="${TARGET##*:}"
+
+  ssh "cumulus@$IP" '
+    hostname
+    uptime -p
+    nv show system health
+    systemctl --failed --no-pager
+    nv show interface
+  ' | tee "$STATUS_DIR/${NAME}.txt"
+done
+
+echo "Reports saved in: $STATUS_DIR"
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.5's password:
+spine-01
+up 35 minutes
+            operational  applied
+----------  -----------  -------
+status      OK
+status-led  green
+
+
+
+Health issues
+================
+    Component                 Status information
+    ------------------------  ------------------
+    PMIC-12-COMEX-VCORE-OUT1  failed
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+Interface  Admin Status  Oper Status  Speed  MTU    Type      Remote Host  Remote Port  Summary
+---------  ------------  -----------  -----  -----  --------  -----------  -----------  ----------------------------------------
+eth0       up            up           1G     1500   eth       SW38         Ethernet1    IP Address:               172.31.17.5/20
+                                                                                        IP Address: fe80::c670:bdff:feb6:da8e/64
+lo         up            unknown             65536  loopback                            IP Address:              10.255.0.104/32
+                                                                                        IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                      ::1/128
+mgmt       up            up                  65575  vrf                                 IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                  127.0.1.1/8
+                                                                                        IP Address:                      ::1/128
+swp1       up            down                9216   swp                                 IP Address:                10.254.0.0/31
+swp2       up            up           800G   9216   swp       leaf-01      swp34        IP Address:                10.254.0.2/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6f4/64
+swp3       up            up           800G   9216   swp       leaf-01      swp35        IP Address:                10.254.0.4/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6fc/64
+swp4       up            up           800G   9216   swp       leaf-01      swp36        IP Address:                10.254.0.6/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6f8/64
+swp5       up            up           800G   9216   swp       leaf-01      swp37        IP Address:                10.254.0.8/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6e0/64
+swp6       up            up           800G   9216   swp       leaf-01      swp38        IP Address:               10.254.0.10/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6e4/64
+swp7       up            up           800G   9216   swp       leaf-01      swp39        IP Address:               10.254.0.12/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6ec/64
+swp8       up            up           800G   9216   swp       leaf-01      swp40        IP Address:               10.254.0.14/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6e8/64
+swp9       up            up           800G   9216   swp       leaf-02      swp33        IP Address:               10.254.0.64/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6d0/64
+swp10      up            up           800G   9216   swp       leaf-02      swp34        IP Address:               10.254.0.66/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6d4/64
+swp11      up            up           800G   9216   swp       leaf-02      swp35        IP Address:               10.254.0.68/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6dc/64
+swp12      up            up           800G   9216   swp       leaf-02      swp36        IP Address:               10.254.0.70/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6d8/64
+swp13      up            up           800G   9216   swp       leaf-02      swp37        IP Address:               10.254.0.72/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6c0/64
+swp14      up            up           800G   9216   swp       leaf-02      swp38        IP Address:               10.254.0.74/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6c4/64
+swp15      up            up           800G   9216   swp       leaf-02      swp39        IP Address:               10.254.0.76/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6cc/64
+swp16      up            up           800G   9216   swp       leaf-02      swp40        IP Address:               10.254.0.78/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6c8/64
+swp17      up            up           800G   9216   swp       leaf-03      swp33        IP Address:              10.254.0.128/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6b4/64
+swp18      up            up           800G   9216   swp       leaf-03      swp34        IP Address:              10.254.0.130/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6b0/64
+swp19      up            up           800G   9216   swp       leaf-03      swp35        IP Address:              10.254.0.132/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6b8/64
+swp20      up            up           800G   9216   swp       leaf-03      swp36        IP Address:              10.254.0.134/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6bc/64
+swp21      up            up           800G   9216   swp       leaf-03      swp37        IP Address:              10.254.0.136/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6a4/64
+swp22      up            up           800G   9216   swp       leaf-03      swp38        IP Address:              10.254.0.138/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6a0/64
+swp23      up            up           800G   9216   swp       leaf-03      swp39        IP Address:              10.254.0.140/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6a8/64
+swp24      up            up           800G   9216   swp       leaf-03      swp40        IP Address:              10.254.0.142/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b6ac/64
+swp25      up            up           800G   9216   swp       leaf-04      swp33        IP Address:              10.254.0.192/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b694/64
+swp26      up            up           800G   9216   swp       leaf-04      swp34        IP Address:              10.254.0.194/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b690/64
+swp27      up            up           800G   9216   swp       leaf-04      swp35        IP Address:              10.254.0.196/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b698/64
+swp28      up            up           800G   9216   swp       leaf-04      swp36        IP Address:              10.254.0.198/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b69c/64
+swp29      up            up           800G   9216   swp       leaf-04      swp37        IP Address:              10.254.0.200/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b684/64
+swp30      up            up           800G   9216   swp       leaf-04      swp38        IP Address:              10.254.0.202/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b680/64
+swp31      up            up           800G   9216   swp       leaf-04      swp39        IP Address:              10.254.0.204/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b688/64
+swp32      up            up           800G   9216   swp       leaf-04      swp40        IP Address:              10.254.0.206/31
+                                                                                        IP Address:  fe80::b2cf:eff:fead:b68c/64
+swp33      up            down                9216   swp
+swp34      up            down                9216   swp
+swp35      up            down                9216   swp
+swp36      up            down                9216   swp
+swp37      up            down                9216   swp
+swp38      up            down                9216   swp
+swp39      up            down                9216   swp
+swp40      up            down                9216   swp
+swp41      down          down                9216   swp
+swp42      down          down                9216   swp
+swp43      down          down                9216   swp
+swp44      down          down                9216   swp
+swp45      down          down                9216   swp
+swp46      down          down                9216   swp
+swp47      down          down                9216   swp
+swp48      down          down                9216   swp
+swp49      down          down                9216   swp
+swp50      down          down                9216   swp
+swp51      down          down                9216   swp
+swp52      down          down                9216   swp
+swp53      down          down                9216   swp
+swp54      down          down                9216   swp
+swp55      down          down                9216   swp
+swp56      down          down                9216   swp
+swp57      down          down                9216   swp
+swp58      down          down                9216   swp
+swp59      down          down                9216   swp
+swp60      down          down                9216   swp
+swp61      down          down                9216   swp
+swp62      down          down                9216   swp
+swp63      down          down                9216   swp
+swp64      down          down                9216   swp
+swp65      down          down                9216   swp
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.18's password:
+spine-02
+up 31 minutes
+            operational  applied
+----------  -----------  -------
+status      OK
+status-led  green
+
+
+
+Health issues
+================
+    Component                 Status information
+    ------------------------  ------------------
+    PMIC-12-COMEX-VCORE-OUT1  failed
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+Interface  Admin Status  Oper Status  Speed  MTU    Type      Remote Host  Remote Port  Summary
+---------  ------------  -----------  -----  -----  --------  -----------  -----------  ----------------------------------------
+eth0       up            up           1G     1500   eth       SW38         Ethernet3    IP Address:              172.31.17.18/21
+                                                                                        IP Address: fe80::c670:bdff:fef3:f864/64
+lo         up            unknown             65536  loopback                            IP Address:              10.255.0.101/32
+                                                                                        IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                      ::1/128
+mgmt       up            up                  65575  vrf                                 IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                  127.0.1.1/8
+                                                                                        IP Address:                      ::1/128
+swp1       up            down                9216   swp                                 IP Address:               10.254.0.16/31
+swp2       up            down                9216   swp                                 IP Address:               10.254.0.18/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4f4/64
+swp3       up            up           800G   9216   swp       leaf-01      swp43        IP Address:               10.254.0.20/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4fc/64
+swp4       up            up           800G   9216   swp       leaf-01      swp44        IP Address:               10.254.0.22/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4f8/64
+swp5       up            up           800G   9216   swp       leaf-01      swp45        IP Address:               10.254.0.24/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4e0/64
+swp6       up            up           800G   9216   swp       leaf-01      swp46        IP Address:               10.254.0.26/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4e4/64
+swp7       up            up           800G   9216   swp       leaf-01      swp47        IP Address:               10.254.0.28/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4ec/64
+swp8       up            up           800G   9216   swp       leaf-01      swp48        IP Address:               10.254.0.30/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4e8/64
+swp9       up            up           800G   9216   swp       leaf-02      swp41        IP Address:               10.254.0.80/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4d0/64
+swp10      up            up           800G   9216   swp       leaf-02      swp42        IP Address:               10.254.0.82/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4d4/64
+swp11      up            up           800G   9216   swp       leaf-02      swp43        IP Address:               10.254.0.84/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4dc/64
+swp12      up            up           800G   9216   swp       leaf-02      swp44        IP Address:               10.254.0.86/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4d8/64
+swp13      up            up           800G   9216   swp       leaf-02      swp45        IP Address:               10.254.0.88/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4c0/64
+swp14      up            up           800G   9216   swp       leaf-02      swp46        IP Address:               10.254.0.90/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4c4/64
+swp15      up            up           800G   9216   swp       leaf-02      swp47        IP Address:               10.254.0.92/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4cc/64
+swp16      up            up           800G   9216   swp       leaf-02      swp48        IP Address:               10.254.0.94/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4c8/64
+swp17      up            up           800G   9216   swp       leaf-03      swp41        IP Address:              10.254.0.144/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4b4/64
+swp18      up            up           800G   9216   swp       leaf-03      swp42        IP Address:              10.254.0.146/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4b0/64
+swp19      up            up           800G   9216   swp       leaf-03      swp43        IP Address:              10.254.0.148/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4b8/64
+swp20      up            up           800G   9216   swp       leaf-03      swp44        IP Address:              10.254.0.150/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4bc/64
+swp21      up            up           800G   9216   swp       leaf-03      swp45        IP Address:              10.254.0.152/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4a4/64
+swp22      up            up           800G   9216   swp       leaf-03      swp46        IP Address:              10.254.0.154/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4a0/64
+swp23      up            up           800G   9216   swp       leaf-03      swp47        IP Address:              10.254.0.156/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4a8/64
+swp24      up            up           800G   9216   swp       leaf-03      swp48        IP Address:              10.254.0.158/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b4ac/64
+swp25      up            up           800G   9216   swp       leaf-04      swp41        IP Address:              10.254.0.208/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b494/64
+swp26      up            up           800G   9216   swp       leaf-04      swp42        IP Address:              10.254.0.210/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b490/64
+swp27      up            up           800G   9216   swp       leaf-04      swp43        IP Address:              10.254.0.212/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b498/64
+swp28      up            up           800G   9216   swp       leaf-04      swp44        IP Address:              10.254.0.214/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b49c/64
+swp29      up            up           800G   9216   swp       leaf-04      swp45        IP Address:              10.254.0.216/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b484/64
+swp30      up            up           800G   9216   swp       leaf-04      swp46        IP Address:              10.254.0.218/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b480/64
+swp31      up            up           800G   9216   swp       leaf-04      swp47        IP Address:              10.254.0.220/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b488/64
+swp32      up            up           800G   9216   swp       leaf-04      swp48        IP Address:              10.254.0.222/31
+                                                                                        IP Address: fe80::2e5e:abff:feaa:b48c/64
+swp33      up            down                9216   swp
+swp34      up            down                9216   swp
+swp35      up            down                9216   swp
+swp36      up            down                9216   swp
+swp37      up            down                9216   swp
+swp38      up            down                9216   swp
+swp39      up            down                9216   swp
+swp40      up            down                9216   swp
+swp41      down          down                9216   swp
+swp42      down          down                9216   swp
+swp43      down          down                9216   swp
+swp44      down          down                9216   swp
+swp45      down          down                9216   swp
+swp46      down          down                9216   swp
+swp47      down          down                9216   swp
+swp48      down          down                9216   swp
+swp49      down          down                9216   swp
+swp50      down          down                9216   swp
+swp51      down          down                9216   swp
+swp52      down          down                9216   swp
+swp53      down          down                9216   swp
+swp54      down          down                9216   swp
+swp55      down          down                9216   swp
+swp56      down          down                9216   swp
+swp57      down          down                9216   swp
+swp58      down          down                9216   swp
+swp59      down          down                9216   swp
+swp60      down          down                9216   swp
+swp61      down          down                9216   swp
+swp62      down          down                9216   swp
+swp63      down          down                9216   swp
+swp64      down          down                9216   swp
+swp65      down          down                9216   swp
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.20's password:
+spine-03
+up 27 minutes
+            operational  applied
+----------  -----------  -------
+status      not OK
+status-led  amber
+
+
+
+Health issues
+================
+    Component                 Status information
+    ------------------------  ------------------
+    FAN3/2                    bad
+    PMIC-12-COMEX-VCORE-OUT1  failed
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+Interface  Admin Status  Oper Status  Speed  MTU    Type      Remote Host  Remote Port  Summary
+---------  ------------  -----------  -----  -----  --------  -----------  -----------  ----------------------------------------
+eth0       up            up           1G     1500   eth       SW38         Ethernet2    IP Address:              172.31.17.20/21
+                                                                                        IP Address: fe80::da94:24ff:fe3b:a382/64
+lo         up            unknown             65536  loopback                            IP Address:              10.255.0.102/32
+                                                                                        IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                      ::1/128
+mgmt       up            up                  65575  vrf                                 IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                  127.0.1.1/8
+                                                                                        IP Address:                      ::1/128
+swp1       up            down                9216   swp                                 IP Address:               10.254.0.32/31
+swp2       up            up           800G   9216   swp       leaf-01      swp50        IP Address:               10.254.0.34/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14f4/64
+swp3       up            up           800G   9216   swp       leaf-01      swp51        IP Address:               10.254.0.36/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14fc/64
+swp4       up            down                9216   swp                                 IP Address:               10.254.0.38/31
+swp5       up            up           800G   9216   swp       leaf-01      swp53        IP Address:               10.254.0.40/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14e0/64
+swp6       up            up           800G   9216   swp       leaf-01      swp54        IP Address:               10.254.0.42/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14e4/64
+swp7       up            up           800G   9216   swp       leaf-01      swp55        IP Address:               10.254.0.44/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14ec/64
+swp8       up            up           800G   9216   swp       leaf-01      swp56        IP Address:               10.254.0.46/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14e8/64
+swp9       up            up           800G   9216   swp       leaf-02      swp49        IP Address:               10.254.0.96/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14d0/64
+swp10      up            up           800G   9216   swp       leaf-02      swp50        IP Address:               10.254.0.98/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14d4/64
+swp11      up            up           800G   9216   swp       leaf-02      swp51        IP Address:              10.254.0.100/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14dc/64
+swp12      up            up           800G   9216   swp       leaf-02      swp52        IP Address:              10.254.0.102/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14d8/64
+swp13      up            up           800G   9216   swp       leaf-02      swp53        IP Address:              10.254.0.104/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14c0/64
+swp14      up            up           800G   9216   swp       leaf-02      swp54        IP Address:              10.254.0.106/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14c4/64
+swp15      up            up           800G   9216   swp       leaf-02      swp55        IP Address:              10.254.0.108/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14cc/64
+swp16      up            up           800G   9216   swp       leaf-02      swp56        IP Address:              10.254.0.110/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14c8/64
+swp17      up            up           800G   9216   swp       leaf-03      swp49        IP Address:              10.254.0.160/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14b4/64
+swp18      up            up           800G   9216   swp       leaf-03      swp50        IP Address:              10.254.0.162/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14b0/64
+swp19      up            up           800G   9216   swp       leaf-03      swp51        IP Address:              10.254.0.164/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14b8/64
+swp20      up            up           800G   9216   swp       leaf-03      swp52        IP Address:              10.254.0.166/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14bc/64
+swp21      up            up           800G   9216   swp       leaf-03      swp53        IP Address:              10.254.0.168/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14a4/64
+swp22      up            up           800G   9216   swp       leaf-03      swp54        IP Address:              10.254.0.170/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14a0/64
+swp23      up            up           800G   9216   swp       leaf-03      swp55        IP Address:              10.254.0.172/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14a8/64
+swp24      up            up           800G   9216   swp       leaf-03      swp56        IP Address:              10.254.0.174/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:14ac/64
+swp25      up            up           800G   9216   swp       leaf-04      swp49        IP Address:              10.254.0.224/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1494/64
+swp26      up            up           800G   9216   swp       leaf-04      swp50        IP Address:              10.254.0.226/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1490/64
+swp27      up            up           800G   9216   swp       leaf-04      swp51        IP Address:              10.254.0.228/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1498/64
+swp28      up            up           800G   9216   swp       leaf-04      swp52        IP Address:              10.254.0.230/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:149c/64
+swp29      up            up           800G   9216   swp       leaf-04      swp53        IP Address:              10.254.0.232/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1484/64
+swp30      up            up           800G   9216   swp       leaf-04      swp54        IP Address:              10.254.0.234/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1480/64
+swp31      up            up           800G   9216   swp       leaf-04      swp55        IP Address:              10.254.0.236/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1488/64
+swp32      up            up           800G   9216   swp       leaf-04      swp56        IP Address:              10.254.0.238/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:148c/64
+swp33      up            down                9216   swp
+swp34      up            down                9216   swp
+swp35      up            down                9216   swp
+swp36      up            down                9216   swp
+swp37      up            down                9216   swp
+swp38      up            down                9216   swp
+swp39      up            down                9216   swp
+swp40      up            down                9216   swp
+swp41      down          down                9216   swp
+swp42      down          down                9216   swp
+swp43      down          down                9216   swp
+swp44      down          down                9216   swp
+swp45      down          down                9216   swp
+swp46      down          down                9216   swp
+swp47      down          down                9216   swp
+swp48      down          down                9216   swp
+swp49      down          down                9216   swp
+swp50      down          down                9216   swp
+swp51      down          down                9216   swp
+swp52      down          down                9216   swp
+swp53      down          down                9216   swp
+swp54      down          down                9216   swp
+swp55      down          down                9216   swp
+swp56      down          down                9216   swp
+swp57      down          down                9216   swp
+swp58      down          down                9216   swp
+swp59      down          down                9216   swp
+swp60      down          down                9216   swp
+swp61      down          down                9216   swp
+swp62      down          down                9216   swp
+swp63      down          down                9216   swp
+swp64      down          down                9216   swp
+swp65      down          down                9216   swp
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.22's password:
+spine-04
+up 23 minutes
+            operational  applied
+----------  -----------  -------
+status      OK
+status-led  green
+
+
+
+Health issues
+================
+    Component                 Status information
+    ------------------------  ------------------
+    PMIC-12-COMEX-VCORE-OUT1  failed
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+Interface  Admin Status  Oper Status  Speed  MTU    Type      Remote Host  Remote Port  Summary
+---------  ------------  -----------  -----  -----  --------  -----------  -----------  ----------------------------------------
+eth0       up            up           1G     1500   eth       SW38         Ethernet4    IP Address:              172.31.17.22/21
+                                                                                        IP Address: fe80::da94:24ff:fe3b:a42a/64
+lo         up            unknown             65536  loopback                            IP Address:              10.255.0.103/32
+                                                                                        IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                      ::1/128
+mgmt       up            up                  65575  vrf                                 IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                  127.0.1.1/8
+                                                                                        IP Address:                      ::1/128
+swp1       up            up           800G   9216   swp       leaf-01      swp57        IP Address:               10.254.0.48/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18f0/64
+swp2       up            down                9216   swp                                 IP Address:               10.254.0.50/31
+swp3       up            up           800G   9216   swp       leaf-01      swp59        IP Address:               10.254.0.52/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18fc/64
+swp4       up            up           800G   9216   swp       leaf-01      swp60        IP Address:               10.254.0.54/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18f8/64
+swp5       up            down                9216   swp                                 IP Address:               10.254.0.56/31
+swp6       up            up           800G   9216   swp       leaf-01      swp62        IP Address:               10.254.0.58/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18e4/64
+swp7       up            up           800G   9216   swp       leaf-01      swp63        IP Address:               10.254.0.60/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18ec/64
+swp8       up            up           800G   9216   swp       leaf-01      swp64        IP Address:               10.254.0.62/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18e8/64
+swp9       up            up           800G   9216   swp       leaf-02      swp57        IP Address:              10.254.0.112/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18d0/64
+swp10      up            up           800G   9216   swp       leaf-02      swp58        IP Address:              10.254.0.114/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18d4/64
+swp11      up            up           800G   9216   swp       leaf-02      swp59        IP Address:              10.254.0.116/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18dc/64
+swp12      up            up           800G   9216   swp       leaf-02      swp60        IP Address:              10.254.0.118/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18d8/64
+swp13      up            up           800G   9216   swp       leaf-02      swp61        IP Address:              10.254.0.120/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18c0/64
+swp14      up            up           800G   9216   swp       leaf-02      swp62        IP Address:              10.254.0.122/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18c4/64
+swp15      up            up           800G   9216   swp       leaf-02      swp63        IP Address:              10.254.0.124/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18cc/64
+swp16      up            up           800G   9216   swp       leaf-02      swp64        IP Address:              10.254.0.126/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18c8/64
+swp17      up            up           800G   9216   swp       leaf-03      swp57        IP Address:              10.254.0.176/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18b4/64
+swp18      up            up           800G   9216   swp       leaf-03      swp58        IP Address:              10.254.0.178/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18b0/64
+swp19      up            up           800G   9216   swp       leaf-03      swp59        IP Address:              10.254.0.180/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18b8/64
+swp20      up            up           800G   9216   swp       leaf-03      swp60        IP Address:              10.254.0.182/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18bc/64
+swp21      up            up           800G   9216   swp       leaf-03      swp61        IP Address:              10.254.0.184/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18a4/64
+swp22      up            up           800G   9216   swp       leaf-03      swp62        IP Address:              10.254.0.186/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18a0/64
+swp23      up            up           800G   9216   swp       leaf-03      swp63        IP Address:              10.254.0.188/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:18a8/64
+swp24      up            down                9216   swp                                 IP Address:              10.254.0.190/31
+swp25      up            up           800G   9216   swp       leaf-04      swp57        IP Address:              10.254.0.240/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1894/64
+swp26      up            up           800G   9216   swp       leaf-04      swp58        IP Address:              10.254.0.242/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1890/64
+swp27      up            up           800G   9216   swp       leaf-04      swp59        IP Address:              10.254.0.244/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1898/64
+swp28      up            up           800G   9216   swp       leaf-04      swp60        IP Address:              10.254.0.246/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:189c/64
+swp29      up            up           800G   9216   swp       leaf-04      swp61        IP Address:              10.254.0.248/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1884/64
+swp30      up            up           800G   9216   swp       leaf-04      swp62        IP Address:              10.254.0.250/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1880/64
+swp31      up            up           800G   9216   swp       leaf-04      swp63        IP Address:              10.254.0.252/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1888/64
+swp32      up            up           800G   9216   swp       leaf-04      swp64        IP Address:              10.254.0.254/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:188c/64
+swp33      up            down                9216   swp
+swp34      up            down                9216   swp
+swp35      up            down                9216   swp
+swp36      up            down                9216   swp
+swp37      up            down                9216   swp
+swp38      up            down                9216   swp
+swp39      up            down                9216   swp
+swp40      up            down                9216   swp
+swp41      down          down                9216   swp
+swp42      down          down                9216   swp
+swp43      down          down                9216   swp
+swp44      down          down                9216   swp
+swp45      down          down                9216   swp
+swp46      down          down                9216   swp
+swp47      down          down                9216   swp
+swp48      down          down                9216   swp
+swp49      down          down                9216   swp
+swp50      down          down                9216   swp
+swp51      down          down                9216   swp
+swp52      down          down                9216   swp
+swp53      down          down                9216   swp
+swp54      down          down                9216   swp
+swp55      down          down                9216   swp
+swp56      down          down                9216   swp
+swp57      down          down                9216   swp
+swp58      down          down                9216   swp
+swp59      down          down                9216   swp
+swp60      down          down                9216   swp
+swp61      down          down                9216   swp
+swp62      down          down                9216   swp
+swp63      down          down                9216   swp
+swp64      down          down                9216   swp
+swp65      down          down                9216   swp
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.19's password:
+leaf-01
+up 18 minutes
+            operational  applied
+----------  -----------  -------
+status      OK
+status-led  green
+
+
+
+Health issues
+================
+    Component                 Status information
+    ------------------------  ------------------
+    PMIC-12-COMEX-VCORE-OUT1  failed
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+Interface  Admin Status  Oper Status  Speed  MTU    Type      Remote Host  Remote Port  Summary
+---------  ------------  -----------  -----  -----  --------  -----------  -----------  ----------------------------------------
+eth0       up            up           1G     1500   eth       SW34         Ethernet2    IP Address:              172.31.17.19/21
+                                                                                        IP Address: fe80::da94:24ff:fe3b:a34a/64
+lo         up            unknown             65536  loopback                            IP Address:               10.255.0.11/32
+                                                                                        IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                      ::1/128
+mgmt       up            up                  65575  vrf                                 IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                  127.0.1.1/8
+                                                                                        IP Address:                      ::1/128
+swp1       down          down                9216   swp
+swp2       down          down                9216   swp
+swp3       down          down                9216   swp
+swp4       down          down                9216   swp
+swp5       down          down                9216   swp
+swp6       down          down                9216   swp
+swp7       down          down                9216   swp
+swp8       down          down                9216   swp
+swp9       down          down                9216   swp
+swp10      down          down                9216   swp
+swp11      down          down                9216   swp
+swp12      down          down                9216   swp
+swp13      down          down                9216   swp
+swp14      down          down                9216   swp
+swp15      down          down                9216   swp
+swp16      down          down                9216   swp
+swp17      down          down                9216   swp
+swp18      down          down                9216   swp
+swp19      down          down                9216   swp
+swp20      down          down                9216   swp
+swp21      down          down                9216   swp
+swp22      down          down                9216   swp
+swp23      down          down                9216   swp
+swp24      down          down                9216   swp
+swp25      down          down                9216   swp
+swp26      down          down                9216   swp
+swp27      down          down                9216   swp
+swp28      down          down                9216   swp
+swp29      down          down                9216   swp
+swp30      down          down                9216   swp
+swp31      down          down                9216   swp
+swp32      down          down                9216   swp
+swp33      up            down                9216   swp                                 IP Address:                10.254.0.1/31
+swp34      up            up           800G   9216   swp       spine-01     swp2         IP Address:                10.254.0.3/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f408/64
+swp35      up            up           800G   9216   swp       spine-01     swp3         IP Address:                10.254.0.5/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f400/64
+swp36      up            up           800G   9216   swp       spine-01     swp4         IP Address:                10.254.0.7/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f404/64
+swp37      up            up           800G   9216   swp       spine-01     swp5         IP Address:                10.254.0.9/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f41c/64
+swp38      up            up           800G   9216   swp       spine-01     swp6         IP Address:               10.254.0.11/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f418/64
+swp39      up            up           800G   9216   swp       spine-01     swp7         IP Address:               10.254.0.13/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f410/64
+swp40      up            up           800G   9216   swp       spine-01     swp8         IP Address:               10.254.0.15/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f414/64
+swp41      up            down                9216   swp                                 IP Address:               10.254.0.17/31
+swp42      up            down                9216   swp                                 IP Address:               10.254.0.19/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f428/64
+swp43      up            up           800G   9216   swp       spine-02     swp3         IP Address:               10.254.0.21/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f420/64
+swp44      up            up           800G   9216   swp       spine-02     swp4         IP Address:               10.254.0.23/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f424/64
+swp45      up            up           800G   9216   swp       spine-02     swp5         IP Address:               10.254.0.25/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f43c/64
+swp46      up            up           800G   9216   swp       spine-02     swp6         IP Address:               10.254.0.27/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f438/64
+swp47      up            up           800G   9216   swp       spine-02     swp7         IP Address:               10.254.0.29/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f430/64
+swp48      up            up           800G   9216   swp       spine-02     swp8         IP Address:               10.254.0.31/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f434/64
+swp49      up            down                9216   swp                                 IP Address:               10.254.0.33/31
+swp50      up            up           800G   9216   swp       spine-03     swp2         IP Address:               10.254.0.35/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f44c/64
+swp51      up            up           800G   9216   swp       spine-03     swp3         IP Address:               10.254.0.37/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f444/64
+swp52      up            down                9216   swp                                 IP Address:               10.254.0.39/31
+swp53      up            up           800G   9216   swp       spine-03     swp5         IP Address:               10.254.0.41/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f458/64
+swp54      up            up           800G   9216   swp       spine-03     swp6         IP Address:               10.254.0.43/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f45c/64
+swp55      up            up           800G   9216   swp       spine-03     swp7         IP Address:               10.254.0.45/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f454/64
+swp56      up            up           800G   9216   swp       spine-03     swp8         IP Address:               10.254.0.47/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f450/64
+swp57      up            up           800G   9216   swp       spine-04     swp1         IP Address:               10.254.0.49/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f468/64
+swp58      up            down                9216   swp                                 IP Address:               10.254.0.51/31
+swp59      up            up           800G   9216   swp       spine-04     swp3         IP Address:               10.254.0.53/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f464/64
+swp60      up            up           800G   9216   swp       spine-04     swp4         IP Address:               10.254.0.55/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f460/64
+swp61      up            down                9216   swp                                 IP Address:               10.254.0.57/31
+swp62      up            up           800G   9216   swp       spine-04     swp6         IP Address:               10.254.0.59/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f47c/64
+swp63      up            up           800G   9216   swp       spine-04     swp7         IP Address:               10.254.0.61/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f474/64
+swp64      up            up           800G   9216   swp       spine-04     swp8         IP Address:               10.254.0.63/31
+                                                                                        IP Address: fe80::2e5e:abff:feab:f470/64
+swp65      down          down                9216   swp
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+leaf-02
+up 15 minutes
+            operational  applied
+----------  -----------  -------
+status      OK
+status-led  green
+
+
+
+Health issues
+================
+    Component                 Status information
+    ------------------------  ------------------
+    PMIC-12-COMEX-VCORE-OUT1  failed
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+Interface  Admin Status  Oper Status  Speed  MTU    Type      Remote Host  Remote Port  Summary
+---------  ------------  -----------  -----  -----  --------  -----------  -----------  ----------------------------------------
+eth0       up            up           1G     1500   eth       SW36         Ethernet1    IP Address:              172.31.17.21/21
+                                                                                        IP Address: fe80::da94:24ff:fe3b:a3ba/64
+lo         up            unknown             65536  loopback                            IP Address:               10.255.0.12/32
+                                                                                        IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                      ::1/128
+mgmt       up            up                  65575  vrf                                 IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                  127.0.1.1/8
+                                                                                        IP Address:                      ::1/128
+swp1       down          down                9216   swp
+swp2       down          down                9216   swp
+swp3       down          down                9216   swp
+swp4       down          down                9216   swp
+swp5       down          down                9216   swp
+swp6       down          down                9216   swp
+swp7       down          down                9216   swp
+swp8       down          down                9216   swp
+swp9       down          down                9216   swp
+swp10      down          down                9216   swp
+swp11      down          down                9216   swp
+swp12      down          down                9216   swp
+swp13      down          down                9216   swp
+swp14      down          down                9216   swp
+swp15      down          down                9216   swp
+swp16      down          down                9216   swp
+swp17      down          down                9216   swp
+swp18      down          down                9216   swp
+swp19      down          down                9216   swp
+swp20      down          down                9216   swp
+swp21      down          down                9216   swp
+swp22      down          down                9216   swp
+swp23      down          down                9216   swp
+swp24      down          down                9216   swp
+swp25      down          down                9216   swp
+swp26      down          down                9216   swp
+swp27      down          down                9216   swp
+swp28      down          down                9216   swp
+swp29      down          down                9216   swp
+swp30      down          down                9216   swp
+swp31      down          down                9216   swp
+swp32      down          down                9216   swp
+swp33      up            up           800G   9216   swp       spine-01     swp9         IP Address:               10.254.0.65/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:100c/64
+swp34      up            up           800G   9216   swp       spine-01     swp10        IP Address:               10.254.0.67/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1008/64
+swp35      up            up           800G   9216   swp       spine-01     swp11        IP Address:               10.254.0.69/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1000/64
+swp36      up            up           800G   9216   swp       spine-01     swp12        IP Address:               10.254.0.71/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1004/64
+swp37      up            up           800G   9216   swp       spine-01     swp13        IP Address:               10.254.0.73/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:101c/64
+swp38      up            up           800G   9216   swp       spine-01     swp14        IP Address:               10.254.0.75/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1018/64
+swp39      up            up           800G   9216   swp       spine-01     swp15        IP Address:               10.254.0.77/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1010/64
+swp40      up            up           800G   9216   swp       spine-01     swp16        IP Address:               10.254.0.79/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1014/64
+swp41      up            up           800G   9216   swp       spine-02     swp9         IP Address:               10.254.0.81/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:102c/64
+swp42      up            up           800G   9216   swp       spine-02     swp10        IP Address:               10.254.0.83/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1028/64
+swp43      up            up           800G   9216   swp       spine-02     swp11        IP Address:               10.254.0.85/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1020/64
+swp44      up            up           800G   9216   swp       spine-02     swp12        IP Address:               10.254.0.87/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1024/64
+swp45      up            up           800G   9216   swp       spine-02     swp13        IP Address:               10.254.0.89/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:103c/64
+swp46      up            up           800G   9216   swp       spine-02     swp14        IP Address:               10.254.0.91/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1038/64
+swp47      up            up           800G   9216   swp       spine-02     swp15        IP Address:               10.254.0.93/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1030/64
+swp48      up            up           800G   9216   swp       spine-02     swp16        IP Address:               10.254.0.95/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1034/64
+swp49      up            up           800G   9216   swp       spine-03     swp9         IP Address:               10.254.0.97/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1048/64
+swp50      up            up           800G   9216   swp       spine-03     swp10        IP Address:               10.254.0.99/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:104c/64
+swp51      up            up           800G   9216   swp       spine-03     swp11        IP Address:              10.254.0.101/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1044/64
+swp52      up            up           800G   9216   swp       spine-03     swp12        IP Address:              10.254.0.103/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1040/64
+swp53      up            up           800G   9216   swp       spine-03     swp13        IP Address:              10.254.0.105/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1058/64
+swp54      up            up           800G   9216   swp       spine-03     swp14        IP Address:              10.254.0.107/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:105c/64
+swp55      up            up           800G   9216   swp       spine-03     swp15        IP Address:              10.254.0.109/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1054/64
+swp56      up            up           800G   9216   swp       spine-03     swp16        IP Address:              10.254.0.111/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1050/64
+swp57      up            up           800G   9216   swp       spine-04     swp9         IP Address:              10.254.0.113/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1068/64
+swp58      up            up           800G   9216   swp       spine-04     swp10        IP Address:              10.254.0.115/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:106c/64
+swp59      up            up           800G   9216   swp       spine-04     swp11        IP Address:              10.254.0.117/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1064/64
+swp60      up            up           800G   9216   swp       spine-04     swp12        IP Address:              10.254.0.119/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1060/64
+swp61      up            up           800G   9216   swp       spine-04     swp13        IP Address:              10.254.0.121/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1078/64
+swp62      up            up           800G   9216   swp       spine-04     swp14        IP Address:              10.254.0.123/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:107c/64
+swp63      up            up           800G   9216   swp       spine-04     swp15        IP Address:              10.254.0.125/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1074/64
+swp64      up            up           800G   9216   swp       spine-04     swp16        IP Address:              10.254.0.127/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1070/64
+swp65      down          down                9216   swp
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.23's password:
+leaf-03
+up 12 minutes
+            operational  applied
+----------  -----------  -------
+status      OK
+status-led  green
+
+
+
+Health issues
+================
+    Component                 Status information
+    ------------------------  ------------------
+    PMIC-12-COMEX-VCORE-OUT1  failed
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+Interface  Admin Status  Oper Status  Speed  MTU    Type      Remote Host  Remote Port  Summary
+---------  ------------  -----------  -----  -----  --------  -----------  -----------  ----------------------------------------
+eth0       up            up           1G     1500   eth       SW40         Ethernet1    IP Address:              172.31.17.23/21
+                                                                                        IP Address: fe80::da94:24ff:fe3b:a472/64
+lo         up            unknown             65536  loopback                            IP Address:               10.255.0.13/32
+                                                                                        IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                      ::1/128
+mgmt       up            up                  65575  vrf                                 IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                  127.0.1.1/8
+                                                                                        IP Address:                      ::1/128
+swp1       down          down                9216   swp
+swp2       down          down                9216   swp
+swp3       down          down                9216   swp
+swp4       down          down                9216   swp
+swp5       down          down                9216   swp
+swp6       down          down                9216   swp
+swp7       down          down                9216   swp
+swp8       down          down                9216   swp
+swp9       down          down                9216   swp
+swp10      down          down                9216   swp
+swp11      down          down                9216   swp
+swp12      down          down                9216   swp
+swp13      down          down                9216   swp
+swp14      down          down                9216   swp
+swp15      down          down                9216   swp
+swp16      down          down                9216   swp
+swp17      down          down                9216   swp
+swp18      down          down                9216   swp
+swp19      down          down                9216   swp
+swp20      down          down                9216   swp
+swp21      down          down                9216   swp
+swp22      down          down                9216   swp
+swp23      down          down                9216   swp
+swp24      down          down                9216   swp
+swp25      down          down                9216   swp
+swp26      down          down                9216   swp
+swp27      down          down                9216   swp
+swp28      down          down                9216   swp
+swp29      down          down                9216   swp
+swp30      down          down                9216   swp
+swp31      down          down                9216   swp
+swp32      down          down                9216   swp
+swp33      up            up           800G   9216   swp       spine-01     swp17        IP Address:              10.254.0.129/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:240c/64
+swp34      up            up           800G   9216   swp       spine-01     swp18        IP Address:              10.254.0.131/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2408/64
+swp35      up            up           800G   9216   swp       spine-01     swp19        IP Address:              10.254.0.133/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2400/64
+swp36      up            up           800G   9216   swp       spine-01     swp20        IP Address:              10.254.0.135/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2404/64
+swp37      up            up           800G   9216   swp       spine-01     swp21        IP Address:              10.254.0.137/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:241c/64
+swp38      up            up           800G   9216   swp       spine-01     swp22        IP Address:              10.254.0.139/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2418/64
+swp39      up            up           800G   9216   swp       spine-01     swp23        IP Address:              10.254.0.141/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2410/64
+swp40      up            up           800G   9216   swp       spine-01     swp24        IP Address:              10.254.0.143/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2414/64
+swp41      up            up           800G   9216   swp       spine-02     swp17        IP Address:              10.254.0.145/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:242c/64
+swp42      up            up           800G   9216   swp       spine-02     swp18        IP Address:              10.254.0.147/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2428/64
+swp43      up            up           800G   9216   swp       spine-02     swp19        IP Address:              10.254.0.149/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2420/64
+swp44      up            up           800G   9216   swp       spine-02     swp20        IP Address:              10.254.0.151/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2424/64
+swp45      up            up           800G   9216   swp       spine-02     swp21        IP Address:              10.254.0.153/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:243c/64
+swp46      up            up           800G   9216   swp       spine-02     swp22        IP Address:              10.254.0.155/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2438/64
+swp47      up            up           800G   9216   swp       spine-02     swp23        IP Address:              10.254.0.157/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2430/64
+swp48      up            up           800G   9216   swp       spine-02     swp24        IP Address:              10.254.0.159/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2434/64
+swp49      up            up           800G   9216   swp       spine-03     swp17        IP Address:              10.254.0.161/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2448/64
+swp50      up            up           800G   9216   swp       spine-03     swp18        IP Address:              10.254.0.163/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:244c/64
+swp51      up            up           800G   9216   swp       spine-03     swp19        IP Address:              10.254.0.165/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2444/64
+swp52      up            up           800G   9216   swp       spine-03     swp20        IP Address:              10.254.0.167/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2440/64
+swp53      up            up           800G   9216   swp       spine-03     swp21        IP Address:              10.254.0.169/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2458/64
+swp54      up            up           800G   9216   swp       spine-03     swp22        IP Address:              10.254.0.171/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:245c/64
+swp55      up            up           800G   9216   swp       spine-03     swp23        IP Address:              10.254.0.173/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2454/64
+swp56      up            up           800G   9216   swp       spine-03     swp24        IP Address:              10.254.0.175/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2450/64
+swp57      up            up           800G   9216   swp       spine-04     swp17        IP Address:              10.254.0.177/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2468/64
+swp58      up            up           800G   9216   swp       spine-04     swp18        IP Address:              10.254.0.179/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:246c/64
+swp59      up            up           800G   9216   swp       spine-04     swp19        IP Address:              10.254.0.181/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2464/64
+swp60      up            up           800G   9216   swp       spine-04     swp20        IP Address:              10.254.0.183/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2460/64
+swp61      up            up           800G   9216   swp       spine-04     swp21        IP Address:              10.254.0.185/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2478/64
+swp62      up            up           800G   9216   swp       spine-04     swp22        IP Address:              10.254.0.187/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:247c/64
+swp63      up            up           800G   9216   swp       spine-04     swp23        IP Address:              10.254.0.189/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:2474/64
+swp64      up            down                9216   swp                                 IP Address:              10.254.0.191/31
+swp65      down          down                9216   swp
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.24's password:
+leaf-04
+up 8 minutes
+            operational  applied
+----------  -----------  -------
+status      OK
+status-led  green
+
+
+
+Health issues
+================
+    Component                 Status information
+    ------------------------  ------------------
+    PMIC-12-COMEX-VCORE-OUT1  failed
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+Interface  Admin Status  Oper Status  Speed  MTU    Type      Remote Host  Remote Port  Summary
+---------  ------------  -----------  -----  -----  --------  -----------  -----------  ----------------------------------------
+eth0       up            up           1G     1500   eth       SW42         Ethernet1    IP Address:              172.31.17.24/21
+                                                                                        IP Address: fe80::da94:24ff:fe3b:a422/64
+lo         up            unknown             65536  loopback                            IP Address:               10.255.0.14/32
+                                                                                        IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                      ::1/128
+mgmt       up            up                  65575  vrf                                 IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                  127.0.1.1/8
+                                                                                        IP Address:                      ::1/128
+swp1       down          down                9216   swp
+swp2       down          down                9216   swp
+swp3       down          down                9216   swp
+swp4       down          down                9216   swp
+swp5       down          down                9216   swp
+swp6       down          down                9216   swp
+swp7       down          down                9216   swp
+swp8       down          down                9216   swp
+swp9       down          down                9216   swp
+swp10      down          down                9216   swp
+swp11      down          down                9216   swp
+swp12      down          down                9216   swp
+swp13      down          down                9216   swp
+swp14      down          down                9216   swp
+swp15      down          down                9216   swp
+swp16      down          down                9216   swp
+swp17      down          down                9216   swp
+swp18      down          down                9216   swp
+swp19      down          down                9216   swp
+swp20      down          down                9216   swp
+swp21      down          down                9216   swp
+swp22      down          down                9216   swp
+swp23      down          down                9216   swp
+swp24      down          down                9216   swp
+swp25      down          down                9216   swp
+swp26      down          down                9216   swp
+swp27      down          down                9216   swp
+swp28      down          down                9216   swp
+swp29      down          down                9216   swp
+swp30      down          down                9216   swp
+swp31      down          down                9216   swp
+swp32      down          down                9216   swp
+swp33      up            up           800G   9216   swp       spine-01     swp25        IP Address:              10.254.0.193/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c0c/64
+swp34      up            up           800G   9216   swp       spine-01     swp26        IP Address:              10.254.0.195/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c08/64
+swp35      up            up           800G   9216   swp       spine-01     swp27        IP Address:              10.254.0.197/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c00/64
+swp36      up            up           800G   9216   swp       spine-01     swp28        IP Address:              10.254.0.199/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c04/64
+swp37      up            up           800G   9216   swp       spine-01     swp29        IP Address:              10.254.0.201/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c1c/64
+swp38      up            up           800G   9216   swp       spine-01     swp30        IP Address:              10.254.0.203/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c18/64
+swp39      up            up           800G   9216   swp       spine-01     swp31        IP Address:              10.254.0.205/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c10/64
+swp40      up            up           800G   9216   swp       spine-01     swp32        IP Address:              10.254.0.207/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c14/64
+swp41      up            up           800G   9216   swp       spine-02     swp25        IP Address:              10.254.0.209/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c2c/64
+swp42      up            up           800G   9216   swp       spine-02     swp26        IP Address:              10.254.0.211/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c28/64
+swp43      up            up           800G   9216   swp       spine-02     swp27        IP Address:              10.254.0.213/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c20/64
+swp44      up            up           800G   9216   swp       spine-02     swp28        IP Address:              10.254.0.215/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c24/64
+swp45      up            up           800G   9216   swp       spine-02     swp29        IP Address:              10.254.0.217/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c3c/64
+swp46      up            up           800G   9216   swp       spine-02     swp30        IP Address:              10.254.0.219/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c38/64
+swp47      up            up           800G   9216   swp       spine-02     swp31        IP Address:              10.254.0.221/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c30/64
+swp48      up            up           800G   9216   swp       spine-02     swp32        IP Address:              10.254.0.223/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c34/64
+swp49      up            up           800G   9216   swp       spine-03     swp25        IP Address:              10.254.0.225/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c48/64
+swp50      up            up           800G   9216   swp       spine-03     swp26        IP Address:              10.254.0.227/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c4c/64
+swp51      up            up           800G   9216   swp       spine-03     swp27        IP Address:              10.254.0.229/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c44/64
+swp52      up            up           800G   9216   swp       spine-03     swp28        IP Address:              10.254.0.231/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c40/64
+swp53      up            up           800G   9216   swp       spine-03     swp29        IP Address:              10.254.0.233/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c58/64
+swp54      up            up           800G   9216   swp       spine-03     swp30        IP Address:              10.254.0.235/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c5c/64
+swp55      up            up           800G   9216   swp       spine-03     swp31        IP Address:              10.254.0.237/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c54/64
+swp56      up            up           800G   9216   swp       spine-03     swp32        IP Address:              10.254.0.239/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c50/64
+swp57      up            up           800G   9216   swp       spine-04     swp25        IP Address:              10.254.0.241/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c68/64
+swp58      up            up           800G   9216   swp       spine-04     swp26        IP Address:              10.254.0.243/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c6c/64
+swp59      up            up           800G   9216   swp       spine-04     swp27        IP Address:              10.254.0.245/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c64/64
+swp60      up            up           800G   9216   swp       spine-04     swp28        IP Address:              10.254.0.247/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c60/64
+swp61      up            up           800G   9216   swp       spine-04     swp29        IP Address:              10.254.0.249/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c78/64
+swp62      up            up           800G   9216   swp       spine-04     swp30        IP Address:              10.254.0.251/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c7c/64
+swp63      up            up           800G   9216   swp       spine-04     swp31        IP Address:              10.254.0.253/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c74/64
+swp64      up            up           800G   9216   swp       spine-04     swp32        IP Address:              10.254.0.255/31
+                                                                                        IP Address: fe80::2e5e:abff:feac:1c70/64
+swp65      down          down                9216   swp
+Reports saved in: /Users/OPERATOR/Downloads/SN5600_Post_Reboot_Status_20260929-093920
+chandrasekhar.gonuguntla@Chandra-Gonuguntla SN5600_Numbered31 %

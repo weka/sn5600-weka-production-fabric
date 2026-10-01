@@ -1,0 +1,336 @@
+bash-3.2$ ssh -t root@172.31.18.49 '
+> echo "===== PATH 1: weka49 to weka60 ====="
+> ip -4 route get 10.200.60.1 from 10.200.49.1
+> ping -n -I ens4047np0 -c 10 -W 2 -M do -s 8972 10.200.60.1
+>
+> echo "===== PATH 2: weka49 to weka60 ====="
+> ip -4 route get 10.200.60.3 from 10.200.49.3
+> ping -n -I ens3919np0 -c 10 -W 2 -M do -s 8972 10.200.60.3
+> '
+root@172.31.18.49's password:
+===== PATH 1: weka49 to weka60 =====
+10.200.60.1 from 10.200.49.1 via 10.200.49.0 dev ens4047np0 table 100 uid 0
+    cache
+PING 10.200.60.1 (10.200.60.1) from 10.200.49.1 ens4047np0: 8972(9000) bytes of data.
+
+--- 10.200.60.1 ping statistics ---
+10 packets transmitted, 0 received, 100% packet loss, time 9251ms
+pipe 3
+===== PATH 2: weka49 to weka60 =====
+10.200.60.3 from 10.200.49.3 via 10.200.49.2 dev ens3919np0 table 101 uid 0
+    cache
+PING 10.200.60.3 (10.200.60.3) from 10.200.49.3 ens3919np0: 8972(9000) bytes of data.
+
+--- 10.200.60.3 ping statistics ---
+10 packets transmitted, 0 received, 100% packet loss, time 9197ms
+pipe 3
+Connection to 172.31.18.49 closed.
+bash-3.2$ ssh -t cumulus@172.31.17.23 '
+> sudo vtysh -c "show bgp ipv4 unicast 10.200.60.0/31"
+> sudo vtysh -c "show bgp ipv4 unicast 10.200.60.2/31"
+> ip -4 route get 10.200.60.1
+> ip -4 route get 10.200.60.3
+> '
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.23's password:
+[sudo] password for cumulus:
+BGP routing table entry for 10.200.60.0/31, version 23
+Paths: (31 available, best #1, table default)
+  Advertised to non peer-group peers:
+  spine-01(10.254.0.128) spine-01(10.254.0.130) spine-01(10.254.0.132) spine-01(10.254.0.134) spine-01(10.254.0.136) spine-01(10.254.0.138) spine-01(10.254.0.140) spine-01(10.254.0.142) spine-02(10.254.0.144) spine-02(10.254.0.146) spine-02(10.254.0.148) spine-02(10.254.0.150) spine-02(10.254.0.152) spine-02(10.254.0.154) spine-02(10.254.0.156) spine-02(10.254.0.158) spine-03(10.254.0.160) spine-03(10.254.0.162) spine-03(10.254.0.164) spine-03(10.254.0.166) spine-03(10.254.0.168) spine-03(10.254.0.170) spine-03(10.254.0.172) spine-03(10.254.0.174) spine-04(10.254.0.176) spine-04(10.254.0.178) spine-04(10.254.0.180) spine-04(10.254.0.182) spine-04(10.254.0.184) spine-04(10.254.0.186) spine-04(10.254.0.188)
+  65200 65102
+    10.254.0.144 (spine-02) from spine-02(10.254.0.144) (10.255.0.101)
+      Origin IGP, valid, external, multipath, bestpath-from-AS 65200, best (Older Path)
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.146 (spine-02) from spine-02(10.254.0.146) (10.255.0.101)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.148 (spine-02) from spine-02(10.254.0.148) (10.255.0.101)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.150 (spine-02) from spine-02(10.254.0.150) (10.255.0.101)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.152 (spine-02) from spine-02(10.254.0.152) (10.255.0.101)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.154 (spine-02) from spine-02(10.254.0.154) (10.255.0.101)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.156 (spine-02) from spine-02(10.254.0.156) (10.255.0.101)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.158 (spine-02) from spine-02(10.254.0.158) (10.255.0.101)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.160 (spine-03) from spine-03(10.254.0.160) (10.255.0.102)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.162 (spine-03) from spine-03(10.254.0.162) (10.255.0.102)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.164 (spine-03) from spine-03(10.254.0.164) (10.255.0.102)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.166 (spine-03) from spine-03(10.254.0.166) (10.255.0.102)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.168 (spine-03) from spine-03(10.254.0.168) (10.255.0.102)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.170 (spine-03) from spine-03(10.254.0.170) (10.255.0.102)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.172 (spine-03) from spine-03(10.254.0.172) (10.255.0.102)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.174 (spine-03) from spine-03(10.254.0.174) (10.255.0.102)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.176 (spine-04) from spine-04(10.254.0.176) (10.255.0.103)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:24:42 2026
+  65200 65102
+    10.254.0.178 (spine-04) from spine-04(10.254.0.178) (10.255.0.103)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.180 (spine-04) from spine-04(10.254.0.180) (10.255.0.103)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.182 (spine-04) from spine-04(10.254.0.182) (10.255.0.103)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.184 (spine-04) from spine-04(10.254.0.184) (10.255.0.103)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:37:36 2026
+  65200 65102
+    10.254.0.186 (spine-04) from spine-04(10.254.0.186) (10.255.0.103)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.188 (spine-04) from spine-04(10.254.0.188) (10.255.0.103)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.128 (spine-01) from spine-01(10.254.0.128) (10.255.0.104)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.130 (spine-01) from spine-01(10.254.0.130) (10.255.0.104)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.132 (spine-01) from spine-01(10.254.0.132) (10.255.0.104)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.134 (spine-01) from spine-01(10.254.0.134) (10.255.0.104)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.136 (spine-01) from spine-01(10.254.0.136) (10.255.0.104)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.138 (spine-01) from spine-01(10.254.0.138) (10.255.0.104)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.140 (spine-01) from spine-01(10.254.0.140) (10.255.0.104)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.142 (spine-01) from spine-01(10.254.0.142) (10.255.0.104)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+BGP routing table entry for 10.200.60.2/31, version 22
+Paths: (31 available, best #1, table default)
+  Advertised to non peer-group peers:
+  spine-01(10.254.0.128) spine-01(10.254.0.130) spine-01(10.254.0.132) spine-01(10.254.0.134) spine-01(10.254.0.136) spine-01(10.254.0.138) spine-01(10.254.0.140) spine-01(10.254.0.142) spine-02(10.254.0.144) spine-02(10.254.0.146) spine-02(10.254.0.148) spine-02(10.254.0.150) spine-02(10.254.0.152) spine-02(10.254.0.154) spine-02(10.254.0.156) spine-02(10.254.0.158) spine-03(10.254.0.160) spine-03(10.254.0.162) spine-03(10.254.0.164) spine-03(10.254.0.166) spine-03(10.254.0.168) spine-03(10.254.0.170) spine-03(10.254.0.172) spine-03(10.254.0.174) spine-04(10.254.0.176) spine-04(10.254.0.178) spine-04(10.254.0.180) spine-04(10.254.0.182) spine-04(10.254.0.184) spine-04(10.254.0.186) spine-04(10.254.0.188)
+  65200 65102
+    10.254.0.144 (spine-02) from spine-02(10.254.0.144) (10.255.0.101)
+      Origin IGP, valid, external, multipath, bestpath-from-AS 65200, best (Older Path)
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.146 (spine-02) from spine-02(10.254.0.146) (10.255.0.101)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.148 (spine-02) from spine-02(10.254.0.148) (10.255.0.101)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.150 (spine-02) from spine-02(10.254.0.150) (10.255.0.101)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.152 (spine-02) from spine-02(10.254.0.152) (10.255.0.101)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.154 (spine-02) from spine-02(10.254.0.154) (10.255.0.101)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.156 (spine-02) from spine-02(10.254.0.156) (10.255.0.101)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.158 (spine-02) from spine-02(10.254.0.158) (10.255.0.101)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.160 (spine-03) from spine-03(10.254.0.160) (10.255.0.102)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.162 (spine-03) from spine-03(10.254.0.162) (10.255.0.102)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.164 (spine-03) from spine-03(10.254.0.164) (10.255.0.102)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.166 (spine-03) from spine-03(10.254.0.166) (10.255.0.102)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.168 (spine-03) from spine-03(10.254.0.168) (10.255.0.102)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.170 (spine-03) from spine-03(10.254.0.170) (10.255.0.102)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.172 (spine-03) from spine-03(10.254.0.172) (10.255.0.102)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.174 (spine-03) from spine-03(10.254.0.174) (10.255.0.102)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.176 (spine-04) from spine-04(10.254.0.176) (10.255.0.103)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:24:42 2026
+  65200 65102
+    10.254.0.178 (spine-04) from spine-04(10.254.0.178) (10.255.0.103)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.180 (spine-04) from spine-04(10.254.0.180) (10.255.0.103)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.182 (spine-04) from spine-04(10.254.0.182) (10.255.0.103)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.184 (spine-04) from spine-04(10.254.0.184) (10.255.0.103)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:37:36 2026
+  65200 65102
+    10.254.0.186 (spine-04) from spine-04(10.254.0.186) (10.255.0.103)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.188 (spine-04) from spine-04(10.254.0.188) (10.255.0.103)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.128 (spine-01) from spine-01(10.254.0.128) (10.255.0.104)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.130 (spine-01) from spine-01(10.254.0.130) (10.255.0.104)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.132 (spine-01) from spine-01(10.254.0.132) (10.255.0.104)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.134 (spine-01) from spine-01(10.254.0.134) (10.255.0.104)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.136 (spine-01) from spine-01(10.254.0.136) (10.255.0.104)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.138 (spine-01) from spine-01(10.254.0.138) (10.255.0.104)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.140 (spine-01) from spine-01(10.254.0.140) (10.255.0.104)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+  65200 65102
+    10.254.0.142 (spine-01) from spine-01(10.254.0.142) (10.255.0.104)
+      Origin IGP, valid, external, multipath
+      Last update: Wed Sep 30 05:13:16 2026
+10.200.60.1 via 10.254.0.162 dev swp50 src 10.254.0.163 uid 1000
+    cache
+10.200.60.3 via 10.254.0.144 dev swp41 src 10.254.0.145 uid 1000
+    cache
+Connection to 172.31.17.23 closed.
+bash-3.2$ ssh -t root@172.31.18.49 '
+> ping -n -I ens4047np0 -c 5 -W 2 -M do -s 8972 10.200.60.0
+> ping -n -I ens3919np0 -c 5 -W 2 -M do -s 8972 10.200.60.2
+> '
+root@172.31.18.49's password:
+PING 10.200.60.0 (10.200.60.0) from 10.200.49.1 ens4047np0: 8972(9000) bytes of data.
+
+--- 10.200.60.0 ping statistics ---
+5 packets transmitted, 0 received, 100% packet loss, time 4122ms
+pipe 4
+PING 10.200.60.2 (10.200.60.2) from 10.200.49.3 ens3919np0: 8972(9000) bytes of data.
+
+--- 10.200.60.2 ping statistics ---
+5 packets transmitted, 0 received, 100% packet loss, time 4078ms
+pipe 3
+Connection to 172.31.18.49 closed.
+bash-3.2$ ssh -t root@172.31.18.60 '
+> sysctl net.ipv4.conf.all.rp_filter
+> sysctl net.ipv4.conf.default.rp_filter
+> sysctl net.ipv4.conf.ens4047np0.rp_filter
+> sysctl net.ipv4.conf.ens3919np0.rp_filter
+>
+> ip -4 route get 10.200.49.1 from 10.200.60.1
+> ip -4 route get 10.200.49.3 from 10.200.60.3
+> ip -4 route show table main | grep 10.200
+> '
+root@172.31.18.60's password:
+net.ipv4.conf.all.rp_filter = 2
+net.ipv4.conf.default.rp_filter = 2
+net.ipv4.conf.ens4047np0.rp_filter = 2
+net.ipv4.conf.ens3919np0.rp_filter = 2
+10.200.49.1 from 10.200.60.1 via 10.200.60.0 dev ens4047np0 table 100 uid 0
+    cache
+10.200.49.3 from 10.200.60.3 via 10.200.60.2 dev ens3919np0 table 101 uid 0
+    cache
+10.200.60.0/31 dev ens4047np0 proto kernel scope link src 10.200.60.1
+10.200.60.2/31 dev ens3919np0 proto kernel scope link src 10.200.60.3
+Connection to 172.31.18.60 closed.
+bash-3.2$

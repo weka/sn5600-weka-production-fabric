@@ -1,0 +1,767 @@
+bash-3.2$ ssh -tt root@172.31.18.64 '
+> echo "===== PCI TREE ====="
+> lspci -tv
+>
+> echo "===== PCI SLOTS ====="
+> dmidecode -t slot |
+> grep -E "Designation:|Status:|Current Usage:|Bus Address:"
+>
+> echo "===== NETWORK HARDWARE ====="
+> lshw -class network -businfo
+>
+> echo "===== PCI ERRORS ====="
+> journalctl -k -b --no-pager |
+> grep -Ei "pci|pcie|aer|resource|mlx" |
+> grep -Ei "fail|error|disable|timeout|not ready|resource|mlx" |
+> tail -n 200
+>
+> echo "===== BMC EVENT LOG ====="
+> ipmitool sel elist 2>&1 | tail -n 100
+> '
+root@172.31.18.64's password:
+===== PCI TREE =====
+-+-[0000:00]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           +-00.4  Intel Corporation Device 0b23
+ |           +-01.0  Intel Corporation Device 0b25
+ |           +-02.0  Intel Corporation Device 0cfe
+ |           +-03.0  Intel Corporation Ice Lake MSM
+ |           +-03.1  Intel Corporation Ice Lake PMON MSM
+ |           +-1f.0  Intel Corporation Device 5795
+ |           +-1f.4  Intel Corporation Device 5796
+ |           \-1f.5  Intel Corporation Device 5794
+ +-[0000:01]---00.0  Intel Corporation 4xxx Series QAT
+ +-[0000:03]---00.0  Intel Corporation Device 2714
+ +-[0000:05]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           +-00.4  Intel Corporation Device 0b23
+ |           +-01.0  Intel Corporation Device 0b25
+ |           \-02.0  Intel Corporation Device 0cfe
+ +-[0000:06]---00.0  Intel Corporation 4xxx Series QAT
+ +-[0000:08]---00.0  Intel Corporation Device 2714
+ +-[0000:0a]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           +-00.4  Intel Corporation Device 0b23
+ |           +-06.0-[0b]----00.0  Micron Technology Inc Device 51bb
+ |           \-08.0-[0c]--
+ +-[0000:1f]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           +-00.4  Intel Corporation Device 0b23
+ |           +-06.0-[20-21]----00.0-[21]----00.0  ASPEED Technology, Inc. ASPEED Graphics Family
+ |           \-07.0-[22]----00.0  Renesas Technology Corp. uPD720201 USB 3.0 Host Controller
+ +-[0000:32]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           \-00.4  Intel Corporation Device 0b23
+ +-[0000:45]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           +-00.4  Intel Corporation Device 0b23
+ |           +-02.0-[46]--
+ |           \-04.0-[47]--
+ +-[0000:58]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           +-00.4  Intel Corporation Device 0b23
+ |           \-02.0-[59]--+-00.0  Intel Corporation Ethernet Controller X550
+ |                        \-00.1  Intel Corporation Ethernet Controller X550
+ +-[0000:6b]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           +-00.4  Intel Corporation Device 0b23
+ |           \-02.0-[6c]----00.0  Micron Technology Inc 7450 PRO NVMe SSD
+ +-[0000:7e]-+-00.0  Intel Corporation Device 3250
+ |           +-00.1  Intel Corporation Device 3251
+ |           +-00.2  Intel Corporation Device 3252
+ |           +-02.0  Intel Corporation Ice Lake IEH
+ |           +-05.0  Intel Corporation Device 3258
+ |           +-05.1  Intel Corporation Device 324a
+ |           +-05.2  Intel Corporation Device 324a
+ |           +-05.3  Intel Corporation Device 324a
+ |           +-05.4  Intel Corporation Device 324a
+ |           +-05.5  Intel Corporation Device 324a
+ |           +-05.6  Intel Corporation Device 324a
+ |           +-05.7  Intel Corporation Device 324a
+ |           +-06.0  Intel Corporation Device 3258
+ |           +-06.1  Intel Corporation Device 324a
+ |           +-07.0  Intel Corporation Device 3258
+ |           +-09.0  Intel Corporation Device 3258
+ |           +-0d.0  Intel Corporation Device 344f
+ |           +-0d.1  Intel Corporation Device 3457
+ |           +-0e.0  Intel Corporation Device 324c
+ |           +-0e.1  Intel Corporation Device 324c
+ |           +-0e.2  Intel Corporation Device 324c
+ |           +-0e.3  Intel Corporation Device 324c
+ |           +-0e.4  Intel Corporation Device 324c
+ |           +-0e.5  Intel Corporation Device 324c
+ |           +-0e.6  Intel Corporation Device 324c
+ |           +-0e.7  Intel Corporation Device 324c
+ |           +-0f.0  Intel Corporation Device 324c
+ |           +-0f.1  Intel Corporation Device 324c
+ |           +-0f.2  Intel Corporation Device 324c
+ |           +-0f.3  Intel Corporation Device 324c
+ |           +-0f.4  Intel Corporation Device 324c
+ |           +-0f.5  Intel Corporation Device 324c
+ |           +-0f.6  Intel Corporation Device 324c
+ |           +-0f.7  Intel Corporation Device 324c
+ |           +-10.0  Intel Corporation Device 324c
+ |           +-10.1  Intel Corporation Device 324c
+ |           +-10.2  Intel Corporation Device 324c
+ |           +-10.3  Intel Corporation Device 324c
+ |           +-10.4  Intel Corporation Device 324c
+ |           +-10.5  Intel Corporation Device 324c
+ |           +-10.6  Intel Corporation Device 324c
+ |           +-10.7  Intel Corporation Device 324c
+ |           +-11.0  Intel Corporation Device 324c
+ |           +-11.1  Intel Corporation Device 324c
+ |           +-11.2  Intel Corporation Device 324c
+ |           +-11.3  Intel Corporation Device 324c
+ |           +-11.4  Intel Corporation Device 324c
+ |           +-11.5  Intel Corporation Device 324c
+ |           +-11.6  Intel Corporation Device 324c
+ |           +-11.7  Intel Corporation Device 324c
+ |           +-12.0  Intel Corporation Device 324c
+ |           +-12.1  Intel Corporation Device 324c
+ |           +-12.2  Intel Corporation Device 324c
+ |           +-12.3  Intel Corporation Device 324c
+ |           +-12.4  Intel Corporation Device 324c
+ |           +-12.5  Intel Corporation Device 324c
+ |           +-12.6  Intel Corporation Device 324c
+ |           +-12.7  Intel Corporation Device 324c
+ |           +-13.0  Intel Corporation Device 324c
+ |           +-13.1  Intel Corporation Device 324c
+ |           +-13.2  Intel Corporation Device 324c
+ |           +-13.3  Intel Corporation Device 324c
+ |           +-13.4  Intel Corporation Device 324c
+ |           +-13.5  Intel Corporation Device 324c
+ |           +-13.6  Intel Corporation Device 324c
+ |           +-13.7  Intel Corporation Device 324c
+ |           +-14.0  Intel Corporation Device 324c
+ |           +-14.1  Intel Corporation Device 324c
+ |           +-14.2  Intel Corporation Device 324c
+ |           +-14.3  Intel Corporation Device 324c
+ |           +-14.4  Intel Corporation Device 324c
+ |           +-14.5  Intel Corporation Device 324c
+ |           +-14.6  Intel Corporation Device 324c
+ |           +-14.7  Intel Corporation Device 324c
+ |           +-15.0  Intel Corporation Device 324c
+ |           +-15.1  Intel Corporation Device 324c
+ |           +-15.2  Intel Corporation Device 324c
+ |           +-15.3  Intel Corporation Device 324c
+ |           +-15.4  Intel Corporation Device 324c
+ |           +-15.5  Intel Corporation Device 324c
+ |           +-15.6  Intel Corporation Device 324c
+ |           +-15.7  Intel Corporation Device 324c
+ |           +-16.0  Intel Corporation Device 324c
+ |           +-16.1  Intel Corporation Device 324c
+ |           +-16.2  Intel Corporation Device 324c
+ |           +-16.3  Intel Corporation Device 324c
+ |           +-16.4  Intel Corporation Device 324c
+ |           +-16.5  Intel Corporation Device 324c
+ |           +-16.6  Intel Corporation Device 324c
+ |           \-16.7  Intel Corporation Device 324c
+ +-[0000:7f]-+-00.0  Intel Corporation Device 324d
+ |           +-00.1  Intel Corporation Device 324d
+ |           +-00.2  Intel Corporation Device 324d
+ |           +-00.3  Intel Corporation Device 324d
+ |           +-00.4  Intel Corporation Device 324d
+ |           +-00.5  Intel Corporation Device 324d
+ |           +-00.6  Intel Corporation Device 324d
+ |           +-00.7  Intel Corporation Device 324d
+ |           +-01.0  Intel Corporation Device 324d
+ |           +-01.1  Intel Corporation Device 324d
+ |           +-01.2  Intel Corporation Device 324d
+ |           +-01.3  Intel Corporation Device 324d
+ |           +-01.4  Intel Corporation Device 324d
+ |           +-01.5  Intel Corporation Device 324d
+ |           +-01.6  Intel Corporation Device 324d
+ |           +-01.7  Intel Corporation Device 324d
+ |           +-02.0  Intel Corporation Device 324d
+ |           +-02.1  Intel Corporation Device 324d
+ |           +-02.2  Intel Corporation Device 324d
+ |           +-02.3  Intel Corporation Device 324d
+ |           +-02.4  Intel Corporation Device 324d
+ |           +-02.5  Intel Corporation Device 324d
+ |           +-02.6  Intel Corporation Device 324d
+ |           +-02.7  Intel Corporation Device 324d
+ |           +-03.0  Intel Corporation Device 324d
+ |           +-03.1  Intel Corporation Device 324d
+ |           +-03.2  Intel Corporation Device 324d
+ |           +-03.3  Intel Corporation Device 324d
+ |           +-03.4  Intel Corporation Device 324d
+ |           +-03.5  Intel Corporation Device 324d
+ |           +-03.6  Intel Corporation Device 324d
+ |           +-03.7  Intel Corporation Device 324d
+ |           +-04.0  Intel Corporation Device 324d
+ |           +-04.1  Intel Corporation Device 324d
+ |           +-04.2  Intel Corporation Device 324d
+ |           +-04.3  Intel Corporation Device 324d
+ |           +-04.4  Intel Corporation Device 324d
+ |           +-04.5  Intel Corporation Device 324d
+ |           +-04.6  Intel Corporation Device 324d
+ |           +-04.7  Intel Corporation Device 324d
+ |           +-05.0  Intel Corporation Device 324d
+ |           +-05.1  Intel Corporation Device 324d
+ |           +-05.2  Intel Corporation Device 324d
+ |           +-05.3  Intel Corporation Device 324d
+ |           +-05.4  Intel Corporation Device 324d
+ |           +-05.5  Intel Corporation Device 324d
+ |           +-05.6  Intel Corporation Device 324d
+ |           +-05.7  Intel Corporation Device 324d
+ |           +-06.0  Intel Corporation Device 324d
+ |           +-06.1  Intel Corporation Device 324d
+ |           +-06.2  Intel Corporation Device 324d
+ |           +-06.3  Intel Corporation Device 324d
+ |           +-06.4  Intel Corporation Device 324d
+ |           +-06.5  Intel Corporation Device 324d
+ |           +-06.6  Intel Corporation Device 324d
+ |           +-06.7  Intel Corporation Device 324d
+ |           +-07.0  Intel Corporation Device 324d
+ |           +-07.1  Intel Corporation Device 324d
+ |           +-07.2  Intel Corporation Device 324d
+ |           +-07.3  Intel Corporation Device 324d
+ |           +-07.4  Intel Corporation Device 324d
+ |           +-07.5  Intel Corporation Device 324d
+ |           +-07.6  Intel Corporation Device 324d
+ |           +-07.7  Intel Corporation Device 324d
+ |           +-08.0  Intel Corporation Device 324d
+ |           +-08.1  Intel Corporation Device 324d
+ |           +-08.2  Intel Corporation Device 324d
+ |           +-08.3  Intel Corporation Device 324d
+ |           +-08.4  Intel Corporation Device 324d
+ |           +-08.5  Intel Corporation Device 324d
+ |           +-08.6  Intel Corporation Device 324d
+ |           +-08.7  Intel Corporation Device 324d
+ |           +-10.0  Intel Corporation Device 3245
+ |           +-10.1  Intel Corporation Device 3241
+ |           +-10.2  Intel Corporation Device 3242
+ |           +-10.3  Intel Corporation Device 3240
+ |           +-11.0  Intel Corporation Device 3245
+ |           +-11.1  Intel Corporation Device 3241
+ |           +-11.2  Intel Corporation Device 3242
+ |           +-11.3  Intel Corporation Device 3240
+ |           +-12.0  Intel Corporation Device 3245
+ |           +-12.1  Intel Corporation Device 3241
+ |           +-12.2  Intel Corporation Device 3242
+ |           +-12.3  Intel Corporation Device 3240
+ |           +-13.0  Intel Corporation Device 3245
+ |           +-13.1  Intel Corporation Device 3241
+ |           +-13.2  Intel Corporation Device 3242
+ |           +-13.3  Intel Corporation Device 3240
+ |           +-18.0  Intel Corporation Device 3245
+ |           +-19.0  Intel Corporation Device 3245
+ |           +-1a.0  Intel Corporation Device 3245
+ |           \-1b.0  Intel Corporation Device 3245
+ +-[0000:80]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           +-00.4  Intel Corporation Device 0b23
+ |           +-01.0  Intel Corporation Device 0b25
+ |           +-02.0  Intel Corporation Device 0cfe
+ |           +-03.0  Intel Corporation Ice Lake MSM
+ |           \-03.1  Intel Corporation Ice Lake PMON MSM
+ +-[0000:81]---00.0  Intel Corporation 4xxx Series QAT
+ +-[0000:83]---00.0  Intel Corporation Device 2714
+ +-[0000:85]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           +-00.4  Intel Corporation Device 0b23
+ |           +-01.0  Intel Corporation Device 0b25
+ |           \-02.0  Intel Corporation Device 0cfe
+ +-[0000:86]---00.0  Intel Corporation 4xxx Series QAT
+ +-[0000:88]---00.0  Intel Corporation Device 2714
+ +-[0000:8a]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           +-00.4  Intel Corporation Device 0b23
+ |           +-02.0-[8b]--
+ |           \-04.0-[8c]--
+ +-[0000:a1]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           \-00.4  Intel Corporation Device 0b23
+ +-[0000:b3]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           \-00.4  Intel Corporation Device 0b23
+ +-[0000:c5]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           +-00.4  Intel Corporation Device 0b23
+ |           +-02.0-[c6]--
+ |           \-04.0-[c7]--
+ +-[0000:d7]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           \-00.4  Intel Corporation Device 0b23
+ +-[0000:e9]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           \-00.4  Intel Corporation Device 0b23
+ +-[0000:fe]-+-00.0  Intel Corporation Device 3250
+ |           +-00.1  Intel Corporation Device 3251
+ |           +-00.2  Intel Corporation Device 3252
+ |           +-02.0  Intel Corporation Ice Lake IEH
+ |           +-05.0  Intel Corporation Device 3258
+ |           +-05.1  Intel Corporation Device 324a
+ |           +-05.2  Intel Corporation Device 324a
+ |           +-05.3  Intel Corporation Device 324a
+ |           +-05.4  Intel Corporation Device 324a
+ |           +-05.5  Intel Corporation Device 324a
+ |           +-05.6  Intel Corporation Device 324a
+ |           +-05.7  Intel Corporation Device 324a
+ |           +-06.0  Intel Corporation Device 3258
+ |           +-06.1  Intel Corporation Device 324a
+ |           +-07.0  Intel Corporation Device 3258
+ |           +-09.0  Intel Corporation Device 3258
+ |           +-0d.0  Intel Corporation Device 344f
+ |           +-0d.1  Intel Corporation Device 3457
+ |           +-0e.0  Intel Corporation Device 324c
+ |           +-0e.1  Intel Corporation Device 324c
+ |           +-0e.2  Intel Corporation Device 324c
+ |           +-0e.3  Intel Corporation Device 324c
+ |           +-0e.4  Intel Corporation Device 324c
+ |           +-0e.5  Intel Corporation Device 324c
+ |           +-0e.6  Intel Corporation Device 324c
+ |           +-0e.7  Intel Corporation Device 324c
+ |           +-0f.0  Intel Corporation Device 324c
+ |           +-0f.1  Intel Corporation Device 324c
+ |           +-0f.2  Intel Corporation Device 324c
+ |           +-0f.3  Intel Corporation Device 324c
+ |           +-0f.4  Intel Corporation Device 324c
+ |           +-0f.5  Intel Corporation Device 324c
+ |           +-0f.6  Intel Corporation Device 324c
+ |           +-0f.7  Intel Corporation Device 324c
+ |           +-10.0  Intel Corporation Device 324c
+ |           +-10.1  Intel Corporation Device 324c
+ |           +-10.2  Intel Corporation Device 324c
+ |           +-10.3  Intel Corporation Device 324c
+ |           +-10.4  Intel Corporation Device 324c
+ |           +-10.5  Intel Corporation Device 324c
+ |           +-10.6  Intel Corporation Device 324c
+ |           +-10.7  Intel Corporation Device 324c
+ |           +-11.0  Intel Corporation Device 324c
+ |           +-11.1  Intel Corporation Device 324c
+ |           +-11.2  Intel Corporation Device 324c
+ |           +-11.3  Intel Corporation Device 324c
+ |           +-11.4  Intel Corporation Device 324c
+ |           +-11.5  Intel Corporation Device 324c
+ |           +-11.6  Intel Corporation Device 324c
+ |           +-11.7  Intel Corporation Device 324c
+ |           +-12.0  Intel Corporation Device 324c
+ |           +-12.1  Intel Corporation Device 324c
+ |           +-12.2  Intel Corporation Device 324c
+ |           +-12.3  Intel Corporation Device 324c
+ |           +-12.4  Intel Corporation Device 324c
+ |           +-12.5  Intel Corporation Device 324c
+ |           +-12.6  Intel Corporation Device 324c
+ |           +-12.7  Intel Corporation Device 324c
+ |           +-13.0  Intel Corporation Device 324c
+ |           +-13.1  Intel Corporation Device 324c
+ |           +-13.2  Intel Corporation Device 324c
+ |           +-13.3  Intel Corporation Device 324c
+ |           +-13.4  Intel Corporation Device 324c
+ |           +-13.5  Intel Corporation Device 324c
+ |           +-13.6  Intel Corporation Device 324c
+ |           +-13.7  Intel Corporation Device 324c
+ |           +-14.0  Intel Corporation Device 324c
+ |           +-14.1  Intel Corporation Device 324c
+ |           +-14.2  Intel Corporation Device 324c
+ |           +-14.3  Intel Corporation Device 324c
+ |           +-14.4  Intel Corporation Device 324c
+ |           +-14.5  Intel Corporation Device 324c
+ |           +-14.6  Intel Corporation Device 324c
+ |           +-14.7  Intel Corporation Device 324c
+ |           +-15.0  Intel Corporation Device 324c
+ |           +-15.1  Intel Corporation Device 324c
+ |           +-15.2  Intel Corporation Device 324c
+ |           +-15.3  Intel Corporation Device 324c
+ |           +-15.4  Intel Corporation Device 324c
+ |           +-15.5  Intel Corporation Device 324c
+ |           +-15.6  Intel Corporation Device 324c
+ |           +-15.7  Intel Corporation Device 324c
+ |           +-16.0  Intel Corporation Device 324c
+ |           +-16.1  Intel Corporation Device 324c
+ |           +-16.2  Intel Corporation Device 324c
+ |           +-16.3  Intel Corporation Device 324c
+ |           +-16.4  Intel Corporation Device 324c
+ |           +-16.5  Intel Corporation Device 324c
+ |           +-16.6  Intel Corporation Device 324c
+ |           \-16.7  Intel Corporation Device 324c
+ \-[0000:ff]-+-00.0  Intel Corporation Device 324d
+             +-00.1  Intel Corporation Device 324d
+             +-00.2  Intel Corporation Device 324d
+             +-00.3  Intel Corporation Device 324d
+             +-00.4  Intel Corporation Device 324d
+             +-00.5  Intel Corporation Device 324d
+             +-00.6  Intel Corporation Device 324d
+             +-00.7  Intel Corporation Device 324d
+             +-01.0  Intel Corporation Device 324d
+             +-01.1  Intel Corporation Device 324d
+             +-01.2  Intel Corporation Device 324d
+             +-01.3  Intel Corporation Device 324d
+             +-01.4  Intel Corporation Device 324d
+             +-01.5  Intel Corporation Device 324d
+             +-01.6  Intel Corporation Device 324d
+             +-01.7  Intel Corporation Device 324d
+             +-02.0  Intel Corporation Device 324d
+             +-02.1  Intel Corporation Device 324d
+             +-02.2  Intel Corporation Device 324d
+             +-02.3  Intel Corporation Device 324d
+             +-02.4  Intel Corporation Device 324d
+             +-02.5  Intel Corporation Device 324d
+             +-02.6  Intel Corporation Device 324d
+             +-02.7  Intel Corporation Device 324d
+             +-03.0  Intel Corporation Device 324d
+             +-03.1  Intel Corporation Device 324d
+             +-03.2  Intel Corporation Device 324d
+             +-03.3  Intel Corporation Device 324d
+             +-03.4  Intel Corporation Device 324d
+             +-03.5  Intel Corporation Device 324d
+             +-03.6  Intel Corporation Device 324d
+             +-03.7  Intel Corporation Device 324d
+             +-04.0  Intel Corporation Device 324d
+             +-04.1  Intel Corporation Device 324d
+             +-04.2  Intel Corporation Device 324d
+             +-04.3  Intel Corporation Device 324d
+             +-04.4  Intel Corporation Device 324d
+             +-04.5  Intel Corporation Device 324d
+             +-04.6  Intel Corporation Device 324d
+             +-04.7  Intel Corporation Device 324d
+             +-05.0  Intel Corporation Device 324d
+             +-05.1  Intel Corporation Device 324d
+             +-05.2  Intel Corporation Device 324d
+             +-05.3  Intel Corporation Device 324d
+             +-05.4  Intel Corporation Device 324d
+             +-05.5  Intel Corporation Device 324d
+             +-05.6  Intel Corporation Device 324d
+             +-05.7  Intel Corporation Device 324d
+             +-06.0  Intel Corporation Device 324d
+             +-06.1  Intel Corporation Device 324d
+             +-06.2  Intel Corporation Device 324d
+             +-06.3  Intel Corporation Device 324d
+             +-06.4  Intel Corporation Device 324d
+             +-06.5  Intel Corporation Device 324d
+             +-06.6  Intel Corporation Device 324d
+             +-06.7  Intel Corporation Device 324d
+             +-07.0  Intel Corporation Device 324d
+             +-07.1  Intel Corporation Device 324d
+             +-07.2  Intel Corporation Device 324d
+             +-07.3  Intel Corporation Device 324d
+             +-07.4  Intel Corporation Device 324d
+             +-07.5  Intel Corporation Device 324d
+             +-07.6  Intel Corporation Device 324d
+             +-07.7  Intel Corporation Device 324d
+             +-08.0  Intel Corporation Device 324d
+             +-08.1  Intel Corporation Device 324d
+             +-08.2  Intel Corporation Device 324d
+             +-08.3  Intel Corporation Device 324d
+             +-08.4  Intel Corporation Device 324d
+             +-08.5  Intel Corporation Device 324d
+             +-08.6  Intel Corporation Device 324d
+             +-08.7  Intel Corporation Device 324d
+             +-10.0  Intel Corporation Device 3245
+             +-10.1  Intel Corporation Device 3241
+             +-10.2  Intel Corporation Device 3242
+             +-10.3  Intel Corporation Device 3240
+             +-11.0  Intel Corporation Device 3245
+             +-11.1  Intel Corporation Device 3241
+             +-11.2  Intel Corporation Device 3242
+             +-11.3  Intel Corporation Device 3240
+             +-12.0  Intel Corporation Device 3245
+             +-12.1  Intel Corporation Device 3241
+             +-12.2  Intel Corporation Device 3242
+             +-12.3  Intel Corporation Device 3240
+             +-13.0  Intel Corporation Device 3245
+             +-13.1  Intel Corporation Device 3241
+             +-13.2  Intel Corporation Device 3242
+             +-13.3  Intel Corporation Device 3240
+             +-18.0  Intel Corporation Device 3245
+             +-19.0  Intel Corporation Device 3245
+             +-1a.0  Intel Corporation Device 3245
+             \-1b.0  Intel Corporation Device 3245
+===== PCI SLOTS =====
+	Designation: RSC-PR-6G5 PCIe 5.0 X16
+	Current Usage: Available
+	Bus Address: 0000:ff:00.0
+	Designation: SCC-P8NR2G5-B1 SXB1 PCIe 5.0 X16
+	Current Usage: Available
+	Bus Address: 0000:8b:00.0
+	Designation: SCC-P8NR2G5-B1 SXB4 PCIe 5.0 X8
+	Current Usage: In Use
+	Bus Address: 0000:0b:00.0
+	Designation: SCC-P2NM2G5-B1 SLOT1 PCIe 5.0 X16
+	Current Usage: Available
+	Bus Address: 0000:ff:00.0
+	Designation: SCC-P2NM2G5-B1 M.2-1 PCIe 5.0 X4
+	Current Usage: In Use
+	Bus Address: 0000:6c:00.0
+	Designation: SCC-P2NM2G5-B1 M.2-2 PCIe 5.0 X4
+	Current Usage: Available
+	Bus Address: 0000:ff:00.0
+	Designation: P1 AIOM PCIe 5.0 X16
+	Current Usage: In Use
+	Bus Address: 0000:59:00.0
+===== NETWORK HARDWARE =====
+Bus info          Device          Class          Description
+============================================================
+pci@0000:59:00.0  ens4031f0       network        Ethernet Controller X550
+pci@0000:59:00.1  ens4031f1       network        Ethernet Controller X550
+===== PCI ERRORS =====
+Sep 29 20:11:47 weka64 kernel: ACPI FADT declares the system doesn't support PCIe ASPM, so disable it
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: root bus resource [io  0x1000-0x1fff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: root bus resource [mem 0x90000000-0x907dffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: root bus resource [mem 0x1e0500000000-0x1effffbfffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: root bus resource [io  0x0070-0x0077 window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: root bus resource [io  0x0780-0x079f window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: root bus resource [io  0x0400-0x041f window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: root bus resource [io  0x0500-0x05ff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: root bus resource [mem 0xf6800000-0xf6803fff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: root bus resource [mem 0xf6830000-0xf6830fff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: root bus resource [mem 0xf7000000-0xf7ffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: root bus resource [bus 00]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:01: root bus resource [mem 0x1e0000000000-0x1e00ffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:01: root bus resource [bus 01-02]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:03: root bus resource [mem 0x1e0100000000-0x1e04ffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:03: root bus resource [bus 03-04]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:05: root bus resource [mem 0x90800000-0x90fdffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:05: root bus resource [mem 0x1f0500000000-0x1fffffbfffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:05: root bus resource [bus 05]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:06: root bus resource [mem 0x1f0000000000-0x1f00ffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:06: root bus resource [bus 06-07]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:08: root bus resource [mem 0x1f0100000000-0x1f04ffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:08: root bus resource [bus 08-09]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:0a: root bus resource [io  0x2000-0x3fff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:0a: root bus resource [mem 0x91000000-0x997bffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:0a: root bus resource [mem 0x200000000000-0x20ffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:0a: root bus resource [bus 0a-1e]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:1f: root bus resource [mem 0x000a0000-0x000bffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:1f: root bus resource [io  0x4000-0x5fff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:1f: root bus resource [io  0x03b0-0x03bb window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:1f: root bus resource [io  0x03c0-0x03df window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:1f: root bus resource [mem 0x99800000-0xa1fbffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:1f: root bus resource [mem 0x210000000000-0x21ffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:1f: root bus resource [bus 1f-31]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:32: root bus resource [io  0x6000-0x7fff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:32: root bus resource [mem 0xa2000000-0xaa3bffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:32: root bus resource [mem 0x220000000000-0x22ffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:32: root bus resource [bus 32-44]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:45: root bus resource [io  0x8000-0x8fff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:45: root bus resource [mem 0xaa400000-0xb27bffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:45: root bus resource [mem 0x230000000000-0x23ffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:45: root bus resource [bus 45-57]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:58: root bus resource [io  0x9000-0x9fff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:58: root bus resource [mem 0xb2800000-0xbabbffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:58: root bus resource [mem 0x240000000000-0x24ffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:58: root bus resource [bus 58-6a]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:6b: root bus resource [mem 0xbac00000-0xc2fbffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:6b: root bus resource [mem 0x250000000000-0x25ffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:6b: root bus resource [bus 6b-7d]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:7e: root bus resource [bus 7e]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:7f: root bus resource [bus 7f]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:80: root bus resource [mem 0xc3800000-0xc3fdffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:80: root bus resource [mem 0x260500000000-0x26ffffbfffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:80: root bus resource [bus 80]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:81: root bus resource [mem 0x260000000000-0x2600ffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:81: root bus resource [bus 81-82]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:83: root bus resource [mem 0x260100000000-0x2604ffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:83: root bus resource [bus 83-84]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:85: root bus resource [mem 0xc4000000-0xc47dffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:85: root bus resource [mem 0x270500000000-0x27ffffbfffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:85: root bus resource [bus 85]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:86: root bus resource [mem 0x270000000000-0x2700ffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:86: root bus resource [bus 86-87]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:88: root bus resource [mem 0x270100000000-0x2704ffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:88: root bus resource [bus 88-89]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:8a: root bus resource [io  0xa000-0xafff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:8a: root bus resource [mem 0xc4800000-0xccbbffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:8a: root bus resource [mem 0x280000000000-0x28ffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:8a: root bus resource [bus 8a-a0]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:a1: root bus resource [io  0xb000-0xbfff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:a1: root bus resource [mem 0xccc00000-0xd4fbffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:a1: root bus resource [mem 0x290000000000-0x29ffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:a1: root bus resource [bus a1-b2]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:b3: root bus resource [io  0xc000-0xcfff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:b3: root bus resource [mem 0xd5000000-0xdd3bffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:b3: root bus resource [mem 0x2a0000000000-0x2affffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:b3: root bus resource [bus b3-c4]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:c5: root bus resource [io  0xd000-0xdfff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:c5: root bus resource [mem 0xdd400000-0xe57bffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:c5: root bus resource [mem 0x2b0000000000-0x2bffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:c5: root bus resource [bus c5-d6]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:d7: root bus resource [io  0xe000-0xefff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:d7: root bus resource [mem 0xe5800000-0xedbbffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:d7: root bus resource [mem 0x2c0000000000-0x2cffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:d7: root bus resource [bus d7-e8]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:e9: root bus resource [io  0xf000-0xffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:e9: root bus resource [mem 0xedc00000-0xf5fbffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:e9: root bus resource [mem 0x2d0000000000-0x2dffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:e9: root bus resource [bus e9-fa]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:fe: root bus resource [bus fe]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:ff: root bus resource [bus ff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: resource 4 [io  0x1000-0x1fff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: resource 5 [mem 0x90000000-0x907dffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: resource 6 [mem 0x1e0500000000-0x1effffbfffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: resource 7 [io  0x0070-0x0077 window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: resource 8 [io  0x0780-0x079f window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: resource 9 [io  0x0400-0x041f window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: resource 10 [io  0x0500-0x05ff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: resource 11 [mem 0xf6800000-0xf6803fff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: resource 12 [mem 0xf6830000-0xf6830fff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:00: resource 13 [mem 0xf7000000-0xf7ffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:01: resource 4 [mem 0x1e0000000000-0x1e00ffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:03: resource 4 [mem 0x1e0100000000-0x1e04ffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:05: resource 4 [mem 0x90800000-0x90fdffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:05: resource 5 [mem 0x1f0500000000-0x1fffffbfffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:06: resource 4 [mem 0x1f0000000000-0x1f00ffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:08: resource 4 [mem 0x1f0100000000-0x1f04ffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:0a: resource 4 [io  0x2000-0x3fff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:0a: resource 5 [mem 0x91000000-0x997bffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:0a: resource 6 [mem 0x200000000000-0x20ffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:0b: resource 0 [io  0x2000-0x2fff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:0b: resource 1 [mem 0x99600000-0x996fffff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:0b: resource 2 [mem 0x200000000000-0x2000001fffff 64bit pref]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:0c: resource 0 [io  0x3000-0x3fff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:0c: resource 1 [mem 0x99500000-0x995fffff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:0c: resource 2 [mem 0x200000200000-0x2000003fffff 64bit pref]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:1f: resource 4 [mem 0x000a0000-0x000bffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:1f: resource 5 [io  0x4000-0x5fff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:1f: resource 6 [io  0x03b0-0x03bb window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:1f: resource 7 [io  0x03c0-0x03df window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:1f: resource 8 [mem 0x99800000-0xa1fbffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:1f: resource 9 [mem 0x210000000000-0x21ffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:20: resource 0 [io  0x5000-0x5fff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:20: resource 1 [mem 0xa0000000-0xa10fffff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:21: resource 0 [io  0x5000-0x5fff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:21: resource 1 [mem 0xa0000000-0xa10fffff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:22: resource 1 [mem 0xa1200000-0xa12fffff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:32: resource 4 [io  0x6000-0x7fff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:32: resource 5 [mem 0xa2000000-0xaa3bffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:32: resource 6 [mem 0x220000000000-0x22ffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci 0000:45:04.0: bridge window [io  size 0x1000]: failed to assign
+Sep 29 20:11:47 weka64 kernel: pci 0000:45:02.0: bridge window [io  size 0x1000]: failed to assign
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:45: resource 4 [io  0x8000-0x8fff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:45: resource 5 [mem 0xaa400000-0xb27bffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:45: resource 6 [mem 0x230000000000-0x23ffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:46: resource 1 [mem 0xb2600000-0xb26fffff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:46: resource 2 [mem 0x230000000000-0x2300001fffff 64bit pref]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:47: resource 0 [io  0x8000-0x8fff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:47: resource 1 [mem 0xb2500000-0xb25fffff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:47: resource 2 [mem 0x230000200000-0x2300003fffff 64bit pref]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:58: resource 4 [io  0x9000-0x9fff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:58: resource 5 [mem 0xb2800000-0xbabbffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:58: resource 6 [mem 0x240000000000-0x24ffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:59: resource 1 [mem 0xba600000-0xbaafffff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:59: resource 2 [mem 0x24ffff400000-0x24ffffcfffff 64bit pref]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:6b: resource 4 [mem 0xbac00000-0xc2fbffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:6b: resource 5 [mem 0x250000000000-0x25ffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:6c: resource 1 [mem 0xc2e00000-0xc2efffff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:80: resource 4 [mem 0xc3800000-0xc3fdffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:80: resource 5 [mem 0x260500000000-0x26ffffbfffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:81: resource 4 [mem 0x260000000000-0x2600ffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:83: resource 4 [mem 0x260100000000-0x2604ffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:85: resource 4 [mem 0xc4000000-0xc47dffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:85: resource 5 [mem 0x270500000000-0x27ffffbfffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:86: resource 4 [mem 0x270000000000-0x2700ffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:88: resource 4 [mem 0x270100000000-0x2704ffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci 0000:8a:04.0: bridge window [io  size 0x1000]: failed to assign
+Sep 29 20:11:47 weka64 kernel: pci 0000:8a:02.0: bridge window [io  size 0x1000]: failed to assign
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:8a: resource 4 [io  0xa000-0xafff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:8a: resource 5 [mem 0xc4800000-0xccbbffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:8a: resource 6 [mem 0x280000000000-0x28ffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:8b: resource 1 [mem 0xcca00000-0xccafffff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:8b: resource 2 [mem 0x280000000000-0x2800001fffff 64bit pref]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:8c: resource 0 [io  0xa000-0xafff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:8c: resource 1 [mem 0xcc900000-0xcc9fffff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:8c: resource 2 [mem 0x280000200000-0x2800003fffff 64bit pref]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:a1: resource 4 [io  0xb000-0xbfff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:a1: resource 5 [mem 0xccc00000-0xd4fbffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:a1: resource 6 [mem 0x290000000000-0x29ffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:b3: resource 4 [io  0xc000-0xcfff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:b3: resource 5 [mem 0xd5000000-0xdd3bffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:b3: resource 6 [mem 0x2a0000000000-0x2affffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci 0000:c5:04.0: bridge window [io  size 0x1000]: failed to assign
+Sep 29 20:11:47 weka64 kernel: pci 0000:c5:02.0: bridge window [io  size 0x1000]: failed to assign
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:c5: resource 4 [io  0xd000-0xdfff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:c5: resource 5 [mem 0xdd400000-0xe57bffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:c5: resource 6 [mem 0x2b0000000000-0x2bffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:c6: resource 1 [mem 0xe5600000-0xe56fffff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:c6: resource 2 [mem 0x2b0000000000-0x2b00001fffff 64bit pref]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:c7: resource 0 [io  0xd000-0xdfff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:c7: resource 1 [mem 0xe5500000-0xe55fffff]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:c7: resource 2 [mem 0x2b0000200000-0x2b00003fffff 64bit pref]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:d7: resource 4 [io  0xe000-0xefff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:d7: resource 5 [mem 0xe5800000-0xedbbffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:d7: resource 6 [mem 0x2c0000000000-0x2cffffffffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:e9: resource 4 [io  0xf000-0xffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:e9: resource 5 [mem 0xedc00000-0xf5fbffff window]
+Sep 29 20:11:47 weka64 kernel: pci_bus 0000:e9: resource 6 [mem 0x2d0000000000-0x2dffffffffff window]
+Sep 29 20:11:47 weka64 kernel: platform eisa.0: Cannot allocate resource for EISA slot 1
+Sep 29 20:11:47 weka64 kernel: platform eisa.0: Cannot allocate resource for EISA slot 2
+Sep 29 20:11:47 weka64 kernel: platform eisa.0: Cannot allocate resource for EISA slot 3
+Sep 29 20:11:47 weka64 kernel: platform eisa.0: Cannot allocate resource for EISA slot 4
+Sep 29 20:11:47 weka64 kernel: platform eisa.0: Cannot allocate resource for EISA slot 5
+Sep 29 20:11:47 weka64 kernel: platform eisa.0: Cannot allocate resource for EISA slot 6
+Sep 29 20:11:47 weka64 kernel: platform eisa.0: Cannot allocate resource for EISA slot 7
+Sep 29 20:11:47 weka64 kernel: platform eisa.0: Cannot allocate resource for EISA slot 8
+===== BMC EVENT LOG =====
+   1 | 09/26/25 | 21:05:40 UTC | Unknown #0xff |  | Asserted
+   2 | 09/29/25 | 23:53:01 UTC | Power Supply PS1 Status | Presence detected () | Asserted
+   3 | 09/29/25 | 23:53:02 UTC | Power Supply PS2 Status | Presence detected () | Asserted
+   4 | 10/08/25 | 21:01:49 UTC | Critical Interrupt | PCI SERR () | Asserted
+   5 | 10/08/25 | 21:02:21 UTC | Unknown #0xff | () | Asserted
+   6 | 10/20/25 | 18:26:39 UTC | Unknown #0xff |  | Asserted
+   7 | 10/20/25 | 18:33:23 UTC | Unknown #0xff |  | Asserted
+   8 | 10/20/25 | 18:42:32 UTC | Unknown #0xff |  | Asserted
+   9 | 10/20/25 | 18:48:26 UTC | Unknown #0xff |  | Asserted
+   a | 10/20/25 | 20:04:36 UTC | Unknown #0xff |  | Asserted
+   b | 10/20/25 | 20:08:32 UTC | Power Supply PS1 Status | Presence detected () | Asserted
+   c | 10/20/25 | 20:08:33 UTC | Power Supply PS2 Status | Presence detected () | Asserted
+   d | 12/16/25 | 23:06:14 UTC | Unknown #0xff |  | Asserted
+   e | 12/16/25 | 23:08:53 UTC | Unknown #0xff |  | Asserted
+   f | 12/16/25 | 23:10:06 UTC | Power Supply PS1 Status | Presence detected () | Asserted
+  10 | 12/16/25 | 23:10:07 UTC | Power Supply PS2 Status | Presence detected () | Asserted
+  11 | 02/11/26 | 22:50:13 UTC | Unknown #0xff |  | Asserted
+  12 | 02/11/26 | 22:50:28 UTC | System Firmwares | No system memory installed () | Asserted
+  13 | 02/11/26 | 23:13:04 UTC | Unknown #0xff |  | Asserted
+  14 | 02/11/26 | 23:13:18 UTC | System Firmwares | No system memory installed () | Asserted
+  15 | 02/11/26 | 23:39:09 UTC | Unknown #0xff |  | Asserted
+  16 | 02/11/26 | 23:42:49 UTC | Unknown #0xff |  | Asserted
+  17 | 02/11/26 | 23:42:49 UTC | Unknown #0xff |  | Asserted
+  18 | 02/11/26 | 23:42:49 UTC | Unknown #0xff |  | Asserted
+  19 | 02/11/26 | 23:42:49 UTC | Unknown #0xff |  | Asserted
+  1a | 02/11/26 | 23:42:49 UTC | Unknown #0xff |  | Asserted
+  1b | 02/11/26 | 23:42:49 UTC | Unknown #0xff |  | Asserted
+  1c | 02/11/26 | 23:42:49 UTC | Unknown #0xff |  | Asserted
+  1d | 02/11/26 | 23:42:49 UTC | Unknown #0xff |  | Asserted
+  1e | 02/11/26 | 23:43:59 UTC | Power Supply PS1 Status | Presence detected () | Asserted
+  1f | 02/11/26 | 23:44:00 UTC | Power Supply PS2 Status | Presence detected () | Asserted
+  20 | 06/01/26 | 23:58:15 UTC | Unknown #0xff |  | Asserted
+  21 | 06/02/26 | 00:00:30 UTC | Unknown #0xff |  | Asserted
+  22 | 06/02/26 | 00:01:36 UTC | Power Supply PS1 Status | Presence detected () | Asserted
+  23 | 06/02/26 | 00:01:37 UTC | Power Supply PS2 Status | Presence detected () | Asserted
+  24 | 08/18/26 | 20:30:00 UTC | Unknown #0xff |  | Asserted
+  25 | 08/18/26 | 20:33:27 UTC | Power Supply PS1 Status | Presence detected () | Asserted
+  26 | 08/18/26 | 20:33:28 UTC | Power Supply PS2 Status | Presence detected () | Asserted
+  27 | 08/18/26 | 20:34:48 UTC | Power Supply PS1 Status | Failure detected () | Asserted
+  28 | 08/18/26 | 20:34:49 UTC | Power Supply PS1 Status | Power Supply AC lost () | Asserted
+  29 | 08/18/26 | 20:37:16 UTC | Power Supply PS1 Status | Failure detected () | Deasserted
+  2a | 08/18/26 | 20:37:17 UTC | Power Supply PS1 Status | Power Supply AC lost () | Deasserted
+  2b | 08/18/26 | 20:38:13 UTC | Power Supply PS2 Status | Failure detected () | Asserted
+  2c | 08/18/26 | 20:38:14 UTC | Power Supply PS2 Status | Power Supply AC lost () | Asserted
+  2d | 08/18/26 | 20:50:59 UTC | Power Supply PS2 Status | Failure detected () | Deasserted
+  2e | 08/18/26 | 20:51:00 UTC | Power Supply PS2 Status | Power Supply AC lost () | Deasserted
+  2f | 08/18/26 | 20:53:45 UTC | Power Supply PS1 Status | Failure detected () | Asserted
+  30 | 08/18/26 | 20:53:46 UTC | Power Supply PS1 Status | Power Supply AC lost () | Asserted
+  31 | 08/18/26 | 21:12:17 UTC | Power Supply PS1 Status | Failure detected () | Deasserted
+  32 | 08/18/26 | 21:12:18 UTC | Power Supply PS1 Status | Power Supply AC lost () | Deasserted
+  33 | 09/29/26 | 00:52:45 UTC | Unknown #0xff |  | Asserted
+  34 | 09/29/26 | 20:11:24 UTC | Unknown #0xff |  | Asserted
+  35 | 09/29/26 | 20:12:25 UTC | Power Supply PS1 Status | Presence detected () | Asserted
+  36 | 09/29/26 | 20:12:26 UTC | Power Supply PS2 Status | Presence detected () | Asserted
+Connection to 172.31.18.64 closed.
+bash-3.2$

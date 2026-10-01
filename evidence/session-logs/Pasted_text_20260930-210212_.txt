@@ -1,0 +1,1442 @@
+chandrasekhar.gonuguntla@Chandra-Gonuguntla Production_SN5600_Operations_Bundle_2026-09-30 % for H in 60 61
+do
+    ssh -tt "root@172.31.18.$H" '
+        echo "===== $(hostname) FILES ====="
+        ls -lh /root/weka-roce-precheck.sh /root/deploy-weka-roce.sh
+        sha256sum /root/weka-roce-precheck.sh /root/deploy-weka-roce.sh
+
+        echo "===== RELEVANT DEPLOYMENT SECTIONS ====="
+        grep -n -C 8 -E \
+"tcp_ecn|weka-roce|systemctl|traffic_class|mlnx_qos|cma_roce|sysctl" \
+          /root/deploy-weka-roce.sh
+
+        echo "===== RELEVANT PRECHECK SECTIONS ====="
+        grep -n -C 6 -E "tcp_ecn|TCP ECN" \
+          /root/weka-roce-precheck.sh
+    '
+done
+root@172.31.18.60's password:
+===== weka60 FILES =====
+-rwx------ 1 root root 27K Sep 30 19:37 /root/deploy-weka-roce.sh
+-rwx------ 1 root root 34K Sep 30 19:37 /root/weka-roce-precheck.sh
+ba4cf997659628681a4bdbb73c6646d4291f39a284f3a10a7c316371a07ec4a3  /root/weka-roce-precheck.sh
+2315765ff43d72a43d93fe4ed86cdc9845eb567813400c05e9ec19b476aa61ae  /root/deploy-weka-roce.sh
+===== RELEVANT DEPLOYMENT SECTIONS =====
+1-#!/usr/bin/env bash
+2-
+3-###############################################################################
+4-# Automated WEKA RoCE Deployment
+5-#
+6-# Workflow:
+7-#   1. Detect backend/client role
+8-#   2. Discover or validate RoCE NICs
+9:#   3. Run /root/weka-roce-precheck.sh
+10-#   4. Refuse deployment if pre-check fails
+11-#   5. Back up existing configuration
+12-#   6. Install RoCE configuration and systemd persistence
+13-#   7. Apply and verify RoCE settings
+14-#   8. Run post-deployment pre-check
+15-#   9. Optionally test WEKA agent dependency ordering
+16-#
+17-# Default traffic class:
+--
+22-###############################################################################
+23-
+24-set -Eeuo pipefail
+25-
+26-REQUESTED_ROLE="auto"
+27-ROLE=""
+28-NIC_LIST=""
+29-ROCE_TOS=""
+30:PRECHECK_SCRIPT="/root/weka-roce-precheck.sh"
+31-
+32-ACCEPT_WARNINGS=false
+33-TEST_AGENT=false
+34-MAINTENANCE_APPROVED=false
+35-
+36-WAIT_TIMEOUT=300
+37-WAIT_INTERVAL=2
+38-
+39-###############################################################################
+40-# Functions
+41-###############################################################################
+42-
+43-usage()
+44-{
+45-    cat <<'EOF'
+46-Usage:
+47:  deploy-weka-roce.sh \
+48-    [--role auto|backend|client] \
+49-    [--nics NIC1,NIC2] \
+50-    [--tos VALUE] \
+51-    [--accept-warnings] \
+52-    [--test-agent] \
+53-    [--maintenance-approved]
+54-
+55-Options:
+--
+76-        Backend: 96
+77-        Client:  106
+78-
+79-  --accept-warnings
+80-      Continue when the pre-check returns warnings but no failures.
+81-
+82-  --test-agent
+83-      After deployment, stop weka-agent and validate that starting it
+84:      automatically starts and completes weka-roce.service first.
+85-
+86-      This is disruptive to a backend and to clients with active mounts.
+87-
+88-  --maintenance-approved
+89-      Confirms that maintenance approval has been obtained.
+90-
+91-      Required for:
+92-        - Any backend deployment
+--
+94-        - Backend WEKA agent dependency testing
+95-
+96-  --help
+97-      Display this help.
+98-
+99-Examples:
+100-
+101-  Client:
+102:    ./deploy-weka-roce.sh \
+103-      --role client \
+104-      --nics ens4047f0np0,ens4047f1np1 \
+105-      --tos 106 \
+106-      --accept-warnings
+107-
+108-  Backend:
+109:    ./deploy-weka-roce.sh \
+110-      --role backend \
+111-      --nics eno16795np0,eno16595np0 \
+112-      --tos 96 \
+113-      --accept-warnings \
+114-      --maintenance-approved
+115-
+116-  Client dependency test:
+117:    ./deploy-weka-roce.sh \
+118-      --role client \
+119-      --nics ens4047f0np0,ens4047f1np1 \
+120-      --tos 106 \
+121-      --accept-warnings \
+122-      --test-agent
+123-EOF
+124-}
+125-
+--
+231-
+232-        fail "Warnings require --accept-warnings"
+233-    fi
+234-
+235-    while IFS= read -r line; do
+236-        [[ -z "${line}" ]] && continue
+237-
+238-        if grep -Eq \
+239:           '^weka-roce\.service[[:space:]]+FAIL|^RoCE/WEKA startup order[[:space:]]+FAIL|^TCP ECN[[:space:]]+FAIL|^[^[:space:]]+[[:space:]]+(DSCP trust|PFC|traffic class)[[:space:]]+FAIL' \
+240-           <<<"${line}"; then
+241-
+242-            log "REMEDIABLE: ${line}"
+243-        else
+244-            unexpected_failures+="${line}"$'\n'
+245-        fi
+246-    done <<<"${fail_lines}"
+247-
+--
+363-    fail "Pre-check script is missing or not executable: ${PRECHECK_SCRIPT}"
+364-
+365-required_commands=(
+366-    weka
+367-    ip
+368-    ethtool
+369-    ibdev2netdev
+370-    rdma
+371:    mlnx_qos
+372:    cma_roce_tos
+373:    sysctl
+374:    systemctl
+375-    systemd-analyze
+376-    awk
+377-    sed
+378-    grep
+379-    sort
+380-    findmnt
+381-)
+382-
+383-for command_name in "${required_commands[@]}"; do
+384-    command_exists "${command_name}" ||
+385-        fail "Required command is missing: ${command_name}"
+386-done
+387-
+388:systemctl cat weka-agent.service >/dev/null 2>&1 ||
+389-    fail "weka-agent.service is not installed"
+390-
+391-###############################################################################
+392-# Detect host role
+393-###############################################################################
+394-
+395-log "Detecting WEKA host role"
+396-
+--
+541-
+542-handle_precheck_result "${PRECHECK_RC}" "Pre-deployment" "bootstrap"
+543-
+544-###############################################################################
+545-# Back up current state
+546-###############################################################################
+547-
+548-STAMP="$(date '+%Y%m%d-%H%M%S')"
+549:BACKUP_DIR="/root/weka-roce-deployment-backup/${STAMP}"
+550-
+551-mkdir -p "${BACKUP_DIR}"
+552-
+553-log "Creating backup in ${BACKUP_DIR}"
+554-
+555-{
+556-    echo "Host: $(hostname)"
+557-    echo "Date: $(date)"
+--
+573-    ip -br address
+574-    echo
+575-
+576-    echo "=== RDMA mapping ==="
+577-    ibdev2netdev
+578-    echo
+579-
+580-    echo "=== TCP ECN ==="
+581:    sysctl net.ipv4.tcp_ecn
+582-    echo
+583-
+584-    for nic in "${ROCE_NICS[@]}"; do
+585-        echo
+586-        echo "=== ${nic} QoS ==="
+587:        mlnx_qos -i "${nic}" || true
+588-    done
+589-} >"${BACKUP_DIR}/pre-deployment-state.txt" 2>&1
+590-
+591-files_to_backup=(
+592:    /etc/weka-roce.conf
+593:    /etc/sysctl.d/99-weka-roce.conf
+594:    /usr/local/sbin/weka-roce-config.sh
+595:    /usr/local/sbin/weka-roce-startup.sh
+596:    /etc/systemd/system/weka-roce.service
+597-    /etc/systemd/system/weka-agent.service.d/10-roce.conf
+598-)
+599-
+600-for file in "${files_to_backup[@]}"; do
+601-    backup_file "${file}"
+602-done
+603-
+604-###############################################################################
+605-# Create RoCE configuration
+606-###############################################################################
+607-
+608:log "Creating /etc/weka-roce.conf"
+609-
+610-{
+611:    echo "# Generated by deploy-weka-roce.sh"
+612-    echo "WEKA_ROLE=$(printf '%q' "${ROLE}")"
+613-    echo "ROCE_TOS=$(printf '%q' "${ROCE_TOS}")"
+614-    echo "WAIT_TIMEOUT=$(printf '%q' "${WAIT_TIMEOUT}")"
+615-    echo "WAIT_INTERVAL=$(printf '%q' "${WAIT_INTERVAL}")"
+616-    echo
+617-    echo "ROCE_NICS=("
+618-
+619-    for nic in "${ROCE_NICS[@]}"; do
+620-        printf '    %q\n' "${nic}"
+621-    done
+622-
+623-    echo ")"
+624:} >/etc/weka-roce.conf
+625-
+626:chmod 0644 /etc/weka-roce.conf
+627-
+628-###############################################################################
+629-# Create RoCE configuration and validation script
+630-###############################################################################
+631-
+632:log "Creating /usr/local/sbin/weka-roce-config.sh"
+633-
+634:cat >/usr/local/sbin/weka-roce-config.sh <<'ROCE_CONFIG_SCRIPT'
+635-#!/usr/bin/env bash
+636-
+637-set -Eeuo pipefail
+638-
+639:CONFIG_FILE="/etc/weka-roce.conf"
+640-
+641-log()
+642-{
+643-    echo "$(date '+%Y-%m-%d %H:%M:%S') $*"
+644-}
+645-
+646-fail()
+647-{
+--
+658-
+659-    awk -v nic="${nic}" \
+660-        '$5 == nic {print $1; exit}' <<<"${mappings}"
+661-}
+662-
+663-[[ -r "${CONFIG_FILE}" ]] ||
+664-    fail "Configuration file missing: ${CONFIG_FILE}"
+665-
+666:# shellcheck source=/etc/weka-roce.conf
+667-source "${CONFIG_FILE}"
+668-
+669-required_commands=(
+670-    ip
+671-    ethtool
+672-    ibdev2netdev
+673:    mlnx_qos
+674:    cma_roce_tos
+675:    sysctl
+676-    grep
+677-    awk
+678-)
+679-
+680-for command_name in "${required_commands[@]}"; do
+681-    command -v "${command_name}" >/dev/null 2>&1 ||
+682-        fail "Required command missing: ${command_name}"
+683-done
+684-
+685-(( ${#ROCE_NICS[@]} > 0 )) ||
+686-    fail "No RoCE interfaces configured"
+687-
+688-log "Setting TCP ECN to 1"
+689:sysctl -w net.ipv4.tcp_ecn=1 >/dev/null
+690-
+691-for nic in "${ROCE_NICS[@]}"; do
+692-    [[ -e "/sys/class/net/${nic}" ]] ||
+693-        fail "Interface missing: ${nic}"
+694-
+695-    ibdev="$(get_ibdev "${nic}")"
+696-
+697-    [[ -n "${ibdev}" ]] ||
+698-        fail "No RDMA mapping found for ${nic}"
+699-
+700:    tc_file="/sys/class/infiniband/${ibdev}/tc/1/traffic_class"
+701-
+702-    [[ -w "${tc_file}" ]] ||
+703-        fail "Traffic-class file is not writable: ${tc_file}"
+704-
+705-    log "${nic}: setting DSCP trust"
+706:    mlnx_qos -i "${nic}" \
+707-        --trust dscp \
+708-        >/dev/null
+709-
+710-    log "${nic}: enabling PFC priority 3"
+711:    mlnx_qos -i "${nic}" \
+712-        --pfc 0,0,0,1,0,0,0,0 \
+713-        >/dev/null
+714-
+715-    log "${ibdev}: setting traffic class ${ROCE_TOS}"
+716-    echo "${ROCE_TOS}" >"${tc_file}"
+717-
+718-    log "${ibdev}: setting CMA RoCE TOS ${ROCE_TOS}"
+719:    cma_roce_tos \
+720-        -d "${ibdev}" \
+721-        -t "${ROCE_TOS}" \
+722-        >/dev/null
+723-done
+724-
+725-log "Verifying RoCE configuration"
+726-
+727:tcp_ecn="$(sysctl -n net.ipv4.tcp_ecn)"
+728-
+729:[[ "${tcp_ecn}" == "1" ]] ||
+730:    fail "TCP ECN is ${tcp_ecn}; expected 1"
+731-
+732-for nic in "${ROCE_NICS[@]}"; do
+733-    ibdev="$(get_ibdev "${nic}")"
+734:    tc_file="/sys/class/infiniband/${ibdev}/tc/1/traffic_class"
+735-
+736:    qos_output="$(mlnx_qos -i "${nic}")"
+737-    tc_output="$(cat "${tc_file}")"
+738-
+739-    grep -q \
+740-        'Priority trust state: dscp' \
+741-        <<<"${qos_output}" ||
+742-        fail "${nic}: DSCP trust validation failed"
+743-
+744-    grep -Eq \
+--
+758-    log "${nic}/${ibdev}: DSCP trust verified"
+759-    log "${nic}/${ibdev}: PFC priority 3 verified"
+760-    log "${nic}/${ibdev}: traffic class ${ROCE_TOS} verified"
+761-done
+762-
+763-log "RoCE configuration and verification completed successfully"
+764-ROCE_CONFIG_SCRIPT
+765-
+766:chmod 0755 /usr/local/sbin/weka-roce-config.sh
+767-
+768-###############################################################################
+769-# Create startup wrapper
+770-###############################################################################
+771-
+772:log "Creating /usr/local/sbin/weka-roce-startup.sh"
+773-
+774:cat >/usr/local/sbin/weka-roce-startup.sh <<'ROCE_STARTUP_SCRIPT'
+775-#!/usr/bin/env bash
+776-
+777-set -Eeuo pipefail
+778-
+779:CONFIG_FILE="/etc/weka-roce.conf"
+780-
+781-log()
+782-{
+783-    echo "$(date '+%Y-%m-%d %H:%M:%S') $*"
+784-}
+785-
+786-fail()
+787-{
+--
+798-
+799-    awk -v nic="${nic}" \
+800-        '$5 == nic {print $1; exit}' <<<"${mappings}"
+801-}
+802-
+803-[[ -r "${CONFIG_FILE}" ]] ||
+804-    fail "Configuration file missing: ${CONFIG_FILE}"
+805-
+806:# shellcheck source=/etc/weka-roce.conf
+807-source "${CONFIG_FILE}"
+808-
+809-WAIT_TIMEOUT="${WAIT_TIMEOUT:-300}"
+810-WAIT_INTERVAL="${WAIT_INTERVAL:-2}"
+811-
+812-for command_name in ip ethtool ibdev2netdev; do
+813-    command -v "${command_name}" >/dev/null 2>&1 ||
+814-        fail "Required command missing: ${command_name}"
+--
+836-        elapsed=$((elapsed + WAIT_INTERVAL))
+837-    done
+838-
+839-    if (( elapsed >= WAIT_TIMEOUT )); then
+840-        fail "${nic} or its RDMA device was not ready after ${WAIT_TIMEOUT} seconds"
+841-    fi
+842-done
+843-
+844:exec /usr/local/sbin/weka-roce-config.sh
+845-ROCE_STARTUP_SCRIPT
+846-
+847:chmod 0755 /usr/local/sbin/weka-roce-startup.sh
+848-
+849-###############################################################################
+850-# Persist TCP ECN
+851-###############################################################################
+852-
+853:log "Creating /etc/sysctl.d/99-weka-roce.conf"
+854-
+855:cat >/etc/sysctl.d/99-weka-roce.conf <<'SYSCTL_CONF'
+856-# WEKA RoCE TCP ECN
+857:net.ipv4.tcp_ecn = 1
+858-SYSCTL_CONF
+859-
+860:chmod 0644 /etc/sysctl.d/99-weka-roce.conf
+861-
+862-###############################################################################
+863-# Create systemd service
+864-###############################################################################
+865-
+866:log "Creating weka-roce.service"
+867-
+868:cat >/etc/systemd/system/weka-roce.service <<'ROCE_UNIT'
+869-[Unit]
+870-Description=Configure and Validate RoCE Before WEKA Agent
+871-Wants=network-online.target
+872-After=network-online.target systemd-modules-load.service
+873-Before=weka-agent.service
+874-
+875-[Service]
+876-Type=oneshot
+877:ExecStart=/usr/local/sbin/weka-roce-startup.sh
+878-RemainAfterExit=yes
+879-TimeoutStartSec=360
+880-StandardOutput=journal
+881-StandardError=journal
+882-
+883-[Install]
+884-WantedBy=multi-user.target
+885-ROCE_UNIT
+886-
+887:chmod 0644 /etc/systemd/system/weka-roce.service
+888-
+889-###############################################################################
+890-# Create WEKA agent dependency
+891-###############################################################################
+892-
+893-log "Creating WEKA agent dependency"
+894-
+895-mkdir -p /etc/systemd/system/weka-agent.service.d
+896-
+897-cat >/etc/systemd/system/weka-agent.service.d/10-roce.conf <<'AGENT_DROPIN'
+898-[Unit]
+899:Requires=weka-roce.service
+900:After=weka-roce.service
+901-AGENT_DROPIN
+902-
+903-chmod 0644 \
+904-    /etc/systemd/system/weka-agent.service.d/10-roce.conf
+905-
+906-###############################################################################
+907-# Syntax and systemd validation
+908-###############################################################################
+909-
+910-log "Validating generated scripts"
+911-
+912:bash -n /usr/local/sbin/weka-roce-config.sh
+913:bash -n /usr/local/sbin/weka-roce-startup.sh
+914-
+915:systemctl daemon-reload
+916-
+917-log "Validating systemd configuration"
+918-
+919-systemd-analyze verify \
+920:    /etc/systemd/system/weka-roce.service \
+921-    /etc/systemd/system/weka-agent.service \
+922-    2>&1 |
+923-tee "${BACKUP_DIR}/systemd-verify.txt" ||
+924-true
+925-
+926:systemctl enable weka-roce.service
+927-
+928-###############################################################################
+929-# Apply RoCE configuration
+930-###############################################################################
+931-
+932:log "Starting and validating weka-roce.service"
+933-
+934:if ! systemctl restart weka-roce.service; then
+935:    systemctl status weka-roce.service --no-pager -l || true
+936-
+937-    journalctl \
+938:        -u weka-roce.service \
+939-        --since "-15 minutes" \
+940-        --no-pager ||
+941-        true
+942-
+943:    fail "weka-roce.service failed"
+944-fi
+945-
+946:systemctl is-active --quiet weka-roce.service ||
+947:    fail "weka-roce.service is not active"
+948-
+949:log "weka-roce.service completed successfully"
+950-
+951-###############################################################################
+952-# Run post-deployment validation
+953-###############################################################################
+954-
+955-log "Running post-deployment pre-check"
+956-
+957-set +e
+--
+969-    log "Starting WEKA agent dependency test"
+970-
+971-    if [[ -n "${WEKA_MOUNTS}" &&
+972-          "${MAINTENANCE_APPROVED}" != true ]]; then
+973-
+974-        fail "Active WEKA mounts prevent agent dependency testing"
+975-    fi
+976-
+977:    systemctl stop weka-agent.service
+978:    systemctl stop weka-roce.service
+979-
+980:    systemctl reset-failed weka-agent.service || true
+981:    systemctl reset-failed weka-roce.service || true
+982-
+983-    log "Starting only weka-agent.service"
+984-
+985:    if ! systemctl start weka-agent.service; then
+986:        systemctl status \
+987:            weka-roce.service \
+988-            weka-agent.service \
+989-            --no-pager -l ||
+990-            true
+991-
+992-        journalctl \
+993:            -u weka-roce.service \
+994-            -u weka-agent.service \
+995-            --since "-15 minutes" \
+996-            --no-pager ||
+997-            true
+998-
+999-        fail "WEKA agent dependency test failed"
+1000-    fi
+1001-
+1002:    systemctl is-active --quiet weka-roce.service ||
+1003:        fail "weka-roce.service is not active after dependency test"
+1004-
+1005:    systemctl is-active --quiet weka-agent.service ||
+1006-        fail "weka-agent.service is not active after dependency test"
+1007-
+1008-    agent_requires="$(
+1009:        systemctl show weka-agent.service \
+1010-            -p Requires \
+1011-            --value
+1012-    )"
+1013-
+1014-    agent_after="$(
+1015:        systemctl show weka-agent.service \
+1016-            -p After \
+1017-            --value
+1018-    )"
+1019-
+1020:    grep -qw weka-roce.service <<<"${agent_requires}" ||
+1021:        fail "weka-agent does not require weka-roce.service"
+1022-
+1023:    grep -qw weka-roce.service <<<"${agent_after}" ||
+1024:        fail "weka-agent is not ordered after weka-roce.service"
+1025-
+1026-    log "WEKA agent dependency test passed"
+1027-fi
+1028-
+1029-###############################################################################
+1030-# Final report
+1031-###############################################################################
+1032-
+--
+1038-    echo "Host: $(hostname)"
+1039-    echo "Date: $(date)"
+1040-    echo "Role: ${ROLE}"
+1041-    echo "Role reason: ${ROLE_REASON}"
+1042-    echo "NICs: ${ROCE_NICS[*]}"
+1043-    echo "TOS: ${ROCE_TOS}"
+1044-    echo "Agent dependency test: ${TEST_AGENT}"
+1045-    echo
+1046:    echo "weka-roce enabled:"
+1047:    systemctl is-enabled weka-roce.service
+1048-    echo
+1049:    echo "weka-roce state:"
+1050:    systemctl show weka-roce.service \
+1051-        -p ActiveState \
+1052-        -p SubState \
+1053-        -p Result
+1054-    echo
+1055-    echo "weka-agent state:"
+1056:    systemctl show weka-agent.service \
+1057-        -p ActiveState \
+1058-        -p SubState \
+1059-        -p Result
+1060-    echo
+1061-    echo "weka-agent dependency:"
+1062:    systemctl show weka-agent.service \
+1063-        -p Requires \
+1064-        -p After
+1065-    echo
+1066-    echo "RDMA mapping:"
+1067-    ibdev2netdev
+1068-    echo
+1069-    echo "TCP ECN:"
+1070:    sysctl net.ipv4.tcp_ecn
+1071-    echo
+1072-
+1073-    for nic in "${ROCE_NICS[@]}"; do
+1074-        ibdev="$(get_ibdev "${nic}")"
+1075-
+1076-        echo
+1077-        echo "=== ${nic}/${ibdev} ==="
+1078-
+1079:        mlnx_qos -i "${nic}" |
+1080-            grep -E \
+1081-                'Priority trust state|PFC configuration|^[[:space:]]*enabled'
+1082-
+1083:        cat "/sys/class/infiniband/${ibdev}/tc/1/traffic_class"
+1084-    done
+1085-} >"${FINAL_REPORT}" 2>&1
+1086-
+1087-echo
+1088-echo "================================================================"
+1089-echo "WEKA RoCE deployment completed successfully"
+1090-echo "================================================================"
+1091-echo
+--
+1094-echo "RoCE interfaces: ${ROCE_NICS[*]}"
+1095-echo "Traffic class:   ${ROCE_TOS}"
+1096-echo "Backup:          ${BACKUP_DIR}"
+1097-echo "Report:          ${FINAL_REPORT}"
+1098-echo
+1099-echo "Reboot was not performed."
+1100-echo
+1101-echo "Next validation:"
+1102:echo "  /root/weka-roce-precheck.sh"
+1103-echo
+1104-echo "For a later reboot test:"
+1105-echo "  reboot"
+1106-echo
+===== RELEVANT PRECHECK SECTIONS =====
+1141-            "FAIL" \
+1142-            "${ibdev} TOS ${current_tos:-unknown}; expected ${EXPECTED_TOS}"
+1143-    fi
+1144-done
+1145-
+1146-###############################################################################
+1147:# TCP ECN
+1148-###############################################################################
+1149-
+1150:section "13. TCP ECN"
+1151-
+1152:tcp_ecn="$(
+1153:    sysctl -n net.ipv4.tcp_ecn 2>/dev/null ||
+1154-    echo unknown
+1155-)"
+1156-
+1157:echo "net.ipv4.tcp_ecn = ${tcp_ecn}"
+1158-
+1159:if [[ "${tcp_ecn}" == "1" ]]; then
+1160-    add_result \
+1161:        "TCP ECN" \
+1162-        "PASS" \
+1163:        "net.ipv4.tcp_ecn=1"
+1164-else
+1165-    add_result \
+1166:        "TCP ECN" \
+1167-        "FAIL" \
+1168:        "Current value ${tcp_ecn}; expected 1"
+1169-fi
+1170-
+1171-###############################################################################
+1172-# Persistence files
+1173-###############################################################################
+1174-
+--
+1212-
+1213-section "15. OTHER ROCE CONFIGURATION SOURCES"
+1214-
+1215-ROCE_SEARCH_RESULT="$(
+1216-    {
+1217-        grep -RnsE \
+1218:            'mlnx_qos|cma_roce_tos|traffic_class|tcp_ecn|--trust[[:space:]]+dscp|--pfc' \
+1219-            /etc/systemd/system \
+1220-            /usr/lib/systemd/system \
+1221-            /etc/init.d \
+1222-            /etc/cron.d \
+1223-            /etc/cron.daily \
+1224-            /usr/local/sbin \
+1225-            /usr/local/bin \
+1226-            2>/dev/null
+1227-
+1228-        grep -nsE \
+1229:            'mlnx_qos|cma_roce_tos|traffic_class|tcp_ecn|--trust[[:space:]]+dscp|--pfc' \
+1230-            /root/*.sh \
+1231-            2>/dev/null
+1232-    } |
+1233-    grep -vE \
+1234-        'weka-roce-precheck(-v[0-9]+)?\.sh|roce-precheck-reports' |
+1235-    head -200 ||
+Connection to 172.31.18.60 closed.
+root@172.31.18.61's password:
+===== weka61 FILES =====
+-rwx------ 1 root root 27K Sep 30 19:37 /root/deploy-weka-roce.sh
+-rwx------ 1 root root 34K Sep 30 19:37 /root/weka-roce-precheck.sh
+ba4cf997659628681a4bdbb73c6646d4291f39a284f3a10a7c316371a07ec4a3  /root/weka-roce-precheck.sh
+2315765ff43d72a43d93fe4ed86cdc9845eb567813400c05e9ec19b476aa61ae  /root/deploy-weka-roce.sh
+===== RELEVANT DEPLOYMENT SECTIONS =====
+1-#!/usr/bin/env bash
+2-
+3-###############################################################################
+4-# Automated WEKA RoCE Deployment
+5-#
+6-# Workflow:
+7-#   1. Detect backend/client role
+8-#   2. Discover or validate RoCE NICs
+9:#   3. Run /root/weka-roce-precheck.sh
+10-#   4. Refuse deployment if pre-check fails
+11-#   5. Back up existing configuration
+12-#   6. Install RoCE configuration and systemd persistence
+13-#   7. Apply and verify RoCE settings
+14-#   8. Run post-deployment pre-check
+15-#   9. Optionally test WEKA agent dependency ordering
+16-#
+17-# Default traffic class:
+--
+22-###############################################################################
+23-
+24-set -Eeuo pipefail
+25-
+26-REQUESTED_ROLE="auto"
+27-ROLE=""
+28-NIC_LIST=""
+29-ROCE_TOS=""
+30:PRECHECK_SCRIPT="/root/weka-roce-precheck.sh"
+31-
+32-ACCEPT_WARNINGS=false
+33-TEST_AGENT=false
+34-MAINTENANCE_APPROVED=false
+35-
+36-WAIT_TIMEOUT=300
+37-WAIT_INTERVAL=2
+38-
+39-###############################################################################
+40-# Functions
+41-###############################################################################
+42-
+43-usage()
+44-{
+45-    cat <<'EOF'
+46-Usage:
+47:  deploy-weka-roce.sh \
+48-    [--role auto|backend|client] \
+49-    [--nics NIC1,NIC2] \
+50-    [--tos VALUE] \
+51-    [--accept-warnings] \
+52-    [--test-agent] \
+53-    [--maintenance-approved]
+54-
+55-Options:
+--
+76-        Backend: 96
+77-        Client:  106
+78-
+79-  --accept-warnings
+80-      Continue when the pre-check returns warnings but no failures.
+81-
+82-  --test-agent
+83-      After deployment, stop weka-agent and validate that starting it
+84:      automatically starts and completes weka-roce.service first.
+85-
+86-      This is disruptive to a backend and to clients with active mounts.
+87-
+88-  --maintenance-approved
+89-      Confirms that maintenance approval has been obtained.
+90-
+91-      Required for:
+92-        - Any backend deployment
+--
+94-        - Backend WEKA agent dependency testing
+95-
+96-  --help
+97-      Display this help.
+98-
+99-Examples:
+100-
+101-  Client:
+102:    ./deploy-weka-roce.sh \
+103-      --role client \
+104-      --nics ens4047f0np0,ens4047f1np1 \
+105-      --tos 106 \
+106-      --accept-warnings
+107-
+108-  Backend:
+109:    ./deploy-weka-roce.sh \
+110-      --role backend \
+111-      --nics eno16795np0,eno16595np0 \
+112-      --tos 96 \
+113-      --accept-warnings \
+114-      --maintenance-approved
+115-
+116-  Client dependency test:
+117:    ./deploy-weka-roce.sh \
+118-      --role client \
+119-      --nics ens4047f0np0,ens4047f1np1 \
+120-      --tos 106 \
+121-      --accept-warnings \
+122-      --test-agent
+123-EOF
+124-}
+125-
+--
+231-
+232-        fail "Warnings require --accept-warnings"
+233-    fi
+234-
+235-    while IFS= read -r line; do
+236-        [[ -z "${line}" ]] && continue
+237-
+238-        if grep -Eq \
+239:           '^weka-roce\.service[[:space:]]+FAIL|^RoCE/WEKA startup order[[:space:]]+FAIL|^TCP ECN[[:space:]]+FAIL|^[^[:space:]]+[[:space:]]+(DSCP trust|PFC|traffic class)[[:space:]]+FAIL' \
+240-           <<<"${line}"; then
+241-
+242-            log "REMEDIABLE: ${line}"
+243-        else
+244-            unexpected_failures+="${line}"$'\n'
+245-        fi
+246-    done <<<"${fail_lines}"
+247-
+--
+363-    fail "Pre-check script is missing or not executable: ${PRECHECK_SCRIPT}"
+364-
+365-required_commands=(
+366-    weka
+367-    ip
+368-    ethtool
+369-    ibdev2netdev
+370-    rdma
+371:    mlnx_qos
+372:    cma_roce_tos
+373:    sysctl
+374:    systemctl
+375-    systemd-analyze
+376-    awk
+377-    sed
+378-    grep
+379-    sort
+380-    findmnt
+381-)
+382-
+383-for command_name in "${required_commands[@]}"; do
+384-    command_exists "${command_name}" ||
+385-        fail "Required command is missing: ${command_name}"
+386-done
+387-
+388:systemctl cat weka-agent.service >/dev/null 2>&1 ||
+389-    fail "weka-agent.service is not installed"
+390-
+391-###############################################################################
+392-# Detect host role
+393-###############################################################################
+394-
+395-log "Detecting WEKA host role"
+396-
+--
+541-
+542-handle_precheck_result "${PRECHECK_RC}" "Pre-deployment" "bootstrap"
+543-
+544-###############################################################################
+545-# Back up current state
+546-###############################################################################
+547-
+548-STAMP="$(date '+%Y%m%d-%H%M%S')"
+549:BACKUP_DIR="/root/weka-roce-deployment-backup/${STAMP}"
+550-
+551-mkdir -p "${BACKUP_DIR}"
+552-
+553-log "Creating backup in ${BACKUP_DIR}"
+554-
+555-{
+556-    echo "Host: $(hostname)"
+557-    echo "Date: $(date)"
+--
+573-    ip -br address
+574-    echo
+575-
+576-    echo "=== RDMA mapping ==="
+577-    ibdev2netdev
+578-    echo
+579-
+580-    echo "=== TCP ECN ==="
+581:    sysctl net.ipv4.tcp_ecn
+582-    echo
+583-
+584-    for nic in "${ROCE_NICS[@]}"; do
+585-        echo
+586-        echo "=== ${nic} QoS ==="
+587:        mlnx_qos -i "${nic}" || true
+588-    done
+589-} >"${BACKUP_DIR}/pre-deployment-state.txt" 2>&1
+590-
+591-files_to_backup=(
+592:    /etc/weka-roce.conf
+593:    /etc/sysctl.d/99-weka-roce.conf
+594:    /usr/local/sbin/weka-roce-config.sh
+595:    /usr/local/sbin/weka-roce-startup.sh
+596:    /etc/systemd/system/weka-roce.service
+597-    /etc/systemd/system/weka-agent.service.d/10-roce.conf
+598-)
+599-
+600-for file in "${files_to_backup[@]}"; do
+601-    backup_file "${file}"
+602-done
+603-
+604-###############################################################################
+605-# Create RoCE configuration
+606-###############################################################################
+607-
+608:log "Creating /etc/weka-roce.conf"
+609-
+610-{
+611:    echo "# Generated by deploy-weka-roce.sh"
+612-    echo "WEKA_ROLE=$(printf '%q' "${ROLE}")"
+613-    echo "ROCE_TOS=$(printf '%q' "${ROCE_TOS}")"
+614-    echo "WAIT_TIMEOUT=$(printf '%q' "${WAIT_TIMEOUT}")"
+615-    echo "WAIT_INTERVAL=$(printf '%q' "${WAIT_INTERVAL}")"
+616-    echo
+617-    echo "ROCE_NICS=("
+618-
+619-    for nic in "${ROCE_NICS[@]}"; do
+620-        printf '    %q\n' "${nic}"
+621-    done
+622-
+623-    echo ")"
+624:} >/etc/weka-roce.conf
+625-
+626:chmod 0644 /etc/weka-roce.conf
+627-
+628-###############################################################################
+629-# Create RoCE configuration and validation script
+630-###############################################################################
+631-
+632:log "Creating /usr/local/sbin/weka-roce-config.sh"
+633-
+634:cat >/usr/local/sbin/weka-roce-config.sh <<'ROCE_CONFIG_SCRIPT'
+635-#!/usr/bin/env bash
+636-
+637-set -Eeuo pipefail
+638-
+639:CONFIG_FILE="/etc/weka-roce.conf"
+640-
+641-log()
+642-{
+643-    echo "$(date '+%Y-%m-%d %H:%M:%S') $*"
+644-}
+645-
+646-fail()
+647-{
+--
+658-
+659-    awk -v nic="${nic}" \
+660-        '$5 == nic {print $1; exit}' <<<"${mappings}"
+661-}
+662-
+663-[[ -r "${CONFIG_FILE}" ]] ||
+664-    fail "Configuration file missing: ${CONFIG_FILE}"
+665-
+666:# shellcheck source=/etc/weka-roce.conf
+667-source "${CONFIG_FILE}"
+668-
+669-required_commands=(
+670-    ip
+671-    ethtool
+672-    ibdev2netdev
+673:    mlnx_qos
+674:    cma_roce_tos
+675:    sysctl
+676-    grep
+677-    awk
+678-)
+679-
+680-for command_name in "${required_commands[@]}"; do
+681-    command -v "${command_name}" >/dev/null 2>&1 ||
+682-        fail "Required command missing: ${command_name}"
+683-done
+684-
+685-(( ${#ROCE_NICS[@]} > 0 )) ||
+686-    fail "No RoCE interfaces configured"
+687-
+688-log "Setting TCP ECN to 1"
+689:sysctl -w net.ipv4.tcp_ecn=1 >/dev/null
+690-
+691-for nic in "${ROCE_NICS[@]}"; do
+692-    [[ -e "/sys/class/net/${nic}" ]] ||
+693-        fail "Interface missing: ${nic}"
+694-
+695-    ibdev="$(get_ibdev "${nic}")"
+696-
+697-    [[ -n "${ibdev}" ]] ||
+698-        fail "No RDMA mapping found for ${nic}"
+699-
+700:    tc_file="/sys/class/infiniband/${ibdev}/tc/1/traffic_class"
+701-
+702-    [[ -w "${tc_file}" ]] ||
+703-        fail "Traffic-class file is not writable: ${tc_file}"
+704-
+705-    log "${nic}: setting DSCP trust"
+706:    mlnx_qos -i "${nic}" \
+707-        --trust dscp \
+708-        >/dev/null
+709-
+710-    log "${nic}: enabling PFC priority 3"
+711:    mlnx_qos -i "${nic}" \
+712-        --pfc 0,0,0,1,0,0,0,0 \
+713-        >/dev/null
+714-
+715-    log "${ibdev}: setting traffic class ${ROCE_TOS}"
+716-    echo "${ROCE_TOS}" >"${tc_file}"
+717-
+718-    log "${ibdev}: setting CMA RoCE TOS ${ROCE_TOS}"
+719:    cma_roce_tos \
+720-        -d "${ibdev}" \
+721-        -t "${ROCE_TOS}" \
+722-        >/dev/null
+723-done
+724-
+725-log "Verifying RoCE configuration"
+726-
+727:tcp_ecn="$(sysctl -n net.ipv4.tcp_ecn)"
+728-
+729:[[ "${tcp_ecn}" == "1" ]] ||
+730:    fail "TCP ECN is ${tcp_ecn}; expected 1"
+731-
+732-for nic in "${ROCE_NICS[@]}"; do
+733-    ibdev="$(get_ibdev "${nic}")"
+734:    tc_file="/sys/class/infiniband/${ibdev}/tc/1/traffic_class"
+735-
+736:    qos_output="$(mlnx_qos -i "${nic}")"
+737-    tc_output="$(cat "${tc_file}")"
+738-
+739-    grep -q \
+740-        'Priority trust state: dscp' \
+741-        <<<"${qos_output}" ||
+742-        fail "${nic}: DSCP trust validation failed"
+743-
+744-    grep -Eq \
+--
+758-    log "${nic}/${ibdev}: DSCP trust verified"
+759-    log "${nic}/${ibdev}: PFC priority 3 verified"
+760-    log "${nic}/${ibdev}: traffic class ${ROCE_TOS} verified"
+761-done
+762-
+763-log "RoCE configuration and verification completed successfully"
+764-ROCE_CONFIG_SCRIPT
+765-
+766:chmod 0755 /usr/local/sbin/weka-roce-config.sh
+767-
+768-###############################################################################
+769-# Create startup wrapper
+770-###############################################################################
+771-
+772:log "Creating /usr/local/sbin/weka-roce-startup.sh"
+773-
+774:cat >/usr/local/sbin/weka-roce-startup.sh <<'ROCE_STARTUP_SCRIPT'
+775-#!/usr/bin/env bash
+776-
+777-set -Eeuo pipefail
+778-
+779:CONFIG_FILE="/etc/weka-roce.conf"
+780-
+781-log()
+782-{
+783-    echo "$(date '+%Y-%m-%d %H:%M:%S') $*"
+784-}
+785-
+786-fail()
+787-{
+--
+798-
+799-    awk -v nic="${nic}" \
+800-        '$5 == nic {print $1; exit}' <<<"${mappings}"
+801-}
+802-
+803-[[ -r "${CONFIG_FILE}" ]] ||
+804-    fail "Configuration file missing: ${CONFIG_FILE}"
+805-
+806:# shellcheck source=/etc/weka-roce.conf
+807-source "${CONFIG_FILE}"
+808-
+809-WAIT_TIMEOUT="${WAIT_TIMEOUT:-300}"
+810-WAIT_INTERVAL="${WAIT_INTERVAL:-2}"
+811-
+812-for command_name in ip ethtool ibdev2netdev; do
+813-    command -v "${command_name}" >/dev/null 2>&1 ||
+814-        fail "Required command missing: ${command_name}"
+--
+836-        elapsed=$((elapsed + WAIT_INTERVAL))
+837-    done
+838-
+839-    if (( elapsed >= WAIT_TIMEOUT )); then
+840-        fail "${nic} or its RDMA device was not ready after ${WAIT_TIMEOUT} seconds"
+841-    fi
+842-done
+843-
+844:exec /usr/local/sbin/weka-roce-config.sh
+845-ROCE_STARTUP_SCRIPT
+846-
+847:chmod 0755 /usr/local/sbin/weka-roce-startup.sh
+848-
+849-###############################################################################
+850-# Persist TCP ECN
+851-###############################################################################
+852-
+853:log "Creating /etc/sysctl.d/99-weka-roce.conf"
+854-
+855:cat >/etc/sysctl.d/99-weka-roce.conf <<'SYSCTL_CONF'
+856-# WEKA RoCE TCP ECN
+857:net.ipv4.tcp_ecn = 1
+858-SYSCTL_CONF
+859-
+860:chmod 0644 /etc/sysctl.d/99-weka-roce.conf
+861-
+862-###############################################################################
+863-# Create systemd service
+864-###############################################################################
+865-
+866:log "Creating weka-roce.service"
+867-
+868:cat >/etc/systemd/system/weka-roce.service <<'ROCE_UNIT'
+869-[Unit]
+870-Description=Configure and Validate RoCE Before WEKA Agent
+871-Wants=network-online.target
+872-After=network-online.target systemd-modules-load.service
+873-Before=weka-agent.service
+874-
+875-[Service]
+876-Type=oneshot
+877:ExecStart=/usr/local/sbin/weka-roce-startup.sh
+878-RemainAfterExit=yes
+879-TimeoutStartSec=360
+880-StandardOutput=journal
+881-StandardError=journal
+882-
+883-[Install]
+884-WantedBy=multi-user.target
+885-ROCE_UNIT
+886-
+887:chmod 0644 /etc/systemd/system/weka-roce.service
+888-
+889-###############################################################################
+890-# Create WEKA agent dependency
+891-###############################################################################
+892-
+893-log "Creating WEKA agent dependency"
+894-
+895-mkdir -p /etc/systemd/system/weka-agent.service.d
+896-
+897-cat >/etc/systemd/system/weka-agent.service.d/10-roce.conf <<'AGENT_DROPIN'
+898-[Unit]
+899:Requires=weka-roce.service
+900:After=weka-roce.service
+901-AGENT_DROPIN
+902-
+903-chmod 0644 \
+904-    /etc/systemd/system/weka-agent.service.d/10-roce.conf
+905-
+906-###############################################################################
+907-# Syntax and systemd validation
+908-###############################################################################
+909-
+910-log "Validating generated scripts"
+911-
+912:bash -n /usr/local/sbin/weka-roce-config.sh
+913:bash -n /usr/local/sbin/weka-roce-startup.sh
+914-
+915:systemctl daemon-reload
+916-
+917-log "Validating systemd configuration"
+918-
+919-systemd-analyze verify \
+920:    /etc/systemd/system/weka-roce.service \
+921-    /etc/systemd/system/weka-agent.service \
+922-    2>&1 |
+923-tee "${BACKUP_DIR}/systemd-verify.txt" ||
+924-true
+925-
+926:systemctl enable weka-roce.service
+927-
+928-###############################################################################
+929-# Apply RoCE configuration
+930-###############################################################################
+931-
+932:log "Starting and validating weka-roce.service"
+933-
+934:if ! systemctl restart weka-roce.service; then
+935:    systemctl status weka-roce.service --no-pager -l || true
+936-
+937-    journalctl \
+938:        -u weka-roce.service \
+939-        --since "-15 minutes" \
+940-        --no-pager ||
+941-        true
+942-
+943:    fail "weka-roce.service failed"
+944-fi
+945-
+946:systemctl is-active --quiet weka-roce.service ||
+947:    fail "weka-roce.service is not active"
+948-
+949:log "weka-roce.service completed successfully"
+950-
+951-###############################################################################
+952-# Run post-deployment validation
+953-###############################################################################
+954-
+955-log "Running post-deployment pre-check"
+956-
+957-set +e
+--
+969-    log "Starting WEKA agent dependency test"
+970-
+971-    if [[ -n "${WEKA_MOUNTS}" &&
+972-          "${MAINTENANCE_APPROVED}" != true ]]; then
+973-
+974-        fail "Active WEKA mounts prevent agent dependency testing"
+975-    fi
+976-
+977:    systemctl stop weka-agent.service
+978:    systemctl stop weka-roce.service
+979-
+980:    systemctl reset-failed weka-agent.service || true
+981:    systemctl reset-failed weka-roce.service || true
+982-
+983-    log "Starting only weka-agent.service"
+984-
+985:    if ! systemctl start weka-agent.service; then
+986:        systemctl status \
+987:            weka-roce.service \
+988-            weka-agent.service \
+989-            --no-pager -l ||
+990-            true
+991-
+992-        journalctl \
+993:            -u weka-roce.service \
+994-            -u weka-agent.service \
+995-            --since "-15 minutes" \
+996-            --no-pager ||
+997-            true
+998-
+999-        fail "WEKA agent dependency test failed"
+1000-    fi
+1001-
+1002:    systemctl is-active --quiet weka-roce.service ||
+1003:        fail "weka-roce.service is not active after dependency test"
+1004-
+1005:    systemctl is-active --quiet weka-agent.service ||
+1006-        fail "weka-agent.service is not active after dependency test"
+1007-
+1008-    agent_requires="$(
+1009:        systemctl show weka-agent.service \
+1010-            -p Requires \
+1011-            --value
+1012-    )"
+1013-
+1014-    agent_after="$(
+1015:        systemctl show weka-agent.service \
+1016-            -p After \
+1017-            --value
+1018-    )"
+1019-
+1020:    grep -qw weka-roce.service <<<"${agent_requires}" ||
+1021:        fail "weka-agent does not require weka-roce.service"
+1022-
+1023:    grep -qw weka-roce.service <<<"${agent_after}" ||
+1024:        fail "weka-agent is not ordered after weka-roce.service"
+1025-
+1026-    log "WEKA agent dependency test passed"
+1027-fi
+1028-
+1029-###############################################################################
+1030-# Final report
+1031-###############################################################################
+1032-
+--
+1038-    echo "Host: $(hostname)"
+1039-    echo "Date: $(date)"
+1040-    echo "Role: ${ROLE}"
+1041-    echo "Role reason: ${ROLE_REASON}"
+1042-    echo "NICs: ${ROCE_NICS[*]}"
+1043-    echo "TOS: ${ROCE_TOS}"
+1044-    echo "Agent dependency test: ${TEST_AGENT}"
+1045-    echo
+1046:    echo "weka-roce enabled:"
+1047:    systemctl is-enabled weka-roce.service
+1048-    echo
+1049:    echo "weka-roce state:"
+1050:    systemctl show weka-roce.service \
+1051-        -p ActiveState \
+1052-        -p SubState \
+1053-        -p Result
+1054-    echo
+1055-    echo "weka-agent state:"
+1056:    systemctl show weka-agent.service \
+1057-        -p ActiveState \
+1058-        -p SubState \
+1059-        -p Result
+1060-    echo
+1061-    echo "weka-agent dependency:"
+1062:    systemctl show weka-agent.service \
+1063-        -p Requires \
+1064-        -p After
+1065-    echo
+1066-    echo "RDMA mapping:"
+1067-    ibdev2netdev
+1068-    echo
+1069-    echo "TCP ECN:"
+1070:    sysctl net.ipv4.tcp_ecn
+1071-    echo
+1072-
+1073-    for nic in "${ROCE_NICS[@]}"; do
+1074-        ibdev="$(get_ibdev "${nic}")"
+1075-
+1076-        echo
+1077-        echo "=== ${nic}/${ibdev} ==="
+1078-
+1079:        mlnx_qos -i "${nic}" |
+1080-            grep -E \
+1081-                'Priority trust state|PFC configuration|^[[:space:]]*enabled'
+1082-
+1083:        cat "/sys/class/infiniband/${ibdev}/tc/1/traffic_class"
+1084-    done
+1085-} >"${FINAL_REPORT}" 2>&1
+1086-
+1087-echo
+1088-echo "================================================================"
+1089-echo "WEKA RoCE deployment completed successfully"
+1090-echo "================================================================"
+1091-echo
+--
+1094-echo "RoCE interfaces: ${ROCE_NICS[*]}"
+1095-echo "Traffic class:   ${ROCE_TOS}"
+1096-echo "Backup:          ${BACKUP_DIR}"
+1097-echo "Report:          ${FINAL_REPORT}"
+1098-echo
+1099-echo "Reboot was not performed."
+1100-echo
+1101-echo "Next validation:"
+1102:echo "  /root/weka-roce-precheck.sh"
+1103-echo
+1104-echo "For a later reboot test:"
+1105-echo "  reboot"
+1106-echo
+===== RELEVANT PRECHECK SECTIONS =====
+1141-            "FAIL" \
+1142-            "${ibdev} TOS ${current_tos:-unknown}; expected ${EXPECTED_TOS}"
+1143-    fi
+1144-done
+1145-
+1146-###############################################################################
+1147:# TCP ECN
+1148-###############################################################################
+1149-
+1150:section "13. TCP ECN"
+1151-
+1152:tcp_ecn="$(
+1153:    sysctl -n net.ipv4.tcp_ecn 2>/dev/null ||
+1154-    echo unknown
+1155-)"
+1156-
+1157:echo "net.ipv4.tcp_ecn = ${tcp_ecn}"
+1158-
+1159:if [[ "${tcp_ecn}" == "1" ]]; then
+1160-    add_result \
+1161:        "TCP ECN" \
+1162-        "PASS" \
+1163:        "net.ipv4.tcp_ecn=1"
+1164-else
+1165-    add_result \
+1166:        "TCP ECN" \
+1167-        "FAIL" \
+1168:        "Current value ${tcp_ecn}; expected 1"
+1169-fi
+1170-
+1171-###############################################################################
+1172-# Persistence files
+1173-###############################################################################
+1174-
+--
+1212-
+1213-section "15. OTHER ROCE CONFIGURATION SOURCES"
+1214-
+1215-ROCE_SEARCH_RESULT="$(
+1216-    {
+1217-        grep -RnsE \
+1218:            'mlnx_qos|cma_roce_tos|traffic_class|tcp_ecn|--trust[[:space:]]+dscp|--pfc' \
+1219-            /etc/systemd/system \
+1220-            /usr/lib/systemd/system \
+1221-            /etc/init.d \
+1222-            /etc/cron.d \
+1223-            /etc/cron.daily \
+1224-            /usr/local/sbin \
+1225-            /usr/local/bin \
+1226-            2>/dev/null
+1227-
+1228-        grep -nsE \
+1229:            'mlnx_qos|cma_roce_tos|traffic_class|tcp_ecn|--trust[[:space:]]+dscp|--pfc' \
+1230-            /root/*.sh \
+1231-            2>/dev/null
+1232-    } |
+1233-    grep -vE \
+1234-        'weka-roce-precheck(-v[0-9]+)?\.sh|roce-precheck-reports' |
+1235-    head -200 ||
+Connection to 172.31.18.61 closed.
+chandrasekhar.gonuguntla@Chandra-Gonuguntla Production_SN5600_Operations_Bundle_2026-09-30 %

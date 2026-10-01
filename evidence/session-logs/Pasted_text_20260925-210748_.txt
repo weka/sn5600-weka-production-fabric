@@ -1,0 +1,144 @@
+cumulus@cumulus:mgmt:~$ hostname
+nv show router bgp
+nv show interface
+sudo vtysh -c 'show bgp ipv4 unicast summary'
+systemctl --failed --no-pager
+nv config diff
+leaf-01
+                                applied
+------------------------------  -----------
+enable                          on
+autonomous-system               65101
+router-id                       10.255.0.11
+policy-update-timer             5
+graceful-shutdown               off
+wait-for-install                off
+graceful-restart
+  mode                          helper-only
+  restart-time                  120
+  path-selection-deferral-time  360
+  stale-routes-time             360
+convergence-wait
+  time                          0
+  establish-wait-time           0
+queue-limit
+  input                         10000
+  output                        10000
+Interface  Admin Status  Oper Status  Speed  MTU    Type      Remote Host  Remote Port  Summary
+---------  ------------  -----------  -----  -----  --------  -----------  -----------  ----------------------------------------
+eth0       up            up           1G     1500   eth       SW34         Ethernet2    IP Address:              172.31.17.19/21
+                                                                                        IP Address: fe80::da94:24ff:fe3b:a34a/64
+lo         up            unknown             65536  loopback                            IP Address:               10.255.0.11/32
+                                                                                        IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                      ::1/128
+mgmt       up            up                  65575  vrf                                 IP Address:                  127.0.0.1/8
+                                                                                        IP Address:                  127.0.1.1/8
+                                                                                        IP Address:                      ::1/128
+swp1       down          down                9216   swp
+swp2       down          down                9216   swp
+swp3       down          down                9216   swp
+swp4       down          down                9216   swp
+swp5       down          down                9216   swp
+swp6       down          down                9216   swp
+swp7       down          down                9216   swp
+swp8       down          down                9216   swp
+swp9       down          down                9216   swp
+swp10      down          down                9216   swp
+swp11      down          down                9216   swp
+swp12      down          down                9216   swp
+swp13      down          down                9216   swp
+swp14      down          down                9216   swp
+swp15      down          down                9216   swp
+swp16      down          down                9216   swp
+swp17      down          down                9216   swp
+swp18      down          down                9216   swp
+swp19      down          down                9216   swp
+swp20      down          down                9216   swp
+swp21      down          down                9216   swp
+swp22      down          down                9216   swp
+swp23      down          down                9216   swp
+swp24      down          down                9216   swp
+swp25      down          down                9216   swp
+swp26      down          down                9216   swp
+swp27      down          down                9216   swp
+swp28      down          down                9216   swp
+swp29      down          down                9216   swp
+swp30      down          down                9216   swp
+swp31      down          down                9216   swp
+swp32      down          down                9216   swp
+swp33      up            up           800G   9216   swp       spine-04     swp1         IP Address: fe80::2e5e:abff:feab:f40c/64
+swp34      up            down                9216   swp
+swp35      up            down                9216   swp
+swp36      up            down                9216   swp
+swp37      up            down                9216   swp
+swp38      up            up           800G   9216   swp       spine-04     swp6         IP Address: fe80::2e5e:abff:feab:f418/64
+swp39      up            up           800G   9216   swp       spine-04     swp7         IP Address: fe80::2e5e:abff:feab:f410/64
+swp40      up            up           800G   9216   swp       spine-04     swp8         IP Address: fe80::2e5e:abff:feab:f414/64
+swp41      up            up           800G   9216   swp       spine-01     swp1         IP Address: fe80::2e5e:abff:feab:f42c/64
+swp42      up            down                9216   swp                                 IP Address: fe80::2e5e:abff:feab:f428/64
+swp43      up            up           800G   9216   swp       spine-01     swp3         IP Address: fe80::2e5e:abff:feab:f420/64
+swp44      up            down                9216   swp
+swp45      up            up           800G   9216   swp       spine-01     swp5         IP Address: fe80::2e5e:abff:feab:f43c/64
+swp46      up            up           800G   9216   swp       spine-01     swp6         IP Address: fe80::2e5e:abff:feab:f438/64
+swp47      up            up           800G   9216   swp       spine-01     swp7         IP Address: fe80::2e5e:abff:feab:f430/64
+swp48      up            up           800G   9216   swp       spine-01     swp8         IP Address: fe80::2e5e:abff:feab:f434/64
+swp49      up            down                9216   swp
+swp50      up            up           800G   9216   swp       spine-02     swp2         IP Address: fe80::2e5e:abff:feab:f44c/64
+swp51      up            down                9216   swp
+swp52      up            down                9216   swp
+swp53      up            up           800G   9216   swp       spine-02     swp5         IP Address: fe80::2e5e:abff:feab:f458/64
+swp54      up            up           800G   9216   swp       spine-02     swp6         IP Address: fe80::2e5e:abff:feab:f45c/64
+swp55      up            up           800G   9216   swp       spine-02     swp7         IP Address: fe80::2e5e:abff:feab:f454/64
+swp56      up            up           800G   9216   swp       spine-02     swp8         IP Address: fe80::2e5e:abff:feab:f450/64
+swp57      up            up           800G   9216   swp       spine-03     swp1         IP Address: fe80::2e5e:abff:feab:f468/64
+swp58      up            down                9216   swp
+swp59      up            down         800G   9216   swp
+swp60      up            down                9216   swp
+swp61      up            down                9216   swp
+swp62      up            down                9216   swp
+swp63      up            down                9216   swp
+swp64      up            down                9216   swp
+swp65      down          down                9216   swp
+BGP router identifier 10.255.0.11, local AS number 65101 vrf-id 0
+BGP table version 4
+RIB entries 7, using 1568 bytes of memory
+Peers 32, using 636 KiB of memory
+
+Neighbor        V         AS   MsgRcvd   MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd   PfxSnt Desc
+spine-04(swp33) 4      65200         2         2        0    0    0 00:00:01            0        0 N/A
+swp34           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp35           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp36           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp37           4      65200         0         0        0    0    0    never         Idle        0 N/A
+spine-04(swp38) 4      65200         6         8        0    0    0 00:00:04            1        4 N/A
+spine-04(swp39) 4      65200         5         3        0    0    0 00:00:02            1        0 N/A
+spine-04(swp40) 4      65200         6         8        0    0    0 00:00:05            1        4 N/A
+swp41           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp42           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp43           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp44           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp45           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp46           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp47           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp48           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp49           4      65200         0         0        0    0    0    never         Idle        0 N/A
+spine-02(swp50) 4      65200         6         8        0    0    0 00:00:04            1        4 N/A
+swp51           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp52           4      65200         0         0        0    0    0    never         Idle        0 N/A
+spine-02(swp53) 4      65200         6         9        0    0    0 00:00:05            1        4 N/A
+spine-02(swp54) 4      65200         6         8        0    0    0 00:00:04            1        4 N/A
+spine-02(swp55) 4      65200         6         8        0    0    0 00:00:05            1        4 N/A
+spine-02(swp56) 4      65200         6         8        0    0    0 00:00:04            1        4 N/A
+spine-03(swp57) 4      65200         6         9        0    0    0 00:00:05            1        4 N/A
+swp58           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp59           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp60           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp61           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp62           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp63           4      65200         0         0        0    0    0    never         Idle        0 N/A
+swp64           4      65200         0         0        0    0    0    never         Idle        0 N/A
+
+Total number of neighbors 32
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+0 loaded units listed.
+cumulus@cumulus:mgmt:~$

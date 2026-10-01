@@ -1,0 +1,5 @@
+Repository checks executed in the preparation workspace. No live systems contacted.
+
+DOCUMENTED GAP: exact host reference payloads not yet collected: weka-roce-precheck.sh, deploy-weka-roce.sh
+OFFLINE VALIDATION PASSED: {'shell': 59, 'python': 4, 'client_links': 70, 'underlay_endpoints': 256}
+This does not validate live equipment, performance or missing runtime evidence.

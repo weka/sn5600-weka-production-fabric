@@ -1,0 +1,245 @@
+bash-3.2$ DIAG="$HOME/Downloads/weka64_vs_weka65_cx7_diag.txt"
+bash-3.2$ : > "$DIAG"
+bash-3.2$
+bash-3.2$ for N in 64 65; do
+>   {
+>     echo "===== weka${N} ====="
+>     ssh -tt "root@172.31.18.${N}" '
+>       echo "--- HOST ---"
+>       hostname
+>       uname -r
+>
+>       echo "--- CX PCI DEVICES ---"
+>       lspci -Dnnk | grep -A4 -Ei "ConnectX|Mellanox|15b3:" || true
+>
+>       echo "--- INFINIBAND CLASS ---"
+>       ls -la /sys/class/infiniband 2>&1 || true
+>
+>       echo "--- RDMA DEVICES ---"
+>       rdma dev show 2>&1 || true
+>       ibdev2netdev 2>&1 || true
+>
+>       echo "--- NETWORK INTERFACES ---"
+>       ip -br link
+>
+>       echo "--- MLX MODULES ---"
+>       lsmod | grep -E "^(mlx|ib_|rdma)" || true
+>
+>       echo "--- MLX5 PCI BINDINGS ---"
+>       ls -la /sys/bus/pci/drivers/mlx5_core 2>&1 || true
+>
+>       echo "--- MST DEVICES ---"
+>       mst status -v 2>&1 || true
+>
+>       echo "--- KERNEL MESSAGES ---"
+>       journalctl -k -b --no-pager |
+>         grep -Ei "mlx5|15b3|firmware|AER|PCI.*error" |
+>         tail -n 200 || true
+>     '
+>   } 2>&1 | tee -a "$DIAG"
+> done
+===== weka64 =====
+root@172.31.18.64's password:
+Permission denied, please try again.
+root@172.31.18.64's password:
+--- HOST ---
+weka64
+6.8.0-85-generic
+--- CX PCI DEVICES ---
+--- INFINIBAND CLASS ---
+total 0
+drwxr-xr-x  2 root root 0 Sep 29 22:31 .
+drwxr-xr-x 82 root root 0 Sep 29 20:11 ..
+--- RDMA DEVICES ---
+--- NETWORK INTERFACES ---
+lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP>
+ens4031f0        UP             90:5a:08:0d:9a:e8 <BROADCAST,MULTICAST,UP,LOWER_UP>
+ens4031f1        DOWN           90:5a:08:0d:9a:e9 <NO-CARRIER,BROADCAST,MULTICAST,UP>
+--- MLX MODULES ---
+rdma_ucm               32768  0
+rdma_cm               147456  1 rdma_ucm
+ib_ipoib              155648  0
+ib_cm                 147456  2 rdma_cm,ib_ipoib
+ib_umad                45056  0
+mlx5_ib               548864  0
+ib_uverbs             200704  2 rdma_ucm,mlx5_ib
+mlx5_core            2809856  1 mlx5_ib
+mlxfw                  36864  1 mlx5_core
+mlxdevm               184320  1 mlx5_core
+ib_core               524288  8 rdma_cm,ib_ipoib,iw_cm,ib_umad,rdma_ucm,ib_uverbs,mlx5_ib,ib_cm
+mlx_compat             20480  12 rdma_cm,ib_ipoib,mlxdevm,mlxfw,iw_cm,ib_umad,ib_core,rdma_ucm,ib_uverbs,mlx5_ib,ib_cm,mlx5_core
+--- MLX5 PCI BINDINGS ---
+total 0
+drwxr-xr-x  2 root root    0 Sep 29 22:31 .
+drwxr-xr-x 34 root root    0 Sep 29 20:11 ..
+--w-------  1 root root 4096 Sep 29 22:31 bind
+lrwxrwxrwx  1 root root    0 Sep 29 22:31 module -> ../../../../module/mlx5_core
+--w-------  1 root root 4096 Sep 29 22:31 new_id
+--w-------  1 root root 4096 Sep 29 22:31 remove_id
+--w-------  1 root root 4096 Sep 29 22:31 uevent
+--w-------  1 root root 4096 Sep 29 22:31 unbind
+--- MST DEVICES ---
+MST modules:
+------------
+    MST PCI module is not loaded
+    MST PCI configuration module is not loaded
+
+    No MST devices were found or MST modules are not loaded.
+    You may need to run 'mst start' to load MST modules.
+
+--- KERNEL MESSAGES ---
+Sep 29 20:11:47 weka64 kernel: GHES: APEI firmware first mode is enabled by APEI bit and WHEA _OSC.
+Sep 29 20:11:47 weka64 kernel: acpi PNP0A08:00: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi PNP0A08:01: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi PNP0A08:02: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi PNP0A08:06: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi PNP0A08:07: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi PNP0A08:08: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi ACPI0016:00: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi ACPI0016:02: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi ACPI0016:04: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi ACPI0016:06: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi ACPI0016:08: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi ACPI0016:0a: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi PNP0A03:00: _OSC: platform does not support [SHPCHotplug AER LTR DPC]
+Sep 29 20:11:47 weka64 kernel: acpi PNP0A03:01: _OSC: platform does not support [SHPCHotplug AER LTR DPC]
+Sep 29 20:11:47 weka64 kernel: acpi PNP0A08:10: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi PNP0A08:11: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi PNP0A08:12: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi PNP0A08:16: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi PNP0A08:17: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi PNP0A08:18: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi ACPI0016:10: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi ACPI0016:12: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi ACPI0016:14: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi ACPI0016:16: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi ACPI0016:18: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi ACPI0016:1a: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:11:47 weka64 kernel: acpi PNP0A03:02: _OSC: platform does not support [SHPCHotplug AER LTR DPC]
+Sep 29 20:11:47 weka64 kernel: acpi PNP0A03:03: _OSC: platform does not support [SHPCHotplug AER LTR DPC]
+Sep 29 20:11:47 weka64 kernel: xhci_hcd 0000:22:00.0: failed to load firmware renesas_usb_fw.mem, fallback to ROM
+Connection to 172.31.18.64 closed.
+===== weka65 =====
+root@172.31.18.65's password:
+--- HOST ---
+weka65
+6.8.0-85-generic
+--- CX PCI DEVICES ---
+0000:33:00.0 Ethernet controller [0200]: Mellanox Technologies MT2910 Family [ConnectX-7] [15b3:1021]
+	Subsystem: Mellanox Technologies MT2910 Family [ConnectX-7] [15b3:0022]
+	Kernel driver in use: mlx5_core
+	Kernel modules: mlx5_core
+0000:33:00.1 Ethernet controller [0200]: Mellanox Technologies MT2910 Family [ConnectX-7] [15b3:1021]
+	Subsystem: Mellanox Technologies MT2910 Family [ConnectX-7] [15b3:0022]
+	Kernel driver in use: mlx5_core
+	Kernel modules: mlx5_core
+0000:45:00.0 System peripheral [0880]: Intel Corporation Ice Lake Memory Map/VT-d [8086:09a2]
+	Subsystem: Intel Corporation Ice Lake Memory Map/VT-d [8086:09a2]
+--- INFINIBAND CLASS ---
+total 0
+drwxr-xr-x  2 root root 0 Sep 29 22:31 .
+drwxr-xr-x 82 root root 0 Sep 29 20:12 ..
+lrwxrwxrwx  1 root root 0 Sep 29 20:12 mlx5_0 -> ../../devices/pci0000:32/0000:32:02.0/0000:33:00.0/infiniband/mlx5_0
+lrwxrwxrwx  1 root root 0 Sep 29 20:12 mlx5_1 -> ../../devices/pci0000:32/0000:32:02.0/0000:33:00.1/infiniband/mlx5_1
+--- RDMA DEVICES ---
+0: mlx5_0: node_type ca fw 28.36.1700 node_guid a088:c203:00ac:f2c8 sys_image_guid a088:c203:00ac:f2c8
+1: mlx5_1: node_type ca fw 28.36.1700 node_guid a088:c203:00ac:f2c9 sys_image_guid a088:c203:00ac:f2c8
+mlx5_0 port 1 ==> ens4047f0np0 (Down)
+mlx5_1 port 1 ==> ens4047f1np1 (Down)
+--- NETWORK INTERFACES ---
+lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP>
+ens4047f0np0     DOWN           a0:88:c2:ac:f2:c8 <NO-CARRIER,BROADCAST,MULTICAST,UP>
+ens4031f0        UP             90:5a:08:0d:9a:72 <BROADCAST,MULTICAST,UP,LOWER_UP>
+ens4047f1np1     DOWN           a0:88:c2:ac:f2:c9 <NO-CARRIER,BROADCAST,MULTICAST,UP>
+ens4031f1        DOWN           90:5a:08:0d:9a:73 <NO-CARRIER,BROADCAST,MULTICAST,UP>
+--- MLX MODULES ---
+rdma_ucm               32768  0
+rdma_cm               147456  1 rdma_ucm
+ib_ipoib              155648  0
+ib_cm                 147456  2 rdma_cm,ib_ipoib
+ib_umad                45056  0
+mlx5_ib               548864  0
+ib_uverbs             200704  2 rdma_ucm,mlx5_ib
+ib_core               524288  8 rdma_cm,ib_ipoib,iw_cm,ib_umad,rdma_ucm,ib_uverbs,mlx5_ib,ib_cm
+mlx5_core            2809856  1 mlx5_ib
+mlxfw                  36864  1 mlx5_core
+mlxdevm               184320  1 mlx5_core
+mlx_compat             20480  12 rdma_cm,ib_ipoib,mlxdevm,mlxfw,iw_cm,ib_umad,ib_core,rdma_ucm,ib_uverbs,mlx5_ib,ib_cm,mlx5_core
+--- MLX5 PCI BINDINGS ---
+total 0
+drwxr-xr-x  2 root root    0 Sep 29 22:31 .
+drwxr-xr-x 34 root root    0 Sep 29 20:12 ..
+lrwxrwxrwx  1 root root    0 Sep 29 22:31 0000:33:00.0 -> ../../../../devices/pci0000:32/0000:32:02.0/0000:33:00.0
+lrwxrwxrwx  1 root root    0 Sep 29 22:31 0000:33:00.1 -> ../../../../devices/pci0000:32/0000:32:02.0/0000:33:00.1
+--w-------  1 root root 4096 Sep 29 22:31 bind
+lrwxrwxrwx  1 root root    0 Sep 29 22:31 module -> ../../../../module/mlx5_core
+--w-------  1 root root 4096 Sep 29 22:31 new_id
+--w-------  1 root root 4096 Sep 29 22:31 remove_id
+--w-------  1 root root 4096 Sep 29 20:12 uevent
+--w-------  1 root root 4096 Sep 29 22:31 unbind
+--- MST DEVICES ---
+MST modules:
+------------
+    MST PCI module is not loaded
+    MST PCI configuration module is not loaded
+PCI devices:
+------------
+DEVICE_TYPE             MST      PCI       RDMA            NET                                     NUMA
+ConnectX7(rev:0)        NA       33:00.1   mlx5_1          net-ens4047f1np1                        0
+
+ConnectX7(rev:0)        NA       33:00.0   mlx5_0          net-ens4047f0np0                        0
+
+
+--- KERNEL MESSAGES ---
+Sep 29 20:12:08 weka65 kernel: GHES: APEI firmware first mode is enabled by APEI bit and WHEA _OSC.
+Sep 29 20:12:08 weka65 kernel: acpi PNP0A08:00: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:08 weka65 kernel: acpi PNP0A08:01: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:08 weka65 kernel: acpi PNP0A08:02: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:08 weka65 kernel: acpi PNP0A08:06: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:08 weka65 kernel: acpi PNP0A08:07: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:08 weka65 kernel: acpi PNP0A08:08: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:08 weka65 kernel: acpi ACPI0016:00: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:08 weka65 kernel: acpi ACPI0016:02: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:08 weka65 kernel: acpi ACPI0016:04: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:08 weka65 kernel: pci 0000:33:00.0: [15b3:1021] type 00 class 0x020000 PCIe Endpoint
+Sep 29 20:12:08 weka65 kernel: pci 0000:33:00.1: [15b3:1021] type 00 class 0x020000 PCIe Endpoint
+Sep 29 20:12:08 weka65 kernel: acpi ACPI0016:06: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:08 weka65 kernel: acpi ACPI0016:08: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:09 weka65 kernel: acpi ACPI0016:0a: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:09 weka65 kernel: acpi PNP0A03:00: _OSC: platform does not support [SHPCHotplug AER LTR DPC]
+Sep 29 20:12:09 weka65 kernel: acpi PNP0A03:01: _OSC: platform does not support [SHPCHotplug AER LTR DPC]
+Sep 29 20:12:09 weka65 kernel: acpi PNP0A08:10: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:09 weka65 kernel: acpi PNP0A08:11: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:09 weka65 kernel: acpi PNP0A08:12: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:09 weka65 kernel: acpi PNP0A08:16: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:09 weka65 kernel: acpi PNP0A08:17: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:09 weka65 kernel: acpi PNP0A08:18: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:09 weka65 kernel: acpi ACPI0016:10: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:09 weka65 kernel: acpi ACPI0016:12: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:09 weka65 kernel: acpi ACPI0016:14: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:09 weka65 kernel: acpi ACPI0016:16: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:09 weka65 kernel: acpi ACPI0016:18: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:09 weka65 kernel: acpi ACPI0016:1a: _OSC: platform does not support [SHPCHotplug AER DPC]
+Sep 29 20:12:09 weka65 kernel: acpi PNP0A03:02: _OSC: platform does not support [SHPCHotplug AER LTR DPC]
+Sep 29 20:12:09 weka65 kernel: acpi PNP0A03:03: _OSC: platform does not support [SHPCHotplug AER LTR DPC]
+Sep 29 20:12:09 weka65 kernel: xhci_hcd 0000:22:00.0: failed to load firmware renesas_usb_fw.mem, fallback to ROM
+Sep 29 20:12:09 weka65 kernel: mlx5_core 0000:33:00.0: firmware version: 28.36.1700
+Sep 29 20:12:09 weka65 kernel: mlx5_core 0000:33:00.0: 504.112 Gb/s available PCIe bandwidth (32.0 GT/s PCIe x16 link)
+Sep 29 20:12:09 weka65 kernel: mlx5_core 0000:33:00.0: Rate limit: 127 rates are supported, range: 0Mbps to 97656Mbps
+Sep 29 20:12:09 weka65 kernel: mlx5_core 0000:33:00.0: E-Switch: Total vports 18, per vport: max uc(128) max mc(2048)
+Sep 29 20:12:09 weka65 kernel: mlx5_core 0000:33:00.0: Port module event: module 0, Cable plugged
+Sep 29 20:12:09 weka65 kernel: mlx5_core 0000:33:00.0: mlx5_pcie_event:295:(pid 1193): PCIe slot power capability was not advertised.
+Sep 29 20:12:09 weka65 kernel: mlx5_core 0000:33:00.0: MLX5E: StrdRq(1) RqSz(8) StrdSz(2048) RxCqeCmprss(0 enhanced)
+Sep 29 20:12:09 weka65 kernel: mlx5_core 0000:33:00.1: firmware version: 28.36.1700
+Sep 29 20:12:09 weka65 kernel: mlx5_core 0000:33:00.1: 504.112 Gb/s available PCIe bandwidth (32.0 GT/s PCIe x16 link)
+Sep 29 20:12:09 weka65 kernel: mlx5_core 0000:33:00.1: Rate limit: 127 rates are supported, range: 0Mbps to 97656Mbps
+Sep 29 20:12:09 weka65 kernel: mlx5_core 0000:33:00.1: E-Switch: Total vports 18, per vport: max uc(128) max mc(2048)
+Sep 29 20:12:09 weka65 kernel: mlx5_core 0000:33:00.1: Port module event: module 1, Cable plugged
+Sep 29 20:12:09 weka65 kernel: mlx5_core 0000:33:00.1: mlx5_pcie_event:295:(pid 1859): PCIe slot power capability was not advertised.
+Sep 29 20:12:09 weka65 kernel: mlx5_core 0000:33:00.1: MLX5E: StrdRq(1) RqSz(8) StrdSz(2048) RxCqeCmprss(0 enhanced)
+Sep 29 20:12:09 weka65 kernel: mlx5_core 0000:33:00.1 ens4047f1np1: renamed from eth2
+Sep 29 20:12:09 weka65 kernel: mlx5_core 0000:33:00.0 ens4047f0np0: renamed from eth0
+Sep 29 20:12:12 weka65 kernel: mlx5_core 0000:33:00.0 ens4047f0np0: Link down
+Sep 29 20:12:13 weka65 kernel: mlx5_core 0000:33:00.1 ens4047f1np1: Link down
+Connection to 172.31.18.65 closed.
+bash-3.2$

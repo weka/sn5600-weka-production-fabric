@@ -1,0 +1,369 @@
+bash-3.2$ ssh -t root@172.31.18.68 '
+> ping -n -I 10.200.68.1 -c 5 -W 2 -M do -s 8972 10.200.60.1
+> ping -n -I 10.200.68.3 -c 5 -W 2 -M do -s 8972 10.200.60.3
+> '
+root@172.31.18.68's password:
+Permission denied, please try again.
+root@172.31.18.68's password:
+PING 10.200.60.1 (10.200.60.1) from 10.200.68.1 : 8972(9000) bytes of data.
+8980 bytes from 10.200.60.1: icmp_seq=1 ttl=61 time=0.107 ms
+8980 bytes from 10.200.60.1: icmp_seq=2 ttl=61 time=0.028 ms
+8980 bytes from 10.200.60.1: icmp_seq=3 ttl=61 time=0.026 ms
+8980 bytes from 10.200.60.1: icmp_seq=4 ttl=61 time=0.027 ms
+8980 bytes from 10.200.60.1: icmp_seq=5 ttl=61 time=0.025 ms
+
+--- 10.200.60.1 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4117ms
+rtt min/avg/max/mdev = 0.025/0.042/0.107/0.032 ms
+PING 10.200.60.3 (10.200.60.3) from 10.200.68.3 : 8972(9000) bytes of data.
+8980 bytes from 10.200.60.3: icmp_seq=1 ttl=61 time=0.101 ms
+8980 bytes from 10.200.60.3: icmp_seq=2 ttl=61 time=0.030 ms
+8980 bytes from 10.200.60.3: icmp_seq=3 ttl=61 time=0.025 ms
+8980 bytes from 10.200.60.3: icmp_seq=4 ttl=61 time=0.036 ms
+8980 bytes from 10.200.60.3: icmp_seq=5 ttl=61 time=0.023 ms
+
+--- 10.200.60.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4095ms
+rtt min/avg/max/mdev = 0.023/0.043/0.101/0.029 ms
+Connection to 172.31.18.68 closed.
+bash-3.2$ echo "===== LEAF-01 TO LEAF-03 ====="
+===== LEAF-01 TO LEAF-03 =====
+bash-3.2$ ssh -t root@172.31.18.68 '
+> ping -n -I 10.200.68.1 -c 5 -W 2 -M do -s 8972 10.200.49.1
+> ping -n -I 10.200.68.3 -c 5 -W 2 -M do -s 8972 10.200.49.3
+> '
+root@172.31.18.68's password:
+Permission denied, please try again.
+root@172.31.18.68's password:
+PING 10.200.49.1 (10.200.49.1) from 10.200.68.1 : 8972(9000) bytes of data.
+8980 bytes from 10.200.49.1: icmp_seq=1 ttl=61 time=0.084 ms
+8980 bytes from 10.200.49.1: icmp_seq=2 ttl=61 time=0.024 ms
+8980 bytes from 10.200.49.1: icmp_seq=3 ttl=61 time=0.021 ms
+8980 bytes from 10.200.49.1: icmp_seq=4 ttl=61 time=0.023 ms
+8980 bytes from 10.200.49.1: icmp_seq=5 ttl=61 time=0.023 ms
+
+--- 10.200.49.1 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4104ms
+rtt min/avg/max/mdev = 0.021/0.035/0.084/0.024 ms
+PING 10.200.49.3 (10.200.49.3) from 10.200.68.3 : 8972(9000) bytes of data.
+8980 bytes from 10.200.49.3: icmp_seq=1 ttl=61 time=0.065 ms
+8980 bytes from 10.200.49.3: icmp_seq=2 ttl=61 time=0.025 ms
+8980 bytes from 10.200.49.3: icmp_seq=3 ttl=61 time=0.023 ms
+8980 bytes from 10.200.49.3: icmp_seq=4 ttl=61 time=0.022 ms
+8980 bytes from 10.200.49.3: icmp_seq=5 ttl=61 time=0.022 ms
+
+--- 10.200.49.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4095ms
+rtt min/avg/max/mdev = 0.022/0.031/0.065/0.016 ms
+Connection to 172.31.18.68 closed.
+bash-3.2$ echo "===== LEAF-02 TO LEAF-04 ====="
+===== LEAF-02 TO LEAF-04 =====
+bash-3.2$ ssh -t root@172.31.18.60 '
+> ping -n -I 10.200.60.1 -c 5 -W 2 -M do -s 8972 10.200.40.1
+> ping -n -I 10.200.60.3 -c 5 -W 2 -M do -s 8972 10.200.40.3
+> '
+root@172.31.18.60's password:
+PING 10.200.40.1 (10.200.40.1) from 10.200.60.1 : 8972(9000) bytes of data.
+8980 bytes from 10.200.40.1: icmp_seq=1 ttl=61 time=0.095 ms
+8980 bytes from 10.200.40.1: icmp_seq=2 ttl=61 time=0.034 ms
+8980 bytes from 10.200.40.1: icmp_seq=3 ttl=61 time=0.028 ms
+8980 bytes from 10.200.40.1: icmp_seq=4 ttl=61 time=0.028 ms
+8980 bytes from 10.200.40.1: icmp_seq=5 ttl=61 time=0.028 ms
+
+--- 10.200.40.1 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4132ms
+rtt min/avg/max/mdev = 0.028/0.042/0.095/0.026 ms
+PING 10.200.40.3 (10.200.40.3) from 10.200.60.3 : 8972(9000) bytes of data.
+8980 bytes from 10.200.40.3: icmp_seq=1 ttl=61 time=0.104 ms
+8980 bytes from 10.200.40.3: icmp_seq=2 ttl=61 time=0.026 ms
+8980 bytes from 10.200.40.3: icmp_seq=3 ttl=61 time=0.023 ms
+8980 bytes from 10.200.40.3: icmp_seq=4 ttl=61 time=0.024 ms
+8980 bytes from 10.200.40.3: icmp_seq=5 ttl=61 time=0.027 ms
+
+--- 10.200.40.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4095ms
+rtt min/avg/max/mdev = 0.023/0.040/0.104/0.031 ms
+Connection to 172.31.18.60 closed.
+bash-3.2$ ssh -t root@172.31.18.60 '
+> test_path() {
+>   echo "===== $3 ====="
+>   ip -4 route get "$2" from "$1"
+>   ping -n -I "$1" -c 5 -W 2 -M do -s 8972 "$2"
+> }
+>
+> test_path 10.200.60.1 10.200.68.1 "LEAF-02 TO LEAF-01 PATH 1"
+> test_path 10.200.60.3 10.200.68.3 "LEAF-02 TO LEAF-01 PATH 2"
+> test_path 10.200.60.1 10.200.49.1 "LEAF-02 TO LEAF-03 PATH 1"
+> test_path 10.200.60.3 10.200.49.3 "LEAF-02 TO LEAF-03 PATH 2"
+> test_path 10.200.60.1 10.200.40.1 "LEAF-02 TO LEAF-04 PATH 1"
+> test_path 10.200.60.3 10.200.40.3 "LEAF-02 TO LEAF-04 PATH 2"
+> '
+root@172.31.18.60's password:
+===== LEAF-02 TO LEAF-01 PATH 1 =====
+10.200.68.1 from 10.200.60.1 via 10.200.60.0 dev ens4047np0 table 100 uid 0
+    cache
+PING 10.200.68.1 (10.200.68.1) from 10.200.60.1 : 8972(9000) bytes of data.
+8980 bytes from 10.200.68.1: icmp_seq=1 ttl=61 time=0.069 ms
+8980 bytes from 10.200.68.1: icmp_seq=2 ttl=61 time=0.026 ms
+8980 bytes from 10.200.68.1: icmp_seq=3 ttl=61 time=0.026 ms
+8980 bytes from 10.200.68.1: icmp_seq=4 ttl=61 time=0.026 ms
+8980 bytes from 10.200.68.1: icmp_seq=5 ttl=61 time=0.024 ms
+
+--- 10.200.68.1 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4115ms
+rtt min/avg/max/mdev = 0.024/0.034/0.069/0.017 ms
+===== LEAF-02 TO LEAF-01 PATH 2 =====
+10.200.68.3 from 10.200.60.3 via 10.200.60.2 dev ens3919np0 table 101 uid 0
+    cache
+PING 10.200.68.3 (10.200.68.3) from 10.200.60.3 : 8972(9000) bytes of data.
+8980 bytes from 10.200.68.3: icmp_seq=1 ttl=61 time=0.050 ms
+8980 bytes from 10.200.68.3: icmp_seq=2 ttl=61 time=0.022 ms
+8980 bytes from 10.200.68.3: icmp_seq=3 ttl=61 time=0.023 ms
+8980 bytes from 10.200.68.3: icmp_seq=4 ttl=61 time=0.025 ms
+8980 bytes from 10.200.68.3: icmp_seq=5 ttl=61 time=0.022 ms
+
+--- 10.200.68.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4094ms
+rtt min/avg/max/mdev = 0.022/0.028/0.050/0.010 ms
+===== LEAF-02 TO LEAF-03 PATH 1 =====
+10.200.49.1 from 10.200.60.1 via 10.200.60.0 dev ens4047np0 table 100 uid 0
+    cache
+PING 10.200.49.1 (10.200.49.1) from 10.200.60.1 : 8972(9000) bytes of data.
+8980 bytes from 10.200.49.1: icmp_seq=1 ttl=61 time=0.057 ms
+8980 bytes from 10.200.49.1: icmp_seq=2 ttl=61 time=0.029 ms
+8980 bytes from 10.200.49.1: icmp_seq=3 ttl=61 time=0.026 ms
+8980 bytes from 10.200.49.1: icmp_seq=4 ttl=61 time=0.032 ms
+8980 bytes from 10.200.49.1: icmp_seq=5 ttl=61 time=0.023 ms
+
+--- 10.200.49.1 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4094ms
+rtt min/avg/max/mdev = 0.023/0.033/0.057/0.012 ms
+===== LEAF-02 TO LEAF-03 PATH 2 =====
+10.200.49.3 from 10.200.60.3 via 10.200.60.2 dev ens3919np0 table 101 uid 0
+    cache
+PING 10.200.49.3 (10.200.49.3) from 10.200.60.3 : 8972(9000) bytes of data.
+8980 bytes from 10.200.49.3: icmp_seq=1 ttl=61 time=0.046 ms
+8980 bytes from 10.200.49.3: icmp_seq=2 ttl=61 time=0.024 ms
+8980 bytes from 10.200.49.3: icmp_seq=3 ttl=61 time=0.022 ms
+8980 bytes from 10.200.49.3: icmp_seq=4 ttl=61 time=0.023 ms
+8980 bytes from 10.200.49.3: icmp_seq=5 ttl=61 time=0.026 ms
+
+--- 10.200.49.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4094ms
+rtt min/avg/max/mdev = 0.022/0.028/0.046/0.009 ms
+===== LEAF-02 TO LEAF-04 PATH 1 =====
+10.200.40.1 from 10.200.60.1 via 10.200.60.0 dev ens4047np0 table 100 uid 0
+    cache
+PING 10.200.40.1 (10.200.40.1) from 10.200.60.1 : 8972(9000) bytes of data.
+8980 bytes from 10.200.40.1: icmp_seq=1 ttl=61 time=0.059 ms
+8980 bytes from 10.200.40.1: icmp_seq=2 ttl=61 time=0.027 ms
+8980 bytes from 10.200.40.1: icmp_seq=3 ttl=61 time=0.031 ms
+8980 bytes from 10.200.40.1: icmp_seq=4 ttl=61 time=0.029 ms
+8980 bytes from 10.200.40.1: icmp_seq=5 ttl=61 time=0.027 ms
+
+--- 10.200.40.1 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4094ms
+rtt min/avg/max/mdev = 0.027/0.034/0.059/0.012 ms
+===== LEAF-02 TO LEAF-04 PATH 2 =====
+10.200.40.3 from 10.200.60.3 via 10.200.60.2 dev ens3919np0 table 101 uid 0
+    cache
+PING 10.200.40.3 (10.200.40.3) from 10.200.60.3 : 8972(9000) bytes of data.
+8980 bytes from 10.200.40.3: icmp_seq=1 ttl=61 time=0.045 ms
+8980 bytes from 10.200.40.3: icmp_seq=2 ttl=61 time=0.024 ms
+8980 bytes from 10.200.40.3: icmp_seq=3 ttl=61 time=0.023 ms
+8980 bytes from 10.200.40.3: icmp_seq=4 ttl=61 time=0.024 ms
+8980 bytes from 10.200.40.3: icmp_seq=5 ttl=61 time=0.024 ms
+
+--- 10.200.40.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4094ms
+rtt min/avg/max/mdev = 0.023/0.028/0.045/0.008 ms
+Connection to 172.31.18.60 closed.
+bash-3.2$ ssh -t root@172.31.18.49 '
+> test_path() {
+>   echo "===== $3 ====="
+>   ip -4 route get "$2" from "$1"
+>   ping -n -I "$1" -c 5 -W 2 -M do -s 8972 "$2"
+> }
+>
+> test_path 10.200.49.1 10.200.68.1 "LEAF-03 TO LEAF-01 PATH 1"
+> test_path 10.200.49.3 10.200.68.3 "LEAF-03 TO LEAF-01 PATH 2"
+> test_path 10.200.49.1 10.200.60.1 "LEAF-03 TO LEAF-02 PATH 1"
+> test_path 10.200.49.3 10.200.60.3 "LEAF-03 TO LEAF-02 PATH 2"
+> test_path 10.200.49.1 10.200.40.1 "LEAF-03 TO LEAF-04 PATH 1"
+> test_path 10.200.49.3 10.200.40.3 "LEAF-03 TO LEAF-04 PATH 2"
+> '
+root@172.31.18.49's password:
+===== LEAF-03 TO LEAF-01 PATH 1 =====
+10.200.68.1 from 10.200.49.1 via 10.200.49.0 dev ens4047np0 table 100 uid 0
+    cache
+PING 10.200.68.1 (10.200.68.1) from 10.200.49.1 : 8972(9000) bytes of data.
+8980 bytes from 10.200.68.1: icmp_seq=1 ttl=61 time=0.058 ms
+8980 bytes from 10.200.68.1: icmp_seq=2 ttl=61 time=0.025 ms
+8980 bytes from 10.200.68.1: icmp_seq=3 ttl=61 time=0.022 ms
+8980 bytes from 10.200.68.1: icmp_seq=4 ttl=61 time=0.022 ms
+8980 bytes from 10.200.68.1: icmp_seq=5 ttl=61 time=0.024 ms
+
+--- 10.200.68.1 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4075ms
+rtt min/avg/max/mdev = 0.022/0.030/0.058/0.013 ms
+===== LEAF-03 TO LEAF-01 PATH 2 =====
+10.200.68.3 from 10.200.49.3 via 10.200.49.2 dev ens3919np0 table 101 uid 0
+    cache
+PING 10.200.68.3 (10.200.68.3) from 10.200.49.3 : 8972(9000) bytes of data.
+8980 bytes from 10.200.68.3: icmp_seq=1 ttl=61 time=0.057 ms
+8980 bytes from 10.200.68.3: icmp_seq=2 ttl=61 time=0.028 ms
+8980 bytes from 10.200.68.3: icmp_seq=3 ttl=61 time=0.026 ms
+8980 bytes from 10.200.68.3: icmp_seq=4 ttl=61 time=0.025 ms
+8980 bytes from 10.200.68.3: icmp_seq=5 ttl=61 time=0.032 ms
+
+--- 10.200.68.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4094ms
+rtt min/avg/max/mdev = 0.025/0.033/0.057/0.011 ms
+===== LEAF-03 TO LEAF-02 PATH 1 =====
+10.200.60.1 from 10.200.49.1 via 10.200.49.0 dev ens4047np0 table 100 uid 0
+    cache
+PING 10.200.60.1 (10.200.60.1) from 10.200.49.1 : 8972(9000) bytes of data.
+8980 bytes from 10.200.60.1: icmp_seq=1 ttl=61 time=0.036 ms
+8980 bytes from 10.200.60.1: icmp_seq=2 ttl=61 time=0.025 ms
+8980 bytes from 10.200.60.1: icmp_seq=3 ttl=61 time=0.024 ms
+8980 bytes from 10.200.60.1: icmp_seq=4 ttl=61 time=0.024 ms
+8980 bytes from 10.200.60.1: icmp_seq=5 ttl=61 time=0.023 ms
+
+--- 10.200.60.1 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4093ms
+rtt min/avg/max/mdev = 0.023/0.026/0.036/0.004 ms
+===== LEAF-03 TO LEAF-02 PATH 2 =====
+10.200.60.3 from 10.200.49.3 via 10.200.49.2 dev ens3919np0 table 101 uid 0
+    cache
+PING 10.200.60.3 (10.200.60.3) from 10.200.49.3 : 8972(9000) bytes of data.
+8980 bytes from 10.200.60.3: icmp_seq=1 ttl=61 time=0.042 ms
+8980 bytes from 10.200.60.3: icmp_seq=2 ttl=61 time=0.029 ms
+8980 bytes from 10.200.60.3: icmp_seq=3 ttl=61 time=0.025 ms
+8980 bytes from 10.200.60.3: icmp_seq=4 ttl=61 time=0.025 ms
+8980 bytes from 10.200.60.3: icmp_seq=5 ttl=61 time=0.023 ms
+
+--- 10.200.60.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4094ms
+rtt min/avg/max/mdev = 0.023/0.028/0.042/0.006 ms
+===== LEAF-03 TO LEAF-04 PATH 1 =====
+10.200.40.1 from 10.200.49.1 via 10.200.49.0 dev ens4047np0 table 100 uid 0
+    cache
+PING 10.200.40.1 (10.200.40.1) from 10.200.49.1 : 8972(9000) bytes of data.
+8980 bytes from 10.200.40.1: icmp_seq=1 ttl=61 time=0.046 ms
+8980 bytes from 10.200.40.1: icmp_seq=2 ttl=61 time=0.026 ms
+8980 bytes from 10.200.40.1: icmp_seq=3 ttl=61 time=0.024 ms
+8980 bytes from 10.200.40.1: icmp_seq=4 ttl=61 time=0.024 ms
+8980 bytes from 10.200.40.1: icmp_seq=5 ttl=61 time=0.026 ms
+
+--- 10.200.40.1 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4094ms
+rtt min/avg/max/mdev = 0.024/0.029/0.046/0.008 ms
+===== LEAF-03 TO LEAF-04 PATH 2 =====
+10.200.40.3 from 10.200.49.3 via 10.200.49.2 dev ens3919np0 table 101 uid 0
+    cache
+PING 10.200.40.3 (10.200.40.3) from 10.200.49.3 : 8972(9000) bytes of data.
+8980 bytes from 10.200.40.3: icmp_seq=1 ttl=61 time=0.060 ms
+8980 bytes from 10.200.40.3: icmp_seq=2 ttl=61 time=0.028 ms
+8980 bytes from 10.200.40.3: icmp_seq=3 ttl=61 time=0.026 ms
+8980 bytes from 10.200.40.3: icmp_seq=4 ttl=61 time=0.026 ms
+8980 bytes from 10.200.40.3: icmp_seq=5 ttl=61 time=0.028 ms
+
+--- 10.200.40.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4094ms
+rtt min/avg/max/mdev = 0.026/0.033/0.060/0.013 ms
+Connection to 172.31.18.49 closed.
+bash-3.2$ ssh -t root@172.31.18.40 '
+> test_path() {
+>   echo "===== $3 ====="
+>   ip -4 route get "$2" from "$1"
+>   ping -n -I "$1" -c 5 -W 2 -M do -s 8972 "$2"
+> }
+>
+> test_path 10.200.40.1 10.200.68.1 "LEAF-04 TO LEAF-01 PATH 1"
+> test_path 10.200.40.3 10.200.68.3 "LEAF-04 TO LEAF-01 PATH 2"
+> test_path 10.200.40.1 10.200.60.1 "LEAF-04 TO LEAF-02 PATH 1"
+> test_path 10.200.40.3 10.200.60.3 "LEAF-04 TO LEAF-02 PATH 2"
+> test_path 10.200.40.1 10.200.49.1 "LEAF-04 TO LEAF-03 PATH 1"
+> test_path 10.200.40.3 10.200.49.3 "LEAF-04 TO LEAF-03 PATH 2"
+> '
+root@172.31.18.40's password:
+===== LEAF-04 TO LEAF-01 PATH 1 =====
+10.200.68.1 from 10.200.40.1 via 10.200.40.0 dev ens4047np0 table 100 uid 0
+    cache
+PING 10.200.68.1 (10.200.68.1) from 10.200.40.1 : 8972(9000) bytes of data.
+8980 bytes from 10.200.68.1: icmp_seq=1 ttl=61 time=0.067 ms
+8980 bytes from 10.200.68.1: icmp_seq=2 ttl=61 time=0.024 ms
+8980 bytes from 10.200.68.1: icmp_seq=3 ttl=61 time=0.023 ms
+8980 bytes from 10.200.68.1: icmp_seq=4 ttl=61 time=0.022 ms
+8980 bytes from 10.200.68.1: icmp_seq=5 ttl=61 time=0.024 ms
+
+--- 10.200.68.1 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4090ms
+rtt min/avg/max/mdev = 0.022/0.032/0.067/0.017 ms
+===== LEAF-04 TO LEAF-01 PATH 2 =====
+10.200.68.3 from 10.200.40.3 via 10.200.40.2 dev ens3919np0 table 101 uid 0
+    cache
+PING 10.200.68.3 (10.200.68.3) from 10.200.40.3 : 8972(9000) bytes of data.
+8980 bytes from 10.200.68.3: icmp_seq=1 ttl=61 time=0.062 ms
+8980 bytes from 10.200.68.3: icmp_seq=2 ttl=61 time=0.028 ms
+8980 bytes from 10.200.68.3: icmp_seq=3 ttl=61 time=0.027 ms
+8980 bytes from 10.200.68.3: icmp_seq=4 ttl=61 time=0.033 ms
+8980 bytes from 10.200.68.3: icmp_seq=5 ttl=61 time=0.023 ms
+
+--- 10.200.68.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4094ms
+rtt min/avg/max/mdev = 0.023/0.034/0.062/0.014 ms
+===== LEAF-04 TO LEAF-02 PATH 1 =====
+10.200.60.1 from 10.200.40.1 via 10.200.40.0 dev ens4047np0 table 100 uid 0
+    cache
+PING 10.200.60.1 (10.200.60.1) from 10.200.40.1 : 8972(9000) bytes of data.
+8980 bytes from 10.200.60.1: icmp_seq=1 ttl=61 time=0.067 ms
+8980 bytes from 10.200.60.1: icmp_seq=2 ttl=61 time=0.024 ms
+8980 bytes from 10.200.60.1: icmp_seq=3 ttl=61 time=0.025 ms
+8980 bytes from 10.200.60.1: icmp_seq=4 ttl=61 time=0.036 ms
+8980 bytes from 10.200.60.1: icmp_seq=5 ttl=61 time=0.024 ms
+
+--- 10.200.60.1 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4094ms
+rtt min/avg/max/mdev = 0.024/0.035/0.067/0.016 ms
+===== LEAF-04 TO LEAF-02 PATH 2 =====
+10.200.60.3 from 10.200.40.3 via 10.200.40.2 dev ens3919np0 table 101 uid 0
+    cache
+PING 10.200.60.3 (10.200.60.3) from 10.200.40.3 : 8972(9000) bytes of data.
+8980 bytes from 10.200.60.3: icmp_seq=1 ttl=61 time=0.060 ms
+8980 bytes from 10.200.60.3: icmp_seq=2 ttl=61 time=0.027 ms
+8980 bytes from 10.200.60.3: icmp_seq=3 ttl=61 time=0.028 ms
+8980 bytes from 10.200.60.3: icmp_seq=4 ttl=61 time=0.027 ms
+8980 bytes from 10.200.60.3: icmp_seq=5 ttl=61 time=0.025 ms
+
+--- 10.200.60.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4094ms
+rtt min/avg/max/mdev = 0.025/0.033/0.060/0.013 ms
+===== LEAF-04 TO LEAF-03 PATH 1 =====
+10.200.49.1 from 10.200.40.1 via 10.200.40.0 dev ens4047np0 table 100 uid 0
+    cache
+PING 10.200.49.1 (10.200.49.1) from 10.200.40.1 : 8972(9000) bytes of data.
+8980 bytes from 10.200.49.1: icmp_seq=1 ttl=61 time=0.049 ms
+8980 bytes from 10.200.49.1: icmp_seq=2 ttl=61 time=0.024 ms
+8980 bytes from 10.200.49.1: icmp_seq=3 ttl=61 time=0.024 ms
+8980 bytes from 10.200.49.1: icmp_seq=4 ttl=61 time=0.023 ms
+8980 bytes from 10.200.49.1: icmp_seq=5 ttl=61 time=0.024 ms
+
+--- 10.200.49.1 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4094ms
+rtt min/avg/max/mdev = 0.023/0.028/0.049/0.010 ms
+===== LEAF-04 TO LEAF-03 PATH 2 =====
+10.200.49.3 from 10.200.40.3 via 10.200.40.2 dev ens3919np0 table 101 uid 0
+    cache
+PING 10.200.49.3 (10.200.49.3) from 10.200.40.3 : 8972(9000) bytes of data.
+8980 bytes from 10.200.49.3: icmp_seq=1 ttl=61 time=0.054 ms
+8980 bytes from 10.200.49.3: icmp_seq=2 ttl=61 time=0.026 ms
+8980 bytes from 10.200.49.3: icmp_seq=3 ttl=61 time=0.028 ms
+8980 bytes from 10.200.49.3: icmp_seq=4 ttl=61 time=0.034 ms
+8980 bytes from 10.200.49.3: icmp_seq=5 ttl=61 time=0.023 ms
+
+--- 10.200.49.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4094ms
+rtt min/avg/max/mdev = 0.023/0.033/0.054/0.011 ms
+Connection to 172.31.18.40 closed.
+bash-3.2$

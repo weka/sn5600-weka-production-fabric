@@ -1,0 +1,46 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    ens4047f0np0:
+      match:
+        macaddress: a0:88:c2:d5:63:e2
+      set-name: ens4047f0np0
+      dhcp4: false
+      dhcp6: false
+      accept-ra: false
+      link-local: []
+      mtu: 9000
+      addresses:
+        - 10.200.66.1/31
+      routes:
+        - to: 10.200.0.0/16
+          via: 10.200.66.0
+          table: 100
+      routing-policy:
+        - from: 10.200.66.1/32
+          table: 100
+          priority: 32764
+      ignore-carrier: true
+      optional: true
+    ens4047f1np1:
+      match:
+        macaddress: a0:88:c2:d5:63:e3
+      set-name: ens4047f1np1
+      dhcp4: false
+      dhcp6: false
+      accept-ra: false
+      link-local: []
+      mtu: 9000
+      addresses:
+        - 10.200.66.3/31
+      routes:
+        - to: 10.200.0.0/16
+          via: 10.200.66.2
+          table: 101
+      routing-policy:
+        - from: 10.200.66.3/32
+          table: 101
+          priority: 32765
+      ignore-carrier: true
+      optional: true

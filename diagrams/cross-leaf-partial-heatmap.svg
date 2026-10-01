@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="850" viewBox="0 0 1120 850">
+<rect width="1120" height="850" fill="#f5f8fa"/>
+<style>text{font-family:Arial,sans-serif} .label{font-size:16px;fill:#183747} .note{font-size:14px;fill:#4b6473}</style>
+<text x="40" y="50" font-size="28" fill="#183747" text-anchor="start">Production SN5600 / WEKA — cross-leaf RDMA</text>
+<text x="40" y="82" font-size="17" fill="#183747" text-anchor="start">Partial evidence: 5 of 12 directed pairs supplied · September 30, 2026</text>
+<text x="40" y="112" font-size="16" fill="#183747" text-anchor="start">Two NICs concurrently · 30 seconds per direction · combined bandwidth in Gbit/s</text>
+<text x="40" y="170" font-size="15" fill="#183747" text-anchor="start">Source ↓ / Destination →</text>
+<text x="340.0" y="160" font-size="16" fill="#183747" text-anchor="middle">leaf-01 / weka68</text>
+<text x="540.0" y="160" font-size="16" fill="#183747" text-anchor="middle">leaf-02 / weka60</text>
+<text x="740.0" y="160" font-size="16" fill="#183747" text-anchor="middle">leaf-03 / weka49</text>
+<text x="940.0" y="160" font-size="16" fill="#183747" text-anchor="middle">leaf-04 / weka40</text>
+<text x="40" y="240" font-size="16" fill="#183747" text-anchor="start">leaf-01 / weka68</text>
+<rect x="244" y="194" width="192" height="97" rx="8" fill="#e8eef2"/>
+<text x="340.0" y="242" font-size="17" fill="#506675" text-anchor="middle">Same leaf</text>
+<rect x="444" y="194" width="192" height="97" rx="8" fill="#13617b"/>
+<text x="540.0" y="232" font-size="26" fill="white" text-anchor="middle">392.08</text>
+<text x="540.0" y="256" font-size="12" fill="white" text-anchor="middle">NICs: 196.04 + 196.04</text>
+<rect x="644" y="194" width="192" height="97" rx="8" fill="#13617b"/>
+<text x="740.0" y="232" font-size="26" fill="white" text-anchor="middle">392.06</text>
+<text x="740.0" y="256" font-size="12" fill="white" text-anchor="middle">NICs: 196.03 + 196.03</text>
+<rect x="844" y="194" width="192" height="97" rx="8" fill="#13617b"/>
+<text x="940.0" y="232" font-size="26" fill="white" text-anchor="middle">392.08</text>
+<text x="940.0" y="256" font-size="12" fill="white" text-anchor="middle">NICs: 196.04 + 196.04</text>
+<text x="940.0" y="276" font-size="11" fill="white" text-anchor="middle">Server-log collection warning</text>
+<text x="40" y="345" font-size="16" fill="#183747" text-anchor="start">leaf-02 / weka60</text>
+<rect x="244" y="299" width="192" height="97" rx="8" fill="#14627c"/>
+<text x="340.0" y="337" font-size="26" fill="white" text-anchor="middle">390.24</text>
+<text x="340.0" y="361" font-size="12" fill="white" text-anchor="middle">NICs: 195.03 + 195.21</text>
+<rect x="444" y="299" width="192" height="97" rx="8" fill="#e8eef2"/>
+<text x="540.0" y="347" font-size="17" fill="#506675" text-anchor="middle">Same leaf</text>
+<rect x="644" y="299" width="192" height="97" rx="8" fill="#e8eef2"/>
+<text x="740.0" y="347" font-size="16" fill="#506675" text-anchor="middle">Not yet supplied</text>
+<rect x="844" y="299" width="192" height="97" rx="8" fill="#e8eef2"/>
+<text x="940.0" y="347" font-size="16" fill="#506675" text-anchor="middle">Not yet supplied</text>
+<text x="40" y="450" font-size="16" fill="#183747" text-anchor="start">leaf-03 / weka49</text>
+<rect x="244" y="404" width="192" height="97" rx="8" fill="#14627c"/>
+<text x="340.0" y="442" font-size="26" fill="white" text-anchor="middle">390.22</text>
+<text x="340.0" y="466" font-size="12" fill="white" text-anchor="middle">NICs: 195.16 + 195.06</text>
+<rect x="444" y="404" width="192" height="97" rx="8" fill="#e8eef2"/>
+<text x="540.0" y="452" font-size="16" fill="#506675" text-anchor="middle">Not yet supplied</text>
+<rect x="644" y="404" width="192" height="97" rx="8" fill="#e8eef2"/>
+<text x="740.0" y="452" font-size="17" fill="#506675" text-anchor="middle">Same leaf</text>
+<rect x="844" y="404" width="192" height="97" rx="8" fill="#e8eef2"/>
+<text x="940.0" y="452" font-size="16" fill="#506675" text-anchor="middle">Not yet supplied</text>
+<text x="40" y="555" font-size="16" fill="#183747" text-anchor="start">leaf-04 / weka40</text>
+<rect x="244" y="509" width="192" height="97" rx="8" fill="#e8eef2"/>
+<text x="340.0" y="557" font-size="16" fill="#506675" text-anchor="middle">Not yet supplied</text>
+<rect x="444" y="509" width="192" height="97" rx="8" fill="#e8eef2"/>
+<text x="540.0" y="557" font-size="16" fill="#506675" text-anchor="middle">Not yet supplied</text>
+<rect x="644" y="509" width="192" height="97" rx="8" fill="#e8eef2"/>
+<text x="740.0" y="557" font-size="16" fill="#506675" text-anchor="middle">Not yet supplied</text>
+<rect x="844" y="509" width="192" height="97" rx="8" fill="#e8eef2"/>
+<text x="940.0" y="557" font-size="17" fill="#506675" text-anchor="middle">Same leaf</text>
+<text x="40" y="650" font-size="15" fill="#183747" text-anchor="start">Color shows throughput relative to the slower endpoint’s nominal combined link rate.</text>
+<text x="40" y="678" font-size="15" fill="#183747" text-anchor="start">leaf-01: 2 × 200G; other representatives: 2 × 400G. Darker blue = higher relative throughput.</text>
+<text x="40" y="716" font-size="15" fill="#183747" text-anchor="start">Scope: representative client paths; not every ECMP link, all clients, congestion or failover.</text>
+<text x="40" y="744" font-size="15" fill="#183747" text-anchor="start">weka68 → weka40: client benchmarks returned 0/0; SSH server-log retrieval failed.</text>
+<text x="40" y="772" font-size="15" fill="#183747" text-anchor="start">Unmeasured cells are left blank of bandwidth values. Do not infer reverse-direction results.</text>
+</svg>

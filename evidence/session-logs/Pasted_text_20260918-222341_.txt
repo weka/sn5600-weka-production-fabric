@@ -1,0 +1,151 @@
+cumulus@MT2324XZ0TB0:mgmt:~$ nv show  interface
+Interface   State  Speed  MTU    Type      Remote Host  Remote Port        Summary
+----------  -----  -----  -----  --------  -----------  -----------------  ----------------------------------------
+br_default  up            9216   bridge                                    IP Address: fe80::9e05:91ff:fe9b:f3ff/64
+eth0        up     1G     1500   eth       VN53KYF1DG   14:ab:ec:5c:08:95  IP Address:               172.31.17.3/21
+                                                                           IP Address: fe80::966d:aeff:fed9:9ff2/64
+lo          up            65536  loopback                                  IP Address:                  127.0.0.1/8
+                                                                           IP Address:                      ::1/128
+mgmt        up            65575  vrf                                       IP Address:                  127.0.0.1/8
+                                                                           IP Address:                      ::1/128
+swp1s0      down          9216   swp
+swp1s1      down          9216   swp
+swp2s0      down          9216   swp
+swp2s1      down          9216   swp
+swp3s0      down          9216   swp
+swp3s1      down          9216   swp
+swp4s0      down          9216   swp
+swp4s1      down          9216   swp
+swp5s0      down          9216   swp
+swp5s1      down          9216   swp
+swp6s0      down          9216   swp
+swp6s1      down          9216   swp
+swp7s0      down          9216   swp
+swp7s1      down          9216   swp
+swp8s0      down          9216   swp
+swp8s1      down          9216   swp
+swp9s0      up     200G   9216   swp       weka77.maas  a0:88:c2:d5:64:42
+swp9s1      up     200G   9216   swp       weka70.maas  a0:88:c2:d5:64:23
+swp9s2      up     200G   9216   swp       weka74.maas  a0:88:c2:34:b9:36
+swp9s3      up     200G   9216   swp       weka73.maas  a0:88:c2:d5:73:82
+swp10s0     up     200G   9216   swp       weka74.maas  a0:88:c2:34:b9:37
+swp10s1     up     200G   9216   swp       weka69.maas  a0:88:c2:ad:00:b8
+swp10s2     up     200G   9216   swp       weka69.maas  a0:88:c2:ad:00:b9
+swp10s3     up     200G   9216   swp       weka68.maas  a0:88:c2:a8:5b:40
+swp11s0     up     200G   9216   swp
+swp11s1     up     200G   9216   swp
+swp11s2     up     200G   9216   swp       weka79       a0:88:c2:d5:66:63
+swp11s3     up     200G   9216   swp       weka79       a0:88:c2:d5:66:62
+swp12s0     up     200G   9216   swp       weka68.maas  a0:88:c2:a8:5b:41
+swp12s1     up     200G   9216   swp       weka71.maas  a0:88:c2:d5:66:73
+swp12s2     up     200G   9216   swp       weka76.maas  a0:88:c2:d5:66:92
+swp12s3     up     200G   9216   swp       weka71.maas  a0:88:c2:d5:66:72
+swp13s0     up     200G   9216   swp       weka72.maas  a0:88:c2:d5:64:02
+swp13s1     up     200G   9216   swp       weka70.maas  a0:88:c2:d5:64:22
+swp13s2     up     200G   9216   swp       weka73.maas  a0:88:c2:d5:73:83
+swp13s3     up     200G   9216   swp       weka75.maas  a0:88:c2:d5:64:13
+swp14s0     up     200G   9216   swp       weka75.maas  a0:88:c2:d5:64:12
+swp14s1     up     200G   9216   swp       weka76.maas  a0:88:c2:d5:66:93
+swp14s2     up     200G   9216   swp       weka77.maas  a0:88:c2:d5:64:43
+swp14s3     up     200G   9216   swp       weka72.maas  a0:88:c2:d5:64:03
+swp15s0     up     200G   9216   swp       weka64.maas  a0:88:c2:ad:03:d9
+swp15s1     up     200G   9216   swp       weka65.maas  a0:88:c2:ac:f2:c9
+swp15s2     down          9216   swp
+swp15s3     down          9216   swp
+swp16s0     up     200G   9216   swp       weka66.maas  a0:88:c2:d5:63:e3
+swp16s1     up     200G   9216   swp       weka67.maas  a0:88:c2:ac:db:e9
+swp16s2     up     200G   9216   swp       weka67.maas  a0:88:c2:ac:db:e8
+swp16s3     up     200G   9216   swp       weka66.maas  a0:88:c2:d5:63:e2
+swp17s0     up     200G   9216   swp
+swp17s1     up     200G   9216   swp       weka81       e8:9e:49:c8:7e:80
+swp17s2     up     200G   9216   swp       weka81       e8:9e:49:c8:7e:81
+swp17s3     up     200G   9216   swp
+swp18       down          9216   swp
+swp19s0     down          9216   swp
+swp19s1     down          9216   swp
+swp20s0     down          9216   swp
+swp20s1     down          9216   swp
+swp21s0     up     400G   9216   swp       weka61.maas  e0:9d:73:1d:d2:bc
+swp21s1     up     400G   9216   swp       weka60.maas  d8:94:24:1d:d5:2c
+swp22s0     up     400G   9216   swp       weka63.maas  d8:94:24:1d:d5:9c
+swp22s1     up     400G   9216   swp       weka62.maas  d8:94:24:1d:d5:6c
+swp23s0     up     400G   9216   swp       weka57.maas  d8:94:24:1d:d5:24
+swp23s1     up     400G   9216   swp       weka56.maas  d8:94:24:1d:d5:54
+swp24s0     up     400G   9216   swp       weka59.maas  d8:94:24:1d:d5:64
+swp24s1     up     400G   9216   swp       weka58.maas  d8:94:24:1d:d5:74
+swp25s0     up     400G   9216   swp       weka53.maas  9c:63:c0:ba:00:12
+swp25s1     up     400G   9216   swp       weka52.maas  e0:9d:73:02:8b:be
+swp26s0     up     400G   9216   swp       weka55.maas  d8:94:24:1d:d5:4c
+swp26s1     up     400G   9216   swp       weka54.maas  e0:9d:73:02:8a:ee
+swp27s0     up     400G   9216   swp       weka49.maas  d8:94:24:1d:d5:e4
+swp27s1     up     400G   9216   swp       weka48.maas  d8:94:24:1d:d6:0c
+swp28s0     up     400G   9216   swp       weka51.maas  9c:63:c0:9b:3b:14
+swp28s1     up     400G   9216   swp       weka50.maas  d8:94:24:1d:d5:cc
+swp29s0     up     400G   9216   swp       weka45.maas  e0:9d:73:02:a5:2e
+swp29s1     up     400G   9216   swp       weka44.maas  9c:63:c0:9b:3a:dc
+swp30s0     up     400G   9216   swp       weka47.maas  d8:94:24:d5:31:26
+swp30s1     up     400G   9216   swp       weka46.maas  d8:94:24:1d:d5:f4
+swp31s0     up     400G   9216   swp       weka41.maas  d8:94:24:1d:d5:d4
+swp31s1     up     400G   9216   swp       weka40.maas  d8:94:24:1d:d5:ac
+swp32s0     up     400G   9216   swp       weka43.maas  d8:94:24:1d:d5:fc
+swp32s1     up     400G   9216   swp       weka42.maas  d8:94:24:1d:d5:5c
+swp33s0     up     400G   9216   swp       orca97       e8:9e:49:59:08:39
+swp33s1     up     400G   9216   swp       orca97       e8:9e:49:59:08:38
+swp34s0     up     400G   9216   swp       orca97       e8:9e:49:7e:65:0f
+swp34s1     up     400G   9216   swp       orca97       e8:9e:49:7e:65:0e
+swp35s0     up     400G   9216   swp       orca106      e8:9e:49:7e:68:8f
+swp35s1     up     400G   9216   swp       orca106      e8:9e:49:7e:68:8e
+swp36s0     up     400G   9216   swp       orca106      e8:9e:49:7e:68:0f
+swp36s1     up     400G   9216   swp       orca106      e8:9e:49:7e:68:0e
+swp37s0     up     400G   9216   swp       orca99       e8:9e:49:7e:63:6f
+swp37s1     up     400G   9216   swp       orca99       e8:9e:49:7e:63:6e
+swp38s0     up     400G   9216   swp       orca99       dc:73:fc:5e:9e:87
+swp38s1     up     400G   9216   swp       orca99       dc:73:fc:5e:9e:86
+swp39s0     up     400G   9216   swp       orca100      dc:73:fc:5c:f1:e7
+swp39s1     up     400G   9216   swp       orca100      dc:73:fc:5c:f1:e6
+swp40s0     up     400G   9216   swp       orca100      e8:9e:49:35:73:2b
+swp40s1     up     400G   9216   swp       orca100      e8:9e:49:35:73:2a
+swp41s0     up     400G   9216   swp       orca101      e8:9e:49:38:25:d9
+swp41s1     up     400G   9216   swp       orca101      e8:9e:49:38:25:d8
+swp42s0     up     400G   9216   swp       orca101      e8:9e:49:35:6b:8b
+swp42s1     up     400G   9216   swp       orca101      e8:9e:49:35:6b:8a
+swp43s0     down          9216   swp
+swp43s1     up     400G   9216   swp       orca102      dc:73:fc:5e:a9:26
+swp44s0     up     400G   9216   swp       orca102      e8:9e:49:35:71:ab
+swp44s1     up     400G   9216   swp       orca102      e8:9e:49:35:71:aa
+swp45s0     up     400G   9216   swp       orca103      dc:73:fc:62:98:37
+swp45s1     up     400G   9216   swp       orca103      dc:73:fc:62:98:36
+swp46s0     up     400G   9216   swp       orca103      e8:9e:49:35:75:6b
+swp46s1     up     400G   9216   swp       orca103      e8:9e:49:35:75:6a
+swp47s0     up     400G   9216   swp       orca104      dc:73:fc:60:80:19
+swp47s1     up     400G   9216   swp       orca104      dc:73:fc:60:80:18
+swp48s0     up     400G   9216   swp       orca104      e8:9e:49:7e:64:af
+swp48s1     up     400G   9216   swp       orca104      e8:9e:49:7e:64:ae
+swp49       down          9216   swp
+swp50       down          9216   swp
+swp51       down          9216   swp
+swp52       down          9216   swp
+swp53       down          9216   swp
+swp54       down          9216   swp
+swp55s0     up     400G   9216   swp       weka25.maas  9c:63:c0:a3:73:ea
+swp55s1     up     400G   9216   swp       weka25.maas  9c:63:c0:a3:6d:f2
+swp56s0     up     400G   9216   swp       weka26.maas  9c:63:c0:a3:6d:fa
+swp56s1     up     400G   9216   swp       weka26.maas  9c:63:c0:a3:bf:e2
+swp57s0     up     400G   9216   swp       weka21.maas  9c:63:c0:a3:6e:5a
+swp57s1     up     400G   9216   swp       weka21.maas  9c:63:c0:a3:bd:da
+swp58s0     up     400G   9216   swp       weka24.maas  9c:63:c0:a3:6d:d2
+swp58s1     up     400G   9216   swp       weka24.maas  9c:63:c0:a3:72:4a
+swp59s0     up     400G   9216   swp       weka22.maas  9c:63:c0:a3:6e:2a
+swp59s1     up     400G   9216   swp       weka22.maas  9c:63:c0:a3:73:aa
+swp60s0     up     400G   9216   swp       weka23.maas  9c:63:c0:a3:bf:42
+swp60s1     up     400G   9216   swp       weka23.maas  9c:63:c0:a3:6e:32
+swp61s0     up     400G   9216   swp       weka20.maas  9c:63:c0:a3:73:a2
+swp61s1     up     400G   9216   swp       weka20.maas  9c:63:c0:a3:bf:3a
+swp62s0     up     400G   9216   swp       weka27.maas  9c:63:c0:a3:73:b2
+swp62s1     up     400G   9216   swp       weka27.maas  9c:63:c0:a3:bf:4a
+swp63s0     up     400G   9216   swp       weka28.maas  9c:63:c0:a3:b7:e2
+swp63s1     up     400G   9216   swp       weka28.maas  9c:63:c0:a3:b7:da
+swp64s0     up     400G   9216   swp       weka29.maas  9c:63:c0:a3:7c:4a
+swp64s1     up     400G   9216   swp       weka29.maas  9c:63:c0:a3:bd:42
+swp65       down          9216   swp
+cumulus@MT2324XZ0TB0:mgmt:~$

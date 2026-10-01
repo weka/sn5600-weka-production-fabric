@@ -1,0 +1,250 @@
+chandrasekhar.gonuguntla@Chandra-Gonuguntla Production_SN5600_Operations_Bundle_2026-09-30 % ssh -tt cumulus@172.31.17.21 '
+echo "===== IDENTITY ====="
+hostname
+nv show system
+
+echo "===== PENDING CONFIG ====="
+nv config diff
+
+echo "===== CURRENT ROCE CONFIG ====="
+nv show qos roce || true
+
+echo "===== EXISTING QOS CONFIG ====="
+nv config show -o commands |
+  grep -E "qos|pause|adaptive-routing" || true
+
+echo "===== CLIENT PORTS ====="
+nv show interface swp4s1 link
+nv show interface swp4s0 link
+nv show interface swp3s1 link
+nv show interface swp3s0 link
+
+echo "===== ROUTING HEALTH ====="
+sudo vtysh -c "show bgp ipv4 unicast summary"
+'
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+===== IDENTITY =====
+leaf-02
+                 operational                                    applied
+---------------  ---------------------------------------------  -------
+build            Cumulus Linux 5.11.5
+uptime           1 day, 2:59:42
+hostname         leaf-02                                        leaf-02
+product-name     Cumulus Linux
+product-release  5.11.5
+platform         x86_64-nvidia_sn5600-r0
+system-memory    3.18 GB used / 26.09 GB free / 30.92 GB total
+swap-memory      0 Bytes used / 0 Bytes free / 0 Bytes total
+health-status    OK
+date-time        2026-10-01 00:50:38
+status           N/A
+timezone         Etc/UTC
+maintenance
+  mode           disabled
+  ports          enabled
+version
+  kernel         6.1.0-cl-1-amd64
+  build-date     Sat Jan 31 02:02:13 UTC 2026
+  image          5.11.5.1004
+  onie           2023.11-5.3.0011-115200
+===== PENDING CONFIG =====
+===== CURRENT ROCE CONFIG =====
+        operational  applied
+------  -----------  -------
+enable               off
+
+
+
+RoCE PCP/DSCP->SP mapping configurations
+===========================================
+No Data
+
+
+RoCE SP->TC mapping and ETS configurations
+=============================================
+No Data
+
+
+RoCE pool config
+===================
+No Data
+
+
+Exception List
+=================
+No Data
+===== EXISTING QOS CONFIG =====
+===== CLIENT PORTS =====
+                         operational              applied
+-----------------------  -----------------------  -------
+admin-status             up
+oper-status              up
+oper-status-last-change  2026/09/30 04:22:48.125
+protodown                disabled
+auto-negotiate           on                       on
+duplex                   full                     full
+speed                    400G                     auto
+mac-address              2c:5e:ab:ac:10:fa
+fec                      rs                       auto
+mtu                      9216                     9216
+fast-linkup              off
+[breakout]
+state                    up                       up
+flap-protection
+  enable                                          on
+stats
+  in-bytes               1.20 MB
+  in-pkts                2845
+  in-drops               0
+  in-errors              0
+  out-bytes              1.11 MB
+  out-pkts               3111
+  out-drops              0
+  out-errors             0
+  carrier-transitions    2
+  carrier-up-count       1
+  carrier-down-count     1
+eyes                     81, 72, 76, 90
+grade                    81, 72, 76, 90
+troubleshooting-info     No issue was observed
+                         operational              applied
+-----------------------  -----------------------  -------
+admin-status             up
+oper-status              up
+oper-status-last-change  2026/09/30 04:22:48.237
+protodown                disabled
+auto-negotiate           on                       on
+duplex                   full                     full
+speed                    400G                     auto
+mac-address              2c:5e:ab:ac:10:f8
+fec                      rs                       auto
+mtu                      9216                     9216
+fast-linkup              off
+[breakout]
+state                    up                       up
+flap-protection
+  enable                                          on
+stats
+  in-bytes               1.17 MB
+  in-pkts                2687
+  in-drops               0
+  in-errors              0
+  out-bytes              1.09 MB
+  out-pkts               2825
+  out-drops              0
+  out-errors             0
+  carrier-transitions    2
+  carrier-up-count       1
+  carrier-down-count     1
+eyes                     78, 71, 75, 72
+grade                    78, 71, 75, 72
+troubleshooting-info     No issue was observed
+                         operational              applied
+-----------------------  -----------------------  -------
+admin-status             up
+oper-status              up
+oper-status-last-change  2026/09/30 04:22:48.234
+protodown                disabled
+auto-negotiate           on                       on
+duplex                   full                     full
+speed                    400G                     auto
+mac-address              2c:5e:ab:ac:10:fe
+fec                      rs                       auto
+mtu                      9216                     9216
+fast-linkup              off
+[breakout]
+state                    up                       up
+flap-protection
+  enable                                          on
+stats
+  in-bytes               714.72 KB
+  in-pkts                2782
+  in-drops               0
+  in-errors              0
+  out-bytes              626.09 KB
+  out-pkts               3037
+  out-drops              0
+  out-errors             0
+  carrier-transitions    2
+  carrier-up-count       1
+  carrier-down-count     1
+eyes                     81, 77, 81, 74
+grade                    81, 77, 81, 74
+troubleshooting-info     No issue was observed
+                         operational              applied
+-----------------------  -----------------------  -------
+admin-status             up
+oper-status              up
+oper-status-last-change  2026/09/30 04:22:48.122
+protodown                disabled
+auto-negotiate           on                       on
+duplex                   full                     full
+speed                    400G                     auto
+mac-address              2c:5e:ab:ac:10:fc
+fec                      rs                       auto
+mtu                      9216                     9216
+fast-linkup              off
+[breakout]
+state                    up                       up
+flap-protection
+  enable                                          on
+stats
+  in-bytes               679.53 KB
+  in-pkts                2604
+  in-drops               0
+  in-errors              0
+  out-bytes              600.80 KB
+  out-pkts               2748
+  out-drops              0
+  out-errors             0
+  carrier-transitions    2
+  carrier-up-count       1
+  carrier-down-count     1
+eyes                     77, 72, 83, 76
+grade                    77, 72, 83, 76
+troubleshooting-info     No issue was observed
+===== ROUTING HEALTH =====
+[sudo] password for cumulus:
+BGP router identifier 10.255.0.12, local AS number 65102 vrf-id 0
+BGP table version 88
+RIB entries 153, using 33 KiB of memory
+Peers 32, using 636 KiB of memory
+
+Neighbor               V         AS   MsgRcvd   MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd   PfxSnt Desc
+spine-01(10.254.0.64)  4      65200     32255     32255        0    0    0 22:51:42           59       77 N/A
+spine-01(10.254.0.66)  4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-01(10.254.0.68)  4      65200     32404     32404        0    0    0 09:17:48           59       77 N/A
+spine-01(10.254.0.70)  4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-01(10.254.0.72)  4      65200     32396     32396        0    0    0 1d00h04m           59       77 N/A
+spine-01(10.254.0.74)  4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-01(10.254.0.76)  4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-01(10.254.0.78)  4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-02(10.254.0.80)  4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-02(10.254.0.82)  4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-02(10.254.0.84)  4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-02(10.254.0.86)  4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-02(10.254.0.88)  4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-02(10.254.0.90)  4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-02(10.254.0.92)  4      65200     32403     32403        0    0    0 16:36:04           59       77 N/A
+spine-02(10.254.0.94)  4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-03(10.254.0.96)  4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-03(10.254.0.98)  4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-03(10.254.0.100) 4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-03(10.254.0.102) 4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-03(10.254.0.104) 4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-03(10.254.0.106) 4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-03(10.254.0.108) 4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-03(10.254.0.110) 4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+spine-04(10.254.0.112) 4      65200     32431     32430        0    0    0 03:27:01           59       77 N/A
+spine-04(10.254.0.114) 4      65200     32390     32394        0    0    0 00:02:39           59       77 N/A
+spine-04(10.254.0.116) 4      65200     32429     32429        0    0    0 11:12:21           59       77 N/A
+spine-04(10.254.0.118) 4      65200     32414     32416        0    0    0 03:22:29           59       77 N/A
+spine-04(10.254.0.120) 4      65200     28117     28118        0    0    0 00:11:19           59       77 N/A
+spine-04(10.254.0.122) 4      65200     32417     32419        0    0    0 05:14:50           59       77 N/A
+spine-04(10.254.0.124) 4      65200     32410     32410        0    0    0 13:17:27           59       77 N/A
+spine-04(10.254.0.126) 4      65200     32389     32389        0    0    0 1d02h58m           59       77 N/A
+
+Total number of neighbors 32
+Connection to 172.31.17.21 closed.
+chandrasekhar.gonuguntla@Chandra-Gonuguntla Production_SN5600_Operations_Bundle_2026-09-30 %

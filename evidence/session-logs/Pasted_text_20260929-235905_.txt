@@ -1,0 +1,138 @@
+bash-3.2$ for H in weka61 weka62 weka63 weka65 weka66 weka67; do
+>   echo
+>   echo "===== PREPARING $H ====="
+>
+>   bash fabric.sh copy-servers "$H" || break
+>   bash fabric.sh server-check "$H" || break
+>   bash fabric.sh server-stage "$H" || break
+>
+>   read -r -p "Review the diff. Type APPLY to configure $H: " ANSWER
+>   [ "$ANSWER" = "APPLY" ] || {
+>     echo "Stopped before applying $H"
+>     break
+>   }
+>
+>   bash fabric.sh server-apply "$H" || break
+>   bash fabric.sh server-validate "$H" || break
+> done
+
+===== PREPARING weka61 =====
+root@172.31.18.61's password:
+leaf-03_client31.sh                                                                                          100% 7873   867.5KB/s   00:00
+leaf-04_client31.sh                                                                                          100% 7560   833.2KB/s   00:00
+leaf-01_client31.sh                                                                                          100% 7867   817.0KB/s   00:00
+leaf-02_client31.sh                                                                                          100% 7405   900.0KB/s   00:00
+README.md                                                                                                    100% 5672   668.5KB/s   00:00
+mapping.json                                                                                                 100%   96KB   4.9MB/s   00:00
+SN5600_Client31_Port_IP_Mapping.xlsx                                                                         100%   24KB   1.8MB/s   00:00
+fabric.sh                                                                                                    100% 3111   388.8KB/s   00:00
+Port_IP_Mapping.csv                                                                                          100%   19KB   2.1MB/s   00:00
+SHA256SUMS                                                                                                   100% 7485   937.6KB/s   00:00
+weka72_70-datapath.yaml                                                                                      100% 1008   109.5KB/s   00:00
+weka53_client31.sh                                                                                           100% 6432   790.5KB/s   00:00
+weka53_70-datapath.yaml                                                                                      100% 1000    97.8KB/s   00:00
+weka61_client31.sh                                                                                           100% 6432   729.4KB/s   00:00
+weka47_70-datapath.yaml                                                                                      100% 1000   132.4KB/s   00:00
+weka74_client31.sh                                                                                           100% 6444   810.5KB/s   00:00
+weka46_client31.sh                                                                                           100% 6432   811.5KB/s   00:00
+weka68_client31.sh                                                                                           100% 6444   822.7KB/s   00:00
+weka58_70-datapath.yaml                                                                                      100% 1000   137.1KB/s   00:00
+weka66_70-datapath.yaml                                                                                      100% 1008   110.3KB/s   00:00
+weka71_client31.sh                                                                                           100% 6444   805.6KB/s   00:00
+weka62_70-datapath.yaml                                                                                      100% 1000   127.1KB/s   00:00
+weka43_70-datapath.yaml                                                                                      100% 1000   127.4KB/s   00:00
+weka43_client31.sh                                                                                           100% 6432   774.9KB/s   00:00
+weka69_70-datapath.yaml                                                                                      100% 1008   134.1KB/s   00:00
+weka57_70-datapath.yaml                                                                                      100% 1000   129.3KB/s   00:00
+weka56_client31.sh                                                                                           100% 6432   749.7KB/s   00:00
+weka76_70-datapath.yaml                                                                                      100% 1008   135.0KB/s   00:00
+weka49_client31.sh                                                                                           100% 6432   798.1KB/s   00:00
+weka52_70-datapath.yaml                                                                                      100% 1000   135.0KB/s   00:00
+weka67_client31.sh                                                                                           100% 6444   703.8KB/s   00:00
+weka73_70-datapath.yaml                                                                                      100% 1008   128.4KB/s   00:00
+weka55_client31.sh                                                                                           100% 6432   796.8KB/s   00:00
+weka67_70-datapath.yaml                                                                                      100% 1008   131.0KB/s   00:00
+weka40_client31.sh                                                                                           100% 6432   602.8KB/s   00:00
+weka72_client31.sh                                                                                           100% 6444   776.8KB/s   00:00
+weka46_70-datapath.yaml                                                                                      100% 1000   130.7KB/s   00:00
+weka45_client31.sh                                                                                           100% 6432   797.3KB/s   00:00
+weka42_70-datapath.yaml                                                                                      100% 1000   106.4KB/s   00:00
+weka63_70-datapath.yaml                                                                                      100% 1000    96.9KB/s   00:00
+weka77_client31.sh                                                                                           100% 6444   760.1KB/s   00:00
+weka77_70-datapath.yaml                                                                                      100% 1008   131.7KB/s   00:00
+weka49_70-datapath.yaml                                                                                      100% 1000   130.3KB/s   00:00
+weka62_client31.sh                                                                                           100% 6432   738.5KB/s   00:00
+weka50_client31.sh                                                                                           100% 6432   790.2KB/s   00:00
+weka68_70-datapath.yaml                                                                                      100% 1008   134.6KB/s   00:00
+weka56_70-datapath.yaml                                                                                      100% 1000   151.3KB/s   00:00
+weka65_client31.sh                                                                                           100% 6444   743.0KB/s   00:00
+weka57_client31.sh                                                                                           100% 6432   810.0KB/s   00:00
+weka45_70-datapath.yaml                                                                                      100% 1000   125.8KB/s   00:00
+weka42_client31.sh                                                                                           100% 6432   805.4KB/s   00:00
+weka51_70-datapath.yaml                                                                                      100% 1000   129.7KB/s   00:00
+weka70_70-datapath.yaml                                                                                      100% 1008   147.3KB/s   00:00
+weka70_client31.sh                                                                                           100% 6444   791.0KB/s   00:00
+weka74_70-datapath.yaml                                                                                      100% 1008    80.6KB/s   00:00
+weka47_client31.sh                                                                                           100% 6432   817.1KB/s   00:00
+weka69_client31.sh                                                                                           100% 6444   627.4KB/s   00:00
+weka75_client31.sh                                                                                           100% 6444   772.3KB/s   00:00
+weka55_70-datapath.yaml                                                                                      100% 1000   147.1KB/s   00:00
+weka60_client31.sh                                                                                           100% 6432   783.9KB/s   00:00
+weka41_70-datapath.yaml                                                                                      100% 1000   128.0KB/s   00:00
+weka60_70-datapath.yaml                                                                                      100% 1000   130.1KB/s   00:00
+weka52_client31.sh                                                                                           100% 6432   636.0KB/s   00:00
+weka44_70-datapath.yaml                                                                                      100% 1000   136.4KB/s   00:00
+weka51_client31.sh                                                                                           100% 6432   625.0KB/s   00:00
+weka63_client31.sh                                                                                           100% 6432   590.8KB/s   00:00
+weka65_70-datapath.yaml                                                                                      100% 1008   117.6KB/s   00:00
+weka58_client31.sh                                                                                           100% 6432   790.1KB/s   00:00
+weka76_client31.sh                                                                                           100% 6444   780.2KB/s   00:00
+weka71_70-datapath.yaml                                                                                      100% 1008   134.0KB/s   00:00
+weka50_70-datapath.yaml                                                                                      100% 1000   132.2KB/s   00:00
+weka44_client31.sh                                                                                           100% 6432   805.3KB/s   00:00
+weka73_client31.sh                                                                                           100% 6444   805.8KB/s   00:00
+weka54_70-datapath.yaml                                                                                      100% 1000   136.1KB/s   00:00
+weka41_client31.sh                                                                                           100% 6432   791.6KB/s   00:00
+weka75_70-datapath.yaml                                                                                      100% 1008   135.1KB/s   00:00
+weka54_client31.sh                                                                                           100% 6432   797.1KB/s   00:00
+weka61_70-datapath.yaml                                                                                      100% 1000   129.1KB/s   00:00
+weka40_70-datapath.yaml                                                                                      100% 1000   120.7KB/s   00:00
+weka66_client31.sh                                                                                           100% 6444   376.5KB/s   00:00
+bash-3.2$ bash fabric.sh switch-end-to-end leaf-02
+
+===== leaf-02 172.31.17.21 --end-to-end =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+[sudo] password for cumulus:
+PASS weka60-link1: swp4s1 up, 10.200.60.0/31, BGP 10.200.60.0/31
+PASS weka60-link2: swp4s0 up, 10.200.60.2/31, BGP 10.200.60.2/31
+PASS weka61-link1: swp3s1 up, 10.200.61.0/31, BGP 10.200.61.0/31
+PASS weka61-link2: swp3s0 up, 10.200.61.2/31, BGP 10.200.61.2/31
+PASS weka62-link1: swp6s1 up, 10.200.62.0/31, BGP 10.200.62.0/31
+PASS weka62-link2: swp6s0 up, 10.200.62.2/31, BGP 10.200.62.2/31
+PASS weka63-link1: swp5s1 up, 10.200.63.0/31, BGP 10.200.63.0/31
+PASS weka63-link2: swp5s0 up, 10.200.63.2/31, BGP 10.200.63.2/31
+PASS weka65-link1: swp1s2 up, 10.200.65.0/31, BGP 10.200.65.0/31
+PASS weka65-link2: swp1s3 up, 10.200.65.2/31, BGP 10.200.65.2/31
+PASS weka66-link1: swp2s0 up, 10.200.66.0/31, BGP 10.200.66.0/31
+PASS weka66-link2: swp2s1 up, 10.200.66.2/31, BGP 10.200.66.2/31
+PASS weka67-link1: swp1s0 up, 10.200.67.0/31, BGP 10.200.67.0/31
+PASS weka67-link2: swp1s1 up, 10.200.67.2/31, BGP 10.200.67.2/31
+Validation passed; known-down exceptions: 0
+PASS weka60-link1: 9000-byte peer probe to 10.200.60.1
+PASS weka60-link2: 9000-byte peer probe to 10.200.60.3
+FAIL weka61-link1: peer probe to 10.200.61.1
+FAIL weka61-link2: peer probe to 10.200.61.3
+FAIL weka62-link1: peer probe to 10.200.62.1
+FAIL weka62-link2: peer probe to 10.200.62.3
+FAIL weka63-link1: peer probe to 10.200.63.1
+FAIL weka63-link2: peer probe to 10.200.63.3
+FAIL weka65-link1: peer probe to 10.200.65.1
+FAIL weka65-link2: peer probe to 10.200.65.3
+FAIL weka66-link1: peer probe to 10.200.66.1
+FAIL weka66-link2: peer probe to 10.200.66.3
+FAIL weka67-link1: peer probe to 10.200.67.1
+FAIL weka67-link2: peer probe to 10.200.67.3
+ERROR: 12 endpoint probe failure(s)
+Connection to 172.31.17.21 closed.
+bash-3.2$

@@ -1,0 +1,18 @@
+priority,domain,endpoint_a,endpoint_b,network_or_service,status,next_action
+P2,Underlay,spine-01 swp1,leaf-01 swp33,10.254.0.0/31,Existing physical/session loss,Capture nv link + l1-show both ends; repair one pair at a time; rerun fabric validate
+P2,Underlay,spine-02 swp1,leaf-01 swp41,10.254.0.16/31,Existing physical/session loss,Capture nv link + l1-show both ends; repair one pair at a time; rerun fabric validate
+P1,Underlay,spine-02 swp3,leaf-01 swp43,10.254.0.20/31,New/intermittent in final run,Capture nv link + l1-show both ends; repair one pair at a time; rerun fabric validate
+P2,Underlay,spine-02 swp4,leaf-01 swp44,10.254.0.22/31,Existing physical/session loss,Capture nv link + l1-show both ends; repair one pair at a time; rerun fabric validate
+P2,Underlay,spine-03 swp1,leaf-01 swp49,10.254.0.32/31,Existing physical/session loss,Capture nv link + l1-show both ends; repair one pair at a time; rerun fabric validate
+P1,Underlay,spine-03 swp3,leaf-01 swp51,10.254.0.36/31,New failure in final run,Capture nv link + l1-show both ends; repair one pair at a time; rerun fabric validate
+P2,Underlay,spine-03 swp4,leaf-01 swp52,10.254.0.38/31,Existing physical/session loss,Capture nv link + l1-show both ends; repair one pair at a time; rerun fabric validate
+P2,Underlay,spine-04 swp2,leaf-01 swp58,10.254.0.50/31,Existing physical/session loss,Capture nv link + l1-show both ends; repair one pair at a time; rerun fabric validate
+P2,Underlay,spine-04 swp5,leaf-01 swp61,10.254.0.56/31,Existing physical/session loss,Capture nv link + l1-show both ends; repair one pair at a time; rerun fabric validate
+P2,Underlay,spine-04 swp24,leaf-03 swp64,10.254.0.190/31,Existing physical/session loss,Capture nv link + l1-show both ends; repair one pair at a time; rerun fabric validate
+P2,Client edge,leaf-04 swp2s1,weka44 ens4047np0,10.200.44.0/31,Configured; link down,Inspect DAC/NIC/port; restore and rerun server/switch validation
+P3,Deferred client,weka48,leaf-03,10.200.48.0/30 plan,Deferred: no observed server identity or active link; tentative parent swp6 requires rescan,Rescan LLDP/MAC/NIC mode and update mapping before configuration
+P3,Deferred client,weka59,leaf-03,10.200.59.0/30 plan,Deferred: no observed server identity or active link; tentative parent swp7 requires rescan,Rescan LLDP/MAC/NIC mode and update mapping before configuration
+P3,Deferred client,weka64,leaf-02,10.200.64.0/30 plan,Deferred by request; both observed leaf ports were down and the RDMA inventory scan was incomplete,Rescan LLDP/MAC/NIC mode and update mapping before configuration
+P3,Deferred client,weka78,leaf-01,10.200.78.0/30 plan,Deferred by request; leaf ports were up but LLDP/server reachability did not identify the NICs,Rescan LLDP/MAC/NIC mode and update mapping before configuration
+P3,Deferred client,weka79,leaf-01,10.200.79.0/30 plan,Deferred by request; physical LLDP was present but server NIC inventory was not collected,Rescan LLDP/MAC/NIC mode and update mapping before configuration
+P2,RoCE,All switches,All clients,PFC/ECN/DSCP/RDMA,Not confirmed applied or validated,"Stabilize underlay, then run roce-check/apply/validate and sustained RDMA tests"

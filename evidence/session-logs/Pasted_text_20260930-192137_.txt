@@ -1,0 +1,270 @@
+chandrasekhar.gonuguntla@Chandra-Gonuguntla Production_SN5600_Operations_Bundle_2026-09-30 % echo "===== LEAF-04 swp2s1 ====="
+ssh -tt cumulus@172.31.17.24 '
+nv show interface swp2s1 link
+nv show interface swp2s1 lldp
+sudo l1-show swp2s1
+sudo ethtool -m swp2s1 2>/dev/null |
+  grep -E "Vendor name|Vendor PN|Vendor SN|Cable assembly length|Module State"
+'
+
+echo "===== WEKA44 ens4047np0 ====="
+ssh -tt root@172.31.18.44 '
+echo "--- Link information ---"
+ip -br link show ens4047np0
+ethtool ens4047np0
+ethtool --show-fec ens4047np0
+
+echo "--- RDMA information ---"
+rdma link show
+ibdev2netdev 2>/dev/null || true
+
+echo "--- PCI and firmware information ---"
+ethtool -i ens4047np0
+lspci -Dnn | grep -i -E "Mellanox|NVIDIA"
+
+echo "--- Cable EEPROM ---"
+ethtool -m ens4047np0 2>/dev/null |
+  grep -E "Vendor name|Vendor PN|Vendor SN|Cable assembly length|Module State" || true
+
+echo "--- Address and route state ---"
+ip -4 -o address show dev ens4047np0
+ip -4 route show table 100
+'
+===== LEAF-04 swp2s1 =====
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.24's password:
+                         operational              applied
+-----------------------  -----------------------  -------
+admin-status             up
+oper-status              down
+oper-status-last-change  2026/09/30 04:18:28.307
+protodown                disabled
+auto-negotiate           on                       on
+duplex                                            full
+speed                                             auto
+mac-address              2c:5e:ab:ac:1c:f6
+fec                      none                     auto
+mtu                      9216                     9216
+fast-linkup              off
+[breakout]
+state                    up                       up
+flap-protection
+  enable                                          on
+stats
+  in-bytes               0 Bytes
+  in-pkts                0
+  in-drops               0
+  in-errors              0
+  out-bytes              0 Bytes
+  out-pkts               0
+  out-drops              0
+  out-errors             0
+  carrier-transitions    1
+  carrier-up-count       0
+  carrier-down-count     1
+eyes                     N/A, N/A, N/A, N/A
+grade                    N/A, N/A, N/A, N/A
+troubleshooting-info     Negotiation failure
+                     operational  applied
+-------------------  -----------  -------
+dcbx-pfc-tlv         off
+dcbx-ets-config-tlv  off
+dcbx-ets-recomm-tlv  off
+state                enabled
+[neighbor]
+[sudo] password for cumulus:
+Port:  swp2s1
+  Module Info
+      Vendor Name: NVIDIA                 PN: MCP7Y00-N003
+      Identifier: 0x19 (OSFP 8X Pluggable Transceiver) Type: 10g-lrm, 40g-active, 40g-cr4
+  Configured State
+      Admin: Admin Up     Speed: Unknown! MTU: 9216
+      Autoneg: On                         FEC: Auto
+  Operational State
+      Link Status: Kernel: Down           Hardware: Down
+      Speed: Kernel: Unknown!             Hardware: N/A
+      Autoneg: On (Autodetect enabld)     FEC: None (down)
+      TX Power: None
+      RX Power: None
+      Topo File Neighbor: None, None
+      LLDP Neighbor:      None, None
+  Port Hardware State:
+      Compliance Code: IB NDR
+      Cable Type: Passive copper cable
+      Speed: N/A                          Autodetect: Enabled
+      Eyes: N/A, N/A, N/A, N/A            Grade: N/A, N/A, N/A, N/A
+      Troubleshooting Info: Negotiation failure
+	Cable assembly length                     : 3.00m
+	Vendor name                               : NVIDIA
+	Vendor PN                                 : MCP7Y00-N003
+	Vendor SN                                 : MT2346VB01005
+	Module State                              : 0x03 (ModuleReady)
+Connection to 172.31.17.24 closed.
+===== WEKA44 ens4047np0 =====
+root@172.31.18.44's password:
+Permission denied, please try again.
+root@172.31.18.44's password:
+--- Link information ---
+ens4047np0       DOWN           9c:63:c0:9b:3a:dc <NO-CARRIER,BROADCAST,MULTICAST,UP>
+Settings for ens4047np0:
+	Supported ports: [  ]
+	Supported link modes:   1000baseT/Full
+	                        10000baseT/Full
+	                        1000baseKX/Full
+	                        10000baseKR/Full
+	                        10000baseR_FEC
+	                        40000baseKR4/Full
+	                        40000baseCR4/Full
+	                        40000baseSR4/Full
+	                        40000baseLR4/Full
+	                        25000baseCR/Full
+	                        25000baseKR/Full
+	                        25000baseSR/Full
+	                        50000baseCR2/Full
+	                        50000baseKR2/Full
+	                        100000baseKR4/Full
+	                        100000baseSR4/Full
+	                        100000baseCR4/Full
+	                        100000baseLR4_ER4/Full
+	                        50000baseSR2/Full
+	                        1000baseX/Full
+	                        10000baseCR/Full
+	                        10000baseSR/Full
+	                        10000baseLR/Full
+	                        10000baseER/Full
+	                        50000baseKR/Full
+	                        50000baseSR/Full
+	                        50000baseCR/Full
+	                        50000baseLR_ER_FR/Full
+	                        50000baseDR/Full
+	                        100000baseKR2/Full
+	                        100000baseSR2/Full
+	                        100000baseCR2/Full
+	                        100000baseLR2_ER2_FR2/Full
+	                        100000baseDR2/Full
+	                        200000baseKR4/Full
+	                        200000baseSR4/Full
+	                        200000baseLR4_ER4_FR4/Full
+	                        200000baseDR4/Full
+	                        200000baseCR4/Full
+	                        400000baseKR8/Full
+	                        400000baseSR8/Full
+	                        400000baseLR8_ER8_FR8/Full
+	                        400000baseDR8/Full
+	                        400000baseCR8/Full
+	                        100000baseKR/Full
+	                        100000baseSR/Full
+	                        100000baseLR_ER_FR/Full
+	                        100000baseCR/Full
+	                        100000baseDR/Full
+	                        200000baseKR2/Full
+	                        200000baseSR2/Full
+	                        200000baseLR2_ER2_FR2/Full
+	                        200000baseDR2/Full
+	                        200000baseCR2/Full
+	                        400000baseKR4/Full
+	                        400000baseSR4/Full
+	                        400000baseLR4_ER4_FR4/Full
+	                        400000baseDR4/Full
+	                        400000baseCR4/Full
+	Supported pause frame use: Symmetric
+	Supports auto-negotiation: Yes
+	Supported FEC modes: None	 RS	 BASER
+	Advertised link modes:  1000baseT/Full
+	                        10000baseT/Full
+	                        1000baseKX/Full
+	                        10000baseKR/Full
+	                        10000baseR_FEC
+	                        40000baseKR4/Full
+	                        40000baseCR4/Full
+	                        40000baseSR4/Full
+	                        40000baseLR4/Full
+	                        25000baseCR/Full
+	                        25000baseKR/Full
+	                        25000baseSR/Full
+	                        50000baseCR2/Full
+	                        50000baseKR2/Full
+	                        100000baseKR4/Full
+	                        100000baseSR4/Full
+	                        100000baseCR4/Full
+	                        100000baseLR4_ER4/Full
+	                        50000baseSR2/Full
+	                        1000baseX/Full
+	                        10000baseCR/Full
+	                        10000baseSR/Full
+	                        10000baseLR/Full
+	                        10000baseER/Full
+	                        50000baseKR/Full
+	                        50000baseSR/Full
+	                        50000baseCR/Full
+	                        50000baseLR_ER_FR/Full
+	                        50000baseDR/Full
+	                        100000baseKR2/Full
+	                        100000baseSR2/Full
+	                        100000baseCR2/Full
+	                        100000baseLR2_ER2_FR2/Full
+	                        100000baseDR2/Full
+	                        200000baseKR4/Full
+	                        200000baseSR4/Full
+	                        200000baseLR4_ER4_FR4/Full
+	                        200000baseDR4/Full
+	                        200000baseCR4/Full
+	                        400000baseKR8/Full
+	                        400000baseSR8/Full
+	                        400000baseLR8_ER8_FR8/Full
+	                        400000baseDR8/Full
+	                        400000baseCR8/Full
+	                        100000baseKR/Full
+	                        100000baseSR/Full
+	                        100000baseLR_ER_FR/Full
+	                        100000baseCR/Full
+	                        100000baseDR/Full
+	                        200000baseKR2/Full
+	                        200000baseSR2/Full
+	                        200000baseLR2_ER2_FR2/Full
+	                        200000baseDR2/Full
+	                        200000baseCR2/Full
+	                        400000baseKR4/Full
+	                        400000baseSR4/Full
+	                        400000baseLR4_ER4_FR4/Full
+	                        400000baseDR4/Full
+	                        400000baseCR4/Full
+	Advertised pause frame use: Symmetric
+	Advertised auto-negotiation: Yes
+	Advertised FEC modes: Not reported
+	Speed: Unknown!
+	Duplex: Unknown! (255)
+	Auto-negotiation: on
+	Port: Other
+	PHYAD: 0
+	Transceiver: internal
+	Supports Wake-on: d
+	Wake-on: d
+	Link detected: no (No cable)
+FEC parameters for ens4047np0:
+Supported/Configured FEC encodings: Auto
+Active FEC encoding: None
+--- RDMA information ---
+link mlx5_0/1 state DOWN physical_state DISABLED netdev ens4047np0
+link mlx5_1/1 state ACTIVE physical_state LINK_UP netdev ens3919np0
+mlx5_0 port 1 ==> ens4047np0 (Down)
+mlx5_1 port 1 ==> ens3919np0 (Up)
+--- PCI and firmware information ---
+driver: mlx5_core
+version: 24.10-3.2.5
+firmware-version: 28.46.3048 (MT_0000000838)
+expansion-rom-version:
+bus-info: 0000:33:00.0
+supports-statistics: yes
+supports-test: yes
+supports-eeprom-access: no
+supports-register-dump: no
+supports-priv-flags: yes
+0000:33:00.0 Ethernet controller [0200]: Mellanox Technologies MT2910 Family [ConnectX-7] [15b3:1021]
+0000:b4:00.0 Ethernet controller [0200]: Mellanox Technologies MT2910 Family [ConnectX-7] [15b3:1021]
+--- Cable EEPROM ---
+--- Address and route state ---
+2: ens4047np0    inet 10.200.44.1/31 scope global ens4047np0\       valid_lft forever preferred_lft forever
+10.200.0.0/16 via 10.200.44.0 dev ens4047np0 proto static dead linkdown
+Connection to 172.31.18.44 closed.
+chandrasekhar.gonuguntla@Chandra-Gonuguntla Production_SN5600_Operations_Bundle_2026-09-30 %

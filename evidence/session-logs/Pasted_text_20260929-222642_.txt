@@ -1,0 +1,381 @@
+bash-3.2$ bash cx7_convert_ib_to_eth_reboot.sh --apply
+WARNING: This can change CX adapter firmware settings and reboot hosts.
+Stop application and WEKA I/O first, and confirm BMC console access.
+
+Type CONVERT-TO-ETHERNET to continue: CONVERT-TO-ETHERNET
+Mode: --apply
+SSH user: root
+Hosts:  40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79
+Logs: /Users/OPERATOR/Downloads/CX7_IB_to_ETH_apply_20260929_145124
+
+[weka40] --apply at 172.31.18.40
+root@172.31.18.40's password:
+REBOOT|weka40|SCHEDULED|5 seconds
+
+[weka41] --apply at 172.31.18.41
+root@172.31.18.41's password:
+REBOOT|weka41|SCHEDULED|5 seconds
+
+[weka42] --apply at 172.31.18.42
+root@172.31.18.42's password:
+REBOOT|weka42|SCHEDULED|5 seconds
+
+[weka43] --apply at 172.31.18.43
+root@172.31.18.43's password:
+REBOOT|weka43|SCHEDULED|5 seconds
+
+[weka44] --apply at 172.31.18.44
+root@172.31.18.44's password:
+REBOOT|weka44|SCHEDULED|5 seconds
+
+[weka45] --apply at 172.31.18.45
+root@172.31.18.45's password:
+REBOOT|weka45|SCHEDULED|5 seconds
+
+[weka46] --apply at 172.31.18.46
+root@172.31.18.46's password:
+REBOOT|weka46|SCHEDULED|5 seconds
+
+[weka47] --apply at 172.31.18.47
+root@172.31.18.47's password:
+REBOOT|weka47|SCHEDULED|5 seconds
+
+[weka48] --apply at 172.31.18.48
+root@172.31.18.48's password:
+REBOOT|weka48|SCHEDULED|5 seconds
+
+[weka49] --apply at 172.31.18.49
+root@172.31.18.49's password:
+REBOOT|weka49|SCHEDULED|5 seconds
+
+[weka50] --apply at 172.31.18.50
+root@172.31.18.50's password:
+REBOOT|weka50|SCHEDULED|5 seconds
+
+[weka51] --apply at 172.31.18.51
+root@172.31.18.51's password:
+REBOOT|weka51|SCHEDULED|5 seconds
+
+[weka52] --apply at 172.31.18.52
+root@172.31.18.52's password:
+REBOOT|weka52|SCHEDULED|5 seconds
+
+[weka53] --apply at 172.31.18.53
+root@172.31.18.53's password:
+REBOOT|weka53|SCHEDULED|5 seconds
+
+[weka54] --apply at 172.31.18.54
+root@172.31.18.54's password:
+REBOOT|weka54|SCHEDULED|5 seconds
+
+[weka55] --apply at 172.31.18.55
+root@172.31.18.55's password:
+REBOOT|weka55|SCHEDULED|5 seconds
+
+[weka56] --apply at 172.31.18.56
+root@172.31.18.56's password:
+REBOOT|weka56|SCHEDULED|5 seconds
+
+[weka57] --apply at 172.31.18.57
+Warning: Permanently added '172.31.18.57' (ED25519) to the list of known hosts.
+root@172.31.18.57's password:
+REBOOT|weka57|SCHEDULED|5 seconds
+
+[weka58] --apply at 172.31.18.58
+Warning: Permanently added '172.31.18.58' (ED25519) to the list of known hosts.
+root@172.31.18.58's password:
+REBOOT|weka58|SCHEDULED|5 seconds
+
+[weka59] --apply at 172.31.18.59
+Warning: Permanently added '172.31.18.59' (ED25519) to the list of known hosts.
+root@172.31.18.59's password:
+REBOOT|weka59|SCHEDULED|5 seconds
+
+[weka60] --apply at 172.31.18.60
+Warning: Permanently added '172.31.18.60' (ED25519) to the list of known hosts.
+root@172.31.18.60's password:
+REBOOT|weka60|SCHEDULED|5 seconds
+
+[weka61] --apply at 172.31.18.61
+Warning: Permanently added '172.31.18.61' (ED25519) to the list of known hosts.
+root@172.31.18.61's password:
+REBOOT|weka61|SCHEDULED|5 seconds
+
+[weka62] --apply at 172.31.18.62
+Warning: Permanently added '172.31.18.62' (ED25519) to the list of known hosts.
+root@172.31.18.62's password:
+REBOOT|weka62|SCHEDULED|5 seconds
+
+[weka63] --apply at 172.31.18.63
+Warning: Permanently added '172.31.18.63' (ED25519) to the list of known hosts.
+root@172.31.18.63's password:
+REBOOT|weka63|SCHEDULED|5 seconds
+
+[weka64] --apply at 172.31.18.64
+root@172.31.18.64's password:
+Unable to complete weka64; inspect /Users/OPERATOR/Downloads/CX7_IB_to_ETH_apply_20260929_145124/weka64_172.31.18.64.log
+
+[weka65] --apply at 172.31.18.65
+root@172.31.18.65's password:
+REBOOT|weka65|NOT_REQUIRED|already Ethernet
+
+[weka66] --apply at 172.31.18.66
+root@172.31.18.66's password:
+REBOOT|weka66|NOT_REQUIRED|already Ethernet
+
+[weka67] --apply at 172.31.18.67
+root@172.31.18.67's password:
+REBOOT|weka67|NOT_REQUIRED|already Ethernet
+
+[weka68] --apply at 172.31.18.68
+root@172.31.18.68's password:
+REBOOT|weka68|NOT_REQUIRED|already Ethernet
+
+[weka69] --apply at 172.31.18.69
+root@172.31.18.69's password:
+REBOOT|weka69|NOT_REQUIRED|already Ethernet
+
+[weka70] --apply at 172.31.18.70
+root@172.31.18.70's password:
+REBOOT|weka70|NOT_REQUIRED|already Ethernet
+
+[weka71] --apply at 172.31.18.71
+root@172.31.18.71's password:
+REBOOT|weka71|NOT_REQUIRED|already Ethernet
+
+[weka72] --apply at 172.31.18.72
+root@172.31.18.72's password:
+REBOOT|weka72|NOT_REQUIRED|already Ethernet
+
+[weka73] --apply at 172.31.18.73
+root@172.31.18.73's password:
+Permission denied, please try again.
+root@172.31.18.73's password:
+REBOOT|weka73|NOT_REQUIRED|already Ethernet
+
+[weka74] --apply at 172.31.18.74
+root@172.31.18.74's password:
+REBOOT|weka74|NOT_REQUIRED|already Ethernet
+
+[weka75] --apply at 172.31.18.75
+root@172.31.18.75's password:
+REBOOT|weka75|NOT_REQUIRED|already Ethernet
+
+[weka76] --apply at 172.31.18.76
+root@172.31.18.76's password:
+REBOOT|weka76|NOT_REQUIRED|already Ethernet
+
+[weka77] --apply at 172.31.18.77
+root@172.31.18.77's password:
+REBOOT|weka77|NOT_REQUIRED|already Ethernet
+
+[weka78] --apply at 172.31.18.78
+ssh: connect to host 172.31.18.78 port 22: Operation timed out
+Unable to complete weka78; inspect /Users/OPERATOR/Downloads/CX7_IB_to_ETH_apply_20260929_145124/weka78_172.31.18.78.log
+
+[weka79] --apply at 172.31.18.79
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ED25519 key sent by the remote host is
+SHA256:2rTfuasM+N1ReIkOCAz2V+o5a0Km/WWwuAhZxGb6R1E.
+Please contact your system administrator.
+Add correct host key in /Users/OPERATOR/.ssh/known_hosts to get rid of this message.
+Offending ED25519 key in /Users/OPERATOR/.ssh/known_hosts:29
+Host key for 172.31.18.79 has changed and you have requested strict checking.
+Host key verification failed.
+Unable to complete weka79; inspect /Users/OPERATOR/Downloads/CX7_IB_to_ETH_apply_20260929_145124/weka79_172.31.18.79.log
+
+Summary: /Users/OPERATOR/Downloads/CX7_IB_to_ETH_apply_20260929_145124/summary.txt
+Archive: /Users/OPERATOR/Downloads/CX7_IB_to_ETH_apply_20260929_145124.zip
+After the hosts return, run the same script with --validate.
+bash-3.2$ bash cx7_convert_ib_to_eth_reboot.sh -
+bash-3.2$ bash cx7_convert_ib_to_eth_reboot.sh --validate
+Mode: --validate
+SSH user: root
+Hosts:  40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79
+Logs: /Users/OPERATOR/Downloads/CX7_IB_to_ETH_validate_20260929_150359
+
+[weka40] --validate at 172.31.18.40
+root@172.31.18.40's password:
+VALIDATION|weka40|PASS|all discovered RDMA ports are Ethernet
+
+[weka41] --validate at 172.31.18.41
+root@172.31.18.41's password:
+VALIDATION|weka41|PASS|all discovered RDMA ports are Ethernet
+
+[weka42] --validate at 172.31.18.42
+root@172.31.18.42's password:
+VALIDATION|weka42|PASS|all discovered RDMA ports are Ethernet
+
+[weka43] --validate at 172.31.18.43
+root@172.31.18.43's password:
+VALIDATION|weka43|PASS|all discovered RDMA ports are Ethernet
+
+[weka44] --validate at 172.31.18.44
+root@172.31.18.44's password:
+VALIDATION|weka44|PASS|all discovered RDMA ports are Ethernet
+
+[weka45] --validate at 172.31.18.45
+root@172.31.18.45's password:
+VALIDATION|weka45|PASS|all discovered RDMA ports are Ethernet
+
+[weka46] --validate at 172.31.18.46
+root@172.31.18.46's password:
+VALIDATION|weka46|PASS|all discovered RDMA ports are Ethernet
+
+[weka47] --validate at 172.31.18.47
+root@172.31.18.47's password:
+VALIDATION|weka47|PASS|all discovered RDMA ports are Ethernet
+
+[weka48] --validate at 172.31.18.48
+root@172.31.18.48's password:
+VALIDATION|weka48|PASS|all discovered RDMA ports are Ethernet
+
+[weka49] --validate at 172.31.18.49
+root@172.31.18.49's password:
+VALIDATION|weka49|PASS|all discovered RDMA ports are Ethernet
+
+[weka50] --validate at 172.31.18.50
+root@172.31.18.50's password:
+VALIDATION|weka50|PASS|all discovered RDMA ports are Ethernet
+
+[weka51] --validate at 172.31.18.51
+root@172.31.18.51's password:
+VALIDATION|weka51|PASS|all discovered RDMA ports are Ethernet
+
+[weka52] --validate at 172.31.18.52
+root@172.31.18.52's password:
+VALIDATION|weka52|PASS|all discovered RDMA ports are Ethernet
+
+[weka53] --validate at 172.31.18.53
+root@172.31.18.53's password:
+VALIDATION|weka53|PASS|all discovered RDMA ports are Ethernet
+
+[weka54] --validate at 172.31.18.54
+root@172.31.18.54's password:
+VALIDATION|weka54|PASS|all discovered RDMA ports are Ethernet
+
+[weka55] --validate at 172.31.18.55
+root@172.31.18.55's password:
+VALIDATION|weka55|PASS|all discovered RDMA ports are Ethernet
+
+[weka56] --validate at 172.31.18.56
+root@172.31.18.56's password:
+VALIDATION|weka56|PASS|all discovered RDMA ports are Ethernet
+
+[weka57] --validate at 172.31.18.57
+root@172.31.18.57's password:
+VALIDATION|weka57|PASS|all discovered RDMA ports are Ethernet
+
+[weka58] --validate at 172.31.18.58
+root@172.31.18.58's password:
+VALIDATION|weka58|PASS|all discovered RDMA ports are Ethernet
+
+[weka59] --validate at 172.31.18.59
+root@172.31.18.59's password:
+VALIDATION|weka59|PASS|all discovered RDMA ports are Ethernet
+
+[weka60] --validate at 172.31.18.60
+root@172.31.18.60's password:
+VALIDATION|weka60|PASS|all discovered RDMA ports are Ethernet
+
+[weka61] --validate at 172.31.18.61
+root@172.31.18.61's password:
+VALIDATION|weka61|PASS|all discovered RDMA ports are Ethernet
+
+[weka62] --validate at 172.31.18.62
+root@172.31.18.62's password:
+VALIDATION|weka62|PASS|all discovered RDMA ports are Ethernet
+
+[weka63] --validate at 172.31.18.63
+root@172.31.18.63's password:
+Timeout, server 172.31.18.63 not responding.
+Unable to complete weka63; inspect /Users/OPERATOR/Downloads/CX7_IB_to_ETH_validate_20260929_150359/weka63_172.31.18.63.log
+
+[weka64] --validate at 172.31.18.64
+ssh: connect to host 172.31.18.64 port 22: Operation timed out
+Unable to complete weka64; inspect /Users/OPERATOR/Downloads/CX7_IB_to_ETH_validate_20260929_150359/weka64_172.31.18.64.log
+
+[weka65] --validate at 172.31.18.65
+ssh: connect to host 172.31.18.65 port 22: Operation timed out
+Unable to complete weka65; inspect /Users/OPERATOR/Downloads/CX7_IB_to_ETH_validate_20260929_150359/weka65_172.31.18.65.log
+
+[weka66] --validate at 172.31.18.66
+ssh: connect to host 172.31.18.66 port 22: Operation timed out
+Unable to complete weka66; inspect /Users/OPERATOR/Downloads/CX7_IB_to_ETH_validate_20260929_150359/weka66_172.31.18.66.log
+
+[weka67] --validate at 172.31.18.67
+root@172.31.18.67's password:
+VALIDATION|weka67|PASS|all discovered RDMA ports are Ethernet
+
+[weka68] --validate at 172.31.18.68
+root@172.31.18.68's password:
+VALIDATION|weka68|PASS|all discovered RDMA ports are Ethernet
+
+[weka69] --validate at 172.31.18.69
+root@172.31.18.69's password:
+VALIDATION|weka69|PASS|all discovered RDMA ports are Ethernet
+
+[weka70] --validate at 172.31.18.70
+root@172.31.18.70's password:
+VALIDATION|weka70|PASS|all discovered RDMA ports are Ethernet
+
+[weka71] --validate at 172.31.18.71
+root@172.31.18.71's password:
+VALIDATION|weka71|PASS|all discovered RDMA ports are Ethernet
+
+[weka72] --validate at 172.31.18.72
+root@172.31.18.72's password:
+VALIDATION|weka72|PASS|all discovered RDMA ports are Ethernet
+
+[weka73] --validate at 172.31.18.73
+root@172.31.18.73's password:
+VALIDATION|weka73|PASS|all discovered RDMA ports are Ethernet
+
+[weka74] --validate at 172.31.18.74
+root@172.31.18.74's password:
+VALIDATION|weka74|PASS|all discovered RDMA ports are Ethernet
+
+[weka75] --validate at 172.31.18.75
+root@172.31.18.75's password:
+VALIDATION|weka75|PASS|all discovered RDMA ports are Ethernet
+
+[weka76] --validate at 172.31.18.76
+root@172.31.18.76's password:
+VALIDATION|weka76|PASS|all discovered RDMA ports are Ethernet
+
+[weka77] --validate at 172.31.18.77
+root@172.31.18.77's password:
+VALIDATION|weka77|PASS|all discovered RDMA ports are Ethernet
+
+[weka78] --validate at 172.31.18.78
+ssh: connect to host 172.31.18.78 port 22: Operation timed out
+Unable to complete weka78; inspect /Users/OPERATOR/Downloads/CX7_IB_to_ETH_validate_20260929_150359/weka78_172.31.18.78.log
+
+[weka79] --validate at 172.31.18.79
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ED25519 key sent by the remote host is
+SHA256:2rTfuasM+N1ReIkOCAz2V+o5a0Km/WWwuAhZxGb6R1E.
+Please contact your system administrator.
+Add correct host key in /Users/OPERATOR/.ssh/known_hosts to get rid of this message.
+Offending ED25519 key in /Users/OPERATOR/.ssh/known_hosts:29
+Host key for 172.31.18.79 has changed and you have requested strict checking.
+Host key verification failed.
+Unable to complete weka79; inspect /Users/OPERATOR/Downloads/CX7_IB_to_ETH_validate_20260929_150359/weka79_172.31.18.79.log
+
+Summary: /Users/OPERATOR/Downloads/CX7_IB_to_ETH_validate_20260929_150359/summary.txt
+Archive: /Users/OPERATOR/Downloads/CX7_IB_to_ETH_validate_20260929_150359.zip
+Every converted host should report VALIDATION|<host>|PASS.
+bash-3.2$
+bash-3.2$
+bash-3.2$
+bash-3.2$

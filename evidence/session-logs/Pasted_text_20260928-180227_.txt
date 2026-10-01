@@ -1,0 +1,1168 @@
+chandrasekhar.gonuguntla@Chandra-Gonuguntla SN5600_Numbered31 % cd "$HOME/Downloads/SN5600_Numbered31" &&
+bash fabric.sh migrate spine-02
+
+spine-02 (172.31.17.18): check
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.18's password:
+Preflight passed: spine-02 172.31.17.18
+Connection to 172.31.17.18 closed.
+
+leaf-01 (172.31.17.19): check
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.19's password:
+Preflight passed: leaf-01 172.31.17.19
+Connection to 172.31.17.19 closed.
+
+leaf-02 (172.31.17.21): check
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+Preflight passed: leaf-02 172.31.17.21
+Connection to 172.31.17.21 closed.
+
+leaf-03 (172.31.17.23): check
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.23's password:
+Preflight passed: leaf-03 172.31.17.23
+Connection to 172.31.17.23 closed.
+
+leaf-04 (172.31.17.24): check
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.24's password:
+Preflight passed: leaf-04 172.31.17.24
+Connection to 172.31.17.24 closed.
+
+spine-02 (172.31.17.18): probe spine-02
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.18's password:
+Preflight passed: spine-02 172.31.17.18
+DOWN: swp1 -> 10.254.0.17
+[sudo] password for cumulus:
+PASS swp2 /31 peer 10.254.0.19
+PASS swp3 /31 peer 10.254.0.21
+DOWN: swp4 -> 10.254.0.23
+PASS swp5 /31 peer 10.254.0.25
+PASS swp6 /31 peer 10.254.0.27
+PASS swp7 /31 peer 10.254.0.29
+PASS swp8 /31 peer 10.254.0.31
+PASS swp9 /31 peer 10.254.0.81
+PASS swp10 /31 peer 10.254.0.83
+PASS swp11 /31 peer 10.254.0.85
+PASS swp12 /31 peer 10.254.0.87
+PASS swp13 /31 peer 10.254.0.89
+PASS swp14 /31 peer 10.254.0.91
+PASS swp15 /31 peer 10.254.0.93
+PASS swp16 /31 peer 10.254.0.95
+PASS swp17 /31 peer 10.254.0.145
+PASS swp18 /31 peer 10.254.0.147
+PASS swp19 /31 peer 10.254.0.149
+PASS swp20 /31 peer 10.254.0.151
+PASS swp21 /31 peer 10.254.0.153
+PASS swp22 /31 peer 10.254.0.155
+PASS swp23 /31 peer 10.254.0.157
+PASS swp24 /31 peer 10.254.0.159
+PASS swp25 /31 peer 10.254.0.209
+PASS swp26 /31 peer 10.254.0.211
+PASS swp27 /31 peer 10.254.0.213
+PASS swp28 /31 peer 10.254.0.215
+PASS swp29 /31 peer 10.254.0.217
+PASS swp30 /31 peer 10.254.0.219
+PASS swp31 /31 peer 10.254.0.221
+PASS swp32 /31 peer 10.254.0.223
+Direct /31 probes passed on active links; down links remain listed above.
+Connection to 172.31.17.18 closed.
+
+leaf-01 (172.31.17.19): probe spine-02
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.19's password:
+Preflight passed: leaf-01 172.31.17.19
+DOWN: swp41 -> 10.254.0.16
+[sudo] password for cumulus:
+PASS swp42 /31 peer 10.254.0.18
+PASS swp43 /31 peer 10.254.0.20
+DOWN: swp44 -> 10.254.0.22
+PASS swp45 /31 peer 10.254.0.24
+PASS swp46 /31 peer 10.254.0.26
+PASS swp47 /31 peer 10.254.0.28
+PASS swp48 /31 peer 10.254.0.30
+Direct /31 probes passed on active links; down links remain listed above.
+Connection to 172.31.17.19 closed.
+
+leaf-02 (172.31.17.21): probe spine-02
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+Preflight passed: leaf-02 172.31.17.21
+[sudo] password for cumulus:
+PASS swp41 /31 peer 10.254.0.80
+PASS swp42 /31 peer 10.254.0.82
+PASS swp43 /31 peer 10.254.0.84
+PASS swp44 /31 peer 10.254.0.86
+PASS swp45 /31 peer 10.254.0.88
+PASS swp46 /31 peer 10.254.0.90
+PASS swp47 /31 peer 10.254.0.92
+PASS swp48 /31 peer 10.254.0.94
+Direct /31 probes passed on active links; down links remain listed above.
+Connection to 172.31.17.21 closed.
+
+leaf-03 (172.31.17.23): probe spine-02
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.23's password:
+Preflight passed: leaf-03 172.31.17.23
+[sudo] password for cumulus:
+PASS swp41 /31 peer 10.254.0.144
+PASS swp42 /31 peer 10.254.0.146
+PASS swp43 /31 peer 10.254.0.148
+PASS swp44 /31 peer 10.254.0.150
+PASS swp45 /31 peer 10.254.0.152
+PASS swp46 /31 peer 10.254.0.154
+PASS swp47 /31 peer 10.254.0.156
+PASS swp48 /31 peer 10.254.0.158
+Direct /31 probes passed on active links; down links remain listed above.
+Connection to 172.31.17.23 closed.
+
+leaf-04 (172.31.17.24): probe spine-02
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.24's password:
+Preflight passed: leaf-04 172.31.17.24
+[sudo] password for cumulus:
+PASS swp41 /31 peer 10.254.0.208
+PASS swp42 /31 peer 10.254.0.210
+PASS swp43 /31 peer 10.254.0.212
+PASS swp44 /31 peer 10.254.0.214
+PASS swp45 /31 peer 10.254.0.216
+PASS swp46 /31 peer 10.254.0.218
+PASS swp47 /31 peer 10.254.0.220
+PASS swp48 /31 peer 10.254.0.222
+Direct /31 probes passed on active links; down links remain listed above.
+Connection to 172.31.17.24 closed.
+
+spine-02 (172.31.17.18): bgp spine-02 --apply
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.18's password:
+Preflight passed: spine-02 172.31.17.18
++ sudo -v
+[sudo] password for cumulus:
+Backup: /home/cumulus/sn5600-numbered31-state/spine-02/20260928T205258686527Z
++ nv unset vrf default router bgp neighbor swp1
++ nv set vrf default router bgp neighbor 10.254.0.17 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.17 remote-as 65101
++ nv set vrf default router bgp neighbor 10.254.0.17 enable on
++ nv set vrf default router bgp neighbor 10.254.0.17 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp2
++ nv set vrf default router bgp neighbor 10.254.0.19 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.19 remote-as 65101
++ nv set vrf default router bgp neighbor 10.254.0.19 enable on
++ nv set vrf default router bgp neighbor 10.254.0.19 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp3
++ nv set vrf default router bgp neighbor 10.254.0.21 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.21 remote-as 65101
++ nv set vrf default router bgp neighbor 10.254.0.21 enable on
++ nv set vrf default router bgp neighbor 10.254.0.21 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp4
++ nv set vrf default router bgp neighbor 10.254.0.23 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.23 remote-as 65101
++ nv set vrf default router bgp neighbor 10.254.0.23 enable on
++ nv set vrf default router bgp neighbor 10.254.0.23 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp5
++ nv set vrf default router bgp neighbor 10.254.0.25 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.25 remote-as 65101
++ nv set vrf default router bgp neighbor 10.254.0.25 enable on
++ nv set vrf default router bgp neighbor 10.254.0.25 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp6
++ nv set vrf default router bgp neighbor 10.254.0.27 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.27 remote-as 65101
++ nv set vrf default router bgp neighbor 10.254.0.27 enable on
++ nv set vrf default router bgp neighbor 10.254.0.27 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp7
++ nv set vrf default router bgp neighbor 10.254.0.29 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.29 remote-as 65101
++ nv set vrf default router bgp neighbor 10.254.0.29 enable on
++ nv set vrf default router bgp neighbor 10.254.0.29 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp8
++ nv set vrf default router bgp neighbor 10.254.0.31 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.31 remote-as 65101
++ nv set vrf default router bgp neighbor 10.254.0.31 enable on
++ nv set vrf default router bgp neighbor 10.254.0.31 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp9
++ nv set vrf default router bgp neighbor 10.254.0.81 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.81 remote-as 65102
++ nv set vrf default router bgp neighbor 10.254.0.81 enable on
++ nv set vrf default router bgp neighbor 10.254.0.81 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp10
++ nv set vrf default router bgp neighbor 10.254.0.83 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.83 remote-as 65102
++ nv set vrf default router bgp neighbor 10.254.0.83 enable on
++ nv set vrf default router bgp neighbor 10.254.0.83 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp11
++ nv set vrf default router bgp neighbor 10.254.0.85 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.85 remote-as 65102
++ nv set vrf default router bgp neighbor 10.254.0.85 enable on
++ nv set vrf default router bgp neighbor 10.254.0.85 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp12
++ nv set vrf default router bgp neighbor 10.254.0.87 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.87 remote-as 65102
++ nv set vrf default router bgp neighbor 10.254.0.87 enable on
++ nv set vrf default router bgp neighbor 10.254.0.87 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp13
++ nv set vrf default router bgp neighbor 10.254.0.89 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.89 remote-as 65102
++ nv set vrf default router bgp neighbor 10.254.0.89 enable on
++ nv set vrf default router bgp neighbor 10.254.0.89 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp14
++ nv set vrf default router bgp neighbor 10.254.0.91 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.91 remote-as 65102
++ nv set vrf default router bgp neighbor 10.254.0.91 enable on
++ nv set vrf default router bgp neighbor 10.254.0.91 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp15
++ nv set vrf default router bgp neighbor 10.254.0.93 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.93 remote-as 65102
++ nv set vrf default router bgp neighbor 10.254.0.93 enable on
++ nv set vrf default router bgp neighbor 10.254.0.93 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp16
++ nv set vrf default router bgp neighbor 10.254.0.95 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.95 remote-as 65102
++ nv set vrf default router bgp neighbor 10.254.0.95 enable on
++ nv set vrf default router bgp neighbor 10.254.0.95 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp17
++ nv set vrf default router bgp neighbor 10.254.0.145 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.145 remote-as 65103
++ nv set vrf default router bgp neighbor 10.254.0.145 enable on
++ nv set vrf default router bgp neighbor 10.254.0.145 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp18
++ nv set vrf default router bgp neighbor 10.254.0.147 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.147 remote-as 65103
++ nv set vrf default router bgp neighbor 10.254.0.147 enable on
++ nv set vrf default router bgp neighbor 10.254.0.147 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp19
++ nv set vrf default router bgp neighbor 10.254.0.149 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.149 remote-as 65103
++ nv set vrf default router bgp neighbor 10.254.0.149 enable on
++ nv set vrf default router bgp neighbor 10.254.0.149 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp20
++ nv set vrf default router bgp neighbor 10.254.0.151 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.151 remote-as 65103
++ nv set vrf default router bgp neighbor 10.254.0.151 enable on
++ nv set vrf default router bgp neighbor 10.254.0.151 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp21
++ nv set vrf default router bgp neighbor 10.254.0.153 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.153 remote-as 65103
++ nv set vrf default router bgp neighbor 10.254.0.153 enable on
++ nv set vrf default router bgp neighbor 10.254.0.153 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp22
++ nv set vrf default router bgp neighbor 10.254.0.155 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.155 remote-as 65103
++ nv set vrf default router bgp neighbor 10.254.0.155 enable on
++ nv set vrf default router bgp neighbor 10.254.0.155 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp23
++ nv set vrf default router bgp neighbor 10.254.0.157 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.157 remote-as 65103
++ nv set vrf default router bgp neighbor 10.254.0.157 enable on
++ nv set vrf default router bgp neighbor 10.254.0.157 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp24
++ nv set vrf default router bgp neighbor 10.254.0.159 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.159 remote-as 65103
++ nv set vrf default router bgp neighbor 10.254.0.159 enable on
++ nv set vrf default router bgp neighbor 10.254.0.159 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp25
++ nv set vrf default router bgp neighbor 10.254.0.209 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.209 remote-as 65104
++ nv set vrf default router bgp neighbor 10.254.0.209 enable on
++ nv set vrf default router bgp neighbor 10.254.0.209 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp26
++ nv set vrf default router bgp neighbor 10.254.0.211 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.211 remote-as 65104
++ nv set vrf default router bgp neighbor 10.254.0.211 enable on
++ nv set vrf default router bgp neighbor 10.254.0.211 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp27
++ nv set vrf default router bgp neighbor 10.254.0.213 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.213 remote-as 65104
++ nv set vrf default router bgp neighbor 10.254.0.213 enable on
++ nv set vrf default router bgp neighbor 10.254.0.213 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp28
++ nv set vrf default router bgp neighbor 10.254.0.215 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.215 remote-as 65104
++ nv set vrf default router bgp neighbor 10.254.0.215 enable on
++ nv set vrf default router bgp neighbor 10.254.0.215 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp29
++ nv set vrf default router bgp neighbor 10.254.0.217 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.217 remote-as 65104
++ nv set vrf default router bgp neighbor 10.254.0.217 enable on
++ nv set vrf default router bgp neighbor 10.254.0.217 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp30
++ nv set vrf default router bgp neighbor 10.254.0.219 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.219 remote-as 65104
++ nv set vrf default router bgp neighbor 10.254.0.219 enable on
++ nv set vrf default router bgp neighbor 10.254.0.219 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp31
++ nv set vrf default router bgp neighbor 10.254.0.221 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.221 remote-as 65104
++ nv set vrf default router bgp neighbor 10.254.0.221 enable on
++ nv set vrf default router bgp neighbor 10.254.0.221 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp32
++ nv set vrf default router bgp neighbor 10.254.0.223 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.223 remote-as 65104
++ nv set vrf default router bgp neighbor 10.254.0.223 enable on
++ nv set vrf default router bgp neighbor 10.254.0.223 address-family ipv4-unicast enable on
+- unset:
+    vrf:
+      default:
+        router:
+          bgp:
+            neighbor:
+              swp1:
+              swp2:
+              swp3:
+              swp4:
+              swp5:
+              swp6:
+              swp7:
+              swp8:
+              swp9:
+              swp10:
+              swp11:
+              swp12:
+              swp13:
+              swp14:
+              swp15:
+              swp16:
+              swp17:
+              swp18:
+              swp19:
+              swp20:
+              swp21:
+              swp22:
+              swp23:
+              swp24:
+              swp25:
+              swp26:
+              swp27:
+              swp28:
+              swp29:
+              swp30:
+              swp31:
+              swp32:
+- set:
+    vrf:
+      default:
+        router:
+          bgp:
+            neighbor:
+              10.254.0.17:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65101
+                type: numbered
+              10.254.0.19:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65101
+                type: numbered
+              10.254.0.21:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65101
+                type: numbered
+              10.254.0.23:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65101
+                type: numbered
+              10.254.0.25:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65101
+                type: numbered
+              10.254.0.27:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65101
+                type: numbered
+              10.254.0.29:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65101
+                type: numbered
+              10.254.0.31:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65101
+                type: numbered
+              10.254.0.81:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65102
+                type: numbered
+              10.254.0.83:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65102
+                type: numbered
+              10.254.0.85:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65102
+                type: numbered
+              10.254.0.87:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65102
+                type: numbered
+              10.254.0.89:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65102
+                type: numbered
+              10.254.0.91:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65102
+                type: numbered
+              10.254.0.93:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65102
+                type: numbered
+              10.254.0.95:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65102
+                type: numbered
+              10.254.0.145:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65103
+                type: numbered
+              10.254.0.147:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65103
+                type: numbered
+              10.254.0.149:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65103
+                type: numbered
+              10.254.0.151:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65103
+                type: numbered
+              10.254.0.153:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65103
+                type: numbered
+              10.254.0.155:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65103
+                type: numbered
+              10.254.0.157:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65103
+                type: numbered
+              10.254.0.159:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65103
+                type: numbered
+              10.254.0.209:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65104
+                type: numbered
+              10.254.0.211:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65104
+                type: numbered
+              10.254.0.213:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65104
+                type: numbered
+              10.254.0.215:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65104
+                type: numbered
+              10.254.0.217:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65104
+                type: numbered
+              10.254.0.219:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65104
+                type: numbered
+              10.254.0.221:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65104
+                type: numbered
+              10.254.0.223:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65104
+                type: numbered
+
++ nv config apply --assume-yes
+applied_and_saved [rev_id: 9]
++ nv config save
+saved [rev_id: applied]
+Applied. Complete this stage at the other endpoints, then validate.
+Connection to 172.31.17.18 closed.
+
+leaf-01 (172.31.17.19): bgp spine-02 --apply
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.19's password:
+Preflight passed: leaf-01 172.31.17.19
++ sudo -v
+[sudo] password for cumulus:
+Backup: /home/cumulus/sn5600-numbered31-state/leaf-01/20260928T231659813038Z
++ nv unset vrf default router bgp neighbor swp41
++ nv set vrf default router bgp neighbor 10.254.0.16 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.16 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.16 enable on
++ nv set vrf default router bgp neighbor 10.254.0.16 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp42
++ nv set vrf default router bgp neighbor 10.254.0.18 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.18 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.18 enable on
++ nv set vrf default router bgp neighbor 10.254.0.18 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp43
++ nv set vrf default router bgp neighbor 10.254.0.20 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.20 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.20 enable on
++ nv set vrf default router bgp neighbor 10.254.0.20 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp44
++ nv set vrf default router bgp neighbor 10.254.0.22 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.22 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.22 enable on
++ nv set vrf default router bgp neighbor 10.254.0.22 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp45
++ nv set vrf default router bgp neighbor 10.254.0.24 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.24 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.24 enable on
++ nv set vrf default router bgp neighbor 10.254.0.24 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp46
++ nv set vrf default router bgp neighbor 10.254.0.26 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.26 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.26 enable on
++ nv set vrf default router bgp neighbor 10.254.0.26 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp47
++ nv set vrf default router bgp neighbor 10.254.0.28 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.28 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.28 enable on
++ nv set vrf default router bgp neighbor 10.254.0.28 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp48
++ nv set vrf default router bgp neighbor 10.254.0.30 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.30 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.30 enable on
++ nv set vrf default router bgp neighbor 10.254.0.30 address-family ipv4-unicast enable on
+- unset:
+    vrf:
+      default:
+        router:
+          bgp:
+            neighbor:
+              swp41:
+              swp42:
+              swp43:
+              swp44:
+              swp45:
+              swp46:
+              swp47:
+              swp48:
+- set:
+    vrf:
+      default:
+        router:
+          bgp:
+            neighbor:
+              10.254.0.16:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.18:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.20:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.22:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.24:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.26:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.28:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.30:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+
++ nv config apply --assume-yes
+applied_and_saved [rev_id: 9]
++ nv config save
+saved [rev_id: applied]
+Applied. Complete this stage at the other endpoints, then validate.
+Connection to 172.31.17.19 closed.
+
+leaf-02 (172.31.17.21): bgp spine-02 --apply
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+Preflight passed: leaf-02 172.31.17.21
++ sudo -v
+[sudo] password for cumulus:
+Backup: /home/cumulus/sn5600-numbered31-state/leaf-02/20260928T231917340820Z
++ nv unset vrf default router bgp neighbor swp41
++ nv set vrf default router bgp neighbor 10.254.0.80 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.80 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.80 enable on
++ nv set vrf default router bgp neighbor 10.254.0.80 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp42
++ nv set vrf default router bgp neighbor 10.254.0.82 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.82 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.82 enable on
++ nv set vrf default router bgp neighbor 10.254.0.82 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp43
++ nv set vrf default router bgp neighbor 10.254.0.84 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.84 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.84 enable on
++ nv set vrf default router bgp neighbor 10.254.0.84 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp44
++ nv set vrf default router bgp neighbor 10.254.0.86 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.86 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.86 enable on
++ nv set vrf default router bgp neighbor 10.254.0.86 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp45
++ nv set vrf default router bgp neighbor 10.254.0.88 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.88 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.88 enable on
++ nv set vrf default router bgp neighbor 10.254.0.88 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp46
++ nv set vrf default router bgp neighbor 10.254.0.90 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.90 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.90 enable on
++ nv set vrf default router bgp neighbor 10.254.0.90 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp47
++ nv set vrf default router bgp neighbor 10.254.0.92 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.92 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.92 enable on
++ nv set vrf default router bgp neighbor 10.254.0.92 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp48
++ nv set vrf default router bgp neighbor 10.254.0.94 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.94 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.94 enable on
++ nv set vrf default router bgp neighbor 10.254.0.94 address-family ipv4-unicast enable on
+- unset:
+    vrf:
+      default:
+        router:
+          bgp:
+            neighbor:
+              swp41:
+              swp42:
+              swp43:
+              swp44:
+              swp45:
+              swp46:
+              swp47:
+              swp48:
+- set:
+    vrf:
+      default:
+        router:
+          bgp:
+            neighbor:
+              10.254.0.80:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.82:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.84:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.86:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.88:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.90:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.92:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.94:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+
++ nv config apply --assume-yes
+applied_and_saved [rev_id: 6]
++ nv config save
+saved [rev_id: applied]
+Applied. Complete this stage at the other endpoints, then validate.
+Connection to 172.31.17.21 closed.
+
+leaf-03 (172.31.17.23): bgp spine-02 --apply
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.23's password:
+Preflight passed: leaf-03 172.31.17.23
++ sudo -v
+[sudo] password for cumulus:
+Backup: /home/cumulus/sn5600-numbered31-state/leaf-03/20260928T231816896389Z
++ nv unset vrf default router bgp neighbor swp41
++ nv set vrf default router bgp neighbor 10.254.0.144 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.144 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.144 enable on
++ nv set vrf default router bgp neighbor 10.254.0.144 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp42
++ nv set vrf default router bgp neighbor 10.254.0.146 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.146 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.146 enable on
++ nv set vrf default router bgp neighbor 10.254.0.146 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp43
++ nv set vrf default router bgp neighbor 10.254.0.148 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.148 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.148 enable on
++ nv set vrf default router bgp neighbor 10.254.0.148 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp44
++ nv set vrf default router bgp neighbor 10.254.0.150 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.150 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.150 enable on
++ nv set vrf default router bgp neighbor 10.254.0.150 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp45
++ nv set vrf default router bgp neighbor 10.254.0.152 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.152 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.152 enable on
++ nv set vrf default router bgp neighbor 10.254.0.152 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp46
++ nv set vrf default router bgp neighbor 10.254.0.154 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.154 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.154 enable on
++ nv set vrf default router bgp neighbor 10.254.0.154 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp47
++ nv set vrf default router bgp neighbor 10.254.0.156 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.156 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.156 enable on
++ nv set vrf default router bgp neighbor 10.254.0.156 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp48
++ nv set vrf default router bgp neighbor 10.254.0.158 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.158 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.158 enable on
++ nv set vrf default router bgp neighbor 10.254.0.158 address-family ipv4-unicast enable on
+- unset:
+    vrf:
+      default:
+        router:
+          bgp:
+            neighbor:
+              swp41:
+              swp42:
+              swp43:
+              swp44:
+              swp45:
+              swp46:
+              swp47:
+              swp48:
+- set:
+    vrf:
+      default:
+        router:
+          bgp:
+            neighbor:
+              10.254.0.144:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.146:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.148:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.150:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.152:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.154:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.156:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.158:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+
++ nv config apply --assume-yes
+applied_and_saved [rev_id: 6]
++ nv config save
+saved [rev_id: applied]
+Applied. Complete this stage at the other endpoints, then validate.
+Connection to 172.31.17.23 closed.
+
+leaf-04 (172.31.17.24): bgp spine-02 --apply
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.24's password:
+Preflight passed: leaf-04 172.31.17.24
++ sudo -v
+[sudo] password for cumulus:
+Backup: /home/cumulus/sn5600-numbered31-state/leaf-04/20260928T231242927819Z
++ nv unset vrf default router bgp neighbor swp41
++ nv set vrf default router bgp neighbor 10.254.0.208 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.208 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.208 enable on
++ nv set vrf default router bgp neighbor 10.254.0.208 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp42
++ nv set vrf default router bgp neighbor 10.254.0.210 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.210 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.210 enable on
++ nv set vrf default router bgp neighbor 10.254.0.210 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp43
++ nv set vrf default router bgp neighbor 10.254.0.212 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.212 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.212 enable on
++ nv set vrf default router bgp neighbor 10.254.0.212 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp44
++ nv set vrf default router bgp neighbor 10.254.0.214 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.214 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.214 enable on
++ nv set vrf default router bgp neighbor 10.254.0.214 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp45
++ nv set vrf default router bgp neighbor 10.254.0.216 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.216 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.216 enable on
++ nv set vrf default router bgp neighbor 10.254.0.216 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp46
++ nv set vrf default router bgp neighbor 10.254.0.218 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.218 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.218 enable on
++ nv set vrf default router bgp neighbor 10.254.0.218 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp47
++ nv set vrf default router bgp neighbor 10.254.0.220 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.220 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.220 enable on
++ nv set vrf default router bgp neighbor 10.254.0.220 address-family ipv4-unicast enable on
++ nv unset vrf default router bgp neighbor swp48
++ nv set vrf default router bgp neighbor 10.254.0.222 type numbered
++ nv set vrf default router bgp neighbor 10.254.0.222 remote-as 65200
++ nv set vrf default router bgp neighbor 10.254.0.222 enable on
++ nv set vrf default router bgp neighbor 10.254.0.222 address-family ipv4-unicast enable on
+- unset:
+    vrf:
+      default:
+        router:
+          bgp:
+            neighbor:
+              swp41:
+              swp42:
+              swp43:
+              swp44:
+              swp45:
+              swp46:
+              swp47:
+              swp48:
+- set:
+    vrf:
+      default:
+        router:
+          bgp:
+            neighbor:
+              10.254.0.208:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.210:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.212:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.214:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.216:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.218:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.220:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+              10.254.0.222:
+                address-family:
+                  ipv4-unicast:
+                    enable: on
+                enable: on
+                remote-as: 65200
+                type: numbered
+
++ nv config apply --assume-yes
+applied_and_saved [rev_id: 8]
++ nv config save
+saved [rev_id: applied]
+Applied. Complete this stage at the other endpoints, then validate.
+Connection to 172.31.17.24 closed.
+Waiting 15 seconds for BGP convergence...
+
+spine-02 (172.31.17.18): validate spine-02
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.18's password:
+[sudo] password for cumulus:
+leaf-01: 6/8 established
+leaf-02: 8/8 established
+leaf-03: 8/8 established
+leaf-04: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.11
+PASS 9000-byte IPv4 loopback probe to 10.255.0.12
+PASS 9000-byte IPv4 loopback probe to 10.255.0.13
+PASS 9000-byte IPv4 loopback probe to 10.255.0.14
+DEGRADED: 2 selected pairs lack an established session:
+  swp1 -> leaf-01 swp41 (10.254.0.17)
+  swp4 -> leaf-01 swp44 (10.254.0.23)
+DEGRADED, no additional BGP losses versus saved baseline.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.18 closed.
+
+leaf-01 (172.31.17.19): validate spine-02
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.19's password:
+[sudo] password for cumulus:
+spine-02: 6/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.101
+DEGRADED: 2 selected pairs lack an established session:
+  swp41 -> spine-02 swp1 (10.254.0.16)
+  swp44 -> spine-02 swp4 (10.254.0.22)
+DEGRADED, no additional BGP losses versus saved baseline.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.19 closed.
+
+leaf-02 (172.31.17.21): validate spine-02
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.21's password:
+[sudo] password for cumulus:
+spine-02: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.101
+PASS: all selected sessions established at 800G; probes passed.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.21 closed.
+
+leaf-03 (172.31.17.23): validate spine-02
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.23's password:
+[sudo] password for cumulus:
+spine-02: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.101
+PASS: all selected sessions established at 800G; probes passed.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.23 closed.
+
+leaf-04 (172.31.17.24): validate spine-02
+Welcome to NVIDIA Cumulus (R) Linux (R)
+cumulus@172.31.17.24's password:
+[sudo] password for cumulus:
+spine-02: 8/8 established
+PASS 9000-byte IPv4 loopback probe to 10.255.0.101
+PASS: all selected sessions established at 800G; probes passed.
+This does not replace FEC/error-counter, ASIC ECMP or sustained traffic checks.
+Connection to 172.31.17.24 closed.
+Group complete. Read the validation output; DEGRADED means some links are still missing.
+chandrasekhar.gonuguntla@Chandra-Gonuguntla SN5600_Numbered31 %
